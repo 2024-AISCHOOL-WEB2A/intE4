@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class TestService
- */
+
 @WebServlet("/TestService")
 public class TestService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,6 +18,8 @@ public class TestService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("첫 번째 코드 생성1231");
+		System.out.println("두 번째 코드 생성121");
 	}
+	
 
 }
