@@ -108,12 +108,12 @@
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
   <tr>
-    <td align="center"><img src="" width="100" height="100"/></td>
-    <td align="center"><img src="" width="100" height="100"/></td>
-    <td align="center"><img src="" width="100" height="100"/></td>
-    <td align="center"><img src="" width="100" height="100"/></td>
-    <td align="center"><img src="" width="100" height="100"/></td>
-    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW7Vn3SRy7HNOUjIswank1XVQrshXmTItBSQ&s" width="100" height="100"/></td>
+    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqwQigZKb-EB3XBmAqkAcCyRKgXFYsahI59g&s" width="100" height="100"/></td>
+    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2fa_aWLesF0zHMazVotaTTwOPyjOY2X5Nw&s" width="100" height="100"/></td>
+    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUd5qVCKAm9ry-4fCcRyFgs3_WbK94YUMoFg&s" width="100" height="100"/></td>
+    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLsFwYpIkCnq9HU-Ge8HUJXU0BC50UcDDbFA&s" width="100" height="100"/></td>
+    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnfDzWBgj0v4ucyF-8RzCo0wakd04Xw5To3Q&s" width="100" height="100"/></td>
+    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfgNIlmZRxkobyZTyZA2ZSryIjbAy7VrT3tQ&s" width="100" height="100"/></td>
   </tr>
   <tr>
     <td align="center"><strong>김O수</strong></td>
