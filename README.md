@@ -113,7 +113,7 @@
     <td align="center"><img src="" width="100" height="100"/></td>
     <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
+    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW7Vn3SRy7HNOUjIswank1XVQrshXmTItBSQ&s" width="100" height="100"/></td>
   </tr>
   <tr>
     <td align="center"><strong>김O수</strong></td>
