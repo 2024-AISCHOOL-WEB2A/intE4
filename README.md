@@ -115,11 +115,12 @@
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
+    <td align="center"><strong>김O수</strong></td>
+    <td align="center"><strong>기O영</strong></td>
+    <td align="center"><strong>김O광</strong></td>
+    <td align="center"><strong>안O숙</strong></td>
+    <td align="center"><strong>이O주</strong></td>
+    <td align="center"><strong>정O형</strong></td>
   </tr>
   <tr>
     <td align="center"><b>Frontend</b></td>
@@ -127,8 +128,10 @@
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Deep Learning</b></td>
+    <td align="center"><b>Backend</b></td>
   </tr>
   <tr>
+    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
