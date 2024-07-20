@@ -1,14 +1,14 @@
-# 📎 원터치 결혼준비 끝(팀명: intE5)
+# 📎 원터치 결혼준비 끝(팀명: intE4)
 ![image](https://user-images.githubusercontent.com/25995055/178401309-2a2ffc86-ef45-439b-bfd8-6978312100bc.png)
 
 
 ## 👀 서비스 소개
-* 서비스명:  꽃 개화 시기별 우리 지역 근처 데이트/드라이브 추천 장소 및 꽃 축제 추천 
+* 서비스명:  머신러닝을 활용한 드레스 추천 웨딩 플랫폼 'WeddingChoice_Lisianthus'
 * 서비스설명: 
 <br>
 
 ## 📅 프로젝트 기간
-2022.04.22 ~ 2022.06.03 (6주)
+2024.07.22 ~ 2022.08.02 (2주)
 <br>
 
 ## ⭐ 주요 기능
@@ -110,7 +110,6 @@
   <tr>
     <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqwQigZKb-EB3XBmAqkAcCyRKgXFYsahI59g&s" width="100" height="100"/></td>
     <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2fa_aWLesF0zHMazVotaTTwOPyjOY2X5Nw&s" width="100" height="100"/></td>
-    <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUd5qVCKAm9ry-4fCcRyFgs3_WbK94YUMoFg&s" width="100" height="100"/></td>
     <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLsFwYpIkCnq9HU-Ge8HUJXU0BC50UcDDbFA&s" width="100" height="100"/></td>
     <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnfDzWBgj0v4ucyF-8RzCo0wakd04Xw5To3Q&s" width="100" height="100"/></td>
     <td align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfgNIlmZRxkobyZTyZA2ZSryIjbAy7VrT3tQ&s" width="100" height="100"/></td>
@@ -118,13 +117,11 @@
   <tr>
     <td align="center"><strong>김O수</strong></td>
     <td align="center"><strong>기O영</strong></td>
-    <td align="center"><strong>김O광</strong></td>
     <td align="center"><strong>안O숙</strong></td>
     <td align="center"><strong>이O주</strong></td>
     <td align="center"><strong>정O형</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
@@ -132,7 +129,6 @@
     <td align="center"><b>Backend</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
