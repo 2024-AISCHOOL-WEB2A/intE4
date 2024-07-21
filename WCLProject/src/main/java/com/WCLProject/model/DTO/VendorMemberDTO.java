@@ -1,4 +1,4 @@
-package com.WCLProject.model;
+package com.WCLProject.model.DTO;
 
 public class VendorMemberDTO {
 	private String id;

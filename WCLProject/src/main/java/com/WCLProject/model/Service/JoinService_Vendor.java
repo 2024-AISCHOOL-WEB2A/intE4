@@ -1,4 +1,4 @@
-package com.WCLProject.service;
+package com.WCLProject.model.Service;
 
 
 import java.io.IOException;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.WCLProject.model.WCLMember_Vendor;
-import com.WCLProject.model.WeddingChocieDAO;
+import com.WCLProject.model.DAO.WeddingChocieDAO;
+import com.WCLProject.model.DTO.VendorMemberDTO;
 
 @WebServlet("/JoinService_Vendor")
 public class JoinService_Vendor extends HttpServlet {
@@ -42,7 +42,7 @@ public class JoinService_Vendor extends HttpServlet {
         }
 		System.out.println("아이디 : " + email + ", 기업명 : " + name + ", 업종 : " + category);
 		System.out.println(fullAddress);
-		WCLMember_Vendor vendor = new WCLMember_Vendor(id, pw, name, tel, email, fullAddress, license, category, license_image, logo_image, intro, site_url);
+		VendorMemberDTO vendor = new VendorMemberDTO(id, pw, name, tel, email, fullAddress, license, category, license_image, logo_image, intro, site_url);
 		WeddingChocieDAO dao = new WeddingChocieDAO();
 		
 		int cnt = dao.vendorMemberJoin(vendor);
