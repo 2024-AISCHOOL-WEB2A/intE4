@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.WCLProject.model.DAO.WeddingChocieDAO;
+import com.WCLProject.model.DAO.MemberDAO;
 import com.WCLProject.model.DTO.VendorMemberDTO;
 
 @WebServlet("/JoinService_Vendor")
@@ -43,7 +43,7 @@ public class JoinService_Vendor extends HttpServlet {
 		System.out.println("아이디 : " + email + ", 기업명 : " + name + ", 업종 : " + category);
 		System.out.println(fullAddress);
 		VendorMemberDTO vendor = new VendorMemberDTO(id, pw, name, tel, email, fullAddress, license, category, license_image, logo_image, intro, site_url);
-		WeddingChocieDAO dao = new WeddingChocieDAO();
+		MemberDAO dao = new MemberDAO();
 		
 		int cnt = dao.vendorMemberJoin(vendor);
 		

@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 import com.WCLProject.model.DTO.VendorMemberDTO;
 
-public class WeddingChocieDAO {
+public class MemberDAO {
 	private Connection conn;
 	private PreparedStatement pst;
 	private ResultSet rs;
