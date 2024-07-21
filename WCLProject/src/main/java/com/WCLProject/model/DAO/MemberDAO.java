@@ -86,7 +86,7 @@ public class MemberDAO {
 		return cnt;
 	}
 
-	// 회원가입 아이디 중복 체크
+	// 회원가입_기업 아이디 중복 체크
 	public int checkId(String vendorId) {
 		connect();
 		String sql = "SELECT COUNT(*) FROM VENDOR WHERE VENDOR_ID = ?";
@@ -102,7 +102,6 @@ public class MemberDAO {
 			}
 
 		} catch (SQLException e) {
-			// 예외 처리 (예: 로깅)
 			e.printStackTrace();
 			return -1;
 		} finally {
