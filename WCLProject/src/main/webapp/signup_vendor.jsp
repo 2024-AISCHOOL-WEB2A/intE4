@@ -73,6 +73,7 @@ body {
 			<label for="vendor_pw_check">비밀번호 확인:</label> <input type="password"
 				id="vendor_pw_check" name="vendor_pw_check" required>
 			<button type="button" onclick="checkPw()">비밀번호 확인</button>
+			<div id="vendor_pw_result"></div>
 		</div>
 		<div class="form-group">
 			<label for="vendor_name">기업명:</label> <input type="text"
@@ -107,6 +108,7 @@ body {
 			<label for="vendor_license">사업자번호:</label> <input type="text"
 				id="vendor_license" name="vendor_license">
 			<button type="button" onclick="checkLicense()">사업자번호 확인</button>
+			<div id="vendor_license_result"></div>
 		</div>
 		<div class="form-group">
 			<label for="vendor_category">업종:</label> <select id="vendor_category"
@@ -143,39 +145,41 @@ body {
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 	<!-- jQuery 라이브러리 추가 -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
-		$(document).ready(function() {
-			$('button:contains("중복 확인")').click(function(e) {
-				e.preventDefault();
-				var vendor_id = $('input[name="vendor_id"]').val();
+		function checkId() {
+	        var vendor_id = $('#vendor_id').val();
 
-				$.ajax({
-					url : 'CheckIdService',
-					type : 'POST',
-					data : {
-						vendor_id : vendor_id
-					},
-					success : function(response) {
-						$('#vendor_id_result').text(response);
-					},
-					error : function() {
-						$('#vendor_id_result').text('오류가 발생했습니다. 다시 시도해주세요.');
-					}
-				});
-			});
-		});
+	        $.ajax({
+	            url: 'CheckIdService',
+	            type: 'POST',
+	            data: {
+	                vendor_id: vendor_id
+	            },
+	            success: function(response) {
+	                console.log('Response:', response);
+	                
+	                response = response.trim();
+	                if (response === '생성 가능') {
+	                    $('#vendor_id_result').text(response).css('color', 'green');
+	                } else {
+	                    $('#vendor_id_result').text(response).css('color', 'red');
+	                }
+	            },
+	            error: function() {
+	                $('#vendor_id_result').text('오류가 발생했습니다. 다시 시도해주세요.').css('color', 'red');
+	            }
+	        });
+	    }
 	</script>
 	<script>
 		function checkPw() {
 			var p1 = document.getElementById("vendor_pw").value;
 			var p2 = document.getElementById("vendor_pw_check").value;
 			if (p1 == p2) {
-				alert("비밀번호가 일치합니다!");
+				 $('#vendor_pw_result').text("비밀번호 일치").css('color', 'green');
 			} else {
-				alert("비밀번호가 일치하지 않습니다!");
+				 $('#vendor_pw_result').text("비밀번호 불일치").css('color', 'red');
 			}
 		}
 	</script>

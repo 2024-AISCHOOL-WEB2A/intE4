@@ -23,11 +23,11 @@ public class CheckIdService extends HttpServlet {
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");
 		
-		if (result) {
-			System.out.println("생성 가능");
-		} else {
-			System.out.println("사용 불가");
-		}
+	    if (result) {
+	        response.getWriter().write("생성 가능");
+	    } else {
+	        response.getWriter().write("사용 불가");
+	    }
 		
 	}
 
