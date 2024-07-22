@@ -148,48 +148,86 @@ body {
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		function checkId() {
-	        var vendor_id = $('#vendor_id').val();
+			var vendor_id = $('#vendor_id').val();
 
-	        $.ajax({
-	            url: 'CheckIdService',
-	            type: 'POST',
-	            data: {
-	                vendor_id: vendor_id
-	            },
-	            success: function(response) {
-	                console.log('Response:', response);
-	                
-	                response = response.trim();
-	                if (response === '생성 가능') {
-	                    $('#vendor_id_result').text(response).css('color', 'green');
-	                } else {
-	                    $('#vendor_id_result').text(response).css('color', 'red');
-	                }
-	            },
-	            error: function() {
-	                $('#vendor_id_result').text('오류가 발생했습니다. 다시 시도해주세요.').css('color', 'red');
-	            }
-	        });
-	    }
+			$.ajax({
+				url : 'CheckIdService',
+				type : 'POST',
+				data : {
+					vendor_id : vendor_id
+				},
+				success : function(response) {
+					console.log('Response:', response);
+
+					response = response.trim();
+					if (response === '생성 가능') {
+						$('#vendor_id_result').text(response).css('color',
+								'green');
+					} else {
+						$('#vendor_id_result').text(response).css('color',
+								'red');
+					}
+				},
+				error : function() {
+					$('#vendor_id_result').text('오류가 발생했습니다. 다시 시도해주세요.').css(
+							'color', 'red');
+				}
+			});
+		}
 	</script>
 	<script>
 		function checkPw() {
 			var p1 = document.getElementById("vendor_pw").value;
 			var p2 = document.getElementById("vendor_pw_check").value;
+            
+			if (p1.length < 8) {
+                $('#vendor_pw_result').text("비밀번호는 최소 8자리 이상이어야 합니다").css('color', 'red');
+                return;
+            }
+			
 			if (p1 == p2) {
-				 $('#vendor_pw_result').text("비밀번호 일치").css('color', 'green');
+				$('#vendor_pw_result').text("비밀번호 일치").css('color', 'green');
 			} else {
-				 $('#vendor_pw_result').text("비밀번호 불일치").css('color', 'red');
+				$('#vendor_pw_result').text("비밀번호 불일치").css('color', 'red');
 			}
 		}
 	</script>
 	<script>
 		function checkLicense() {
-			var license = document.getElementById("vendor_license").value;
-			// 사업자 번호 확인 로직 구현
+			var vendor_license = $('#vendor_license').val();
+
+            if (vendor_license.length !== 10) {
+                $('#vendor_license_result').text("사업자번호는 10자리여야 합니다").css('color', 'red');
+                return;
+            }
+			
+			$.ajax({
+				url : 'CheckLicenseService',
+				type : 'POST',
+				data : {
+					vendor_license : vendor_license
+				},
+				success : function(response) {
+					console.log('Response:', response);
+
+					response = response.trim();
+					if (response === '생성 가능') {
+						$('#vendor_license_result').text(response).css('color',
+								'green');
+					} else {
+						$('#vendor_license_result').text(response).css('color',
+								'red');
+					}
+				},
+				error : function() {
+					$('#vendor_license_result').text('오류가 발생했습니다. 다시 시도해주세요.').css(
+							'color', 'red');
+				}
+			});
 		}
 	</script>
-	<script> // 도로명주소찾기 스크립트
+	<script>
+		// 도로명주소찾기 스크립트
 		function vendor_execDaumPostcode() {
 			new daum.Postcode(
 					{

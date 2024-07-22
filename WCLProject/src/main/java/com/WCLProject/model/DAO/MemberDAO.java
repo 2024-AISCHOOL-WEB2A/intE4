@@ -122,4 +122,22 @@ public class MemberDAO {
 		}
 	}
 
+	public Boolean checkLicense(String license) {
+		connect();
+		String sql = "SELECT VENDOR_LICENSE FROM VENDOR WHERE VENDOR_LICENSE = ?";
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, license);
+			rs = pst.executeQuery();
+			
+			return !rs.next();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			close();
+		}
+	}
+
 }
