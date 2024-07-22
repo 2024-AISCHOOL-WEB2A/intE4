@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+import com.WCLProject.model.DTO.BasicMemberDTO;
 import com.WCLProject.model.DTO.VendorMemberDTO;
 
 public class MemberDAO {
@@ -86,8 +87,40 @@ public class MemberDAO {
 		return cnt;
 	}
 
+	// 회원가입_개인 기능
+		public int basicMemberJoin(BasicMemberDTO user) {
+			int cnt = 0;
+			connect();
+
+			String sql = "INSERT INTO USERS (USER_ID, USER_PW, USER_NAME, USER_RRN, USER_TEL, USER_NICK, USER_EMAIL, USER_ADDRESS, USER_JOIN, USER_REFERRER) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, user.getId());
+				pst.setString(2, user.getPw());
+				pst.setString(3, user.getName());
+				pst.setString(4, user.getRrn());
+				pst.setString(5, user.getTel());
+				pst.setString(6, user.getNick());
+				pst.setString(7, user.getEmail());
+				pst.setString(8, user.getAddress());
+				pst.setTimestamp(9, new Timestamp(System.currentTimeMillis()));
+				pst.setString(10, user.getReferrer());
+
+				cnt = pst.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return cnt;
+		}
+	
+	
 	// 회원가입_기업 아이디 중복 체크
-	public Boolean checkId(String vendorId) {
+	public Boolean checkVendorId(String vendorId) {
 	    connect();
 	    String sql = "SELECT CASE\r\n"
 	            + "    WHEN EXISTS (SELECT 1 FROM users WHERE user_id = ?) THEN 'Found in users'\r\n"
@@ -117,7 +150,38 @@ public class MemberDAO {
 	    }
 	}
 
+	// 회원가입_기업 아이디 중복 체크
+	public Boolean checkUserId(String userId) {
+	    connect();
+	    String sql = "SELECT CASE\r\n"
+	            + "    WHEN EXISTS (SELECT 1 FROM users WHERE user_id = ?) THEN 'Found in users'\r\n"
+	            + "    WHEN EXISTS (SELECT 1 FROM vendor WHERE vendor_id = ?) THEN 'Found in vendor'\r\n"
+	            + "    ELSE 'Not found'\r\n"
+	            + "END AS result\r\n"
+	            + "FROM dual";
 
+	    try {
+	        pst = conn.prepareStatement(sql);
+	        pst.setString(1, userId);
+	        pst.setString(2, userId);
+	        rs = pst.executeQuery();
+	        boolean result = false;
+
+	        if (rs.next()) {
+	            if (rs.getString(1).equals("Not found")) {
+	                result = true;
+	            }
+	        }
+	        return result;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    } finally {
+	        close();
+	    }
+	}
+	
+	// 사업자번호 중복체크
 	public Boolean checkLicense(String license) {
 		connect();
 		String sql = "SELECT VENDOR_LICENSE FROM VENDOR WHERE VENDOR_LICENSE = ?";

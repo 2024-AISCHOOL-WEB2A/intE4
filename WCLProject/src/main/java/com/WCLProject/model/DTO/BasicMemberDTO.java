@@ -10,10 +10,10 @@ public class BasicMemberDTO {
 	private String email;
 	private String address;
 	private String join;
-	private String beferrer;
+	private String referrer;
 	
 	public BasicMemberDTO(String id, String pw, String name, String rrn, String tel, String nick, String email,
-			String address, String join, String beferrer) {
+			String address, String join, String referrer) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -24,9 +24,23 @@ public class BasicMemberDTO {
 		this.email = email;
 		this.address = address;
 		this.join = join;
-		this.beferrer = beferrer;
+		this.referrer = referrer;
 	}
 
+	public BasicMemberDTO(String id, String pw, String name, String rrn, String tel, String nick, String email,
+			String address, String join) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.rrn = rrn;
+		this.tel = tel;
+		this.nick = nick;
+		this.email = email;
+		this.address = address;
+		this.join = join;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -99,12 +113,12 @@ public class BasicMemberDTO {
 		this.join = join;
 	}
 
-	public String getBeferrer() {
-		return beferrer;
+	public String getReferrer() {
+		return referrer;
 	}
 
-	public void setBeferrer(String beferrer) {
-		this.beferrer = beferrer;
+	public void setReferrer(String referrer) {
+		this.referrer = referrer;
 	}
 	
 	

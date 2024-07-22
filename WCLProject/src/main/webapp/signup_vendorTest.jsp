@@ -1,5 +1,10 @@
+<%@page import="java.util.Enumeration"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,14 +127,10 @@ body {
 		</div>
 		<div class="form-group">
 			<label for="vendor_license_image">사업자등록증이미지:</label>
-			<!-- <input
-				type="text" id="vendor_license_image" name="vendor_license_image"> -->
 			<input type="file" name="vendor_license_file">
 		</div>
 		<div class="form-group">
 			<label for="vendor_logo_image">기업로고이미지:</label>
-			<!-- <input type="text"
-				id="vendor_logo_image" name="vendor_logo_image"> -->
 			<input type="file" name="vendor_logo_file">
 		</div>
 		<div class="form-group">

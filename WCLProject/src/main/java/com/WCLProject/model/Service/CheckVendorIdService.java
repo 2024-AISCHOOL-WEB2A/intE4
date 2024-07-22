@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.WCLProject.model.DAO.MemberDAO;
 
 
-@WebServlet("/CheckIdService")
-public class CheckIdService extends HttpServlet {
+@WebServlet("/CheckVendorIdService")
+public class CheckVendorIdService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDAO dao = new MemberDAO();
 		String id = request.getParameter("vendor_id");
-		Boolean result = dao.checkId(id);
+		Boolean result = dao.checkVendorId(id);
 		
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");

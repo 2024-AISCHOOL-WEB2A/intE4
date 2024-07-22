@@ -63,7 +63,7 @@ body {
 		<div class="form-group">
 			<label for="vendor_id">기업 ID:</label> <input type="text"
 				id="vendor_id" name="vendor_id" required>
-			<button onclick="checkId()">중복 확인</button>
+			<button onclick="checkVendorId()">중복 확인</button>
 			<div id="vendor_id_result"></div>
 		</div>
 		<div class="form-group">
@@ -73,7 +73,7 @@ body {
 		<div class="form-group">
 			<label for="vendor_pw_check">비밀번호 확인:</label> <input type="password"
 				id="vendor_pw_check" name="vendor_pw_check" required>
-			<button type="button" onclick="checkPw()">비밀번호 확인</button>
+			<button type="button" onclick="checkVendorPw()">비밀번호 확인</button>
 			<div id="vendor_pw_result"></div>
 		</div>
 		<div class="form-group">
@@ -152,11 +152,11 @@ body {
 	<!-- jQuery 라이브러리 추가 -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
-		function checkId() {
+		function checkVendorId() {
 			var vendor_id = $('#vendor_id').val();
 
 			$.ajax({
-				url : 'CheckIdService',
+				url : 'CheckVendorIdService',
 				type : 'POST',
 				data : {
 					vendor_id : vendor_id
@@ -181,7 +181,7 @@ body {
 		}
 	</script>
 	<script>
-		function checkPw() {
+		function checkVendorPw() {
 			var p1 = document.getElementById("vendor_pw").value;
 			var p2 = document.getElementById("vendor_pw_check").value;
 
