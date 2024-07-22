@@ -87,23 +87,36 @@ public class MemberDAO {
 	}
 
 	// 회원가입_기업 아이디 중복 체크
-	public int checkId(String vendorId) {
+	public Boolean checkId(String vendorId) {
 		connect();
-		String sql = "SELECT COUNT(*) FROM VENDOR WHERE VENDOR_ID = ?";
+		String sql = "SELECT CASE\r\n"
+				+ "    WHEN EXISTS (SELECT 1 FROM users WHERE user_id = ?) THEN 'Found in users'\r\n"
+				+ "    WHEN EXISTS (SELECT 1 FROM vendor WHERE vendor_id = ?) THEN 'Found in vendor'\r\n"
+				+ "    ELSE 'Not found'\r\n"
+				+ "END AS result\r\n"
+				+ "FROM dual";
+		
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, vendorId);
+			pst.setString(2, vendorId);
 			rs = pst.executeQuery();
-
+			boolean result = false;
+			
 			if (rs.next()) {
-				return rs.getInt(1);
+				if (rs.getString(1).equals("Not found")) {
+					result = true;
+					return result;
+				} else {
+					return result;
+				}
 			} else {
-				return 0;
+				return result;
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return -1;
+			return false;
 		} finally {
 			close();
 		}
