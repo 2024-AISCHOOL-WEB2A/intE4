@@ -3,6 +3,7 @@ package com.WCLProject.model.Service;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import com.WCLProject.model.DAO.MemberDAO;
 import com.WCLProject.model.DTO.VendorMemberDTO;
 
 @WebServlet("/JoinService_Vendor")
+@MultipartConfig
 public class JoinService_Vendor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

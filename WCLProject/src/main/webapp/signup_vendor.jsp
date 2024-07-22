@@ -58,7 +58,7 @@ body {
 </head>
 <body>
 	<h2>기업회원 가입</h2>
-	<form action="JoinService_Vendor" method="post">
+	<form action="JoinService_Vendor" method="post" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="vendor_id">기업 ID:</label> <input type="text"
 				id="vendor_id" name="vendor_id" required>
@@ -120,12 +120,14 @@ body {
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="vendor_license_image">사업자등록증이미지:</label> <input
-				type="text" id="vendor_license_image" name="vendor_license_image">
+			<label for="vendor_license_image">사업자등록증이미지:</label> <!-- <input
+				type="text" id="vendor_license_image" name="vendor_license_image"> -->
+				<input type="file" name="vendor_license_file">
 		</div>
 		<div class="form-group">
-			<label for="vendor_logo_image">기업로고이미지:</label> <input type="text"
-				id="vendor_logo_image" name="vendor_logo_image">
+			<label for="vendor_logo_image">기업로고이미지:</label> <!-- <input type="text"
+				id="vendor_logo_image" name="vendor_logo_image"> -->
+				<input type="file" name="vendor_logo_file">
 		</div>
 		<div class="form-group">
 			<label for="vendor_intro">소개:</label> <input type="text"
