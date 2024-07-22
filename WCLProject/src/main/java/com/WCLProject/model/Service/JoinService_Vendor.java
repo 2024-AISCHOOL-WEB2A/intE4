@@ -2,8 +2,9 @@ package com.WCLProject.model.Service;
 
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,6 @@ import com.WCLProject.model.DAO.MemberDAO;
 import com.WCLProject.model.DTO.VendorMemberDTO;
 
 @WebServlet("/JoinService_Vendor")
-@MultipartConfig
 public class JoinService_Vendor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,8 +42,14 @@ public class JoinService_Vendor extends HttpServlet {
         if (extraAddress != null && !extraAddress.isEmpty()) {
             fullAddress += ", " + extraAddress;
         }
-		System.out.println("아이디 : " + email + ", 기업명 : " + name + ", 업종 : " + category);
-		System.out.println(fullAddress);
+        
+		/*
+		 * // 파일 경로를 얻기 위한 AJAX 요청 (이 부분은 클라이언트 측에서 처리해야 함) // 서버 측에서는 클라이언트로부터 파일 경로를
+		 * 받아야 함. String vendorLicenseFilePath = (String)
+		 * request.getAttribute("vendorLicenseFilePath"); String vendorLogoFilePath =
+		 * (String) request.getAttribute("vendorLogoFilePath");
+		 */
+        
 		VendorMemberDTO vendor = new VendorMemberDTO(id, pw, name, tel, email, fullAddress, license, category, license_image, logo_image, intro, site_url);
 		MemberDAO dao = new MemberDAO();
 		
@@ -51,8 +57,10 @@ public class JoinService_Vendor extends HttpServlet {
 		
 		if (cnt > 0) {
 			System.out.println("회원가입 성공");
+			response.sendRedirect("signupSucess.jsp");
 		} else {
-			response.sendRedirect("sinup_vendor.html");
+			System.out.println("회원가입 실패");
+			response.sendRedirect("sinup_vendor.jsp");
 		}
 	}
 

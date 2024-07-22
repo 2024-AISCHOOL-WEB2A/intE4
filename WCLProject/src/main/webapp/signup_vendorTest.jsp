@@ -141,7 +141,7 @@ body {
 				id="vendor_site_url" name="vendor_site_url">
 		</div>
 		<div class="form-group">
-			<button type="submit">회원가입</button>
+			<button type="submit" onclick="uploadFilesAndJoin()">회원가입</button>
 		</div>
 	</form>
 
@@ -151,7 +151,7 @@ body {
 
 	<!-- jQuery 라이브러리 추가 -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
+	<script> // ID 중복 체크
 		function checkId() {
 			var vendor_id = $('#vendor_id').val();
 
@@ -180,7 +180,7 @@ body {
 			});
 		}
 	</script>
-	<script>
+	<script> // 비밀번호 확인
 		function checkPw() {
 			var p1 = document.getElementById("vendor_pw").value;
 			var p2 = document.getElementById("vendor_pw_check").value;
@@ -198,7 +198,7 @@ body {
 			}
 		}
 	</script>
-	<script>
+	<script> // 사업자번호 중복체크
 		function checkLicense() {
 			var vendor_license = $('#vendor_license').val();
 
@@ -232,6 +232,33 @@ body {
 				}
 			});
 		}
+	</script>
+	<script> // 파일 업로드
+	function uploadFilesAndJoin() {
+        var formData = new FormData();
+        formData.append("vendor_license_file", document.getElementById("vendor_license_image").files[0]);
+        formData.append("vendor_logo_file", document.getElementById("vendor_logo_image").files[0]);
+
+        $.ajax({
+            url: 'FileUploadService',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                var data = JSON.parse(response);
+                // 파일 경로를 폼에 추가
+                $('#vendor_license_image').val(data.vendorLicenseFile);
+                $('#vendor_logo_image').val(data.vendorLogoFile);
+
+                // 회원가입 폼을 제출
+                $('#joinForm').submit();
+            },
+            error: function() {
+                alert('파일 업로드에 실패했습니다.');
+            }
+        });
+    }
 	</script>
 	<script>
 		// 도로명주소찾기 스크립트
