@@ -58,8 +58,8 @@ body {
 </head>
 <body>
 	<h2>기업회원 가입</h2>
-	<form action="JoinService_Vendor" method="post"
-		enctype="multipart/form-data">
+	<form id="signup_vendor" action="JoinService_Vendor" method="post"
+		onsubmit="return validateForm()">
 		<div class="form-group">
 			<label for="vendor_id">기업 ID:</label> <input type="text"
 				id="vendor_id" name="vendor_id" required>
@@ -121,18 +121,6 @@ body {
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="vendor_license_image">사업자등록증이미지:</label>
-			<!-- <input
-				type="text" id="vendor_license_image" name="vendor_license_image"> -->
-			<input type="file" name="vendor_license_file">
-		</div>
-		<div class="form-group">
-			<label for="vendor_logo_image">기업로고이미지:</label>
-			<!-- <input type="text"
-				id="vendor_logo_image" name="vendor_logo_image"> -->
-			<input type="file" name="vendor_logo_file">
-		</div>
-		<div class="form-group">
 			<label for="vendor_intro">소개:</label> <input type="text"
 				id="vendor_intro" name="vendor_intro">
 		</div>
@@ -142,6 +130,24 @@ body {
 		</div>
 		<div class="form-group">
 			<button type="submit">회원가입</button>
+		</div>
+	</form>
+
+	<form id="upload_files_form" action="FileUploadService" method="post"
+		enctype="multipart/form-data">
+		<div class="form-group2">
+			<label for="vendor_license_image">사업자등록증이미지:</label> <input
+				type="file" id="vendor_license_image_file"
+				name="vendor_license_image_file"> <input type="hidden"
+				id="vendor_license_image" name="vendor_license_image">
+		</div>
+		<div class="form-group2">
+			<label for="vendor_logo_image">기업로고이미지:</label> <input type="file"
+				id="vendor_logo_image_file" name="vendor_logo_image_file"> <input
+				type="hidden" id="vendor_logo_image" name="vendor_logo_image">
+		</div>
+		<div class="form-group2">
+			<input type="button" value="업로드" onclick="uploadFiles()">
 		</div>
 	</form>
 
@@ -233,6 +239,70 @@ body {
 			});
 		}
 	</script>
+	<script>
+		// 파일 업로드
+		// 문서가 완전히 로드된 후 스크립트 실행
+		$(document)
+				.ready(
+						function() {
+							// 파일 업로드 비동기 처리
+							window.uploadFiles = function(callback) {
+								var formData = new FormData(document
+										.getElementById('upload_files_form'));
+
+								$.ajax({
+									url : 'FileUploadService',
+									type : 'POST',
+									data : formData,
+									contentType : false,
+									processData : false,
+									success : function(response) {
+										// 서버에서 파일 업로드 경로를 받았다면 콜백 함수 호출
+										callback(response);
+									},
+									error : function() {
+										alert('파일 업로드 실패');
+									}
+								});
+							}
+
+							// 회원가입 전 업로드 확인
+							window.validateForm = function() {
+								var vendorLicenseFile = document
+										.getElementById('vendor_license_image_file').files.length;
+								if (vendorLicenseFile === 0) {
+									alert('사업자등록증 이미지를 업로드해야 합니다.');
+									return false;
+								}
+								return true;
+							}
+
+							// 폼 제출 처리
+							$('#signup_vendor')
+									.submit(
+											function(event) {
+												event.preventDefault(); // 기본 폼 제출 방지
+
+												if (!validateForm()) {
+													return; // 유효성 검사 실패 시 제출 중지
+												}
+
+												uploadFiles(function(filePaths) {
+													// 파일 업로드 경로를 폼에 추가
+													$('#vendor_license_image')
+															.val(
+																	filePaths.licenseImagePath);
+													$('#vendor_logo_image')
+															.val(
+																	filePaths.logoImagePath);
+
+													// 회원가입 폼 제출
+													this.submit(); // 폼을 실제로 제출
+												}.bind(this));
+											});
+						});
+	</script>
+
 	<script>
 		// 도로명주소찾기 스크립트
 		function vendor_execDaumPostcode() {
