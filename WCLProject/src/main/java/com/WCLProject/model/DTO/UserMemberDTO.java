@@ -1,6 +1,6 @@
 package com.WCLProject.model.DTO;
 
-public class BasicMemberDTO {
+public class UserMemberDTO {
 	private String id;
 	private String pw;
 	private String name;
@@ -12,7 +12,7 @@ public class BasicMemberDTO {
 	private String join;
 	private String referrer;
 	
-	public BasicMemberDTO(String id, String pw, String name, String rrn, String tel, String nick, String email,
+	public UserMemberDTO(String id, String pw, String name, String rrn, String tel, String nick, String email,
 			String address, String join, String referrer) {
 		super();
 		this.id = id;
@@ -27,7 +27,7 @@ public class BasicMemberDTO {
 		this.referrer = referrer;
 	}
 
-	public BasicMemberDTO(String id, String pw, String name, String rrn, String tel, String nick, String email,
+	public UserMemberDTO(String id, String pw, String name, String rrn, String tel, String nick, String email,
 			String address, String join) {
 		super();
 		this.id = id;

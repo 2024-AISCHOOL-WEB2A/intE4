@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import com.WCLProject.model.DTO.BasicMemberDTO;
+import com.WCLProject.model.DTO.UserMemberDTO;
 import com.WCLProject.model.DTO.VendorMemberDTO;
 
 public class MemberDAO {
@@ -94,7 +94,7 @@ public class MemberDAO {
 	}
 
 	// 회원가입_개인 기능
-	public int basicMemberJoin(BasicMemberDTO user) {
+	public int userMemberJoin(UserMemberDTO user) {
 		int cnt = 0;
 		connect();
 
@@ -251,8 +251,8 @@ public class MemberDAO {
 	}
 
 	// 로그인 기능_나영 추가
-	public BasicMemberDTO login(String id, String pw) {
-		BasicMemberDTO member = null;
+	public UserMemberDTO login(String id, String pw) {
+		UserMemberDTO member = null;
 		connect();
 
 		String sql = "SELECT * FROM USERS WHERE USER_ID = ? AND USER_PW = ?";
@@ -264,7 +264,7 @@ public class MemberDAO {
 
 			rs = pst.executeQuery();
 			if (rs.next()) {
-				member = new BasicMemberDTO(rs.getString("USER_ID"), rs.getString("USER_PW"), rs.getString("USER_NAME"),
+				member = new UserMemberDTO(rs.getString("USER_ID"), rs.getString("USER_PW"), rs.getString("USER_NAME"),
 						rs.getString("USER_RRN"), rs.getString("USER_TEL"), rs.getString("USER_NICK"),
 						rs.getString("USER_EMAIL"), rs.getString("USER_ADDRESS"), rs.getString("USER_JOIN"),
 						rs.getString("USER_REFERRER"));

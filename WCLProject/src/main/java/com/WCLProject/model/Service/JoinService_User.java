@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.WCLProject.model.DAO.MemberDAO;
-import com.WCLProject.model.DTO.BasicMemberDTO;
+import com.WCLProject.model.DTO.UserMemberDTO;
 
 @WebServlet("/JoinService_User")
 public class JoinService_User extends HttpServlet {
@@ -38,10 +38,10 @@ public class JoinService_User extends HttpServlet {
 			fullAddress += ", " + extraAddress;
 		}
 		
-		BasicMemberDTO user = new BasicMemberDTO(id, pw, name, rrn, tel, nick, email, fullAddress, referrer);
+		UserMemberDTO user = new UserMemberDTO(id, pw, name, rrn, tel, nick, email, fullAddress, referrer);
 		MemberDAO dao = new MemberDAO();
 
-		int cnt = dao.basicMemberJoin(user);
+		int cnt = dao.userMemberJoin(user);
 
 		if (cnt > 0) {
 			System.out.println("회원가입 성공");
