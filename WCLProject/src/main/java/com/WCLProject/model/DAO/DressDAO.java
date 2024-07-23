@@ -10,7 +10,7 @@ import java.util.List;
 import com.WCLProject.model.DTO.Dress;
 
 public class DressDAO {
-
+	
     // 페이지 번호와 페이지 크기를 받아서 드레스 목록을 반환하는 메서드
     public List<Dress> getDresses(int page, int pageSize) {
         List<Dress> dresses = new ArrayList<>();
