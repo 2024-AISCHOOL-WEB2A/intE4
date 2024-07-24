@@ -133,7 +133,7 @@ body {
 		</div>
 	</form>
 
-	<form id="upload_files_form" action="FileUploadService" method="post"
+	<form id="upload_files_form" action="testUploadService" method="post"
 		enctype="multipart/form-data">
 		<div class="form-group2">
 			<label for="vendor_license_image">사업자등록증이미지:</label> <input
@@ -251,7 +251,7 @@ body {
 										.getElementById('upload_files_form'));
 
 								$.ajax({
-									url : 'FileUploadService',
+									url : 'testUploadService',
 									type : 'POST',
 									data : formData,
 									contentType : false,
