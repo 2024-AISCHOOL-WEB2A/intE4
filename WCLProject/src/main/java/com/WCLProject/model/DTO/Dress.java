@@ -14,6 +14,7 @@ public class Dress {
     private Timestamp dressDate;
     private String vendorId;
     private String photoPath;
+    private String dressTitle; 
 
     // Getters and setters
     public String getDressId() {
@@ -94,5 +95,13 @@ public class Dress {
 
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
+    }
+    
+    public String getDressTitle() {
+        return dressTitle;
+    }
+
+    public void setDressTitle(String dressTitle) {
+        this.dressTitle = dressTitle;
     }
 }

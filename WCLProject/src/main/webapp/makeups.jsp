@@ -66,7 +66,9 @@
 		        Makeup makeup = makeups.get(i);
 		%>
         <div class="makeup-item">
-            <img src="<%= request.getContextPath() %>/makeupimages/<%= makeup.getPhotoPath() %>" alt="<%= makeup.getMakeupBrand() %>">
+            <a href="<%= request.getContextPath() %>/makeupDetail.jsp?id=<%= makeup.getMakeupId() %>">
+            	<img src="<%= request.getContextPath() %>/makeupimages/<%= makeup.getPhotoPath() %>" alt="<%= makeup.getMakeupBrand() %>">
+            </a>
             <h3><%= makeup.getMakeupBrand() %></h3>
             <p><%= makeup.getMakeupConcept() %></p>
             <p><%= makeup.getMakeupContent() %></p>
@@ -90,3 +92,4 @@
     </div>
 </body>
 </html>
+

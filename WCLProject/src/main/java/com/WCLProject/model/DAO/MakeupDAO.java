@@ -41,6 +41,7 @@ public class MakeupDAO {
                 makeup.setMakeupDate(rs.getTimestamp("MAKEUP_DATE"));
                 makeup.setVendorId(rs.getString("VENDOR_ID"));
                 makeup.setPhotoPath(rs.getString("PHOTO_PATH"));
+                makeup.setMakeupTitle(rs.getString("MAKEUP_TITLE"));
                 makeups.add(makeup);
             }
         } catch (SQLException | ClassNotFoundException e) {

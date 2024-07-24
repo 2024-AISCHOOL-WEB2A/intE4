@@ -13,6 +13,7 @@ public class WeddingHall {
     private Timestamp weddingHallDate;
     private String vendorId;
     private String photoPath;
+    private String weddingHallTitle;
 
     // Getters and setters
     public String getWeddingHallId() {
@@ -93,5 +94,13 @@ public class WeddingHall {
 
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
+    }
+    
+    public String getweddingHallTitle() {
+        return weddingHallTitle;
+    }
+
+    public void setWeddingHallTitle(String weddingHallTitle) {
+        this.weddingHallTitle = weddingHallTitle;
     }
 }

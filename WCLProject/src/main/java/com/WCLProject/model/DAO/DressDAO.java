@@ -11,7 +11,6 @@ import com.WCLProject.model.DTO.Dress;
 
 public class DressDAO {
 
-    // 페이지 번호와 페이지 크기를 받아서 드레스 목록을 반환하는 메서드
     public List<Dress> getDresses(int page, int pageSize) {
         List<Dress> dresses = new ArrayList<>();
         Connection conn = null;
@@ -23,9 +22,7 @@ public class DressDAO {
 
         try {
             conn = DBUtil.getConnection();
-            // 드레스 데이터를 페이징하여 가져오는 SQL 쿼리문을 작성합니다.
-            // DRESS.* ROWNUM 드레스 테이블의 모든 열과 행에 순차적으로 번호를 부여
-            String sql = "SELECT * FROM (SELECT DRESS.*, ROWNUM FROM (SELECT DRESS_ID, DRESS_BRAND, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_PRICE, DRESS_CONTENT, DRESS_DATE, VENDOR_ID, PHOTO_PATH FROM DRESS ORDER BY DRESS_ID) DRESS WHERE ROWNUM <= ?) WHERE ROWNUM >= ?";
+            String sql = "SELECT * FROM (SELECT DRESS.*, ROWNUM AS RNUM FROM (SELECT DRESS_ID, DRESS_BRAND, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_PRICE, DRESS_CONTENT, DRESS_DATE, VENDOR_ID, PHOTO_PATH, DRESS_TITLE FROM DRESS ORDER BY DRESS_ID) DRESS WHERE ROWNUM <= ?) WHERE RNUM >= ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, endRow);
             pstmt.setInt(2, startRow);
@@ -43,6 +40,7 @@ public class DressDAO {
                 dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
                 dress.setVendorId(rs.getString("VENDOR_ID"));
                 dress.setPhotoPath(rs.getString("PHOTO_PATH"));
+                dress.setDressTitle(rs.getString("DRESS_TITLE"));
                 dresses.add(dress);
             }
         } catch (SQLException | ClassNotFoundException e) {
@@ -62,7 +60,6 @@ public class DressDAO {
 
         try {
             conn = DBUtil.getConnection();
-            // SELECT COUNT(*) FROM DRESS DRESS 테이블에 있는 전체 행의 갯수
             String sql = "SELECT COUNT(*) FROM DRESS";
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();

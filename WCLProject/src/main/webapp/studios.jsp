@@ -66,7 +66,9 @@
                 Studio studio = studios.get(i);
         %>
         <div class="studio-item">
-            <img src="<%= request.getContextPath() %>/studioimages/<%= studio.getPhotoPath() %>" alt="<%= studio.getStudioBrand() %>">
+            <a href="<%= request.getContextPath() %>/studioDetail.jsp?id=<%= studio.getStudioId() %>">
+            	<img src="<%= request.getContextPath() %>/studioimages/<%= studio.getPhotoPath() %>" alt="<%= studio.getStudioBrand() %>">
+            </a>
             <h3><%= studio.getStudioBrand() %></h3>
             <p><%= studio.getStudioConcept() %></p>
             <p><%= studio.getStudioContent() %></p>

@@ -66,7 +66,9 @@
 		        Dress dress = dresses.get(i);
 		%>
 		<div class="dress-item">
-		    <img src="<%= request.getContextPath() %>/upload/dress/<%= dress.getPhotoPath() %>" alt="<%= dress.getDressBrand() %>">
+		    <a href="<%= request.getContextPath() %>/dressDetail.jsp?id=<%= dress.getDressId() %>">
+            	<img src="<%= request.getContextPath() %>/dressimages/<%= dress.getPhotoPath() %>" alt="<%= dress.getDressBrand() %>">
+            </a>
 		    <h3><%= dress.getDressBrand() %></h3>
 		    <p><%= dress.getDressContent() %></p>
 		</div>

@@ -11,6 +11,7 @@ public class Studio {
     private Timestamp studioDate;
     private String vendorId;
     private String photoPath;
+    private String studioTitle;
 
     // Getters and setters
     public String getStudioId() {
@@ -75,5 +76,13 @@ public class Studio {
 
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
+    }
+    
+    public String getStudioTitle() {
+        return studioTitle;
+    }
+
+    public void setStudioTitle(String studioTitle) {
+        this.studioTitle = studioTitle;
     }
 }

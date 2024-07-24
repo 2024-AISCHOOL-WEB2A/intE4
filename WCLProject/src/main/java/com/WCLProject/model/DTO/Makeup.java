@@ -11,6 +11,7 @@ public class Makeup {
     private Timestamp makeupDate;
     private String vendorId;
     private String photoPath;
+    private String makeupTitle;
 
     // Getters and setters
     public String getMakeupId() {
@@ -75,5 +76,13 @@ public class Makeup {
 
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
+    }
+    
+    public String getMakeupTitle() {
+        return makeupTitle;
+    }
+
+    public void setMakeupTitle(String makeupTitle) {
+        this.makeupTitle = makeupTitle;
     }
 }

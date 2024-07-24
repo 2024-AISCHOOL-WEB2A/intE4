@@ -42,6 +42,7 @@ public class StudioDAO {
                 studio.setStudioDate(rs.getTimestamp("STUDIO_DATE"));
                 studio.setVendorId(rs.getString("VENDOR_ID"));
                 studio.setPhotoPath(rs.getString("PHOTO_PATH"));
+                studio.setStudioTitle(rs.getString("STUDIO_TITLE"));
                 studios.add(studio);
             }
         } catch (SQLException | ClassNotFoundException e) {

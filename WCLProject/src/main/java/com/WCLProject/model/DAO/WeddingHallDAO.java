@@ -43,6 +43,7 @@ public class WeddingHallDAO {
                 weddingHall.setWeddingHallDate(rs.getTimestamp("WEDDING_HALL_DATE"));
                 weddingHall.setVendorId(rs.getString("VENDOR_ID"));
                 weddingHall.setPhotoPath(rs.getString("PHOTO_PATH"));
+                weddingHall.setWeddingHallTitle(rs.getString("WEDDING_HALL_TITLE"));
                 weddingHalls.add(weddingHall);
             }
         } catch (SQLException | ClassNotFoundException e) {
