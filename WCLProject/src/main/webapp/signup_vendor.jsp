@@ -133,7 +133,7 @@ body {
 		</div>
 	</form>
 
-	<form id="upload_files_form" action="testUploadService" method="post"
+	<form id="upload_files_form" action="FileUploadService" method="post"
 		enctype="multipart/form-data">
 		<div class="form-group2">
 			<label for="vendor_license_image">사업자등록증이미지:</label> <input
@@ -247,11 +247,18 @@ body {
 						function() {
 							// 파일 업로드 비동기 처리
 							window.uploadFiles = function(callback) {
-								var formData = new FormData(document
-										.getElementById('upload_files_form'));
+								/*var formData = new FormData(document
+								 .getElementById('upload_files_form')); */
+								var formElement = document
+										.getElementById('upload_files_form');
+								var formData = new FormData(formElement);
+
+								// 추가 필드 포함
+								formData.append('vendor_id', $('#vendor_id')
+										.val());
 
 								$.ajax({
-									url : 'testUploadService',
+									url : 'FileUploadService',
 									type : 'POST',
 									data : formData,
 									contentType : false,

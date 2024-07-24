@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONObject;
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -24,32 +22,28 @@ public class FileUploadService extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 상대 경로를 설정
-        String relativeSavePath = "/upload";
+    	// 실제 프로젝트 경로 설정
+        String projectPath = "C:/Users/USER/git/intE4/WCLProject/src/main/webapp/upload"; // 경로를 프로젝트의 원하는 폴더로 설정
         int uploadFileSizeLimit = 5 * 1024 * 1024; // 5MB
         String encType = "UTF-8";
         
-        // 웹 애플리케이션의 루트 경로를 기준으로 실제 경로 얻기
-        String realPath = getServletContext().getRealPath(relativeSavePath);
-        System.out.println("서버 상의 실제 디렉토리 : " + realPath);
-        
-        // 디렉토리 존재 여부 확인 및 생성
-        File saveDir = new File(realPath);
+        // 파일 저장 디렉토리 확인 및 생성
+        File saveDir = new File(projectPath);
         if (!saveDir.exists()) {
             saveDir.mkdirs();  // 디렉토리 생성
         }
 
         try {
-            MultipartRequest multi = new MultipartRequest(request, realPath, uploadFileSizeLimit, encType, new DefaultFileRenamePolicy());
+            MultipartRequest multi = new MultipartRequest(request, projectPath, uploadFileSizeLimit, encType, new DefaultFileRenamePolicy());
 
-            String vendorId = multi.getParameter("vendorId");
+            String vendorId = multi.getParameter("vendor_id");
             System.out.println("Received vendorId: " + vendorId);
 
             HttpSession session = request.getSession();
             
             String licenseFileName = multi.getFilesystemName("vendor_license_image_file");
             if (licenseFileName != null) {
-                String licenseImagePath = handleFile(realPath, vendorId, "license", licenseFileName);
+                String licenseImagePath = handleFile(projectPath, vendorId, "license", licenseFileName);
                 session.setAttribute("licenseImagePath", licenseImagePath);
             } else {
                 System.out.println("license 파일 업로드 실패");
@@ -57,7 +51,7 @@ public class FileUploadService extends HttpServlet {
 
             String logoFileName = multi.getFilesystemName("vendor_logo_image_file");
             if (logoFileName != null) {
-                String logoImagePath = handleFile(realPath, vendorId, "logo", logoFileName);
+                String logoImagePath = handleFile(projectPath, vendorId, "logo", logoFileName);
                 session.setAttribute("logoImagePath", logoImagePath);
             } else {
                 System.out.println("logo 파일 업로드 실패 또는 logo 파일이 없음");
@@ -70,8 +64,6 @@ public class FileUploadService extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("{\"error\": \"" + e.getMessage() + "\"}");
         }
-
-    
     }
 
     // 파일 이름 변경 및 저장 처리
