@@ -1,32 +1,82 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .login-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+    .login-form h2 {
+        margin-bottom: 20px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    .form-group select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    .form-group button {
+        width: 100%;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .form-group button:hover {
+        background-color: #4cae4c;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="Login">로그인</a>
-        </nav>
-    </header>
-
-    <!-- Menu -->
-    <nav id="menu">
-        <ul class="links">
-            <li><h5>로그인</h5></li>
-            <form action="Login" method="post">
-                <li><input type="text" name="user_id" placeholder="Email을 입력하세요" required></li>
-                <li><input type="password" name="user_pw" placeholder="PW를 입력하세요" required></li>
-                <li><input type="submit" value="LogIn" class="button fit"></li>
-            </form>
-        </ul>
-    </nav>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <div class="login-form">
+        <h2>로그인</h2>
+        <form action="LoginWcl" method="post">
+            <div class="form-group">
+                <label for="user_type">회원 유형:</label>
+                <select id="user_type" name="user_type" required>
+                    <option value="user">일반 회원</option>
+                    <option value="vendor">기업 회원</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="user_id">ID:</label>
+                <input type="text" id="user_id" name="user_id" required>
+            </div>
+            <div class="form-group">
+                <label for="user_pw">비밀번호:</label>
+                <input type="password" id="user_pw" name="user_pw" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">로그인</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
