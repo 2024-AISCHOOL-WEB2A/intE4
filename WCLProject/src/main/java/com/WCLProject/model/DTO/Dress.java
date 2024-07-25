@@ -2,29 +2,56 @@ package com.WCLProject.model.DTO;
 
 import java.sql.Timestamp;
 
-public class Dress {
+public class Dress extends ProductDTO {
     // 데이터베이스 컬럼명에 맞춘 클래스 변수명
-    private String dressId;
     private String dressBrand;
     private String dressFabric;
     private String dressLine;
     private String dressStyle;
-    private String dressPrice;
+    private int dressPrice;
     private String dressContent;
     private Timestamp dressDate;
     private String vendorId;
     private String photoPath;
     private String dressTitle; 
-
-    // Getters and setters
-    public String getDressId() {
-        return dressId;
+    
+    public Dress() {
+    	
     }
+    
+    
+    public Dress(String id, String dressBrand, String dressFabric, String dressLine, String dressStyle, int dressPrice,
+			String dressContent, String vendorId, String photoPath, String dressTitle) {
+		super();
+	    this.setId(id); // ProductDTO의 id 필드를 설정
+		this.dressBrand = dressBrand;
+		this.dressFabric = dressFabric;
+		this.dressLine = dressLine;
+		this.dressStyle = dressStyle;
+		this.dressPrice = dressPrice;
+		this.dressContent = dressContent;
+		this.vendorId = vendorId;
+		this.photoPath = photoPath;
+		this.dressTitle = dressTitle;
+	}
+    
+    
+	public Dress(String dressBrand, String dressFabric, String dressLine, String dressStyle, int dressPrice,
+			String dressContent, String vendorId, String photoPath, String dressTitle) {
+		super();
+		this.dressBrand = dressBrand;
+		this.dressFabric = dressFabric;
+		this.dressLine = dressLine;
+		this.dressStyle = dressStyle;
+		this.dressPrice = dressPrice;
+		this.dressContent = dressContent;
+		this.vendorId = vendorId;
+		this.photoPath = photoPath;
+		this.dressTitle = dressTitle;
+	}
 
-    public void setDressId(String dressId) {
-        this.dressId = dressId;
-    }
 
+	// Getters and setters
     public String getDressBrand() {
         return dressBrand;
     }
@@ -57,11 +84,11 @@ public class Dress {
         this.dressStyle = dressStyle;
     }
 
-    public String getDressPrice() {
+    public int getDressPrice() {
         return dressPrice;
     }
 
-    public void setDressPrice(String dressPrice) {
+    public void setDressPrice(int dressPrice) {
         this.dressPrice = dressPrice;
     }
 

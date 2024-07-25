@@ -32,11 +32,11 @@
 		<div class="card mt-3">
 			<div class="card-header">상품 등록</div>
 			<div class="card-body">
-				<form action="DressServlet?action=add" method="post"
-					enctype="multipart/form-data">
+				<form action="DressRegistrationService" method="post"
+					enctype="application/x-www-form-urlencoded"">
 					<div class="form-group">
 						<label for="dress_id">드레스 이름 :</label> <input type="text"
-							id="dress_id" name="dress_id" class="form-control" required>
+							id="dress_title" name="dress_title" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label for="dress_brand">드레스 브랜드 :</label> <input type="text"
@@ -84,7 +84,7 @@
 					for (Dress dress : dresses) {
 				%>
 				<div class="product-item">
-					<h5><%=dress.getDressId()%></h5>
+					<h5><%=dress.getId()%></h5>
 					<p><%=dress.getDressContent()%></p>
 					<p>
 						가격:
@@ -92,9 +92,9 @@
 					</p>
 					<img src="<%=dress.getPhotoPath()%>"
 						alt="<%=dress.getDressTitle()%>" class="img-fluid"> <a
-						href="DressServlet?action=edit&dressId=<%=dress.getDressId()%>"
+						href="DressServlet?action=edit&dressId=<%=dress.getId()%>"
 						class="btn btn-secondary">수정</a> <a
-						href="DressServlet?action=delete&dressId=<%=dress.getDressId()%>"
+						href="DressServlet?action=delete&dressId=<%=dress.getId()%>"
 						class="btn btn-danger">삭제</a>
 				</div>
 				<hr>

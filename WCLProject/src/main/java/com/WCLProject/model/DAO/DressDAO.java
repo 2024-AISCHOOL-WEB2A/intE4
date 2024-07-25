@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,12 +35,12 @@ public class DressDAO {
 			// 불필요한 부분은 수정 예정
 			while (rs.next()) {
 				Dress dress = new Dress();
-				dress.setDressId(rs.getString("DRESS_ID"));
+				dress.setId(rs.getString("DRESS_ID"));
 				dress.setDressBrand(rs.getString("DRESS_BRAND"));
 				dress.setDressFabric(rs.getString("DRESS_FABRIC"));
 				dress.setDressLine(rs.getString("DRESS_LINE"));
 				dress.setDressStyle(rs.getString("DRESS_STYLE"));
-				dress.setDressPrice(rs.getString("DRESS_PRICE"));
+				dress.setDressPrice(rs.getInt("DRESS_PRICE"));
 				dress.setDressContent(rs.getString("DRESS_CONTENT"));
 				dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
 				dress.setVendorId(rs.getString("VENDOR_ID"));
@@ -55,7 +56,7 @@ public class DressDAO {
 
 		return dresses;
 	}
-	
+
 	// 페이징
 	// 드레스의 총 개수를 가져오는 메서드
 	public int getDressCount() {
@@ -79,7 +80,7 @@ public class DressDAO {
 	}
 
 	// 특정 ID의 드레스를 가져오는 메서드
-	// 드레스 ID로 드레스 상세정보 페이지를 출력하기 위해 사용 
+	// 드레스 ID로 드레스 상세정보 페이지를 출력하기 위해 사용
 	public Dress getDressById(String dressId) {
 		Dress dress = null;
 		String sql = "SELECT * FROM DRESS WHERE DRESS_ID = ?";
@@ -92,17 +93,17 @@ public class DressDAO {
 			// 불필요한 부분은 수정 예정
 			if (rs.next()) {
 				dress = new Dress();
-				dress.setDressId(rs.getString("DRESS_ID"));
+				dress.setId(rs.getString("DRESS_ID"));
 				dress.setDressBrand(rs.getString("DRESS_BRAND"));
 				dress.setDressFabric(rs.getString("DRESS_FABRIC"));
 				dress.setDressLine(rs.getString("DRESS_LINE"));
 				dress.setDressStyle(rs.getString("DRESS_STYLE"));
-				dress.setDressPrice(rs.getString("DRESS_PRICE"));
+				dress.setDressPrice(rs.getInt("DRESS_PRICE"));
 				dress.setDressContent(rs.getString("DRESS_CONTENT"));
 				dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
 				dress.setVendorId(rs.getString("VENDOR_ID"));
 				dress.setPhotoPath(rs.getString("PHOTO_PATH"));
-				dress.setDressTitle(rs.getString("DRESS_TITLE")); 
+				dress.setDressTitle(rs.getString("DRESS_TITLE"));
 			}
 
 		} catch (SQLException | ClassNotFoundException e) {
@@ -113,7 +114,7 @@ public class DressDAO {
 
 		return dress;
 	}
-	
+
 	// 특정 브랜드의 드레스를 가져오는 메서드
 	// 상세페이지에서 해당 브랜드가 가지고 있는 드레스들을 모두 출력하기 위해 사용
 	public List<Dress> getDressesByBrand(String brand) {
@@ -129,7 +130,7 @@ public class DressDAO {
 
 			while (rs.next()) {
 				Dress dress = new Dress();
-				dress.setDressId(rs.getString("DRESS_ID"));
+				dress.setId(rs.getString("DRESS_ID"));
 				dress.setDressBrand(rs.getString("DRESS_BRAND"));
 				dress.setPhotoPath(rs.getString("PHOTO_PATH"));
 				dresses.add(dress);
@@ -137,7 +138,69 @@ public class DressDAO {
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
 		}
 		return dresses;
 	}
+
+	// 드레스 상품 ID 생성
+	public String generateDressId() {
+		String id = null;
+		String sql = "SELECT COALESCE('DRESS' || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(DRESS_ID, 6))) + 1, 1), 5, '0'), 'DRESS00001') AS DRESS_ID FROM DRESS WHERE REGEXP_LIKE(SUBSTR(DRESS_ID, 6), '^[0-9]+$')";
+
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+
+			if (rs.next()) {
+				id = rs.getString("DRESS_ID");
+				System.out.println("Generated ID: " + id);
+			} else {
+				System.out.println("No data returned from query.");
+			}
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Class Not Found Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return id;
+	}
+
+	// 드레스 상품 등록
+	public int addDress(Dress dress) {
+		int cnt = 0;
+		String sql = "INSERT INTO DRESS(DRESS_ID, DRESS_BRAND, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_PRICE, DRESS_CONTENT, DRESS_DATE, VENDOR_ID, PHOTO_PATH, DRESS_TITLE) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, dress.getId());
+			pst.setString(2, dress.getDressBrand());
+			pst.setString(3, dress.getDressFabric());
+			pst.setString(4, dress.getDressLine());
+			pst.setString(5, dress.getDressStyle());
+			pst.setInt(6, dress.getDressPrice());
+			pst.setString(7, dress.getDressContent());
+			pst.setTimestamp(8, new Timestamp(System.currentTimeMillis()));
+			pst.setString(9, dress.getVendorId());
+			pst.setString(10, dress.getPhotoPath());
+			pst.setString(11, dress.getDressTitle());
+
+			cnt = pst.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return cnt;
+	}
+
 }

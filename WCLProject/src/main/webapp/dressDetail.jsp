@@ -78,7 +78,7 @@
             <% for(Dress brandDress : brandDresses) { %>
                 <img src="<%= request.getContextPath() %>/upload/dress/<%= brandDress.getPhotoPath() %>" 
                      alt="<%= brandDress.getDressBrand() %>"
-                     onclick="location.href='<%= request.getContextPath() %>/dressDetail.jsp?id=<%= brandDress.getDressId() %>'">
+                     onclick="location.href='<%= request.getContextPath() %>/dressDetail.jsp?id=<%= brandDress.getId() %>'">
             <% } %>
         </div>
     </div>
