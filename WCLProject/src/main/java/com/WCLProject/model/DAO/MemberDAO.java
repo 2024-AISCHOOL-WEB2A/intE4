@@ -227,28 +227,28 @@ public class MemberDAO {
 		return isValid;
 	}
 
-	//기업회원 탈퇴_나영 수정
-	public boolean deleteVendor(String vendorId, String vendorPw) {
-        connect();
-        boolean result = false;
-        String sql = "DELETE FROM VENDOR WHERE VENDOR_ID = ? AND VENDOR_PW = ?";
+	// 기업회원 삭제_나영 추가
+	public int deleteVendor(String vendor_id, String vendor_pw) {
+		int cnt = 0;
+		connect();
 
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, vendorId);
-            pst.setString(2, vendorPw);
+		String sql = "DELETE FROM VENDOR WHERE VENDOR_ID = ? AND VENDOR_PW = ?";
 
-            int count = pst.executeUpdate();
-            result = (count > 0); // 삭제 성공 시 true 반환
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            close();
-        }
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, vendor_id);
+			pst.setString(2, vendor_pw);
 
-        return result;
-    }
-}
+			cnt = pst.executeUpdate();
+			System.out.println("삭제된 행의 수: " + cnt); // 디버깅 출력
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return cnt;
+	}
 
 	// 로그인 기능_나영 추가
 	public UserMemberDTO login(String id, String pw) {

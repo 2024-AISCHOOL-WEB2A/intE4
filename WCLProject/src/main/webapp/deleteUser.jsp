@@ -1,7 +1,7 @@
-<%@ page import="com.WCLProject.model.DTO.VendorMemberDTO"%>
+<%@ page import="com.WCLProject.model.DTO.UserMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-    VendorMemberDTO member = (VendorMemberDTO) session.getAttribute("loginM");
+    UserMemberDTO member = (UserMemberDTO) session.getAttribute("loginM");
     if (member == null) {
         response.sendRedirect("LoginWcl.jsp");
         return;
@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>기업회원 탈퇴</title>
+<title>일반회원 탈퇴</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -58,15 +58,15 @@
 </head>
 <body>
     <div class="delete-form">
-        <h2>기업회원 탈퇴</h2>
-        <form action="DeleteService_Vendor" method="post">
+        <h2>일반회원 탈퇴</h2>
+        <form action="DeleteService_User" method="post">
             <div class="form-group">
-                <label for="vendor_id">기업 ID:</label>
-                <input type="text" id="vendor_id" name="vendor_id" value="<%=member.getId()%>" readonly>
+                <label for="user_id">ID:</label>
+                <input type="text" id="user_id" name="user_id" value="<%=member.getId()%>" readonly>
             </div>
             <div class="form-group">
-                <label for="vendor_pw">비밀번호:</label>
-                <input type="password" id="vendor_pw" name="vendor_pw" required>
+                <label for="user_pw">비밀번호:</label>
+                <input type="password" id="user_pw" name="user_pw" required>
             </div>
             <div class="form-group">
                 <button type="submit">회원탈퇴</button>
