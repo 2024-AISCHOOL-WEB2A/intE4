@@ -67,7 +67,7 @@
         %>
         <div class="weddinghall-item">
             <a href="<%= request.getContextPath() %>/weddingHallDetail.jsp?id=<%= weddingHall.getWeddingHallId() %>">
-            	<img src="<%= request.getContextPath() %>/weddinghallimages/<%= weddingHall.getPhotoPath() %>" alt="<%= weddingHall.getWeddingHallBrand() %>">
+            	<img src="<%= request.getContextPath() %>/upload/weddinghall/<%= weddingHall.getPhotoPath() %>" alt="<%= weddingHall.getWeddingHallBrand() %>">
             </a>
             <h3><%= weddingHall.getWeddingHallBrand() %></h3>
             <p><%= weddingHall.getWeddingHallType() %></p>

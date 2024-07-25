@@ -83,4 +83,59 @@ public class StudioDAO {
 
         return count;
     }
+    
+    // 특정 ID의 스튜디오 가져오기
+    public Studio getStudioById(String studioId) {
+        Studio studio = null;
+        String sql = "SELECT * FROM STUDIO WHERE STUDIO_ID = ?";
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, studioId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    studio = new Studio();
+                    studio.setStudioId(rs.getString("STUDIO_ID"));
+                    studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
+                    studio.setStudioConcept(rs.getString("STUDIO_CONCEPT"));
+                    studio.setStudioPrice(rs.getString("STUDIO_PRICE"));
+                    studio.setStudioContent(rs.getString("STUDIO_CONTENT"));
+                    studio.setStudioDate(rs.getTimestamp("STUDIO_DATE"));
+                    studio.setVendorId(rs.getString("VENDOR_ID"));
+                    studio.setPhotoPath(rs.getString("PHOTO_PATH"));
+                    studio.setStudioTitle(rs.getString("STUDIO_TITLE"));
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return studio;
+    }
+
+    // 특정 브랜드의 스튜디오 목록 가져오기
+    public List<Studio> getStudiosByBrand(String brand) {
+        List<Studio> studios = new ArrayList<>();
+        String sql = "SELECT * FROM STUDIO WHERE STUDIO_BRAND = ?";
+        
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, brand);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Studio studio = new Studio();
+                    studio.setStudioId(rs.getString("STUDIO_ID"));
+                    studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
+                    studio.setPhotoPath(rs.getString("PHOTO_PATH"));
+                    // 필요한 다른 필드들도 설정
+                    studios.add(studio);
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return studios;
+    }
 }
