@@ -59,6 +59,7 @@ public class LoginDAO {
 		}
 	}
 
+	// 로그인 기능
 	public MemberDTO login(String id, String pw) {
 		connect();
 		MemberDTO member = null;
