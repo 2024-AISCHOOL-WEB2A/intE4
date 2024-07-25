@@ -82,4 +82,61 @@ public class MakeupDAO {
 
         return count;
     }
+    
+    // 특정 ID의 메이크업 가져오기
+    public Makeup getMakeupById(String makeupId) {
+        Makeup makeup = null;
+        String sql = "SELECT * FROM MAKEUP WHERE MAKEUP_ID = ?";
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, makeupId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    makeup = new Makeup();
+                    makeup.setMakeupId(rs.getString("MAKEUP_ID"));
+                    makeup.setMakeupBrand(rs.getString("MAKEUP_BRAND"));
+                    makeup.setMakeupConcept(rs.getString("MAKEUP_CONCEPT"));
+                    makeup.setMakeupPrice(rs.getString("MAKEUP_PRICE"));
+                    makeup.setMakeupContent(rs.getString("MAKEUP_CONTENT"));
+                    makeup.setMakeupDate(rs.getTimestamp("MAKEUP_DATE"));
+                    makeup.setVendorId(rs.getString("VENDOR_ID"));
+                    makeup.setPhotoPath(rs.getString("PHOTO_PATH"));
+                    makeup.setMakeupTitle(rs.getString("MAKEUP_TITLE"));
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            logger.severe("Error fetching makeup by ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return makeup;
+    }
+
+    // 특정 브랜드의 메이크업 목록 가져오기
+    public List<Makeup> getMakeupsByBrand(String brand) {
+        List<Makeup> makeups = new ArrayList<>();
+        String sql = "SELECT * FROM MAKEUP WHERE MAKEUP_BRAND = ?";
+        
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, brand);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Makeup makeup = new Makeup();
+                    makeup.setMakeupId(rs.getString("MAKEUP_ID"));
+                    makeup.setMakeupBrand(rs.getString("MAKEUP_BRAND"));
+                    makeup.setPhotoPath(rs.getString("PHOTO_PATH"));
+                    // 필요한 다른 필드들도 설정
+                    makeups.add(makeup);
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            logger.severe("Error fetching makeups by brand: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return makeups;
+    }
 }

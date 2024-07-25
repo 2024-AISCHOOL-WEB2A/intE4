@@ -84,4 +84,63 @@ public class WeddingHallDAO {
 
         return count;
     }
+    
+    // 특정 ID의 웨딩홀 가져오기
+    public WeddingHall getWeddingHallById(String weddingHallId) {
+        WeddingHall weddingHall = null;
+        String sql = "SELECT * FROM WEDDING_HALL WHERE WEDDING_HALL_ID = ?";
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, weddingHallId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    weddingHall = new WeddingHall();
+                    weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
+                    weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
+                    weddingHall.setWeddingHallMealCost(rs.getString("WEDDING_HALL_MEAL_COST"));
+                    weddingHall.setWeddingHallAssurance(rs.getString("WEDDING_HALL_ASSURANCE"));
+                    weddingHall.setWeddingHallType(rs.getString("WEDDING_HALL_TYPE"));
+                    weddingHall.setWeddingHallPrice(rs.getString("WEDDING_HALL_PRICE"));
+                    weddingHall.setWeddingHallContent(rs.getString("WEDDING_HALL_CONTENT"));
+                    weddingHall.setWeddingHallDate(rs.getTimestamp("WEDDING_HALL_DATE"));
+                    weddingHall.setVendorId(rs.getString("VENDOR_ID"));
+                    weddingHall.setPhotoPath(rs.getString("PHOTO_PATH"));
+                    weddingHall.setWeddingHallTitle(rs.getString("WEDDING_HALL_TITLE"));
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            logger.severe("Error fetching wedding hall by ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return weddingHall;
+    }
+
+    // 특정 브랜드의 웨딩홀 목록 가져오기
+    public List<WeddingHall> getWeddingHallsByBrand(String brand) {
+        List<WeddingHall> weddingHalls = new ArrayList<>();
+        String sql = "SELECT * FROM WEDDING_HALL WHERE WEDDING_HALL_BRAND = ?";
+        
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, brand);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    WeddingHall weddingHall = new WeddingHall();
+                    weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
+                    weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
+                    weddingHall.setPhotoPath(rs.getString("PHOTO_PATH"));
+                    // 필요한 다른 필드들도 설정
+                    weddingHalls.add(weddingHall);
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            logger.severe("Error fetching wedding halls by brand: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return weddingHalls;
+    }
 }
