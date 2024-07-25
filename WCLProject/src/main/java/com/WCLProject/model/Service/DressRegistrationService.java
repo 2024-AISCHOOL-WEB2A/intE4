@@ -57,7 +57,6 @@ public class DressRegistrationService extends HttpServlet {
 			System.out.println("상품 등록 실패");
 			response.sendRedirect("Loginfail.jsp");
 		}
-
 	}
 
 }
