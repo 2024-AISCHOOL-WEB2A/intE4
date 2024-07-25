@@ -18,8 +18,8 @@
         <ul class="links">
             <li><h5>로그인</h5></li>
             <form action="Login" method="post">
-                <li><input type="text" name="user_id" placeholder="Email을 입력하세요" required></li>
-                <li><input type="password" name="user_pw" placeholder="PW를 입력하세요" required></li>
+                <li><input type="text" name="id" placeholder="Email을 입력하세요" required></li>
+                <li><input type="password" name="pw" placeholder="PW를 입력하세요" required></li>
                 <li><input type="submit" value="LogIn" class="button fit"></li>
             </form>
         </ul>
