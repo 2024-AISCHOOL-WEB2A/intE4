@@ -38,11 +38,13 @@ public class LoginController extends HttpServlet {
                 VendorMemberDTO vendorInfo = (VendorMemberDTO) info;
                 session.setAttribute("vendorInfo", vendorInfo); // 기업회원 정보로 세션 설정
             }
+            response.sendRedirect("LoginfuncWcl.jsp");            
+        } else {
+            // 로그인 실패 메시지 출력
+            System.out.println("로그인 실패: 유효하지 않은 아이디 또는 비밀번호");
+            
+            // 로그인 실패 후 리다이렉트
+            response.sendRedirect("Loginfail.jsp");
         }
-		
-		response.sendRedirect("LoginfuncWcl.jsp");
-		
 	}
-	
-
 }
