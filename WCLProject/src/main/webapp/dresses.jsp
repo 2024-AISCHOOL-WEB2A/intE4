@@ -50,13 +50,11 @@
         <%
             int currentPage = 1; // 현재 페이지
             int pageSize = 8; // 페이지당 데이터 개수 설정
-			
-            //
+
             String pageParam = request.getParameter("page");
             if (pageParam != null && pageParam.matches("\\d+")) {
                 currentPage = Integer.parseInt(pageParam);
             }
-
             // 데이터베이스에서 전체 드레스 수 가져오기
             DressDAO dressDAO = new DressDAO();
             List<Dress> dresses = dressDAO.getDresses(currentPage, pageSize);
