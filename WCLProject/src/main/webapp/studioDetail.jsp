@@ -70,7 +70,7 @@
         <h2>More studios from <%= studio.getStudioBrand() %></h2>
         <div class="thumbnail-images">
             <% for(Studio brandStudio : brandStudios) { %>
-                <img src="<%= request.getContextPath() %>/studioimages/<%= brandStudio.getPhotoPath() %>" 
+                <img src="<%= request.getContextPath() %>/upload/studio/<%= brandStudio.getPhotoPath() %>" 
                      alt="<%= brandStudio.getStudioBrand() %>"
                      onclick="location.href='<%= request.getContextPath() %>/studioDetail.jsp?id=<%= brandStudio.getStudioId() %>'">
             <% } %>

@@ -57,7 +57,7 @@
         %>
         <div class="dress-detail">
             <div class="main-image">
-                <img src="<%= request.getContextPath() %>/dressimages/<%= dress.getPhotoPath() %>" alt="<%= dress.getDressBrand() %>">
+                <img src="<%= request.getContextPath() %>/upload/dress/<%= dress.getPhotoPath() %>" alt="<%= dress.getDressBrand() %>">
             </div>
             <div class="dress-info">
                 <h2><%= dress.getDressBrand() %></h2>

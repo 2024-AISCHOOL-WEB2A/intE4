@@ -72,7 +72,7 @@
         <h2>More wedding halls from <%= weddingHall.getWeddingHallBrand() %></h2>
         <div class="thumbnail-images">
             <% for(WeddingHall brandWeddingHall : brandWeddingHalls) { %>
-                <img src="<%= request.getContextPath() %>/weddinghallimages/<%= brandWeddingHall.getPhotoPath() %>" 
+                <img src="<%= request.getContextPath() %>/upload/weddinghall/<%= brandWeddingHall.getPhotoPath() %>" 
                      alt="<%= brandWeddingHall.getWeddingHallBrand() %>"
                      onclick="location.href='<%= request.getContextPath() %>/weddingHallDetail.jsp?id=<%= brandWeddingHall.getWeddingHallId() %>'">
             <% } %>

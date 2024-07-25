@@ -57,7 +57,7 @@
         %>
         <div class="makeup-detail">
             <div class="main-image">
-                <img src="<%= request.getContextPath() %>/makeupimages/<%= makeup.getPhotoPath() %>" alt="<%= makeup.getMakeupBrand() %>">
+                <img src="<%= request.getContextPath() %>/upload/makeup/<%= makeup.getPhotoPath() %>" alt="<%= makeup.getMakeupBrand() %>">
             </div>
             <div class="makeup-info">
                 <h2><%= makeup.getMakeupBrand() %></h2>
