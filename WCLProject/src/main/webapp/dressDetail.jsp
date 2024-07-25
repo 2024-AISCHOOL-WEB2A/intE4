@@ -52,9 +52,12 @@
         <%
             String dressId = request.getParameter("id");
             DressDAO dressDAO = new DressDAO();
+            // 특정 드레스 ID로 드레스 정보 가져오기
             Dress dress = dressDAO.getDressById(dressId);
+            // 같은 브랜드의 다른 드레스를 목록으로 가져오기
             List<Dress> brandDresses = dressDAO.getDressesByBrand(dress.getDressBrand());
         %>
+        <!-- 드레스 상세 정보 출력 -->
         <div class="dress-detail">
             <div class="main-image">
                 <img src="<%= request.getContextPath() %>/upload/dress/<%= dress.getPhotoPath() %>" alt="<%= dress.getDressBrand() %>">
@@ -69,10 +72,11 @@
                 <p><strong>Date:</strong> <%= dress.getDressDate() %></p>
             </div>
         </div>
+ 		<!-- 같은 브랜드의 다른 드레스 이미지 출력 -->
         <h2>More dresses from <%= dress.getDressBrand() %></h2>
         <div class="thumbnail-images">
             <% for(Dress brandDress : brandDresses) { %>
-                <img src="<%= request.getContextPath() %>/dressimages/<%= brandDress.getPhotoPath() %>" 
+                <img src="<%= request.getContextPath() %>/upload/dress/<%= brandDress.getPhotoPath() %>" 
                      alt="<%= brandDress.getDressBrand() %>"
                      onclick="location.href='<%= request.getContextPath() %>/dressDetail.jsp?id=<%= brandDress.getDressId() %>'">
             <% } %>

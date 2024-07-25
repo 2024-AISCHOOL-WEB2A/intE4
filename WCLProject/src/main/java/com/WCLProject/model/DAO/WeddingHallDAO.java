@@ -17,15 +17,18 @@ public class WeddingHallDAO {
 	
     private static final Logger logger = Logger.getLogger(WeddingHallDAO.class.getName());
 
-    // 각 VENDOR_ID별로 첫 번째 대표 이미지를 가져오는 메서드
+    // VENDOR_ID별로 첫 번째 대표 이미지를 가져오는 메서드
     public List<WeddingHall> getWeddingHallsByVendor(int page, int pageSize) {
         List<WeddingHall> weddingHalls = new ArrayList<>();
-
+        
+        // page : 현재 페이지 번호, pageSize : 한 페이지에 표시할 개수
         int startRow = (page - 1) * pageSize + 1;
         int endRow = startRow + pageSize - 1;
 
         try {
             conn = DBUtil.getConnection();
+            // VENDOR_ID 별로 첫 번째 대표 이미지를 가져오기 + 페이징 쿼리문
+            // 수정 시 오류 발생하여 시간이 남으면 좀 더 쉽게 수정 예정
             String sql = "SELECT * FROM (SELECT A.*, ROWNUM AS RNUM FROM (SELECT VENDOR_ID, MIN(WEDDING_HALL_ID) AS MIN_ID FROM WEDDING_HALL GROUP BY VENDOR_ID) B JOIN WEDDING_HALL A ON A.WEDDING_HALL_ID = B.MIN_ID WHERE ROWNUM <= ?) WHERE RNUM >= ?";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, endRow);
@@ -33,6 +36,7 @@ public class WeddingHallDAO {
             rs = pst.executeQuery();
 
             while (rs.next()) {
+            	// 불필요한 부분은 수정 예정
                 WeddingHall weddingHall = new WeddingHall();
                 weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
                 weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
@@ -59,7 +63,8 @@ public class WeddingHallDAO {
         return weddingHalls;
     }
 
-    // 전체 웨딩홀 개수를 반환하는 메서드
+    // 페이징
+    // 웨딩홀의 총 개수를 가져오는 메서드
     public int getTotalWeddingHallCount() {
         int count = 0;
 
@@ -83,7 +88,8 @@ public class WeddingHallDAO {
         return count;
     }
     
-    // 특정 ID의 웨딩홀 가져오기
+    // 특정 ID의 웨딩홀을 가져오는 메서드
+   	// 웨딩홀 ID로 스튜디오 상세정보 페이지를 출력하기 위해 사용 
     public WeddingHall getWeddingHallById(String weddingHallId) {
         WeddingHall weddingHall = null;
         String sql = "SELECT * FROM WEDDING_HALL WHERE WEDDING_HALL_ID = ?";
@@ -94,6 +100,7 @@ public class WeddingHallDAO {
             pst.setString(1, weddingHallId);
             try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) {
+                	// 불필요한 부분은 수정 예정
                     weddingHall = new WeddingHall();
                     weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
                     weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
@@ -116,7 +123,8 @@ public class WeddingHallDAO {
         return weddingHall;
     }
 
-    // 특정 브랜드의 웨딩홀 목록 가져오기
+    // 특정 브랜드의 웨딩홀을 가져오는 메서드
+   	// 상세페이지에서 해당 브랜드가 가지고 있는 웨딩홀을 모두 출력하기 위해 사용
     public List<WeddingHall> getWeddingHallsByBrand(String brand) {
         List<WeddingHall> weddingHalls = new ArrayList<>();
         String sql = "SELECT * FROM WEDDING_HALL WHERE WEDDING_HALL_BRAND = ?";
@@ -131,7 +139,6 @@ public class WeddingHallDAO {
                     weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
                     weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
                     weddingHall.setPhotoPath(rs.getString("PHOTO_PATH"));
-                    // 필요한 다른 필드들도 설정
                     weddingHalls.add(weddingHall);
                 }
             }

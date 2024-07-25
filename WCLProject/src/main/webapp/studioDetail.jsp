@@ -52,12 +52,15 @@
         <%
             String studioId = request.getParameter("id");
             StudioDAO studioDAO = new StudioDAO();
+         	// 특정 스튜디오 ID로 스튜디오 정보 가져오기
             Studio studio = studioDAO.getStudioById(studioId);
+         	// 같은 브랜드의 다른 스튜디오를 목록으로 가져오기
             List<Studio> brandStudios = studioDAO.getStudiosByBrand(studio.getStudioBrand());
         %>
+        <!-- 스튜디오 상세 정보 출력 -->
         <div class="studio-detail">
             <div class="main-image">
-                <img src="<%= request.getContextPath() %>/studioimages/<%= studio.getPhotoPath() %>" alt="<%= studio.getStudioBrand() %>">
+                <img src="<%= request.getContextPath() %>/upload/studio/<%= studio.getPhotoPath() %>" alt="<%= studio.getStudioBrand() %>">
             </div>
             <div class="studio-info">
                 <h2><%= studio.getStudioBrand() %></h2>
@@ -67,6 +70,7 @@
                 <p><strong>Date:</strong> <%= studio.getStudioDate() %></p>
             </div>
         </div>
+        <!-- 같은 브랜드의 다른 스튜디오 이미지 출력 -->
         <h2>More studios from <%= studio.getStudioBrand() %></h2>
         <div class="thumbnail-images">
             <% for(Studio brandStudio : brandStudios) { %>

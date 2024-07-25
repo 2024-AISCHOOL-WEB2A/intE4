@@ -52,12 +52,15 @@
         <%
             String weddingHallId = request.getParameter("id");
             WeddingHallDAO weddingHallDAO = new WeddingHallDAO();
+         	// 특정 웨딩홀 ID로 웨딩홀 정보 가져오기
             WeddingHall weddingHall = weddingHallDAO.getWeddingHallById(weddingHallId);
+         	// 같은 브랜드의 다른 웨딩홀을 목록으로 가져오기
             List<WeddingHall> brandWeddingHalls = weddingHallDAO.getWeddingHallsByBrand(weddingHall.getWeddingHallBrand());
         %>
+        <!-- 웨딩홀 상세 정보 출력 -->
         <div class="wedding-hall-detail">
             <div class="main-image">
-                <img src="<%= request.getContextPath() %>/weddinghallimages/<%= weddingHall.getPhotoPath() %>" alt="<%= weddingHall.getWeddingHallBrand() %>">
+                <img src="<%= request.getContextPath() %>/upload/weddinghall/<%= weddingHall.getPhotoPath() %>" alt="<%= weddingHall.getWeddingHallBrand() %>">
             </div>
             <div class="wedding-hall-info">
                 <h2><%= weddingHall.getWeddingHallBrand() %></h2>
@@ -69,6 +72,7 @@
                 <p><strong>Date:</strong> <%= weddingHall.getWeddingHallDate() %></p>
             </div>
         </div>
+        <!-- 같은 브랜드의 다른 웨딩홀 이미지 출력 -->
         <h2>More wedding halls from <%= weddingHall.getWeddingHallBrand() %></h2>
         <div class="thumbnail-images">
             <% for(WeddingHall brandWeddingHall : brandWeddingHalls) { %>

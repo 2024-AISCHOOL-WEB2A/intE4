@@ -52,9 +52,12 @@
         <%
             String makeupId = request.getParameter("id");
             MakeupDAO makeupDAO = new MakeupDAO();
+         	// 특정 메이크업 ID로 메이크업 정보 가져오기
             Makeup makeup = makeupDAO.getMakeupById(makeupId);
+         	// 같은 브랜드의 다른 메이크업 목록으로 가져오기
             List<Makeup> brandMakeups = makeupDAO.getMakeupsByBrand(makeup.getMakeupBrand());
         %>
+        <!-- 메이크업 상세 정보 출력 -->
         <div class="makeup-detail">
             <div class="main-image">
                 <img src="<%= request.getContextPath() %>/upload/makeup/<%= makeup.getPhotoPath() %>" alt="<%= makeup.getMakeupBrand() %>">
@@ -67,10 +70,11 @@
                 <p><strong>Date:</strong> <%= makeup.getMakeupDate() %></p>
             </div>
         </div>
+        <!-- 같은 브랜드의 다른 메이크업 이미지 출력 -->
         <h2>More makeups from <%= makeup.getMakeupBrand() %></h2>
         <div class="thumbnail-images">
             <% for(Makeup brandMakeup : brandMakeups) { %>
-                <img src="<%= request.getContextPath() %>/makeupimages/<%= brandMakeup.getPhotoPath() %>" 
+                <img src="<%= request.getContextPath() %>/upload/makeup/<%= brandMakeup.getPhotoPath() %>" 
                      alt="<%= brandMakeup.getMakeupBrand() %>"
                      onclick="location.href='<%= request.getContextPath() %>/makeupDetail.jsp?id=<%= brandMakeup.getMakeupId() %>'">
             <% } %>

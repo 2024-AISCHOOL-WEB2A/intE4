@@ -17,16 +17,18 @@ public class StudioDAO {
     
     private static final Logger logger = Logger.getLogger(StudioDAO.class.getName());
 
-    // 각 VENDOR_ID별로 첫 번째 대표 이미지를 가져오는 메서드
+    // VENDOR_ID별로 첫 번째 대표 이미지를 가져오는 메서드
     public List<Studio> getStudiosByVendor(int page, int pageSize) {
         List<Studio> studios = new ArrayList<>();
 
-
+     // page : 현재 페이지 번호, pageSize : 한 페이지에 표시할 개수
         int startRow = (page - 1) * pageSize + 1;
         int endRow = startRow + pageSize - 1;
 
         try {
             conn = DBUtil.getConnection();
+            // VENDOR_ID 별로 첫 번째 대표 이미지를 가져오기 + 페이징 쿼리문
+            // 수정 시 오류 발생하여 시간이 남으면 좀 더 쉽게 수정 예정
             // A : STUDIO 테이블의 별칭, B : 서브쿼리의 결과에 대한 별칭
             String sql = "SELECT * FROM (SELECT A.*, ROWNUM AS RNUM FROM (SELECT VENDOR_ID, MIN(STUDIO_ID) AS MIN_ID FROM STUDIO GROUP BY VENDOR_ID) B JOIN STUDIO A ON A.STUDIO_ID = B.MIN_ID WHERE ROWNUM <= ?) WHERE RNUM >= ?";
             pst = conn.prepareStatement(sql);
@@ -35,6 +37,7 @@ public class StudioDAO {
             rs = pst.executeQuery();
 
             while (rs.next()) {
+            	// 불필요한 부분은 수정 예정
                 Studio studio = new Studio();
                 studio.setStudioId(rs.getString("STUDIO_ID"));
                 studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
@@ -59,7 +62,8 @@ public class StudioDAO {
         return studios;
     }
 
-    // 전체 스튜디오 개수를 반환하는 메서드
+    // 페이징
+    // 스튜디오의 총 개수를 가져오는 메서드
     public int getTotalStudioCount() {
         int count = 0;
 
@@ -83,7 +87,8 @@ public class StudioDAO {
         return count;
     }
     
-    // 특정 ID의 스튜디오 가져오기
+    // 특정 ID의 스튜디오를 가져오는 메서드
+  	// 스튜디오 ID로 스튜디오 상세정보 페이지를 출력하기 위해 사용 
     public Studio getStudioById(String studioId) {
         Studio studio = null;
         String sql = "SELECT * FROM STUDIO WHERE STUDIO_ID = ?";
@@ -94,6 +99,7 @@ public class StudioDAO {
             pst.setString(1, studioId);
             try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) {
+                	// 불필요한 부분은 수정 예정
                     studio = new Studio();
                     studio.setStudioId(rs.getString("STUDIO_ID"));
                     studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
@@ -113,7 +119,8 @@ public class StudioDAO {
         return studio;
     }
 
-    // 특정 브랜드의 스튜디오 목록 가져오기
+    // 특정 브랜드의 스튜디오를 가져오는 메서드
+  	// 상세페이지에서 해당 브랜드가 가지고 있는 스튜디오를 모두 출력하기 위해 사용
     public List<Studio> getStudiosByBrand(String brand) {
         List<Studio> studios = new ArrayList<>();
         String sql = "SELECT * FROM STUDIO WHERE STUDIO_BRAND = ?";
@@ -128,7 +135,6 @@ public class StudioDAO {
                     studio.setStudioId(rs.getString("STUDIO_ID"));
                     studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
                     studio.setPhotoPath(rs.getString("PHOTO_PATH"));
-                    // 필요한 다른 필드들도 설정
                     studios.add(studio);
                 }
             }

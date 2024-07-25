@@ -45,22 +45,27 @@
 </head>
 <body>
     <h1>MAKEUPS</h1>
-    <div class="makeup-container">
+    	<!-- 페이징 기능 -->
+    	<div class="makeup-container">
         <%
-            int currentPage = 1;
-            int pageSize = 8;
+            int currentPage = 1; // 현재 페이지
+            int pageSize = 8; // 페이지당 데이터 개수 설정
 
+            //
             String pageParam = request.getParameter("page");
-            if (pageParam != null && pageParam.matches("\\d+")) { // 숫자 형식인지 확인
+            if (pageParam != null && pageParam.matches("\\d+")) { 
                 currentPage = Integer.parseInt(pageParam);
             }
 
+            // 데이터베이스에서 전체 메이크업 개수 가져오기
             MakeupDAO makeupDAO = new MakeupDAO();
             List<Makeup> makeups = makeupDAO.getMakeupsByVendor(currentPage, pageSize);
-            int totalMakeups = makeupDAO.getTotalMakeupCount();
-            int totalPages = (int) Math.ceil((double) totalMakeups / pageSize);
+            int totalMakeups = makeupDAO.getTotalMakeupCount(); // 전체 메이크업의 개수
+            int totalPages = (int) Math.ceil((double) totalMakeups / pageSize); // 전체 페이지 수
+         	// 전체 메이크업 수를 pageSize로 나누고 올림 처리하기
         %>
         
+        <!-- 화면 출력 기능 -->
         <%
 		    for (int i = 0; i < makeups.size(); i++) {
 		        Makeup makeup = makeups.get(i);
@@ -75,6 +80,7 @@
         </div>
         <% } %>
     </div>
+    <!-- 페이징 기능(페이지 이동) -->
     <div class="pagination">
         <%
             for (int i = 1; i <= totalPages; i++) {
