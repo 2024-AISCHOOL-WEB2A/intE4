@@ -11,14 +11,15 @@ import java.util.logging.Logger;
 import com.WCLProject.model.DTO.WeddingHall;
 
 public class WeddingHallDAO {
+	private Connection conn;
+	private PreparedStatement pst;
+	private ResultSet rs;
+	
     private static final Logger logger = Logger.getLogger(WeddingHallDAO.class.getName());
 
     // 각 VENDOR_ID별로 첫 번째 대표 이미지를 가져오는 메서드
     public List<WeddingHall> getWeddingHallsByVendor(int page, int pageSize) {
         List<WeddingHall> weddingHalls = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
 
         int startRow = (page - 1) * pageSize + 1;
         int endRow = startRow + pageSize - 1;
@@ -26,10 +27,10 @@ public class WeddingHallDAO {
         try {
             conn = DBUtil.getConnection();
             String sql = "SELECT * FROM (SELECT A.*, ROWNUM AS RNUM FROM (SELECT VENDOR_ID, MIN(WEDDING_HALL_ID) AS MIN_ID FROM WEDDING_HALL GROUP BY VENDOR_ID) B JOIN WEDDING_HALL A ON A.WEDDING_HALL_ID = B.MIN_ID WHERE ROWNUM <= ?) WHERE RNUM >= ?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, endRow);
-            pstmt.setInt(2, startRow);
-            rs = pstmt.executeQuery();
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, endRow);
+            pst.setInt(2, startRow);
+            rs = pst.executeQuery();
 
             while (rs.next()) {
                 WeddingHall weddingHall = new WeddingHall();
@@ -50,7 +51,7 @@ public class WeddingHallDAO {
             logger.severe("Error fetching wedding halls by vendor: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            DBUtil.closeConnection(conn);
+            DBUtil.closeConnection(rs, pst, conn);
         }
 
         logger.info("Fetched " + weddingHalls.size() + " wedding halls by vendor");
@@ -61,15 +62,12 @@ public class WeddingHallDAO {
     // 전체 웨딩홀 개수를 반환하는 메서드
     public int getTotalWeddingHallCount() {
         int count = 0;
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
 
         try {
             conn = DBUtil.getConnection();
             String sql = "SELECT COUNT(DISTINCT VENDOR_ID) FROM WEDDING_HALL";
-            pstmt = conn.prepareStatement(sql);
-            rs = pstmt.executeQuery();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
             }
@@ -77,7 +75,7 @@ public class WeddingHallDAO {
             logger.severe("Error fetching total wedding hall count: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            DBUtil.closeConnection(conn);
+            DBUtil.closeConnection(rs, pst, conn);
         }
 
         logger.info("Total wedding hall count: " + count);
@@ -91,10 +89,10 @@ public class WeddingHallDAO {
         String sql = "SELECT * FROM WEDDING_HALL WHERE WEDDING_HALL_ID = ?";
 
         try (Connection conn = DBUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pst = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, weddingHallId);
-            try (ResultSet rs = pstmt.executeQuery()) {
+            pst.setString(1, weddingHallId);
+            try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) {
                     weddingHall = new WeddingHall();
                     weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
@@ -124,10 +122,10 @@ public class WeddingHallDAO {
         String sql = "SELECT * FROM WEDDING_HALL WHERE WEDDING_HALL_BRAND = ?";
         
         try (Connection conn = DBUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pst = conn.prepareStatement(sql)) {
             
-            pstmt.setString(1, brand);
-            try (ResultSet rs = pstmt.executeQuery()) {
+            pst.setString(1, brand);
+            try (ResultSet rs = pst.executeQuery()) {
                 while (rs.next()) {
                     WeddingHall weddingHall = new WeddingHall();
                     weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));

@@ -11,14 +11,16 @@ import java.util.logging.Logger;
 import com.WCLProject.model.DTO.Studio;
 
 public class StudioDAO {
+	private Connection conn;
+	private PreparedStatement pst;
+	private ResultSet rs;
+    
     private static final Logger logger = Logger.getLogger(StudioDAO.class.getName());
 
     // 각 VENDOR_ID별로 첫 번째 대표 이미지를 가져오는 메서드
     public List<Studio> getStudiosByVendor(int page, int pageSize) {
         List<Studio> studios = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+
 
         int startRow = (page - 1) * pageSize + 1;
         int endRow = startRow + pageSize - 1;
@@ -27,10 +29,10 @@ public class StudioDAO {
             conn = DBUtil.getConnection();
             // A : STUDIO 테이블의 별칭, B : 서브쿼리의 결과에 대한 별칭
             String sql = "SELECT * FROM (SELECT A.*, ROWNUM AS RNUM FROM (SELECT VENDOR_ID, MIN(STUDIO_ID) AS MIN_ID FROM STUDIO GROUP BY VENDOR_ID) B JOIN STUDIO A ON A.STUDIO_ID = B.MIN_ID WHERE ROWNUM <= ?) WHERE RNUM >= ?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, endRow);
-            pstmt.setInt(2, startRow);
-            rs = pstmt.executeQuery();
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, endRow);
+            pst.setInt(2, startRow);
+            rs = pst.executeQuery();
 
             while (rs.next()) {
                 Studio studio = new Studio();
@@ -49,7 +51,7 @@ public class StudioDAO {
             logger.severe("Error fetching studios by vendor: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            DBUtil.closeConnection(conn);
+            DBUtil.closeConnection(rs, pst, conn);
         }
 
         logger.info("Fetched " + studios.size() + " studios by vendor");
@@ -60,15 +62,12 @@ public class StudioDAO {
     // 전체 스튜디오 개수를 반환하는 메서드
     public int getTotalStudioCount() {
         int count = 0;
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
 
         try {
             conn = DBUtil.getConnection();
             String sql = "SELECT COUNT(DISTINCT VENDOR_ID) FROM STUDIO";
-            pstmt = conn.prepareStatement(sql);
-            rs = pstmt.executeQuery();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
             }
@@ -76,7 +75,7 @@ public class StudioDAO {
             logger.severe("Error fetching total studio count: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            DBUtil.closeConnection(conn);
+            DBUtil.closeConnection(rs, pst, conn);
         }
 
         logger.info("Total studio count: " + count);
@@ -92,8 +91,8 @@ public class StudioDAO {
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, studioId);
-            try (ResultSet rs = pstmt.executeQuery()) {
+            pst.setString(1, studioId);
+            try (ResultSet rs = pst.executeQuery()) {
                 if (rs.next()) {
                     studio = new Studio();
                     studio.setStudioId(rs.getString("STUDIO_ID"));
@@ -120,10 +119,10 @@ public class StudioDAO {
         String sql = "SELECT * FROM STUDIO WHERE STUDIO_BRAND = ?";
         
         try (Connection conn = DBUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pst = conn.prepareStatement(sql)) {
             
-            pstmt.setString(1, brand);
-            try (ResultSet rs = pstmt.executeQuery()) {
+            pst.setString(1, brand);
+            try (ResultSet rs = pst.executeQuery()) {
                 while (rs.next()) {
                     Studio studio = new Studio();
                     studio.setStudioId(rs.getString("STUDIO_ID"));
