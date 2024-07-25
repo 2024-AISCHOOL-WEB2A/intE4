@@ -94,7 +94,7 @@ public class StudioDAO {
         String sql = "SELECT * FROM STUDIO WHERE STUDIO_ID = ?";
 
         try (Connection conn = DBUtil.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pst = conn.prepareStatement(sql)) {
 
             pst.setString(1, studioId);
             try (ResultSet rs = pst.executeQuery()) {
