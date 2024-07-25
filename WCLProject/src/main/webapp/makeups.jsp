@@ -67,7 +67,7 @@
 		%>
         <div class="makeup-item">
             <a href="<%= request.getContextPath() %>/makeupDetail.jsp?id=<%= makeup.getMakeupId() %>">
-            	<img src="<%= request.getContextPath() %>/makeupimages/<%= makeup.getPhotoPath() %>" alt="<%= makeup.getMakeupBrand() %>">
+            	<img src="<%= request.getContextPath() %>/upload/makeup/<%= makeup.getPhotoPath() %>" alt="<%= makeup.getMakeupBrand() %>">
             </a>
             <h3><%= makeup.getMakeupBrand() %></h3>
             <p><%= makeup.getMakeupConcept() %></p>
