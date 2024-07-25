@@ -1,4 +1,4 @@
-package com.WCLProject.model.DTO;
+package com.WCLProject.model.DAO;
 
 public class UserVO {
 	
