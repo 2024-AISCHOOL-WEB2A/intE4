@@ -39,5 +39,7 @@
         <h2>로그인 성공</h2>
         <a href="LoginWcl.jsp">로그인 페이지로 돌아가기</a>
     </div>
+    
+    	<a href="productManagement.jsp">상품관리</a>
 </body>
 </html>
