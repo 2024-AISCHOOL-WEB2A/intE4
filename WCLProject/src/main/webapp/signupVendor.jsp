@@ -320,11 +320,6 @@
 											</div>
 										</div>
 									</div>
-									<!-- 									<div class="#">
-										<button type="submit" class="button-2">
-											<div class="text-wrapper-49">가입신청</div>
-										</button>
-									</div> -->
 									 <div style="text-align: center; margin-top: 200px; height: 500px;">
 										<button type="submit"
 											style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">
