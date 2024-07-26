@@ -78,7 +78,7 @@
             <% for(WeddingHall brandWeddingHall : brandWeddingHalls) { %>
                 <img src="<%= request.getContextPath() %>/upload/weddinghall/<%= brandWeddingHall.getPhotoPath() %>" 
                      alt="<%= brandWeddingHall.getWeddingHallBrand() %>"
-                     onclick="location.href='<%= request.getContextPath() %>/weddingHallDetail.jsp?id=<%= brandWeddingHall.getWeddingHallId() %>'">
+                     onclick="location.href='<%= request.getContextPath() %>/weddinghallDetail.jsp?id=<%= brandWeddingHall.getWeddingHallId() %>'">
             <% } %>
         </div>
     </div>
