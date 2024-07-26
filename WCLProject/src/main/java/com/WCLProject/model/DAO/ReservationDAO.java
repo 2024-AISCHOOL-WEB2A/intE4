@@ -9,9 +9,11 @@ import com.WCLProject.model.DTO.ReservationDTO;
 
 public class ReservationDAO {
     // 데이터베이스 연결 정보
+	// 유니코드 추가하여 글자깨짐 해결시도
     private String url = "jdbc:oracle:thin:@project-db-stu3.smhrd.com:1524:xe";
     private String user = "Insa5_SpringA_hacksim_3";
     private String password = "aishcool3";
+    
 
     // 데이터베이스 연결 객체
     private Connection conn = null;
