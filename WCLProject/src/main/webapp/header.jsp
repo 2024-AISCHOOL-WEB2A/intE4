@@ -4,8 +4,8 @@
 	pageEncoding="UTF-8"%>
 
 <%
-VendorMemberDTO vendor = (VendorMemberDTO) session.getAttribute("id");
-MemberDTO user = (MemberDTO) session.getAttribute("id");
+VendorMemberDTO vendor = (VendorMemberDTO) session.getAttribute("vendorInfo");
+MemberDTO user = (MemberDTO) session.getAttribute("userInfo");
 String isLogin;
 if (vendor != null) {
 	isLogin = "vendor";
