@@ -4,9 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/joinMemberSelect_globals.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/joinMemberSelect_styleguide.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/joinMemberSelect_style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signupMemberSelect_globals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signupMemberSelect_styleguide.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signupMemberSelect_style.css" />
   </head>
   <body>
     <div class="member-select">
@@ -39,7 +39,7 @@
         </div>
         <div class="frame-wrapper">
           <div class="frame-4">
-            <img class="icon" src="${pageContext.request.contextPath}/page_img/joinMemberSelect_img/icon.svg" />
+            <img class="icon" src="${pageContext.request.contextPath}/page_img/signupMemberSelect_img/icon.svg" />
             <div class="frame-5">
               <div class="frame-6">
                 <div class="image-background"></div>
@@ -58,7 +58,7 @@
                 <div class="text-wrapper-5">메이크업</div>
               </div>
             </div>
-            <img class="img" src="${pageContext.request.contextPath}/page_img/joinMemberSelect_img/icon-1.svg" />
+            <img class="img" src="${pageContext.request.contextPath}/page_img/signupMemberSelect_img/icon-1.svg" />
           </div>
         </div>
         <footer class="footer">
@@ -108,13 +108,13 @@
           <div class="background-border">
             <div class="background-border-wrapper">
               <div class="background-border-2">
-                <img class="image" src="${pageContext.request.contextPath}/page_img/joinMemberSelect_img/image.png" />
+                <img class="image" src="${pageContext.request.contextPath}/page_img/signupMemberSelect_img/image.png" />
                 <div class="container-6"><div class="text-wrapper-23">일반회원</div></div>
               </div>
             </div>
             <div class="view-2">
               <div class="background-border-2">
-                <img class="image" src="${pageContext.request.contextPath}/page_img/joinMemberSelect_img/image-1.png" />
+                <img class="image" src="${pageContext.request.contextPath}/page_img/signupMemberSelect_img/image-1.png" />
                 <div class="container-7"><div class="text-wrapper-23">기업회원</div></div>
               </div>
             </div>

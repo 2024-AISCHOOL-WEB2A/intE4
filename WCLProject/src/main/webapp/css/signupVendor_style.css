@@ -1,0 +1,2837 @@
+.business-membership {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.business-membership .div {
+  background-color: #ffffff;
+  width: 1536px;
+  height: 2903px;
+  position: relative;
+}
+
+.business-membership .frame {
+  display: flex;
+  flex-direction: column;
+  width: 1536px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .nav {
+  position: relative;
+  width: 1536px;
+  height: 82px;
+  background-color: #494b56ed;
+  border: 1px solid;
+}
+
+.business-membership .lisianthus {
+  position: absolute;
+  width: 197px;
+  height: 40px;
+  top: 25px;
+  left: 121px;
+  font-family: "Radley", Helvetica;
+  font-weight: 400;
+  color: #fdfdfd;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 20px;
+}
+
+.business-membership .frame-2 {
+  display: flex;
+  width: 859px;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 31px;
+  left: 523px;
+}
+
+.business-membership .view {
+  display: inline-flex;
+  align-items: center;
+  gap: 47px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper {
+  position: relative;
+  width: 56px;
+  height: 21px;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-2 {
+  width: 92px;
+  height: 21px;
+  font-family: "Inter", Helvetica;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 21px;
+  position: relative;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-3 {
+  position: relative;
+  width: 93px;
+  height: 21px;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+.business-membership .frame-3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-4 {
+  position: relative;
+  width: 82px;
+  height: 21px;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+.business-membership .header {
+  display: flex;
+  flex-direction: column;
+  height: 163px;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: transparent;
+}
+
+.business-membership .container {
+  display: flex;
+  width: 1536px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 50px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-bottom: -4px;
+}
+
+.business-membership .link {
+  display: flex;
+  flex-direction: column;
+  width: 544px;
+  height: 67px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.business-membership .w-e-d-d-i-n-g-c-h-o-wrapper {
+  display: flex;
+  width: 544px;
+  height: 67px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.business-membership .w-e-d-d-i-n-g-c-h-o {
+  position: relative;
+  width: 544px;
+  height: 67px;
+  margin-top: -1px;
+  font-family: "Radley", Helvetica;
+  font-weight: 400;
+  color: #e12e2e;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 21px;
+}
+
+.business-membership .frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1535px;
+  height: 188px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0px 201px;
+  position: absolute;
+  top: 245px;
+  left: 0;
+  background-color: #d9d9d926;
+}
+
+.business-membership .frame-4 {
+  display: flex;
+  width: 1133px;
+  height: 188px;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  padding: 10px;
+  position: relative;
+}
+
+.business-membership .icon {
+  position: relative;
+  width: 16px;
+  height: 31px;
+}
+
+.business-membership .frame-5 {
+  display: flex;
+  width: 818px;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+.business-membership .frame-6 {
+  display: flex;
+  flex-direction: column;
+  width: 161px;
+  align-items: center;
+  position: relative;
+}
+
+.business-membership .image-background {
+  position: relative;
+  width: 88.14px;
+  height: 88.14px;
+  border-radius: 28px;
+  background-image: url(./img/image-background.svg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.business-membership .text-wrapper-5 {
+  position: relative;
+  align-self: stretch;
+  height: 40px;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 21px;
+}
+
+.business-membership .image-background-2 {
+  background-image: url(./img/image-background-1.svg);
+  position: relative;
+  width: 88.14px;
+  height: 88.14px;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.business-membership .image-background-3 {
+  background-image: url(./img/image-background-2.svg);
+  position: relative;
+  width: 88.14px;
+  height: 88.14px;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.business-membership .image-background-4 {
+  background-image: url(./img/image-background-3.svg);
+  position: relative;
+  width: 88.14px;
+  height: 88.14px;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.business-membership .img {
+  position: relative;
+  width: 16.82px;
+  height: 35px;
+}
+
+.business-membership .footer {
+  position: absolute;
+  width: 1536px;
+  height: 243px;
+  top: 2660px;
+  left: 0;
+  background-color: #494b56ed;
+}
+
+.business-membership .overlap-group {
+  position: absolute;
+  width: 326px;
+  height: 194px;
+  top: 24px;
+  left: 178px;
+}
+
+.business-membership .container-2 {
+  position: absolute;
+  width: 322px;
+  height: 172px;
+  top: 22px;
+  left: 4px;
+}
+
+.business-membership .text-wrapper-6 {
+  position: absolute;
+  width: 79px;
+  height: 20px;
+  top: 61px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-7 {
+  position: absolute;
+  width: 135px;
+  height: 4px;
+  top: 110px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 10px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-8 {
+  position: absolute;
+  width: 92px;
+  height: 20px;
+  top: 123px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 12.8px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .p {
+  position: absolute;
+  width: 322px;
+  height: 20px;
+  top: 150px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 13px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .w-e-d-d-i-n-g-c-h-o-2 {
+  position: absolute;
+  width: 205px;
+  height: 67px;
+  top: 0;
+  left: 0;
+  font-family: "Malgun Gothic-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 21px;
+}
+
+.business-membership .container-3 {
+  position: absolute;
+  width: 256px;
+  height: 172px;
+  top: 46px;
+  left: 562px;
+}
+
+.business-membership .text-wrapper-9 {
+  position: absolute;
+  width: 62px;
+  height: 20px;
+  top: 62px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 12.2px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-10 {
+  position: absolute;
+  width: 168px;
+  height: 20px;
+  top: 97px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 12.7px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-11 {
+  position: absolute;
+  width: 239px;
+  height: 20px;
+  top: 124px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 12.8px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .div-2 {
+  position: absolute;
+  width: 156px;
+  height: 20px;
+  top: 152px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 12.9px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .span {
+  letter-spacing: -0.04px;
+}
+
+.business-membership .text-wrapper-12 {
+  font-family: "Malgun Gothic-Bold", Helvetica;
+  font-weight: 700;
+  letter-spacing: -0.04px;
+}
+
+.business-membership .container-4 {
+  position: absolute;
+  width: 394px;
+  height: 172px;
+  top: 46px;
+  left: 942px;
+}
+
+.business-membership .list {
+  position: absolute;
+  width: 394px;
+  height: 20px;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .text-wrapper-13 {
+  position: absolute;
+  width: 46px;
+  height: 18px;
+  top: 0;
+  left: 94px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 11.5px;
+  letter-spacing: -0.3px;
+  line-height: 17.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-14 {
+  position: absolute;
+  width: 91px;
+  height: 18px;
+  top: 0;
+  left: 188px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 11.5px;
+  letter-spacing: -0.3px;
+  line-height: 17.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-15 {
+  position: absolute;
+  width: 46px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 11.5px;
+  letter-spacing: -0.3px;
+  line-height: 17.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-16 {
+  position: absolute;
+  width: 49px;
+  height: 18px;
+  top: 0;
+  left: 327px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 11.3px;
+  letter-spacing: -0.3px;
+  line-height: 17.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-17 {
+  position: absolute;
+  width: 62px;
+  height: 20px;
+  top: 61px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-size: 12.6px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .element {
+  position: absolute;
+  width: 222px;
+  height: 20px;
+  top: 96px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 12.7px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .t-f {
+  position: absolute;
+  width: 205px;
+  height: 20px;
+  top: 126px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Bold", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12.4px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .text-wrapper-18 {
+  font-weight: 700;
+  color: #ffffff80;
+  letter-spacing: -0.04px;
+}
+
+.business-membership .text-wrapper-19 {
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  color: #ffffff80;
+  letter-spacing: -0.04px;
+}
+
+.business-membership .text-wrapper-20 {
+  position: absolute;
+  width: 307px;
+  height: 20px;
+  top: 151px;
+  left: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Malgun Gothic-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 12.7px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .view-2 {
+  display: flex;
+  flex-direction: column;
+  width: 1536px;
+  height: 2102px;
+  align-items: center;
+  gap: 50px;
+  position: absolute;
+  top: 433px;
+  left: 0;
+  overflow: hidden;
+}
+
+.business-membership .background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 375px 41px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: var(--wwwsinbuyacomnero);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #dddddd;
+}
+
+.business-membership .container-5 {
+  display: flex;
+  flex-direction: column;
+  width: 1170px;
+  align-items: flex-start;
+  padding: 30px 15px 50px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: -192px;
+  margin-right: -192px;
+}
+
+.business-membership .heading {
+  height: 82.05px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.business-membership .text-wrapper-21 {
+  position: absolute;
+  width: 161px;
+  height: 28px;
+  top: 29px;
+  left: 5px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-26-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-26-font-weight);
+  color: var(--wwwsinbuyacommine-shaft);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-26-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-26-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-26-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-26-font-style);
+}
+
+.business-membership .div-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-22 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Noto Sans", Helvetica;
+  font-weight: 500;
+  color: var(--wwwsinbuyacomshark);
+  font-size: 13px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+}
+
+.business-membership .form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1536px;
+  height: 1952px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.business-membership .form {
+  display: flex;
+  flex-direction: column;
+  width: 1536px;
+  height: 1954px;
+  align-items: flex-start;
+  gap: 30px;
+  position: relative;
+  margin-bottom: -2px;
+}
+
+.business-membership .fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26.5px;
+  padding: 0px 0px 100px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .legend {
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+  align-items: center;
+  gap: 4.75px;
+  padding: 0px 936.69px 0px 936.67px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .div-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  padding: 0px 12.5px;
+  position: relative;
+  margin-left: -188.68px;
+  margin-right: -188.68px;
+  z-index: 1;
+  background-color: var(--wwwsinbuyacomvalencia);
+  border-radius: 40px;
+}
+
+.business-membership .text-wrapper-23 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-left: -2.5px;
+  margin-right: -2.5px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-tahoma-bold-15-6-font-family);
+  font-weight: var(--www-sinbuya-com-tahoma-bold-15-6-font-weight);
+  color: var(--wwwsinbuyacomnero);
+  font-size: var(--www-sinbuya-com-tahoma-bold-15-6-font-size);
+  text-align: center;
+  letter-spacing: var(--www-sinbuya-com-tahoma-bold-15-6-letter-spacing);
+  line-height: var(--www-sinbuya-com-tahoma-bold-15-6-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-tahoma-bold-15-6-font-style);
+}
+
+.business-membership .text-wrapper-24 {
+  position: relative;
+  width: fit-content;
+  margin-left: -192.18px;
+  margin-right: -192.18px;
+  z-index: 0;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Noto Sans", Helvetica;
+  font-weight: 500;
+  color: var(--wwwsinbuyacommine-shaft);
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .container-6 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 0px 15px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .view-3 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1140px;
+  height: 42.58px;
+  align-items: flex-start;
+  gap: 0px 0px;
+  position: relative;
+}
+
+.business-membership .label-margin {
+  display: flex;
+  flex-direction: column;
+  max-width: 190px;
+  width: 190px;
+  min-height: 7.5px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 0px 6.5px;
+  position: relative;
+  align-self: stretch;
+}
+
+.business-membership .label {
+  display: flex;
+  flex-direction: column;
+  max-width: 190px;
+  height: 35.5px;
+  align-items: flex-start;
+  padding: 9.25px 0px 6.75px 30px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.business-membership .text-wrapper-25 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-bold-13-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-bold-13-font-weight);
+  color: var(--wwwsinbuyacommine-shaft);
+  font-size: var(--www-sinbuya-com-noto-sans-bold-13-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-bold-13-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-bold-13-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-bold-13-font-style);
+}
+
+.business-membership .container-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  width: 380px;
+  min-height: 1px;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+}
+
+.business-membership .container-7 {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 0px 5.68e-14px 0px 1px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .input {
+  width: 381px;
+  margin-left: -1px;
+  margin-right: -1px;
+  position: relative;
+  height: 42px;
+  background-color: var(--wwwsinbuyacomnero);
+  border: 1px solid;
+  border-color: var(--wwwsinbuyacomblack-15);
+}
+
+.business-membership .label-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10.58px 0px 10.84px 37.84px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-right: -91.34px;
+  overflow: hidden;
+}
+
+.business-membership .label-2 {
+  display: inline-flex;
+  align-items: center;
+  padding: 0px 0px 1.16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-8 {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-9 {
+  position: relative;
+  align-self: stretch;
+  flex: 0 0 auto;
+}
+
+.business-membership .view-4 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1140px;
+  height: 42px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0px 0px;
+  padding: 0px 570px 0px 0px;
+  position: relative;
+}
+
+.business-membership .input-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  width: 380px;
+  min-height: 1px;
+  align-items: flex-start;
+  padding: 1px;
+  position: relative;
+  align-self: stretch;
+}
+
+.business-membership .input-2 {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 42px;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+  background-color: var(--wwwsinbuyacomnero);
+  border: 1px solid;
+  border-color: var(--wwwsinbuyacomblack-15);
+}
+
+.business-membership .view-5 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1140px;
+  height: 44px;
+  align-items: flex-start;
+  gap: 0px 0px;
+  position: relative;
+}
+
+.business-membership .label-margin-2 {
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  max-width: 190px;
+  width: 190px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 0px 6.5px;
+  position: relative;
+}
+
+.business-membership .label-3 {
+  display: flex;
+  flex-direction: column;
+  max-width: 190px;
+  height: 37.5px;
+  align-items: flex-start;
+  padding: 9.25px 0px 8.75px 30px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.business-membership .input-3 {
+  width: 380px;
+  margin-top: -1px;
+  position: relative;
+  height: 42px;
+  background-color: var(--wwwsinbuyacomnero);
+  border: 1px solid;
+  border-color: var(--wwwsinbuyacomblack-15);
+}
+
+.business-membership .vertical-border {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 0px 0px 1px;
+  position: relative;
+  flex: 0 0 auto;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: var(--wwwsinbuyacomsilver);
+}
+
+.business-membership .button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  height: 42px;
+  align-items: center;
+  padding: 12.26px 9.75px 13.49px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: var(--wwwsinbuyacompunch);
+}
+
+.business-membership .text-wrapper-26 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.38px;
+  font-family: var(--www-sinbuya-com-noto-sans-display-regular-13-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-regular-13-font-weight);
+  color: var(--wwwsinbuyacomnero);
+  font-size: var(--www-sinbuya-com-noto-sans-display-regular-13-font-size);
+  text-align: center;
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-regular-13-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-regular-13-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-regular-13-font-style);
+}
+
+.business-membership .container-10 {
+  display: inline-flex;
+  flex-direction: column;
+  height: 44px;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-11 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0px 10px 60px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-27 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Noto Sans", Helvetica;
+  font-weight: 500;
+  color: var(--wwwsinbuyacomshark);
+  font-size: 13px;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .view-6 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1140px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0px 0px;
+  padding: 0px 570px 0px 0px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .label-margin-3 {
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  max-width: 190px;
+  width: 190px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 0px 6.5px;
+  position: relative;
+}
+
+.business-membership .container-12 {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  width: 380px;
+  height: 41px;
+  align-items: flex-start;
+  padding: 1px;
+  position: relative;
+}
+
+.business-membership .input-4 {
+  align-self: stretch;
+  width: 100%;
+  margin-top: -1px;
+  margin-bottom: -2px;
+  margin-left: -1px;
+  margin-right: -1px;
+  position: relative;
+  height: 42px;
+  background-color: var(--wwwsinbuyacomnero);
+  border: 1px solid;
+  border-color: var(--wwwsinbuyacomblack-15);
+}
+
+.business-membership .options-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1px 220px 1px 1px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .options {
+  display: flex;
+  flex-direction: column;
+  width: 161px;
+  height: 42px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 11.88px 9.75px 11.87px;
+  position: relative;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+  border: 1px solid;
+  border-color: var(--wwwsinbuyacomblack-15);
+  background-image: url(./img/options.svg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.business-membership .container-13 {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 16.25px;
+}
+
+.business-membership .text-wrapper-28 {
+  position: absolute;
+  width: 38px;
+  height: 16px;
+  top: -2px;
+  left: 0;
+  font-family: "Noto Sans", Helvetica;
+  font-weight: 500;
+  color: #000000bf;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 16.2px;
+  white-space: nowrap;
+}
+
+.business-membership .input-5 {
+  width: 381px;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  margin-left: -1px;
+  margin-right: -2px;
+  position: relative;
+  height: 42px;
+  background-color: var(--wwwsinbuyacomnero);
+  border: 1px solid;
+  border-color: var(--wwwsinbuyacomblack-15);
+}
+
+.business-membership .view-7 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1140px;
+  height: 42px;
+  align-items: flex-start;
+  gap: 0px 0px;
+  position: relative;
+}
+
+.business-membership .container-14 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  flex: 0 0 auto;
+}
+
+.business-membership .fieldset-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 100px 178px 50px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-15 {
+  display: flex;
+  flex-direction: column;
+  width: 1175px;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-16 {
+  display: flex;
+  flex-direction: column;
+  width: 1180px;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+  margin-right: -5px;
+}
+
+.business-membership .margin {
+  display: flex;
+  flex-direction: column;
+  max-width: 1180px;
+  height: 281.5px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 0px 19.5px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.business-membership .container-17 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1180px;
+  height: 262px;
+  align-items: flex-start;
+  gap: 6.5px;
+  padding: 0px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.business-membership .background-border {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  max-height: 200px;
+  height: 200px;
+  background-color: var(--wwwsinbuyacomnero);
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #dddddd;
+  overflow-y: scroll;
+}
+
+.business-membership .overlap {
+  position: absolute;
+  width: 1140px;
+  height: 371px;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .horizontal-border {
+  display: flex;
+  flex-direction: column;
+  width: 1140px;
+  align-items: flex-start;
+  padding: 0px 10px 314.11px;
+  top: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #dddddd;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-2 {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 1px;
+}
+
+.business-membership .overlap-group-2 {
+  width: 560px;
+  height: 294px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .item {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .div-4 {
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-29 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacommine-shaft);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .link-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 23px;
+  left: 0;
+}
+
+.business-membership .item-2 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 45px;
+  left: 0;
+}
+
+.business-membership .item-3 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 68px;
+  left: 0;
+}
+
+.business-membership .item-4 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 90px;
+  left: 0;
+}
+
+.business-membership .item-5 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 113px;
+  left: 0;
+}
+
+.business-membership .item-6 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 135px;
+  left: 0;
+}
+
+.business-membership .item-7 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 158px;
+  left: 0;
+}
+
+.business-membership .item-8 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 180px;
+  left: 0;
+}
+
+.business-membership .item-9 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 203px;
+  left: 0;
+}
+
+.business-membership .item-10 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 225px;
+  left: 0;
+}
+
+.business-membership .item-11 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 248px;
+  left: 0;
+}
+
+.business-membership .item-12 {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 271px;
+  left: 0;
+}
+
+.business-membership .overlap-2 {
+  position: absolute;
+  width: 560px;
+  height: 271px;
+  top: 0;
+  left: 560px;
+}
+
+.business-membership .article {
+  width: 1140px;
+  gap: 6.5px;
+  top: 313px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .link-2 {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 0.35px 0px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-30 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-13-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-13-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-13-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-13-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-13-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-13-font-style);
+}
+
+.business-membership .text-wrapper-31 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .overlap-3 {
+  position: absolute;
+  width: 1140px;
+  height: 2030px;
+  top: 382px;
+  left: 0;
+}
+
+.business-membership .article-2 {
+  display: flex;
+  flex-direction: column;
+  width: 1140px;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .item-13 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-18 {
+  display: flex;
+  flex-direction: column;
+  width: 12px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.business-membership .text-wrapper-32 {
+  margin-right: -0.28px;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .text-wrapper-33 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .text-wrapper-34 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .article-3 {
+  width: 1140px;
+  gap: 10px;
+  top: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-4 {
+  width: 1140px;
+  gap: 9.99px;
+  top: 379px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .item-14 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10.27px;
+  padding: 0px 10px 5px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-19 {
+  display: flex;
+  flex-direction: column;
+  width: 9px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.business-membership .text-wrapper-35 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-right: -0.59px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .article-5 {
+  width: 1140px;
+  gap: 9.99px;
+  top: 589px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-6 {
+  width: 1140px;
+  gap: 9.99px;
+  top: 681px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-7 {
+  width: 1140px;
+  gap: 10px;
+  top: 873px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-8 {
+  width: 1140px;
+  gap: 10px;
+  top: 1110px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .item-15 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  margin-top: -0.01px;
+}
+
+.business-membership .article-9 {
+  width: 1140px;
+  gap: 6.5px;
+  top: 1180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6.49px 0px 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-36 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-right: -0.6px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .article-10 {
+  width: 1140px;
+  gap: 10px;
+  top: 1389px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-11 {
+  width: 1140px;
+  gap: 6.5px;
+  top: 1558px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6.5px 0px 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .article-12 {
+  width: 1140px;
+  gap: 10px;
+  top: 1763px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.81e-13px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .article-13 {
+  width: 1140px;
+  gap: 10px;
+  top: 1850px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .item-16 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  margin-top: -1.28e-13px;
+}
+
+.business-membership .article-14 {
+  width: 1140px;
+  gap: 6.5px;
+  top: 1972px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .overlap-4 {
+  position: absolute;
+  width: 1140px;
+  height: 1934px;
+  top: 2423px;
+  left: 0;
+}
+
+.business-membership .article-15 {
+  width: 1140px;
+  gap: 10px;
+  top: 272px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-16 {
+  width: 1140px;
+  gap: 10px;
+  top: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-17 {
+  width: 1140px;
+  gap: 10px;
+  top: 942px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-18 {
+  width: 1140px;
+  gap: 10px;
+  top: 1057px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-19 {
+  width: 1140px;
+  gap: 6.5px;
+  top: 1149px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-20 {
+  width: 1140px;
+  gap: 10px;
+  top: 1358px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-21 {
+  width: 1140px;
+  gap: 10px;
+  top: 1450px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-22 {
+  width: 1140px;
+  gap: 9.99px;
+  top: 1564px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.27e-13px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-20 {
+  display: flex;
+  flex-direction: column;
+  width: 14px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.business-membership .text-wrapper-37 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-right: -0.18px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .article-23 {
+  width: 1140px;
+  gap: 10px;
+  top: 1806px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .item-17 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  margin-top: -7.67e-13px;
+}
+
+.business-membership .article-24 {
+  width: 1140px;
+  gap: 6.5px;
+  top: 1893px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .label-4 {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 3.72px 0px 0px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.business-membership .border {
+  position: relative;
+  width: 18.5px;
+  height: 18.5px;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.business-membership .overlap-5 {
+  position: relative;
+  width: 1108px;
+  height: 2566px;
+  top: 15px;
+  left: 16px;
+}
+
+.business-membership .article-25 {
+  width: 1108px;
+  gap: 10px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .heading-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 0.65px;
+  flex: 0 0 auto;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.business-membership .text-wrapper-38 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-13-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-13-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-13-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-13-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-13-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-13-font-style);
+}
+
+.business-membership .container-21 {
+  display: flex;
+  flex-direction: column;
+  width: 11px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.business-membership .text-wrapper-39 {
+  margin-right: -0.61px;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .text-wrapper-40 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-right: -7px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .article-26 {
+  width: 1108px;
+  gap: 10px;
+  top: 87px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .container-22 {
+  position: absolute;
+  width: 2px;
+  height: 18px;
+  top: 0;
+  left: 5px;
+}
+
+.business-membership .item-18 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17.5px;
+  padding: 0px 10px 5px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-41 {
+  position: relative;
+  width: fit-content;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .article-27 {
+  width: 1108px;
+  gap: 10px;
+  top: 457px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-7 {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 273.92px;
+}
+
+.business-membership .overlap-group-3 {
+  width: 1108px;
+  height: 213px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .item-19 {
+  display: flex;
+  flex-direction: column;
+  width: 1108px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-membership .item-table {
+  display: flex;
+  flex-direction: column;
+  max-width: 1108px;
+  width: 1078px;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  top: 23px;
+  left: 20px;
+}
+
+.business-membership .header-row {
+  display: inline-flex;
+  align-items: flex-end;
+  position: relative;
+  flex: 0 0 auto;
+  margin-right: -4.65px;
+}
+
+.business-membership .cell {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 9.98px 80.5px 11.02px;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .text-wrapper-42 {
+  position: relative;
+  width: fit-content;
+  margin-top: -2px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-bold-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-bold-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-bold-11-7-font-size);
+  text-align: center;
+  letter-spacing: var(--www-sinbuya-com-noto-sans-bold-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-bold-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-bold-11-7-font-style);
+}
+
+.business-membership .cell-2 {
+  padding: 9.98px 181.9px 11.02px 181.91px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .cell-3 {
+  padding: 9.98px 181.92px 11.02px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .body {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+  margin-right: -6.29px;
+  margin-top: -2.7e-13px;
+}
+
+.business-membership .row {
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: var(--wwwsinbuyacomblack-5);
+}
+
+.business-membership .data {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10.48px 85.73px 28.07px 85.72px;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .text-wrapper-43 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  text-align: center;
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .data-2 {
+  padding: 10.48px 38.38px 28.07px 38.36px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .IP-wrapper {
+  padding: 10.75px 11.05px 9.75px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .IP {
+  width: fit-content;
+  text-align: center;
+  position: relative;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .data-3 {
+  padding: 10.75px 57.96px 9.75px 57.97px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .data-4 {
+  padding: 10.75px 37.33px 9.75px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .data-5 {
+  padding: 10.75px 86.63px 9.75px 86.61px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .data-6 {
+  padding: 9.98px 40.62px 27.57px 40.61px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .data-7 {
+  padding: 10.75px 11.87px 9.75px 11.88px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .data-8 {
+  padding: 9.98px 183.09px 27.57px 183.08px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: var(--wwwsinbuyacomathens-gray);
+}
+
+.business-membership .overlap-6 {
+  position: absolute;
+  width: 1108px;
+  height: 46px;
+  top: 229px;
+  left: 0;
+}
+
+.business-membership .item-20 {
+  display: flex;
+  flex-direction: column;
+  width: 1108px;
+  align-items: flex-start;
+  padding: 0px 10px 5px 20px;
+  position: absolute;
+  top: 23px;
+  left: 0;
+}
+
+.business-membership .article-28 {
+  width: 1108px;
+  gap: 10px;
+  top: 755px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .text-wrapper-44 {
+  width: fit-content;
+  margin-right: -4px;
+  position: relative;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .item-21 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 0px 10px 17.99px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .article-29 {
+  width: 1108px;
+  gap: 6.5px;
+  top: 1259px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .container-23 {
+  display: flex;
+  flex-direction: column;
+  width: 4px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.business-membership .text-wrapper-45 {
+  width: fit-content;
+  margin-right: -0.23px;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  position: relative;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .text-wrapper-46 {
+  width: fit-content;
+  margin-right: -3px;
+  white-space: nowrap;
+  position: relative;
+  margin-top: -1px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .list-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 3.5px 0px 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .article-30 {
+  width: 1108px;
+  gap: 10px;
+  top: 1455px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-31 {
+  width: 1108px;
+  gap: 6.5px;
+  top: 1718px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-9 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6.51px 0px 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .text-wrapper-47 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-right: -5px;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-weight);
+  color: var(--wwwsinbuyacomshark);
+  font-size: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-size);
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-medium-11-7-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-medium-11-7-line-height);
+  font-style: var(--www-sinbuya-com-noto-sans-display-medium-11-7-font-style);
+}
+
+.business-membership .article-32 {
+  width: 1108px;
+  gap: 6.5px;
+  top: 2002px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .article-33 {
+  width: 1108px;
+  gap: 10px;
+  top: 2224px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .item-22 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.28px;
+  padding: 0px 10px 17.99px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .article-34 {
+  width: 1108px;
+  gap: 6.5px;
+  top: 2466px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .list-10 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.81e-13px;
+  padding: 6.49px 0px 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .container-24 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1180px;
+  height: 129.09px;
+  align-items: flex-start;
+  gap: 6.5px;
+  padding: 0px 20px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.business-membership .background-border-2 {
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  align-items: flex-start;
+  padding: 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: var(--wwwsinbuyacomnero);
+  border: 1px solid;
+  border-color: #dddddd;
+  overflow-y: scroll;
+}
+
+.business-membership .legend-2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+  width: 1534px;
+  align-items: center;
+  gap: 4.75px;
+  padding: 0px 936.69px 0px 936.67px;
+  position: absolute;
+  top: -20px;
+  left: 0;
+}
+
+.business-membership .background-2 {
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  padding: 0px 12.5px;
+  position: relative;
+  margin-left: -189.68px;
+  margin-right: -189.68px;
+  z-index: 2;
+  background-color: var(--wwwsinbuyacomvalencia);
+  border-radius: 40px;
+}
+
+.business-membership .text-wrapper-48 {
+  position: relative;
+  width: fit-content;
+  margin-left: -193.18px;
+  margin-right: -193.18px;
+  z-index: 1;
+  text-shadow: 1px 1px 1px #00000001;
+  font-family: "Noto Sans", Helvetica;
+  font-weight: 500;
+  color: var(--wwwsinbuyacommine-shaft);
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: -0.3px;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.business-membership .horizontal-divider {
+  width: 1534px;
+  height: 1px;
+  top: 20px;
+  z-index: 0;
+  background-color: var(--wwwsinbuyacomalto);
+  position: absolute;
+  left: 0;
+}
+
+.business-membership .button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 810px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.business-membership .button-2 {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  width: 300px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 66.39px 18px 66.38px;
+  position: relative;
+  margin-left: -192px;
+  margin-right: -192px;
+  background-color: var(--wwwsinbuyacomalabaster);
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.business-membership .text-wrapper-49 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-left: -1.39px;
+  margin-right: -1.38px;
+  font-family: var(--www-sinbuya-com-noto-sans-display-extrabold-20-font-family);
+  font-weight: var(--www-sinbuya-com-noto-sans-display-extrabold-20-font-weight);
+  color: var(--wwwsinbuyacommine-shaft);
+  font-size: var(--www-sinbuya-com-noto-sans-display-extrabold-20-font-size);
+  text-align: center;
+  letter-spacing: var(--www-sinbuya-com-noto-sans-display-extrabold-20-letter-spacing);
+  line-height: var(--www-sinbuya-com-noto-sans-display-extrabold-20-line-height);
+  white-space: nowrap;
+  font-style: var(--www-sinbuya-com-noto-sans-display-extrabold-20-font-style);
+}
