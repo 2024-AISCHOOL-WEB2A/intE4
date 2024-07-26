@@ -40,7 +40,7 @@ public class WeddingHallDAO {
                 WeddingHall weddingHall = new WeddingHall();
                 weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
                 weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
-                weddingHall.setWeddingHallMealCost(rs.getString("WEDDING_HALL_MEAL_COST"));
+                weddingHall.setWeddingHallMealCost(rs.getInt("WEDDING_HALL_MEAL_COST"));
                 weddingHall.setWeddingHallAssurance(rs.getString("WEDDING_HALL_ASSURANCE"));
                 weddingHall.setWeddingHallType(rs.getString("WEDDING_HALL_TYPE"));
                 weddingHall.setWeddingHallPrice(rs.getString("WEDDING_HALL_PRICE"));
@@ -104,7 +104,7 @@ public class WeddingHallDAO {
                     weddingHall = new WeddingHall();
                     weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
                     weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
-                    weddingHall.setWeddingHallMealCost(rs.getString("WEDDING_HALL_MEAL_COST"));
+                    weddingHall.setWeddingHallMealCost(rs.getInt("WEDDING_HALL_MEAL_COST"));
                     weddingHall.setWeddingHallAssurance(rs.getString("WEDDING_HALL_ASSURANCE"));
                     weddingHall.setWeddingHallType(rs.getString("WEDDING_HALL_TYPE"));
                     weddingHall.setWeddingHallPrice(rs.getString("WEDDING_HALL_PRICE"));

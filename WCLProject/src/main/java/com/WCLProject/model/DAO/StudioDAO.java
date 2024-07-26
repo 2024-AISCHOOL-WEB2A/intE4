@@ -42,7 +42,7 @@ public class StudioDAO {
                 studio.setStudioId(rs.getString("STUDIO_ID"));
                 studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
                 studio.setStudioConcept(rs.getString("STUDIO_CONCEPT"));
-                studio.setStudioPrice(rs.getString("STUDIO_PRICE"));
+                studio.setStudioPrice(rs.getInt("STUDIO_PRICE"));
                 studio.setStudioContent(rs.getString("STUDIO_CONTENT"));
                 studio.setStudioDate(rs.getTimestamp("STUDIO_DATE"));
                 studio.setVendorId(rs.getString("VENDOR_ID"));
@@ -104,7 +104,7 @@ public class StudioDAO {
                     studio.setStudioId(rs.getString("STUDIO_ID"));
                     studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
                     studio.setStudioConcept(rs.getString("STUDIO_CONCEPT"));
-                    studio.setStudioPrice(rs.getString("STUDIO_PRICE"));
+                    studio.setStudioPrice(rs.getInt("STUDIO_PRICE"));
                     studio.setStudioContent(rs.getString("STUDIO_CONTENT"));
                     studio.setStudioDate(rs.getTimestamp("STUDIO_DATE"));
                     studio.setVendorId(rs.getString("VENDOR_ID"));

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class WeddingHall {
     private String weddingHallId;
     private String weddingHallBrand;
-    private String weddingHallMealCost;
+    private int weddingHallMealCost;
     private String weddingHallAssurance;
     private String weddingHallType;
     private String weddingHallPrice;
@@ -32,11 +32,11 @@ public class WeddingHall {
         this.weddingHallBrand = weddingHallBrand;
     }
 
-    public String getWeddingHallMealCost() {
+    public int getWeddingHallMealCost() {
         return weddingHallMealCost;
     }
 
-    public void setWeddingHallMealCost(String weddingHallMealCost) {
+    public void setWeddingHallMealCost(int weddingHallMealCost) {
         this.weddingHallMealCost = weddingHallMealCost;
     }
 
