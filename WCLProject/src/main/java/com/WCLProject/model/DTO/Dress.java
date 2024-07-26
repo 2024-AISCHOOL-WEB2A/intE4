@@ -35,7 +35,6 @@ public class Dress extends ProductDTO {
 		this.dressTitle = dressTitle;
 	}
     
-    
 	public Dress(String dressBrand, String dressFabric, String dressLine, String dressStyle, int dressPrice,
 			String dressContent, String vendorId, String photoPath, String dressTitle) {
 		super();
@@ -50,6 +49,15 @@ public class Dress extends ProductDTO {
 		this.dressTitle = dressTitle;
 	}
 
+	public Dress(String photoPath, String dressTitle, int dressPrice, String dressFabric, String dressLine, String dressStyle, Timestamp dressDate) {
+		this.photoPath = photoPath;
+		this.dressTitle = dressTitle;
+		this.dressPrice = dressPrice;
+		this.dressFabric = dressFabric;
+		this.dressLine = dressLine;
+		this.dressStyle = dressStyle;
+		this.dressDate = dressDate;
+	}
 
 	// Getters and setters
     public String getDressBrand() {
