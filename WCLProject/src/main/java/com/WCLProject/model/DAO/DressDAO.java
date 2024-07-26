@@ -203,4 +203,41 @@ public class DressDAO {
 		return cnt;
 	}
 
+	// 드레스 상품 등록 조회
+	public ArrayList<Dress> getProductDress(String id) {
+		ArrayList<Dress> dresses = new ArrayList<Dress>();
+		
+		String sql = "SELECT PHOTO_PATH, DRESS_TITLE, DRESS_PRICE, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_DATE FROM DRESS WHERE VENDOR_ID = ?;";
+		
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				Dress dress = new Dress();
+				dress.setPhotoPath(rs.getString("PHOTO_PATH"));
+                dress.setDressTitle(rs.getString("DRESS_TITLE"));
+                dress.setDressPrice(rs.getInt("DRESS_PRICE"));
+                dress.setDressFabric(rs.getString("DRESS_FABRIC"));
+                dress.setDressLine(rs.getString("DRESS_LINE"));
+                dress.setDressStyle(rs.getString("DRESS_STYLE"));
+                dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
+                dresses.add(dress);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+		
+		return dresses;
+	}
+	
+	
 }

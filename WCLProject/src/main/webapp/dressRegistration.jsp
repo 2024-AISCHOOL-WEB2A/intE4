@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="com.WCLProject.model.DTO.Dress"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,33 +41,36 @@
 					</tr>
 				</thead>
 				<tbody>
+					<%
+					// DressDTO 리스트를 가져옴
+					ArrayList<Dress> dressList = (ArrayList<Dress>) request.getAttribute("dressList");
+
+					// dressList가 null인지 확인하고, null이 아닌 경우 출력
+					if (dressList != null) {
+						int index = 1;
+						for (Dress dress : dressList) {
+					%>
 					<tr>
-						<td>1</td>
-						<td><img src="./upload/dress/dress002.jpg" alt="상품 이미지"
-							class="product-image"></td>
-						<td>상품명 1</td>
-						<td>₩100,000</td>
-						<td>면</td>
-						<td>라인 A</td>
-						<td>화려함</td>
-						<td>2024-07-26</td>
-						<td><button class="btn-edit" onclick="editProduct(1)">수정</button></td>
-						<td><button class="btn-delete" onclick="deleteProduct(1)">삭제</button></td>
+						<td><%=index++%></td>
+						<td><img src="<%=dress.getPhotoPath()%>"
+							alt="<%=dress.getDressTitle()%>" width="100"></td>
+						<td><%=dress.getDressTitle()%></td>
+						<td><%=dress.getDressPrice()%></td>
+						<td><%=dress.getDressFabric()%></td>
+						<td><%=dress.getDressLine()%></td>
+						<td><%=dress.getDressStyle()%></td>
+						<td><%=dress.getDressDate()%></td>
 					</tr>
+					<%
+					}
+					} else {
+					%>
 					<tr>
-						<td>2</td>
-						<td><img src="./upload/dress/dress003.jpg" alt="상품 이미지"
-							class="product-image" /></td>
-						<td>상품명 2</td>
-						<td>₩200,000</td>
-						<td>폴리에스터</td>
-						<td>라인 B</td>
-						<td>세련됨</td>
-						<td>2024-07-25</td>
-						<td><button class="btn-edit" onclick="editProduct(2)">수정</button></td>
-						<td><button class="btn-delete" onclick="deleteProduct(2)">삭제</button></td>
+						<td colspan="10">No dresses available.</td>
 					</tr>
-					<!-- 추가 상품 데이터 -->
+					<%
+					}
+					%>
 				</tbody>
 			</table>
 		</div>
