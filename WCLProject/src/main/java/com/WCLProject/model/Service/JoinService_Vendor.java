@@ -21,10 +21,6 @@ public class JoinService_Vendor extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
-		/*
-		 * String licenseImagePath = (String) session.getAttribute("licenseImagePath");
-		 * String logoImagePath = (String) session.getAttribute("logoImagePath");
-		 */
 		
 		String id = request.getParameter("vendor_id");
 		System.out.println("Vendor ID: " + id); 
@@ -37,10 +33,6 @@ public class JoinService_Vendor extends HttpServlet {
 		String extraAddress = request.getParameter("vendor_extraAddress");
 		String license = request.getParameter("vendor_license");
 		String category = request.getParameter("vendor_category");
-		/*
-		 * String license_image = request.getParameter("vendor_license_image_file");
-		 * String logo_image = request.getParameter("vendor_logo_image_file");
-		 */
         String licenseImagePath = (String) session.getAttribute("licenseImagePath");
         String logoImagePath = (String) session.getAttribute("logoImagePath");
 		String intro = request.getParameter("vendor_intro");
@@ -70,10 +62,10 @@ public class JoinService_Vendor extends HttpServlet {
 
 		if (cnt > 0) {
 			System.out.println("회원가입 성공");
-			response.sendRedirect("signupSucess.jsp");
+			response.sendRedirect("mainPage.jsp");
 		} else {
 			System.out.println("회원가입 실패");
-			response.sendRedirect("sinup_vendor.jsp");
+			response.sendRedirect("sinupVendor.jsp");
 		}
 		
         session.removeAttribute("licenseImagePath");
