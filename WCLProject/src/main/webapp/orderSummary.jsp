@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.WCLProject.model.DTO.ReservationDTO"%>
 <%@ page import="com.WCLProject.model.DTO.Dress"%>
@@ -53,19 +53,21 @@
     <div class="container">
         <h1>주문서</h1>
         <%
-            // request 객체에서 reservations 리스트를 가져옴
-            List<ReservationDTO> reservations = (List<ReservationDTO>) request.getAttribute("reservations");
-            // 예약 리스트가 null이 아니고 비어있지 않은 경우
+            @SuppressWarnings("unchecked")
+            List<ReservationDTO> reservations = (List<ReservationDTO>) session.getAttribute("reservations");
+            
+            // 디버깅용 로그 메시지
+            System.out.println("세션에서 가져온 예약 목록: " + reservations);
+
             if (reservations != null && !reservations.isEmpty()) {
-                // 예약 리스트를 반복하면서 각 예약 정보를 출력
                 for (ReservationDTO reservation : reservations) {
-                    // 각 예약에 대한 카테고리를 확인하고 해당 객체를 가져옴
                     String vendorCategory = reservation.getVendorCategory();
-                    if ("Dress".equals(vendorCategory)) {
-                        Dress dress = reservation.getDress();
         %>
         <div class="order-summary">
             <h2>예약 정보</h2>
+            <% if ("드레스".equals(vendorCategory)) {
+                        Dress dress = reservation.getDress();
+                        if (dress != null) { %>
             <div class="order-item">
                 <img src="<%= dress.getPhotoPath() %>" alt="Dress Image">
                 <div>
@@ -76,13 +78,12 @@
                     <p>예약 날짜: <%= reservation.getReservationDate() %></p>
                 </div>
             </div>
-        </div>
-        <% 
-                    } else if ("Makeup".equals(vendorCategory)) {
+            <% } else { %>
+            <p>드레스 정보가 없습니다.</p>
+            <% }
+               } else if ("메이크업".equals(vendorCategory)) {
                         Makeup makeup = reservation.getMakeup();
-        %>
-        <div class="order-summary">
-            <h2>예약 정보</h2>
+                        if (makeup != null) { %>
             <div class="order-item">
                 <img src="<%= makeup.getPhotoPath() %>" alt="Makeup Image">
                 <div>
@@ -93,13 +94,12 @@
                     <p>예약 날짜: <%= reservation.getReservationDate() %></p>
                 </div>
             </div>
-        </div>
-        <% 
-                    } else if ("Studio".equals(vendorCategory)) {
+            <% } else { %>
+            <p>메이크업 정보가 없습니다.</p>
+            <% }
+               } else if ("스튜디오".equals(vendorCategory)) {
                         Studio studio = reservation.getStudio();
-        %>
-        <div class="order-summary">
-            <h2>예약 정보</h2>
+                        if (studio != null) { %>
             <div class="order-item">
                 <img src="<%= studio.getPhotoPath() %>" alt="Studio Image">
                 <div>
@@ -110,13 +110,12 @@
                     <p>예약 날짜: <%= reservation.getReservationDate() %></p>
                 </div>
             </div>
-        </div>
-        <% 
-                    } else if ("WeddingHall".equals(vendorCategory)) {
+            <% } else { %>
+            <p>스튜디오 정보가 없습니다.</p>
+            <% }
+               } else if ("웨딩홀".equals(vendorCategory)) {
                         WeddingHall weddingHall = reservation.getWeddingHall();
-        %>
-        <div class="order-summary">
-            <h2>예약 정보</h2>
+                        if (weddingHall != null) { %>
             <div class="order-item">
                 <img src="<%= weddingHall.getPhotoPath() %>" alt="Wedding Hall Image">
                 <div>
@@ -126,15 +125,13 @@
                     <p>예약 날짜: <%= reservation.getReservationDate() %></p>
                 </div>
             </div>
+            <% } else { %>
+            <p>웨딩홀 정보가 없습니다.</p>
+            <% } } %>
         </div>
-        <% 
-                    }
-                }
-            } else { 
-        %>
+        <% } } else { %>
         <p>예약된 항목이 없습니다.</p>
         <% } %>
     </div>
 </body>
 </html>
- --%>
