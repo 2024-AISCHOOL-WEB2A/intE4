@@ -1,10 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/mainPage_globals.css" />
-    <link rel="stylesheet" href="./css/mainPage_styleguide.css" />
-    <link rel="stylesheet" href="./css/mainPage_style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mainPage_globals.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mainPage_styleguide.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mainPage_style.css" />
   </head>
   <body>
     <div class="main">
@@ -20,7 +21,7 @@
                 <div class="text-wrapper-3">메이크업</div>
               </div>
               <div class="frame-3">
-                <div class="text-wrapper-4"><a href="LoginWcl.jsp">로그인</a></div>
+                <div class="text-wrapper-4"><a href="${pageContext.request.contextPath}/LoginWcl.jsp">로그인</a></div>
                 <div class="text-wrapper-4">회원가입</div>
               </div>
             </div>
@@ -35,10 +36,10 @@
             </div>
           </header>
         </div>
-        <div class="rectangle-wrapper"><img class="rectangle" src="./page_img/mainPage_img/rectangle-15.png" /></div>
+        <div class="rectangle-wrapper"><img class="rectangle" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-15.png" /></div>
         <div class="frame-wrapper">
           <div class="frame-4">
-            <img class="icon" src="./page_img/mainPage_img/icon.svg" />
+            <img class="icon" src="${pageContext.request.contextPath}/page_img/mainPage_img/icon.svg" />
             <div class="frame-5">
               <div class="frame-6">
                 <div class="image-background"></div>
@@ -57,7 +58,7 @@
                 <div class="text-wrapper-5">메이크업</div>
               </div>
             </div>
-            <img class="img" src="./page_img/mainPage_img/icon-1.svg" />
+            <img class="img" src="${pageContext.request.contextPath}/page_img/mainPage_img/icon-1.svg" />
           </div>
         </div>
         <div class="frame-7">
@@ -68,28 +69,28 @@
                   <div class="text-wrapper-6">드레스 라인</div>
                   <div class="frame-9">
                     <div class="group">
-                      <img class="rectangle-2" src="./page_img/mainPage_img/rectangle-19.png" />
+                      <img class="rectangle-2" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19.png" />
                       <p class="p">
                         <span class="span">미유&amp;섬 스튜디오<br /><br /></span>
                         <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                       </p>
                     </div>
                     <div class="group-2">
-                      <img class="rectangle-2" src="./page_img/mainPage_img/rectangle-20.png" />
+                      <img class="rectangle-2" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20.png" />
                       <p class="div-2">
                         <span class="span">미유&amp;섬 스튜디오<br /><br /></span>
                         <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                       </p>
                     </div>
                     <div class="group-3">
-                      <img class="rectangle-2" src="./page_img/mainPage_img/rectangle-21.png" />
+                      <img class="rectangle-2" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21.png" />
                       <p class="div-3">
                         <span class="span">미유&amp;섬 스튜디오<br /><br /></span>
                         <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                       </p>
                     </div>
                     <div class="group-4">
-                      <img class="rectangle-2" src="./page_img/mainPage_img/rectangle-22.png" />
+                      <img class="rectangle-2" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22.png" />
                       <p class="div-3">
                         <span class="span">미유&amp;섬 스튜디오<br /><br /></span>
                         <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
@@ -106,28 +107,28 @@
                 <div class="text-wrapper-8">스튜디오 라인</div>
                 <div class="frame-9">
                   <div class="group-5">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-19-1.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19-1.png" />
                     <p class="div-4">
                       <span class="span">미유&amp;섬 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-5">
-                    <img class="rectangle-4" src="./page_img/mainPage_img/rectangle-20-1.png" />
+                    <img class="rectangle-4" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20-1.png" />
                     <p class="div-4">
                       <span class="span">가을 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-5">
-                    <img class="rectangle-4" src="./page_img/mainPage_img/rectangle-21-1.png" />
+                    <img class="rectangle-4" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21-1.png" />
                     <p class="div-4">
                       <span class="span">S스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-6">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-22-1.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22-1.png" />
                     <p class="div-4">
                       <span class="span">I DO 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
@@ -143,28 +144,28 @@
                 <div class="text-wrapper-8">메이크업 라인</div>
                 <div class="frame-9">
                   <div class="group-5">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-19-2.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19-2.png" />
                     <p class="div-4">
                       <span class="span">미유&amp;섬 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-5">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-20-2.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20-2.png" />
                     <p class="div-4">
                       <span class="span">가을 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-5">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-21-2.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21-2.png" />
                     <p class="div-4">
                       <span class="span">S스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-6">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-22-2.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22-2.png" />
                     <p class="div-4">
                       <span class="span">I DO 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
@@ -180,28 +181,28 @@
                 <div class="text-wrapper-8">웨딩홀 라인</div>
                 <div class="frame-9">
                   <div class="group-5">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-19-3.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19-3.png" />
                     <p class="div-4">
                       <span class="span">미유&amp;섬 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-5">
-                    <img class="rectangle-4" src="./page_img/mainPage_img/rectangle-20-3.png" />
+                    <img class="rectangle-4" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20-3.png" />
                     <p class="div-4">
                       <span class="span">가을 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-5">
-                    <img class="rectangle-4" src="./page_img/mainPage_img/rectangle-21-3.png" />
+                    <img class="rectangle-4" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21-3.png" />
                     <p class="div-4">
                       <span class="span">S스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
                     </p>
                   </div>
                   <div class="group-6">
-                    <img class="rectangle-3" src="./page_img/mainPage_img/rectangle-22-3.png" />
+                    <img class="rectangle-3" src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22-3.png" />
                     <p class="div-4">
                       <span class="span">I DO 스튜디오<br /><br /></span>
                       <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
