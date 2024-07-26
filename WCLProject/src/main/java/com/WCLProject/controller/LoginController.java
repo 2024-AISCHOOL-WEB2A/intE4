@@ -34,9 +34,11 @@ public class LoginController extends HttpServlet {
             if (info instanceof UserMemberDTO) {
                 UserMemberDTO userInfo = (UserMemberDTO) info;
                 session.setAttribute("userInfo", userInfo); // 일반회원 정보로 세션 설정
+                session.setAttribute("userId", userInfo.getId());
             } else if (info instanceof VendorMemberDTO) {
                 VendorMemberDTO vendorInfo = (VendorMemberDTO) info;
                 session.setAttribute("vendorInfo", vendorInfo); // 기업회원 정보로 세션 설정
+                session.setAttribute("vendorId", vendorInfo.getId());
             }
             response.sendRedirect("LoginfuncWcl.jsp");            
         } else {
