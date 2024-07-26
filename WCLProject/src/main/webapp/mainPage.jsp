@@ -21,7 +21,7 @@
                 <div class="text-wrapper-3">메이크업</div>
               </div>
               <div class="frame-3">
-                <div class="text-wrapper-4"><a href="${pageContext.request.contextPath}/LoginWcl.jsp">로그인</a></div>
+                <div class="text-wrapper-4" onclick="moveToLogin()">로그인</div>
                 <div class="text-wrapper-4">회원가입</div>
               </div>
             </div>
@@ -251,5 +251,13 @@
         </footer>
       </div>
     </div>
+    
+    
+    
+<script>
+  function moveToLogin() {
+    window.location.href = '${pageContext.request.contextPath}/LoginWcl.jsp';
+  }
+</script>
   </body>
 </html>
