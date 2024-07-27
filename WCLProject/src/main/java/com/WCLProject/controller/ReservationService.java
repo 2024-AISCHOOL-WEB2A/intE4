@@ -41,6 +41,12 @@ public class ReservationService extends HttpServlet {
         double itemPrice = Double.parseDouble(request.getParameter("item_price"));
         String reservationId = java.util.UUID.randomUUID().toString();
 
+        // vendorCategory가 null인지 확인
+        if (vendorCategory == null) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Vendor category is required.");
+            return;
+        }
+
         // 영어로 입력된 vendor_category를 한국어로 변환
         switch (vendorCategory) {
             case "Dress":
