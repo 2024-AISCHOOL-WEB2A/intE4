@@ -44,6 +44,22 @@
             object-fit: cover;
             cursor: pointer;
         }
+        /* 추가된 버튼 스타일 */
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-container a:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -72,7 +88,7 @@
                 <p><strong>Date:</strong> <%= dress.getDressDate() %></p>
             </div>
         </div>
- 		<!-- 같은 브랜드의 다른 드레스 이미지 출력 -->
+        <!-- 같은 브랜드의 다른 드레스 이미지 출력 -->
         <h2>More dresses from <%= dress.getDressBrand() %></h2>
         <div class="thumbnail-images">
             <% for(Dress brandDress : brandDresses) { %>
@@ -80,6 +96,10 @@
                      alt="<%= brandDress.getDressBrand() %>"
                      onclick="location.href='<%= request.getContextPath() %>/dressDetail.jsp?id=<%= brandDress.getId() %>'">
             <% } %>
+        </div>
+        <!-- 추가된 버튼 -->
+        <div class="btn-container">
+            <a href="<%= request.getContextPath() %>/anotherPage.jsp">예약 하기</a>
         </div>
     </div>
 </body>
