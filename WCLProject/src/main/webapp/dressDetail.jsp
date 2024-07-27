@@ -64,7 +64,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Wedding Choise</h1>
+        <h1>Wedding Choice</h1>
         <%
             String dressId = request.getParameter("id");
             DressDAO dressDAO = new DressDAO();
@@ -97,9 +97,20 @@
                      onclick="location.href='<%= request.getContextPath() %>/dressDetail.jsp?id=<%= brandDress.getId() %>'">
             <% } %>
         </div>
-        <!-- 추가된 버튼 -->
+        <!-- 예약 버튼 -->
         <div class="btn-container">
-            <a href="<%= request.getContextPath() %>/anotherPage.jsp">예약 하기</a>
+            <form action="reservation.jsp" method="post">
+                       
+                        <input type="hidden" name="item_brand" value="<%= dress.getDressBrand() %>">
+                        <input type="hidden" name="fabric" value="<%= dress.getDressFabric() %>">
+                        <input type="hidden" name="line" value="<%= dress.getDressLine() %>">
+                        <input type="hidden" name="style" value="<%= dress.getDressStyle() %>">
+                        <input type="hidden" name="item_price" value="<%= dress.getDressPrice() %>">
+                        <input type="hidden" name="item_content" value="<%= dress.getDressContent() %>">
+                        <input type="hidden" name="photo_path" value="<%= dress.getPhotoPath() %>">
+                        <input type="hidden" name="category" value="Dress">
+                        <button type="submit">예약하기</button>
+          	</form>
         </div>
     </div>
 </body>

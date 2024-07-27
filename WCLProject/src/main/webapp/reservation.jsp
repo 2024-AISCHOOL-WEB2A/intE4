@@ -60,7 +60,7 @@
     <div class="container">
         <div class="reservation-form">
             <h2>예약</h2>
-            <img src="path/to/item_image.jpg" alt="Item Image" class="item-image"/>
+            <img src="<%= request.getContextPath() %>/upload/weddinghall/<%= request.getParameter("photo_path") %>" alt="Item Image" class="item-image"/>
             <form action="ReservationService" method="post">
                 <div class="form-group">
                     <label for="user_id">회원 ID:</label>
@@ -68,16 +68,15 @@
                 </div>
                 <div class="form-group">
                     <label for="item_id">아이템 ID:</label>
-                    <input type="text" id="item_id" name="item_id" required>
+                    <input type="text" id="item_id" name="item_id" value="<%= request.getParameter("item_id") %>" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="vendor_category">카테고리:</label>
-                    <select id="vendor_category" name="vendor_category" required>
-                        <option value="Dress">드레스</option>
-                        <option value="Makeup">메이크업</option>
-                        <option value="Studio">스튜디오</option>
-                        <option value="WeddingHall">웨딩홀</option>
-                    </select>
+                    <label for="item_brand">브랜드:</label>                   
+                    <input type="text" id="item_brand" name="item_brand" value="<%= request.getParameter("item_brand") %>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="category">카테고리:</label>
+                    <input type="text" id="category" name="category" value="<%= request.getParameter("category") %>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="reservation_date">예약 날짜:</label>
@@ -93,7 +92,7 @@
                 </div>
                 <div class="form-group">
                     <label for="item_price">가격:</label>
-                    <input type="number" step="0.01" id="item_price" name="item_price" required>
+                    <input type="number" step="0.01" id="item_price" name="item_price" value="<%= request.getParameter("item_price") %>" readonly>
                 </div>
                 <div class="form-group">
                     <button type="submit">예약</button>
@@ -104,3 +103,4 @@
     </div>
 </body>
 </html>
+                    
