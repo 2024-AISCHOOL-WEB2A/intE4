@@ -99,7 +99,7 @@
         </div>
         <!-- 예약 버튼 -->
         <div class="btn-container">
-            <form action="reservation.jsp" method="post">
+            <form action="reservation.jsp" method="get">
                        
                         <input type="hidden" name="item_brand" value="<%= dress.getDressBrand() %>">
                         <input type="hidden" name="fabric" value="<%= dress.getDressFabric() %>">

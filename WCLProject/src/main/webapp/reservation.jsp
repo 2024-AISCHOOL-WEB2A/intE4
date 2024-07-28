@@ -63,11 +63,11 @@
             <%
                 // 세션에서 회원 ID 가져오기
                 HttpSession userSession = request.getSession();
-                String userId = (String) userSession.getAttribute("user_id");
+                String userId = (String) userSession.getAttribute("userId");
                 
                 // 전달된 파라미터 값 가져오기
                 String itemId = request.getParameter("item_id");
-                String itemBrand = request.getParameter("item_brand");
+                String itemBrand = request.getParameter("item_brand");                      
                 String fabric = request.getParameter("fabric");
                 String line = request.getParameter("line");
                 String style = request.getParameter("style");
@@ -78,7 +78,7 @@
             %>
             <img src="<%= request.getContextPath() %>/upload/dress/<%= photoPath %>" alt="Item Image" class="item-image"/>
             <!-- 예약 폼 시작 -->
-            <form action="ReservationService" method="post">
+            <form action="ReservationService" method="get">
                 <!-- 회원 ID 입력 필드 -->
                 <div class="form-group">
                     <label for="user_id">회원 ID:</label>
