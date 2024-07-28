@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="com.WCLProject.model.DTO.ReservationDTO" %>
-<%@ page import="com.WCLProject.model.DTO.Dress" %>
-<%@ page import="com.WCLProject.model.DTO.Makeup" %>
-<%@ page import="com.WCLProject.model.DTO.Studio" %>
-<%@ page import="com.WCLProject.model.DTO.WeddingHall" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Order Summary</title>
+    <title>주문서</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,80 +13,110 @@
             align-items: center;
             height: 100vh;
         }
-        .summary-table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 18px;
-            text-align: left;
+        .order-summary {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin-bottom: 20px;
         }
-        .summary-table th, .summary-table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
+        .order-summary h2 {
+            margin-bottom: 20px;
         }
-        .summary-table th {
-            background-color: #f2f2f2;
+        .order-detail {
+            margin-bottom: 15px;
         }
-        .summary-table img {
-            max-width: 100px;
-            height: auto;
+        .order-detail label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .order-detail span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-group button:hover {
+            background-color: #4cae4c;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Order Summary</h2>
-        <table class="summary-table">
-            <tr>
-                <th>Image</th>
-                <th>Details</th>
-                <th>Price</th>
-                <th>Date</th>
-                <th>State</th>
-            </tr>
-            <%
-                // 중복 변수 선언 문제 해결
-                HttpSession currentSession = request.getSession();
-                List<ReservationDTO> reservations = (List<ReservationDTO>) currentSession.getAttribute("reservations");
-                if (reservations != null) {
-                    for (ReservationDTO reservation : reservations) {
-                        String itemImage = "";
-                        String itemDetails = "";
-                        switch (reservation.getVendorCategory()) {
-                            case "드레스":
-                                Dress dress = reservation.getDress();
-                                itemImage = dress.getPhotoPath();
-                                itemDetails = dress.getDressBrand() + "<br>" + dress.getDressStyle();
-                                break;
-                            case "메이크업":
-                                Makeup makeup = reservation.getMakeup();
-                                itemImage = makeup.getPhotoPath();
-                                itemDetails = makeup.getMakeupBrand() + "<br>" + makeup.getMakeupStyle();
-                                break;
-                            case "스튜디오":
-                                Studio studio = reservation.getStudio();
-                                itemImage = studio.getPhotoPath();
-                                itemDetails = studio.getStudioName() + "<br>" + studio.getStudioLocation();
-                                break;
-                            case "웨딩홀":
-                                WeddingHall weddingHall = reservation.getWeddingHall();
-                                itemImage = weddingHall.getPhotoPath();
-                                itemDetails = weddingHall.getWeddingHallBrand() + "<br>" + weddingHall.getWeddingHallType();
-                                break;
-                        }
-            %>
-            <tr>
-                <td><img src="<%= itemImage %>" alt="Item Image"></td>
-                <td><%= itemDetails %></td>
-                <td><%= reservation.getItemPrice() %></td>
-                <td><%= reservation.getReservationDate() %></td>
-                <td><%= reservation.getReservationState() %></td>
-            </tr>
-            <%
-                    }
-                }
-            %>
-        </table>
+    <div class="order-summary">
+        <h2>주문서</h2>
+        <%
+            // 세션에서 예약 정보를 가져오기
+            String userId = (String) session.getAttribute("userId");
+            String itemId = request.getParameter("item_id");
+            String itemBrand = request.getParameter("item_brand");
+            String fabric = request.getParameter("fabric");
+            String line = request.getParameter("line");
+            String style = request.getParameter("style");
+            String itemPrice = request.getParameter("item_price");
+            String reservationDate = request.getParameter("reservation_date");
+            String reservationTime = request.getParameter("reservation_time");
+            String reservationState = "예약대기중";
+        %>
+        <div class="order-detail">
+            <label>회원 ID:</label>
+            <span><%= userId %></span>
+        </div>
+        <div class="order-detail">
+            <label>아이템 ID:</label>
+            <span><%= itemId %></span>
+        </div>
+        <div class="order-detail">
+            <label>카테고리:</label>
+            <span><%= request.getParameter("category") %></span>
+        </div>
+        <div class="order-detail">
+            <label>브랜드:</label>
+            <span><%= itemBrand %></span>
+        </div>
+        <div class="order-detail">
+            <label>Fabric:</label>
+            <span><%= fabric %></span>
+        </div>
+        <div class="order-detail">
+            <label>Line:</label>
+            <span><%= line %></span>
+        </div>
+        <div class="order-detail">
+            <label>Style:</label>
+            <span><%= style %></span>
+        </div>
+        <div class="order-detail">
+            <label>가격:</label>
+            <span><%= itemPrice %></span>
+        </div>
+        <div class="order-detail">
+            <label>예약 날짜:</label>
+            <span><%= reservationDate %></span>
+        </div>
+        <div class="order-detail">
+            <label>예약 시간:</label>
+            <span><%= reservationTime %></span>
+        </div>
+        <div class="order-detail">
+            <label>예약 상태:</label>
+            <span><%= reservationState %></span>
+        </div>
+        <div class="button-group">
+            <button onclick="window.history.back();">수정하기</button>
+            <button onclick="window.location.href='confirmOrder.jsp';">확인하기</button>
+        </div>
     </div>
 </body>
 </html>
