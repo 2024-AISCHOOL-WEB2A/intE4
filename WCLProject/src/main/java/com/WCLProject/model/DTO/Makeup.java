@@ -6,7 +6,7 @@ public class Makeup {
     private String makeupId;
     private String makeupBrand;
     private String makeupConcept;
-    private int makeupPrice;
+    private String makeupPrice;
     private String makeupContent;
     private Timestamp makeupDate;
     private String vendorId;
@@ -38,11 +38,11 @@ public class Makeup {
         this.makeupConcept = makeupConcept;
     }
 
-    public int getMakeupPrice() {
+    public String getMakeupPrice() {
         return makeupPrice;
     }
 
-    public void setMakeupPrice(int makeupPrice) {
+    public void setMakeupPrice(String makeupPrice) {
         this.makeupPrice = makeupPrice;
     }
 

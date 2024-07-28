@@ -6,7 +6,7 @@ public class Studio {
     private String studioId;
     private String studioBrand;
     private String studioConcept;
-    private int studioPrice;
+    private String studioPrice;
     private String studioContent;
     private Timestamp studioDate;
     private String vendorId;
@@ -38,11 +38,11 @@ public class Studio {
         this.studioConcept = studioConcept;
     }
 
-    public int getStudioPrice() {
+    public String getStudioPrice() {
         return studioPrice;
     }
 
-    public void setStudioPrice(int studioPrice) {
+    public void setStudioPrice(String studioPrice) {
         this.studioPrice = studioPrice;
     }
 

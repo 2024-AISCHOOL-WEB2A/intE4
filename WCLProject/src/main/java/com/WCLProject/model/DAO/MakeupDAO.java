@@ -42,7 +42,7 @@ public class MakeupDAO {
                 makeup.setMakeupId(rs.getString("MAKEUP_ID"));
                 makeup.setMakeupBrand(rs.getString("MAKEUP_BRAND"));
                 makeup.setMakeupConcept(rs.getString("MAKEUP_CONCEPT"));
-                makeup.setMakeupPrice(rs.getInt("MAKEUP_PRICE"));
+                makeup.setMakeupPrice(rs.getString("MAKEUP_PRICE"));
                 makeup.setMakeupContent(rs.getString("MAKEUP_CONTENT"));
                 makeup.setMakeupDate(rs.getTimestamp("MAKEUP_DATE"));
                 makeup.setVendorId(rs.getString("VENDOR_ID"));
@@ -104,7 +104,7 @@ public class MakeupDAO {
                     makeup.setMakeupId(rs.getString("MAKEUP_ID"));
                     makeup.setMakeupBrand(rs.getString("MAKEUP_BRAND"));
                     makeup.setMakeupConcept(rs.getString("MAKEUP_CONCEPT"));
-                    makeup.setMakeupPrice(rs.getInt("MAKEUP_PRICE"));
+                    makeup.setMakeupPrice(rs.getString("MAKEUP_PRICE"));
                     makeup.setMakeupContent(rs.getString("MAKEUP_CONTENT"));
                     makeup.setMakeupDate(rs.getTimestamp("MAKEUP_DATE"));
                     makeup.setVendorId(rs.getString("VENDOR_ID"));
