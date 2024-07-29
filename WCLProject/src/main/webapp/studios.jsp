@@ -8,43 +8,62 @@
     <meta charset="UTF-8">
     <title>Wedding Studio Platform</title>
     <style>
-        body {
+		body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color: white;
         }
         .studio-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 0 150px;
+            justify-content: center;
+            padding: 0 100px;
+            margin-top: 20px;
         }
         .studio-item {
             width: 22%;
-            margin: 15px;
-            text-align: center;
+            margin: 18px;
+            text-align: left;
+            margin-bottom: 30px;
+            margin-top: 30px;
         }
         .studio-item img {
-            width: 100%;
-            height: auto;
+            width: 300px; /* 고정 너비 */
+		    height: 300px; /* 고정 높이 */
+		    object-fit: cover; /* 이미지를 요소 크기에 맞게 조정하면서 비율 유지, 넘치는 부분은 자름 */
+		    object-position: top; /* 이미지를 에 위치시킴 */
         }
         .pagination {
             text-align: center;
             margin-top: 20px;
+            margin-bottom: 100px;
         }
         .pagination a {
             margin: 0 5px;
             text-decoration: none;
-            color: #333;
+            color: black;
         }
         .pagination strong {
             margin: 0 5px;
-            color: #333;
+            color: #000;
+        }
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            margin-left: 177px;
+            font-size: 2em;
+        }
+        .studio-item-detail {
+        	margin-top: -17px;
         }
     </style>
 </head>
 <body>
-    <h1>STUDIOS</h1>
+    <header>
+        <jsp:include page="header3.jsp" />
+    </header>
+    <h1>스튜디오 라인</h1>
     	<!-- 페이징 기능 -->
     	<div class="studio-container">
         <%
@@ -74,9 +93,10 @@
             <a href="<%= request.getContextPath() %>/studioDetail.jsp?id=<%= studio.getStudioId() %>">
             	<img src="<%= request.getContextPath() %>/upload/studio/<%= studio.getPhotoPath() %>" alt="<%= studio.getStudioBrand() %>">
             </a>
-            <h3><%= studio.getStudioBrand() %></h3>
-            <p><%= studio.getStudioConcept() %></p>
-            <p><%= studio.getStudioContent() %></p>
+            <div class="studio-item-detail">
+	            <h3><%= studio.getStudioBrand() %></h3>
+	            <p><%= studio.getStudioTitle() %></p>
+            </div>
         </div>
         <% } %>
     </div>
@@ -96,5 +116,8 @@
             }
         %>
     </div>
+    <footer>
+        <jsp:include page="footer.jsp" />
+    </footer>    
 </body>
 </html>
