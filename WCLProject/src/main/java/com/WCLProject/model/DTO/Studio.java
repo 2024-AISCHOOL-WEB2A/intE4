@@ -6,12 +6,24 @@ public class Studio {
     private String studioId;
     private String studioBrand;
     private String studioConcept;
-    private String studioPrice;
+    private int studioPrice;
     private String studioContent;
     private Timestamp studioDate;
     private String vendorId;
     private String photoPath;
     private String studioTitle;
+    
+    public Studio() {}
+    
+    public Studio(String photoPath, String studioConcept, int studioPrice, String studioTitle, String studioContent, Timestamp studioDate, String studioId) {
+		this.photoPath = photoPath;
+		this.studioConcept = studioConcept;
+		this.studioPrice = studioPrice;
+		this.studioTitle = studioTitle;
+		this.studioContent = studioContent;
+		this.studioDate = studioDate;
+		this.studioId = studioId;
+    }
 
     // Getters and setters
     public String getStudioId() {
@@ -38,11 +50,11 @@ public class Studio {
         this.studioConcept = studioConcept;
     }
 
-    public String getStudioPrice() {
+    public int getStudioPrice() {
         return studioPrice;
     }
 
-    public void setStudioPrice(String studioPrice) {
+    public void setStudioPrice(int studioPrice) {
         this.studioPrice = studioPrice;
     }
 

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.WCLProject.model.DTO.Dress;
 import com.WCLProject.model.DTO.Studio;
 
 public class StudioDAO {
@@ -42,7 +43,7 @@ public class StudioDAO {
                 studio.setStudioId(rs.getString("STUDIO_ID"));
                 studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
                 studio.setStudioConcept(rs.getString("STUDIO_CONCEPT"));
-                studio.setStudioPrice(rs.getString("STUDIO_PRICE"));
+                studio.setStudioPrice(rs.getInt("STUDIO_PRICE"));
                 studio.setStudioContent(rs.getString("STUDIO_CONTENT"));
                 studio.setStudioDate(rs.getTimestamp("STUDIO_DATE"));
                 studio.setVendorId(rs.getString("VENDOR_ID"));
@@ -104,7 +105,7 @@ public class StudioDAO {
                     studio.setStudioId(rs.getString("STUDIO_ID"));
                     studio.setStudioBrand(rs.getString("STUDIO_BRAND"));
                     studio.setStudioConcept(rs.getString("STUDIO_CONCEPT"));
-                    studio.setStudioPrice(rs.getString("STUDIO_PRICE"));
+                    studio.setStudioPrice(rs.getInt("STUDIO_PRICE"));
                     studio.setStudioContent(rs.getString("STUDIO_CONTENT"));
                     studio.setStudioDate(rs.getTimestamp("STUDIO_DATE"));
                     studio.setVendorId(rs.getString("VENDOR_ID"));
@@ -143,4 +144,41 @@ public class StudioDAO {
         }
         return studios;
     }
+
+	public ArrayList<Studio> getProductStudio(String id) {
+		ArrayList<Studio> studios = new ArrayList<Studio>();
+		
+		String sql ="SELECT PHOTO_PATH, STUDIO_CONCEPT, STUDIO_PRICE, STUDIO_TITLE, STUDIO_CONTENT, STUDIO_DATE, STUDIO_ID FROM STUDIO WHERE STUDIO_ID = ?";
+		
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				Studio studio = new Studio();
+				studio.setPhotoPath(rs.getString("PHOTO_PATH"));
+				studio.setStudioConcept(rs.getString("STUDIO_CONCEPT"));
+				studio.setStudioPrice(rs.getInt("STUDIO_PRICE"));
+				studio.setStudioTitle(rs.getString("STUDIO_TITLE"));
+				studio.setStudioContent(rs.getString("STUDIO_CONTENT"));
+				studio.setStudioDate(rs.getTimestamp("STUDIO_DATE"));
+				studio.setStudioId(rs.getString("STUDIO_ID"));
+				studios.add(studio);
+			}
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Class Not Found Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+		
+		
+		
+		return studios;
+	}
 }

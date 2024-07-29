@@ -145,4 +145,9 @@ public class MakeupDAO {
         }
         return makeups;
     }
+
+	public ArrayList<Makeup> getProductMakeup(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
