@@ -7,8 +7,11 @@
 VendorMemberDTO vendor = (VendorMemberDTO) session.getAttribute("vendorInfo");
 MemberDTO user = (MemberDTO) session.getAttribute("userInfo");
 String isLogin;
+String vendorCategory = null;
+
 if (vendor != null) {
 	isLogin = "vendor";
+	vendorCategory = vendor.getCategory();
 } else if (user != null) {
 	isLogin = "user";
 } else {
@@ -35,7 +38,7 @@ if (vendor != null) {
 			</div>
 			<%
 			if (isLogin.equals("vendor")) {
-			%>
+				 if ("드레스".equals(vendorCategory)) { %>
 			<div class="frame-3">
 				<div class="text-wrapper-4">회원정보 수정</div>
 				<div class="text-wrapper-5">예약관리</div>
@@ -47,6 +50,21 @@ if (vendor != null) {
 				<div class="text-wrapper-5"
 					onclick="document.getElementById('logoutForm').submit();">로그아웃</div>
 			</div>
+			<% } else { // 카테고리 값이 "드레스"가 아닐 경우 %>
+			<div class="frame-3">
+				<div class="text-wrapper-4">회원정보 수정</div>
+				<div class="text-wrapper-5">예약관리</div>
+				<!-- 다른 페이지로의 링크 또는 다른 내용 -->
+				<a href="#" class="text-wrapper-5">상품 관리</a>
+				<form id="logoutForm" action="Logout" method="post"
+					style="display: none;">
+					<input type="hidden" name="_method" value="POST">
+				</form>
+				<div class="text-wrapper-5"
+					onclick="document.getElementById('logoutForm').submit();">로그아웃</div>
+			</div>
+			<% } %>
+
 			<%
 			} else if (isLogin.equals("user")) {
 			%>
