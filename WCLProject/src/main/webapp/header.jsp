@@ -28,10 +28,10 @@ if (vendor != null) {
 		<a href="mainPage.jsp" class="lisianthus">L i s i a n t h u s</a>
 		<div class="frame-2">
 			<div class="view">
-				<div class="text-wrapper">웨딩홀</div>
-				<div class="text-wrapper">드레스</div>
-				<div class="text-wrapper-2">스튜디오</div>
-				<div class="text-wrapper-3">메이크업</div>
+				<a href="weddinghalls.jsp" class="text-wrapper">웨딩홀</a> <a
+					href="dresses.jsp" class="text-wrapper">드레스</a> <a
+					href="studios.jsp" class="text-wrapper-2">스튜디오</a> <a
+					href="makeups.jsp" class="text-wrapper-3">메이크업</a>
 			</div>
 			<%
 			if (isLogin.equals("vendor")) {
@@ -53,19 +53,24 @@ if (vendor != null) {
 			<div class="frame-3">
 				<div class="text-wrapper-4">회원정보 수정</div>
 				<div class="text-wrapper-5">예약관리</div>
-				<a href="/Logout" class="text-wrapper-5">로그아웃</a>
+				<form id="logoutForm" action="Logout" method="post"
+					style="display: none;">
+					<input type="hidden" name="_method" value="POST">
+				</form>
+				<div class="text-wrapper-5"
+					onclick="document.getElementById('logoutForm').submit();">로그아웃</div>
 			</div>
-			<%
-			} else {
-			%>
-			<div class="frame-3">
-				<a href="LoginWcl.jsp" class="text-wrapper-4">로그인</a> <a
-					href="signupMemberSelect.jsp" class="text-wrapper-5">회원가입</a>
-			</div>
-			<%
-			}
-			%>
 		</div>
+		<%
+		} else {
+		%>
+		<div class="frame-3">
+			<a href="LoginWcl.jsp" class="text-wrapper-4">로그인</a> <a
+				href="signupMemberSelect.jsp" class="text-wrapper-5">회원가입</a>
+		</div>
+		<%
+		}
+		%>
 	</div>
 </body>
 </html>
