@@ -12,6 +12,7 @@ if (vendor != null) {
 	response.sendRedirect("mainPage.jsp");
 }
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,8 @@ if (vendor != null) {
 		<!-- 검색 및 버튼 영역 -->
 		<div class="search-container">
 			<input type="text" id="search" placeholder="상품명 검색..." />
-			 <button class="action-button" onclick="addProduct()">상품 등록</button>
+			<button class="action-button" onclick="addProduct()">상품 등록</button>
+			<button class="action-button" onclick="fetchDresses()">상품 조회</button>
 		</div>
 
 		<div class="table-container">
@@ -51,37 +53,10 @@ if (vendor != null) {
 						<th>삭제</th>
 					</tr>
 				</thead>
-				<tbody>
-					<%
-					// DressDTO 리스트를 가져옴
-					ArrayList<Dress> dressList = (ArrayList<Dress>) request.getAttribute("dressList");
-
-					// dressList가 null인지 확인하고, null이 아닌 경우 출력
-					if (dressList != null) {
-						int index = 1;
-						for (Dress dress : dressList) {
-					%>
-					<tr>
-						<td><%=index++%></td>
-						<td><img src="<%=dress.getPhotoPath()%>"
-							alt="<%=dress.getDressTitle()%>" width="100"></td>
-						<td><%=dress.getDressTitle()%></td>
-						<td><%=dress.getDressPrice()%></td>
-						<td><%=dress.getDressFabric()%></td>
-						<td><%=dress.getDressLine()%></td>
-						<td><%=dress.getDressStyle()%></td>
-						<td><%=dress.getDressDate()%></td>
-					</tr>
-					<%
-					}
-					} else {
-					%>
-					<tr>
-						<td colspan="10">No dresses available.</td>
-					</tr>
-					<%
-					}
-					%>
+				<tbody id="dress-table-body">
+				<tr>
+					<td colspan="10">상품 조회를 눌러주세요.</td>
+				</tr>
 				</tbody>
 			</table>
 		</div>
@@ -95,6 +70,55 @@ if (vendor != null) {
 		function addProduct() {
 			// 상품 등록 로직
 			alert('상품 등록 버튼 클릭됨');
+		}
+		
+		function fetchDresses() {
+		    // 상품 조회 버튼 클릭 시 AJAX 요청
+		    const xhr = new XMLHttpRequest();
+		    xhr.open('GET', 'ProductDressService', true); // 해당 서블릿을 호출하는 GET 요청
+		    xhr.onload = function () {
+		        if (xhr.status === 200) {
+		            // 응답받은 JSON 데이터를 파싱하여 테이블에 표시
+		            const dresses = JSON.parse(xhr.responseText);
+		            const tbody = document.getElementById('dress-table-body');
+		            tbody.innerHTML = ''; // 기존 내용을 지움
+	                let index = 1;
+		            if (dresses.length === 0) {
+		                // 상품이 없을 때
+		                const row = `<tr>
+		                    <td colspan="10">등록한 상품이 없습니다.</td>
+		                </tr>`;
+		                tbody.insertAdjacentHTML('beforeend', row);
+		            } else {
+		                dresses.forEach((dress, index) => {
+		                    const row = `<tr>
+		                        <td>\${index + 1}</td>
+		                        <td><img src="\${dress.photoPath}" alt="\${dress.dressTitle}" width="100"></td>
+		                        <td>\${dress.dressTitle}</td>
+		                        <td>\${dress.dressPrice}</td>
+		                        <td>\${dress.dressFabric}</td>
+		                        <td>\${dress.dressLine}</td>
+		                        <td>\${dress.dressStyle}</td>
+		                        <td>\${dress.dressDate}</td>
+		                        <td><a href="#">수정</a></td>
+		                        <td><a href="#">삭제</a></td>
+		                    </tr>`;
+		                    console.log(dress.dressTitle);
+		                    console.log(row);
+		                    console.log(tbody);
+		                    tbody.insertAdjacentHTML('beforeend', row);
+		                });
+		            }
+		        } else {
+		            const tbody = document.getElementById('dress-table-body');
+		            tbody.innerHTML = ''; // 기존 내용을 지움
+		            const row = `<tr>
+		                <td colspan="10">등록한 상품이 없습니다.</td>
+		            </tr>`;
+		            tbody.insertAdjacentHTML('beforeend', row);
+		        }
+		    };
+		    xhr.send();
 		}
 
 		function deleteProduct(productId) {

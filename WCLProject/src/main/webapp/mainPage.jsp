@@ -18,21 +18,6 @@
 	<div class="main">
 		<div class="div">
 			<div class="frame">
-<!-- 				<div class="nav">
-					<p class="lisianthus">L i s i a n t h u s</p>
-					<div class="frame-2">
-						<div class="view">
-							<div class="text-wrapper">웨딩홀</div>
-							<div class="text-wrapper">드레스</div>
-							<div class="text-wrapper-2">스튜디오</div>
-							<div class="text-wrapper-3">메이크업</div>
-						</div>
-						<div class="frame-3">
-							<div class="text-wrapper-4" onclick="moveToLogin()">로그인</div>
-							<div class="text-wrapper-4" onclick="moveToJoinMemberSelect()">회원가입</div>
-						</div>
-					</div>
-				</div> -->
 				<header class="header">
 					<div class="container">
 						<div class="link">

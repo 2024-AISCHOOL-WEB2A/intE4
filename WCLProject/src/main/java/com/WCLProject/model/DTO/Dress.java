@@ -58,7 +58,7 @@ public class Dress extends ProductDTO {
 		this.dressStyle = dressStyle;
 		this.dressDate = dressDate;
 	}
-
+	
 	// Getters and setters
     public String getDressBrand() {
         return dressBrand;
