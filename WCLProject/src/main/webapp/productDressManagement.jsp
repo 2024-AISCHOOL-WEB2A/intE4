@@ -68,8 +68,7 @@ if (vendor != null) {
 
 	<script>
 		function addProduct() {
-			// 상품 등록 로직
-			alert('상품 등록 버튼 클릭됨');
+			 window.location.href = 'addProductDress.jsp';
 		}
 		
 		function fetchDresses() {

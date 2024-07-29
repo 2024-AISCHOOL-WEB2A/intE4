@@ -39,7 +39,8 @@ public class AddProductDressService extends HttpServlet {
 		String content = request.getParameter("dress_content");
 		String photoPath = request.getParameter("dress_photoPath");
 		String title = request.getParameter("dress_title");
-		int price = Integer.parseInt(priceStr);
+        int price = 0; // 초기값 설정
+        price = Integer.parseInt(priceStr);
 
 		if (photoPath == null)
 			photoPath = "not photo";
@@ -55,7 +56,7 @@ public class AddProductDressService extends HttpServlet {
 			response.sendRedirect("productDressManagement.jsp");
 		} else {
 			System.out.println("상품 등록 실패");
-			response.sendRedirect("Loginfail.jsp");
+			response.sendRedirect("addProductDress.jsp");
 		}
 
 	}
