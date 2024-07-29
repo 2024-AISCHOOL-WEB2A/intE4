@@ -20,7 +20,7 @@ if (vendor != null) {
 <link rel="stylesheet" href="./css/dressRegistration_globals.css" />
 <link rel="stylesheet" href="./css/dressRegistration_styleguide.css" />
 <link rel="stylesheet" href="./css/dressRegistration_style.css" />
-<link rel="stylesheet" href="./css/test.css" />
+<link rel="stylesheet" href="./css/dressRegistration.css" />
 <style type="text/css">
 </style>
 </head>
