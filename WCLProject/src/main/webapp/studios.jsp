@@ -51,12 +51,22 @@
         h1 {
             margin-top: 50px;
             margin-bottom: 30px;
-            margin-left: 177px;
+            margin-left: 125px;
             font-size: 2em;
         }
         .studio-item-detail {
         	margin-top: -17px;
         }
+        .studio-item-detail h3 {
+		    margin-bottom: 5px; /* h3 요소의 아래쪽 마진을 줄입니다 */
+		    font-family: "Inter", Helvetica;
+		}
+		.studio-item-detail p {
+		    margin-top: 0; /* p 요소의 위쪽 마진을 없앱니다 */
+		    color: #a2a2a2;
+		    font-family: "Inter", Helvetica;
+		    font-weight: 550;
+		}
     </style>
 </head>
 <body>
@@ -101,21 +111,32 @@
         <% } %>
     </div>
     <!-- 페이징 기능(페이지 이동) -->
-    <div class="pagination">
-        <%
-            for (int i = 1; i <= totalPages; i++) {
-                if (i == currentPage) {
-        %>
-        <strong><%= i %></strong>
-        <%
-                } else {
-        %>
-        <a href="?page=<%= i %>"><%= i %></a>
-        <%
-                }
-            }
-        %>
-    </div>
+	<div class="pagination">
+	    <%
+	        String baseQueryString = request.getQueryString() != null ? request.getQueryString().replaceAll("page=[^&]*&?", "") : "";
+	        if (currentPage > 1) {
+	    %>
+	        <a href="?page=<%= (currentPage - 1) %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>">&laquo; 이전</a>
+	    <%
+	        }
+	        for (int i = 1; i <= totalPages; i++) {
+	            if (i == currentPage) {
+	    %>
+	        <strong><%= i %></strong>
+	    <%
+	            } else {
+	    %>
+	        <a href="?page=<%= i %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>"><%= i %></a>
+	    <%
+	            }
+	        }
+	        if (currentPage < totalPages) {
+	    %>
+	        <a href="?page=<%= (currentPage + 1) %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>">다음 &raquo;</a>
+	    <%
+	        }
+	    %>
+	</div>
     <footer>
         <jsp:include page="footer.jsp" />
     </footer>    
