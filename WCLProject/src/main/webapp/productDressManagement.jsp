@@ -75,7 +75,7 @@ if (vendor != null) {
 		function fetchDresses() {
 		    // 상품 조회 버튼 클릭 시 AJAX 요청
 		    const xhr = new XMLHttpRequest();
-		    xhr.open('GET', 'ProductDressService', true); // 해당 서블릿을 호출하는 GET 요청
+		    xhr.open('GET', 'ProductDressManagementService', true); // 해당 서블릿을 호출하는 GET 요청
 		    xhr.onload = function () {
 		        if (xhr.status === 200) {
 		            // 응답받은 JSON 데이터를 파싱하여 테이블에 표시

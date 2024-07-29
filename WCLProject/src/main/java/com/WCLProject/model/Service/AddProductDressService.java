@@ -12,8 +12,8 @@ import com.WCLProject.model.DAO.DressDAO;
 import com.WCLProject.model.DTO.Dress;
 import com.WCLProject.model.DTO.VendorMemberDTO;
 
-@WebServlet("/DressRegistrationService")
-public class DressRegistrationService extends HttpServlet {
+@WebServlet("/AddProductDressService")
+public class AddProductDressService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -52,7 +52,7 @@ public class DressRegistrationService extends HttpServlet {
 
 		if (cnt > 0) {
 			System.out.println("상품 등록 성공");
-			response.sendRedirect("productManagement.jsp");
+			response.sendRedirect("productDressManagement.jsp");
 		} else {
 			System.out.println("상품 등록 실패");
 			response.sendRedirect("Loginfail.jsp");
