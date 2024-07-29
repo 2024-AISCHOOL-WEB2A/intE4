@@ -395,7 +395,7 @@ public class DressDAO {
 			public ArrayList<Dress> getProductDress(String id) {
 				ArrayList<Dress> dresses = new ArrayList<Dress>();
 
-				String sql = "SELECT PHOTO_PATH, DRESS_TITLE, DRESS_PRICE, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_DATE FROM DRESS WHERE VENDOR_ID = ?";
+				String sql = "SELECT PHOTO_PATH, DRESS_TITLE, DRESS_PRICE, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_DATE, DRESS_ID FROM DRESS WHERE VENDOR_ID = ?";
 
 				try {
 					conn = DBUtil.getConnection();
@@ -412,9 +412,9 @@ public class DressDAO {
 		                dress.setDressLine(rs.getString("DRESS_LINE"));
 		                dress.setDressStyle(rs.getString("DRESS_STYLE"));
 		                dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
+		                dress.setId(rs.getString("DRESS_ID"));
 		                dresses.add(dress);
 					}
-					System.out.println("Number of dresses retrieved: " + dresses.size());
 				} catch (SQLException e) {
 					System.err.println("SQL Error: " + e.getMessage());
 					e.printStackTrace();

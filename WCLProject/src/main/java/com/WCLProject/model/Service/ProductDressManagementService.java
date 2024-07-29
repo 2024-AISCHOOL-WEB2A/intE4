@@ -31,11 +31,9 @@ public class ProductDressManagementService extends HttpServlet {
 
         DressDAO dao = new DressDAO();
         ArrayList<Dress> dressList = dao.getProductDress(id);
-        System.out.println("Dress List: " + dressList);
 
         // JSON 형식으로 변환
         String json = new Gson().toJson(dressList);
-
         // 응답 설정
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

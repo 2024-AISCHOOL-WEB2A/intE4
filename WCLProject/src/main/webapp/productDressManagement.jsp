@@ -100,11 +100,8 @@ if (vendor != null) {
 		                        <td>\${dress.dressStyle}</td>
 		                        <td>\${dress.dressDate}</td>
 		                        <td><a href="#" class="btn-edit">수정</a></td>
-		                        <td><a href="#" class="btn-delete">삭제</a></td>
+		                        <td><a href="#" class="btn-delete" onclick="deleteProduct('\${dress.id}')">삭제</a></td>
 		                    </tr>`;
-		                    console.log(dress.dressTitle);
-		                    console.log(row);
-		                    console.log(tbody);
 		                    tbody.insertAdjacentHTML('beforeend', row);
 		                });
 		            }
@@ -120,13 +117,23 @@ if (vendor != null) {
 		    xhr.send();
 		}
 
-		function deleteProduct(productId) {
-			// 상품 삭제 로직
-			if (confirm('정말로 삭제하시겠습니까?')) {
-				alert('상품 ' + productId + ' 삭제됨');
-				// 실제 삭제 로직 추가
-			}
-		}
+	    function deleteProduct(productId) {
+	        // 삭제 확인
+	        if (confirm('정말로 삭제하시겠습니까?')) {
+	            const xhr = new XMLHttpRequest();
+	            xhr.open('POST', 'DeleteProductService', true); // 삭제 서블릿 호출
+	            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	            xhr.onload = function () {
+	                if (xhr.status === 200) {
+	                    alert('상품이 삭제되었습니다.');
+	                    fetchDresses(); // 상품 목록 새로고침
+	                } else {
+	                    alert('상품 삭제에 실패했습니다. 다시 시도해 주세요.');
+	                }
+	            };
+	            xhr.send('product_id=' + encodeURIComponent(productId));
+	        }
+	    }
 
 		function editProduct(productId) {
 			// 상품 수정 로직
