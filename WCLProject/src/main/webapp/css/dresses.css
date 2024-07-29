@@ -47,7 +47,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 0 150px;
+            padding: 0 100px;
             margin-top: 20px;
         }
         .dress-item {
@@ -58,10 +58,10 @@
             margin-top: 30px;
         }
         .dress-item img {
-            width: 100%;
-            height: auto;
-            max-width: 300px;
-            max-height: 400px;
+		    width: 300px; /* 고정 너비 */
+		    height: 300px; /* 고정 높이 */
+		    object-fit: cover; /* 이미지를 요소 크기에 맞게 조정하면서 비율 유지, 넘치는 부분은 자름 */
+		    object-position: top; /* 이미지를 에 위치시킴 */
         }
         .pagination {
             text-align: center;
