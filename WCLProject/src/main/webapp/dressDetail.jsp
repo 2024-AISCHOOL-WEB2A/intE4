@@ -67,9 +67,30 @@
     </div>
     <!-- 예약하기, 결제하기 버튼 -->
     <div class="button-section">
-        <button onclick="location.href='reservation.jsp?dressId=<%= dress.getId() %>'">예약하기</button>
-        <button onclick="location.href='payment.jsp?dressId=<%= dress.getId() %>'">결제하기</button>
+    	<form action="reservation.jsp" method="get">
+    					<input type="hidden" name="item_brand" value="<%= dress.getDressBrand() %>">
+                        <input type="hidden" name="fabric" value="<%= dress.getDressFabric() %>">
+                        <input type="hidden" name="line" value="<%= dress.getDressLine() %>">
+                        <input type="hidden" name="style" value="<%= dress.getDressStyle() %>">
+                        <input type="hidden" name="item_price" value="<%= dress.getDressPrice() %>">
+                        <input type="hidden" name="item_content" value="<%= dress.getDressContent() %>">
+                        <input type="hidden" name="photo_path" value="<%= dress.getPhotoPath() %>">
+                        <input type="hidden" name="category" value="Dress">
+                        <button type="submit">예약하기</button>
+    	<form action="order.jsp" method="get">
+    					<input type="hidden" name="item_brand" value="<%= dress.getDressBrand() %>">
+                        <input type="hidden" name="fabric" value="<%= dress.getDressFabric() %>">
+                        <input type="hidden" name="line" value="<%= dress.getDressLine() %>">
+                        <input type="hidden" name="style" value="<%= dress.getDressStyle() %>">
+                        <input type="hidden" name="item_price" value="<%= dress.getDressPrice() %>">
+                        <input type="hidden" name="item_content" value="<%= dress.getDressContent() %>">
+                        <input type="hidden" name="photo_path" value="<%= dress.getPhotoPath() %>">
+                        <input type="hidden" name="category" value="Dress">
+                        <button type="submit">결제하기</button>
+        <%-- <button onclick="location.href='reservation.jsp?dressId=<%= dress.getId() %>'">예약하기</button>
+        <button onclick="location.href='payment.jsp?dressId=<%= dress.getId() %>'">결제하기</button> --%>
     </div>
+   
     <footer>
         <jsp:include page="footer.jsp" />
     </footer>
