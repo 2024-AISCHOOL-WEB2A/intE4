@@ -99,7 +99,7 @@ if (vendor != null) {
 		                        <td>\${dress.dressLine}</td>
 		                        <td>\${dress.dressStyle}</td>
 		                        <td>\${dress.dressDate}</td>
-		                        <td><a href="#" class="btn-edit">수정</a></td>
+		                        <td><a href="#" class="btn-edit" onclick="editProduct('\${dress.id}')">수정</a></td>
 		                        <td><a href="#" class="btn-delete" onclick="deleteProduct('\${dress.id}')">삭제</a></td>
 		                    </tr>`;
 		                    tbody.insertAdjacentHTML('beforeend', row);
@@ -135,11 +135,10 @@ if (vendor != null) {
 	        }
 	    }
 
-		function editProduct(productId) {
-			// 상품 수정 로직
-			alert('상품 ' + productId + ' 수정 클릭됨');
-			// 실제 수정 페이지로 이동 또는 수정 모달 열기
-		}
+	    function editProduct(productId) {
+	    	window.location.href = 'EditProductDressService?productId=' + encodeURIComponent(productId);
+	    }
+
 	</script>
 </body>
 </html>

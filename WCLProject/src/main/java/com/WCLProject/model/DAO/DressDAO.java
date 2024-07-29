@@ -14,258 +14,261 @@ public class DressDAO {
 	private PreparedStatement pst;
 	private ResultSet rs;
 
-	// 드레스 목록 조회 시 페이징을 적용한 메서드 commit 
-    public List<Dress> getDressesByFiltersWithPaging(List<String> fabrics, List<String> lines, List<String> styles, String priceRange, String region, int page, int pageSize) {
-        List<Dress> dresses = new ArrayList<>();
-        StringBuilder sql = new StringBuilder("SELECT * FROM (SELECT D.*, ROWNUM AS RNUM FROM (SELECT * FROM DRESS WHERE 1=1");
-        
-        // fabric 필터 SQL 쿼리
-        if (fabrics != null && !fabrics.isEmpty()) {
-            sql.append(" AND DRESS_FABRIC IN (");
-            for (int i = 0; i < fabrics.size(); i++) {
-                sql.append("?");
-                if (i < fabrics.size() - 1) {
-                    sql.append(", ");
-                }
-            }
-            sql.append(")");
-        }
+	// 드레스 목록 조회 시 페이징을 적용한 메서드 commit
+	public List<Dress> getDressesByFiltersWithPaging(List<String> fabrics, List<String> lines, List<String> styles,
+			String priceRange, String region, int page, int pageSize) {
+		List<Dress> dresses = new ArrayList<>();
+		StringBuilder sql = new StringBuilder(
+				"SELECT * FROM (SELECT D.*, ROWNUM AS RNUM FROM (SELECT * FROM DRESS WHERE 1=1");
 
-        if (lines != null && !lines.isEmpty()) {
-            sql.append(" AND DRESS_LINE IN (");
-            for (int i = 0; i < lines.size(); i++) {
-                sql.append("?");
-                if (i < lines.size() - 1) {
-                    sql.append(", ");
-                }
-            }
-            sql.append(")");
-        }
+		// fabric 필터 SQL 쿼리
+		if (fabrics != null && !fabrics.isEmpty()) {
+			sql.append(" AND DRESS_FABRIC IN (");
+			for (int i = 0; i < fabrics.size(); i++) {
+				sql.append("?");
+				if (i < fabrics.size() - 1) {
+					sql.append(", ");
+				}
+			}
+			sql.append(")");
+		}
 
-        if (styles != null && !styles.isEmpty()) {
-            sql.append(" AND DRESS_STYLE IN (");
-            for (int i = 0; i < styles.size(); i++) {
-                sql.append("?");
-                if (i < styles.size() - 1) {
-                    sql.append(", ");
-                }
-            }
-            sql.append(")");
-        }
+		if (lines != null && !lines.isEmpty()) {
+			sql.append(" AND DRESS_LINE IN (");
+			for (int i = 0; i < lines.size(); i++) {
+				sql.append("?");
+				if (i < lines.size() - 1) {
+					sql.append(", ");
+				}
+			}
+			sql.append(")");
+		}
 
-        if (priceRange != null && !priceRange.isEmpty()) {
-            switch (priceRange) {
-                case "베이직":
-                    sql.append(" AND DRESS_PRICE < 700000");
-                    break;
-                case "스탠다드":
-                    sql.append(" AND DRESS_PRICE >= 700000 AND DRESS_PRICE < 1500000");
-                    break;
-                case "프리미엄":
-                    sql.append(" AND DRESS_PRICE >= 1500000");
-                    break;
-            }
-        }
+		if (styles != null && !styles.isEmpty()) {
+			sql.append(" AND DRESS_STYLE IN (");
+			for (int i = 0; i < styles.size(); i++) {
+				sql.append("?");
+				if (i < styles.size() - 1) {
+					sql.append(", ");
+				}
+			}
+			sql.append(")");
+		}
 
-        if (region != null && !region.isEmpty()) {
-            sql.append(" AND VENDOR_ID IN (SELECT VENDOR_ID FROM VENDOR WHERE VENDOR_ADDRESS LIKE ?)");
-        }
-        
-        // 페이징을 위한 ROWNUM 쿼리
-        sql.append(" ORDER BY DRESS_ID) D WHERE ROWNUM <= ?) WHERE RNUM >= ?");
+		if (priceRange != null && !priceRange.isEmpty()) {
+			switch (priceRange) {
+			case "베이직":
+				sql.append(" AND DRESS_PRICE < 700000");
+				break;
+			case "스탠다드":
+				sql.append(" AND DRESS_PRICE >= 700000 AND DRESS_PRICE < 1500000");
+				break;
+			case "프리미엄":
+				sql.append(" AND DRESS_PRICE >= 1500000");
+				break;
+			}
+		}
 
-        try {
-            conn = DBUtil.getConnection();
-            pst = conn.prepareStatement(sql.toString());
+		if (region != null && !region.isEmpty()) {
+			sql.append(" AND VENDOR_ID IN (SELECT VENDOR_ID FROM VENDOR WHERE VENDOR_ADDRESS LIKE ?)");
+		}
 
-            int paramIndex = 1;
-            if (fabrics != null && !fabrics.isEmpty()) {
-                for (String fabric : fabrics) {
-                    pst.setString(paramIndex++, fabric);
-                }
-            }
+		// 페이징을 위한 ROWNUM 쿼리
+		sql.append(" ORDER BY DRESS_ID) D WHERE ROWNUM <= ?) WHERE RNUM >= ?");
 
-            if (lines != null && !lines.isEmpty()) {
-                for (String line : lines) {
-                    pst.setString(paramIndex++, line);
-                }
-            }
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql.toString());
 
-            if (styles != null && !styles.isEmpty()) {
-                for (String style : styles) {
-                    pst.setString(paramIndex++, style);
-                }
-            }
+			int paramIndex = 1;
+			if (fabrics != null && !fabrics.isEmpty()) {
+				for (String fabric : fabrics) {
+					pst.setString(paramIndex++, fabric);
+				}
+			}
 
-            if (region != null && !region.isEmpty()) {
-                pst.setString(paramIndex++, "%" + region + "%");
-            }
+			if (lines != null && !lines.isEmpty()) {
+				for (String line : lines) {
+					pst.setString(paramIndex++, line);
+				}
+			}
 
-            pst.setInt(paramIndex++, page * pageSize);
-            pst.setInt(paramIndex, (page - 1) * pageSize + 1);
+			if (styles != null && !styles.isEmpty()) {
+				for (String style : styles) {
+					pst.setString(paramIndex++, style);
+				}
+			}
 
-            rs = pst.executeQuery();
+			if (region != null && !region.isEmpty()) {
+				pst.setString(paramIndex++, "%" + region + "%");
+			}
 
-            while (rs.next()) {
-                Dress dress = new Dress();
-                dress.setId(rs.getString("DRESS_ID"));
-                dress.setDressBrand(rs.getString("DRESS_BRAND"));
-                dress.setDressFabric(rs.getString("DRESS_FABRIC"));
-                dress.setDressLine(rs.getString("DRESS_LINE"));
-                dress.setDressStyle(rs.getString("DRESS_STYLE"));
-                dress.setDressPrice(rs.getInt("DRESS_PRICE"));
-                dress.setDressContent(rs.getString("DRESS_CONTENT"));
-                dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
-                dress.setVendorId(rs.getString("VENDOR_ID"));
-                dress.setPhotoPath(rs.getString("PHOTO_PATH"));
-                dress.setDressTitle(rs.getString("DRESS_TITLE"));
-                dresses.add(dress);
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeConnection(rs, pst, conn);
-        }
+			pst.setInt(paramIndex++, page * pageSize);
+			pst.setInt(paramIndex, (page - 1) * pageSize + 1);
 
-        return dresses;
-    }
+			rs = pst.executeQuery();
 
-    // 필터링된 드레스의 총 개수를 가져오는 메서드
-    public int getFilteredDressCount(List<String> fabrics, List<String> lines, List<String> styles, String priceRange, String region) {
-        int count = 0;
-        StringBuilder sql = new StringBuilder("SELECT COUNT(*) FROM DRESS WHERE 1=1");
+			while (rs.next()) {
+				Dress dress = new Dress();
+				dress.setId(rs.getString("DRESS_ID"));
+				dress.setDressBrand(rs.getString("DRESS_BRAND"));
+				dress.setDressFabric(rs.getString("DRESS_FABRIC"));
+				dress.setDressLine(rs.getString("DRESS_LINE"));
+				dress.setDressStyle(rs.getString("DRESS_STYLE"));
+				dress.setDressPrice(rs.getInt("DRESS_PRICE"));
+				dress.setDressContent(rs.getString("DRESS_CONTENT"));
+				dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
+				dress.setVendorId(rs.getString("VENDOR_ID"));
+				dress.setPhotoPath(rs.getString("PHOTO_PATH"));
+				dress.setDressTitle(rs.getString("DRESS_TITLE"));
+				dresses.add(dress);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
 
-        if (fabrics != null && !fabrics.isEmpty()) {
-            sql.append(" AND DRESS_FABRIC IN (");
-            for (int i = 0; i < fabrics.size(); i++) {
-                sql.append("?");
-                if (i < fabrics.size() - 1) {
-                    sql.append(", ");
-                }
-            }
-            sql.append(")");
-        }
+		return dresses;
+	}
 
-        if (lines != null && !lines.isEmpty()) {
-            sql.append(" AND DRESS_LINE IN (");
-            for (int i = 0; i < lines.size(); i++) {
-                sql.append("?");
-                if (i < lines.size() - 1) {
-                    sql.append(", ");
-                }
-            }
-            sql.append(")");
-        }
+	// 필터링된 드레스의 총 개수를 가져오는 메서드
+	public int getFilteredDressCount(List<String> fabrics, List<String> lines, List<String> styles, String priceRange,
+			String region) {
+		int count = 0;
+		StringBuilder sql = new StringBuilder("SELECT COUNT(*) FROM DRESS WHERE 1=1");
 
-        if (styles != null && !styles.isEmpty()) {
-            sql.append(" AND DRESS_STYLE IN (");
-            for (int i = 0; i < styles.size(); i++) {
-                sql.append("?");
-                if (i < styles.size() - 1) {
-                    sql.append(", ");
-                }
-            }
-            sql.append(")");
-        }
+		if (fabrics != null && !fabrics.isEmpty()) {
+			sql.append(" AND DRESS_FABRIC IN (");
+			for (int i = 0; i < fabrics.size(); i++) {
+				sql.append("?");
+				if (i < fabrics.size() - 1) {
+					sql.append(", ");
+				}
+			}
+			sql.append(")");
+		}
 
-        if (priceRange != null && !priceRange.isEmpty()) {
-            switch (priceRange) {
-                case "베이직":
-                    sql.append(" AND DRESS_PRICE < 700000");
-                    break;
-                case "스탠다드":
-                    sql.append(" AND DRESS_PRICE >= 700000 AND DRESS_PRICE < 1500000");
-                    break;
-                case "프리미엄":
-                    sql.append(" AND DRESS_PRICE >= 1500000");
-                    break;
-            }
-        }
+		if (lines != null && !lines.isEmpty()) {
+			sql.append(" AND DRESS_LINE IN (");
+			for (int i = 0; i < lines.size(); i++) {
+				sql.append("?");
+				if (i < lines.size() - 1) {
+					sql.append(", ");
+				}
+			}
+			sql.append(")");
+		}
 
-        if (region != null && !region.isEmpty()) {
-            sql.append(" AND VENDOR_ID IN (SELECT VENDOR_ID FROM VENDOR WHERE VENDOR_ADDRESS LIKE ?)");
-        }
+		if (styles != null && !styles.isEmpty()) {
+			sql.append(" AND DRESS_STYLE IN (");
+			for (int i = 0; i < styles.size(); i++) {
+				sql.append("?");
+				if (i < styles.size() - 1) {
+					sql.append(", ");
+				}
+			}
+			sql.append(")");
+		}
 
-        try {
-            conn = DBUtil.getConnection();
-            pst = conn.prepareStatement(sql.toString());
+		if (priceRange != null && !priceRange.isEmpty()) {
+			switch (priceRange) {
+			case "베이직":
+				sql.append(" AND DRESS_PRICE < 700000");
+				break;
+			case "스탠다드":
+				sql.append(" AND DRESS_PRICE >= 700000 AND DRESS_PRICE < 1500000");
+				break;
+			case "프리미엄":
+				sql.append(" AND DRESS_PRICE >= 1500000");
+				break;
+			}
+		}
 
-            int paramIndex = 1;
-            if (fabrics != null && !fabrics.isEmpty()) {
-                for (String fabric : fabrics) {
-                    pst.setString(paramIndex++, fabric);
-                }
-            }
+		if (region != null && !region.isEmpty()) {
+			sql.append(" AND VENDOR_ID IN (SELECT VENDOR_ID FROM VENDOR WHERE VENDOR_ADDRESS LIKE ?)");
+		}
 
-            if (lines != null && !lines.isEmpty()) {
-                for (String line : lines) {
-                    pst.setString(paramIndex++, line);
-                }
-            }
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql.toString());
 
-            if (styles != null && !styles.isEmpty()) {
-                for (String style : styles) {
-                    pst.setString(paramIndex++, style);
-                }
-            }
+			int paramIndex = 1;
+			if (fabrics != null && !fabrics.isEmpty()) {
+				for (String fabric : fabrics) {
+					pst.setString(paramIndex++, fabric);
+				}
+			}
 
-            if (region != null && !region.isEmpty()) {
-                pst.setString(paramIndex++, "%" + region + "%");
-            }
+			if (lines != null && !lines.isEmpty()) {
+				for (String line : lines) {
+					pst.setString(paramIndex++, line);
+				}
+			}
 
-            rs = pst.executeQuery();
-            if (rs.next()) {
-                count = rs.getInt(1);
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeConnection(rs, pst, conn);
-        }
+			if (styles != null && !styles.isEmpty()) {
+				for (String style : styles) {
+					pst.setString(paramIndex++, style);
+				}
+			}
 
-        return count;
-    }
-    
-    // 페이지 단위로 드레스 목록을 가져오는 메서드(중복 페이징 추후 수정 예정)
-    public List<Dress> getDresses(int currentPage, int pageSize) {
-        List<Dress> dresses = new ArrayList<>();
-        // page : 현재 페이지 번호, pageSize : 한 페이지에 표시할 개수
-        int startRow = (currentPage - 1) * pageSize + 1;
-        int endRow = startRow + pageSize - 1;
+			if (region != null && !region.isEmpty()) {
+				pst.setString(paramIndex++, "%" + region + "%");
+			}
 
-        try {
-            conn = DBUtil.getConnection();
-            // 내부 서브쿼리 : 컬럼 선택하여 DRESS_ID로 정렬(컬럼을 하나만 빼도 출력이 안되는 오류가 발생했음)
-            // 중간 서브쿼리 ROWNUM 각 행의 고유 번호를 매김
-            String sql = "SELECT * FROM (SELECT DRESS.*, ROWNUM AS RNUM FROM (SELECT * FROM DRESS ORDER BY DRESS_ID) DRESS WHERE ROWNUM <= ?) WHERE RNUM >= ?";
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1, endRow);
-            pst.setInt(2, startRow);
-            rs = pst.executeQuery();
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
 
-            while (rs.next()) {
-                Dress dress = new Dress();
-                dress.setId(rs.getString("DRESS_ID"));
-                dress.setDressBrand(rs.getString("DRESS_BRAND"));
-                dress.setDressFabric(rs.getString("DRESS_FABRIC"));
-                dress.setDressLine(rs.getString("DRESS_LINE"));
-                dress.setDressStyle(rs.getString("DRESS_STYLE"));
-                dress.setDressPrice(rs.getInt("DRESS_PRICE"));
-                dress.setDressContent(rs.getString("DRESS_CONTENT"));
-                dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
-                dress.setVendorId(rs.getString("VENDOR_ID"));
-                dress.setPhotoPath(rs.getString("PHOTO_PATH"));
-                dress.setDressTitle(rs.getString("DRESS_TITLE"));
-                dresses.add(dress);
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeConnection(rs, pst, conn);
-        }
+		return count;
+	}
 
-        return dresses;
-    }
+	// 페이지 단위로 드레스 목록을 가져오는 메서드(중복 페이징 추후 수정 예정)
+	public List<Dress> getDresses(int currentPage, int pageSize) {
+		List<Dress> dresses = new ArrayList<>();
+		// page : 현재 페이지 번호, pageSize : 한 페이지에 표시할 개수
+		int startRow = (currentPage - 1) * pageSize + 1;
+		int endRow = startRow + pageSize - 1;
+
+		try {
+			conn = DBUtil.getConnection();
+			// 내부 서브쿼리 : 컬럼 선택하여 DRESS_ID로 정렬(컬럼을 하나만 빼도 출력이 안되는 오류가 발생했음)
+			// 중간 서브쿼리 ROWNUM 각 행의 고유 번호를 매김
+			String sql = "SELECT * FROM (SELECT DRESS.*, ROWNUM AS RNUM FROM (SELECT * FROM DRESS ORDER BY DRESS_ID) DRESS WHERE ROWNUM <= ?) WHERE RNUM >= ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, endRow);
+			pst.setInt(2, startRow);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				Dress dress = new Dress();
+				dress.setId(rs.getString("DRESS_ID"));
+				dress.setDressBrand(rs.getString("DRESS_BRAND"));
+				dress.setDressFabric(rs.getString("DRESS_FABRIC"));
+				dress.setDressLine(rs.getString("DRESS_LINE"));
+				dress.setDressStyle(rs.getString("DRESS_STYLE"));
+				dress.setDressPrice(rs.getInt("DRESS_PRICE"));
+				dress.setDressContent(rs.getString("DRESS_CONTENT"));
+				dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
+				dress.setVendorId(rs.getString("VENDOR_ID"));
+				dress.setPhotoPath(rs.getString("PHOTO_PATH"));
+				dress.setDressTitle(rs.getString("DRESS_TITLE"));
+				dresses.add(dress);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return dresses;
+	}
 
 	// 특정 ID의 드레스를 가져오는 메서드
 	// 드레스 ID로 드레스 상세정보 페이지를 출력하기 위해 사용
@@ -390,42 +393,71 @@ public class DressDAO {
 
 		return cnt;
 	}
-	
+
 	// 드레스 상품 등록 조회
-			public ArrayList<Dress> getProductDress(String id) {
-				ArrayList<Dress> dresses = new ArrayList<Dress>();
+	public ArrayList<Dress> getProductDress(String id) {
+		ArrayList<Dress> dresses = new ArrayList<Dress>();
 
-				String sql = "SELECT PHOTO_PATH, DRESS_TITLE, DRESS_PRICE, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_DATE, DRESS_ID FROM DRESS WHERE VENDOR_ID = ?";
+		String sql = "SELECT PHOTO_PATH, DRESS_TITLE, DRESS_PRICE, DRESS_FABRIC, DRESS_LINE, DRESS_STYLE, DRESS_DATE, DRESS_ID FROM DRESS WHERE VENDOR_ID = ?";
 
-				try {
-					conn = DBUtil.getConnection();
-					pst = conn.prepareStatement(sql);
-					pst.setString(1, id);
-					rs = pst.executeQuery();
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
 
-					while(rs.next()) {
-						Dress dress = new Dress();
-						dress.setPhotoPath(rs.getString("PHOTO_PATH"));
-		                dress.setDressTitle(rs.getString("DRESS_TITLE"));
-		                dress.setDressPrice(rs.getInt("DRESS_PRICE"));
-		                dress.setDressFabric(rs.getString("DRESS_FABRIC"));
-		                dress.setDressLine(rs.getString("DRESS_LINE"));
-		                dress.setDressStyle(rs.getString("DRESS_STYLE"));
-		                dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
-		                dress.setId(rs.getString("DRESS_ID"));
-		                dresses.add(dress);
-					}
-				} catch (SQLException e) {
-					System.err.println("SQL Error: " + e.getMessage());
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					System.err.println("Class Not Found Error: " + e.getMessage());
-					e.printStackTrace();
-				} finally {
-					DBUtil.closeConnection(rs, pst, conn);
-				}
-
-				return dresses;
+			while (rs.next()) {
+				Dress dress = new Dress();
+				dress.setPhotoPath(rs.getString("PHOTO_PATH"));
+				dress.setDressTitle(rs.getString("DRESS_TITLE"));
+				dress.setDressPrice(rs.getInt("DRESS_PRICE"));
+				dress.setDressFabric(rs.getString("DRESS_FABRIC"));
+				dress.setDressLine(rs.getString("DRESS_LINE"));
+				dress.setDressStyle(rs.getString("DRESS_STYLE"));
+				dress.setDressDate(rs.getTimestamp("DRESS_DATE"));
+				dress.setId(rs.getString("DRESS_ID"));
+				dresses.add(dress);
 			}
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Class Not Found Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
 
+		return dresses;
+	}
+
+	// 드레스 상품 수정
+	public int editDress(Dress dress) {
+		int cnt = 0;
+		String sql = "UPDATE DRESS SET DRESS_TITLE = ?, DRESS_BRAND = ?, DRESS_FABRIC = ?, DRESS_LINE = ?, DRESS_STYLE = ?, DRESS_PRICE = ?, DRESS_CONTENT = ?, DRESS_DATE = ?, PHOTO_PATH = ? WHERE DRESS_ID = ?";
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, dress.getDressTitle());
+			pst.setString(2, dress.getDressBrand());
+			pst.setString(3, dress.getDressFabric());
+			pst.setString(4, dress.getDressLine());
+			pst.setString(5, dress.getDressStyle());
+			pst.setInt(6, dress.getDressPrice());
+			pst.setString(7, dress.getDressContent());
+			pst.setTimestamp(8, new Timestamp(System.currentTimeMillis()));
+			pst.setString(9, dress.getPhotoPath());
+			pst.setString(10, dress.getId());
+
+			cnt = pst.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return cnt;
+	}
+	
 }

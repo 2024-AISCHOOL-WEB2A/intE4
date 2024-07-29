@@ -24,9 +24,8 @@ public class DeleteProductService extends HttpServlet {
         }
 		
         ProductDAO dao = new ProductDAO();
-        
         int cnt = dao.deleteProduct(productId);
-        System.out.println(cnt);
+        
         if (cnt > 0) {
         	response.setStatus(HttpServletResponse.SC_OK);         	
         } else {
