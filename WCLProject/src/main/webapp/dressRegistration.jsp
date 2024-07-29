@@ -33,8 +33,8 @@ if (vendor != null) {
 		<!-- 검색 및 버튼 영역 -->
 		<div class="search-container">
 			<input type="text" id="search" placeholder="상품명 검색..." />
-			<button class="action-button" onclick="addProduct()">상품 등록</button>
-			<button class="action-button" onclick="fetchDresses()">상품 조회</button>
+				<button class="action-button" onclick="addProduct()">상품 등록</button>
+				<button class="action-button" onclick="fetchDresses()">상품 조회</button>
 		</div>
 
 		<div class="table-container">
@@ -54,9 +54,9 @@ if (vendor != null) {
 					</tr>
 				</thead>
 				<tbody id="dress-table-body">
-				<tr>
-					<td colspan="10">상품 조회를 눌러주세요.</td>
-				</tr>
+					<tr>
+						<td colspan="10">상품 조회를 눌러주세요.</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -100,8 +100,8 @@ if (vendor != null) {
 		                        <td>\${dress.dressLine}</td>
 		                        <td>\${dress.dressStyle}</td>
 		                        <td>\${dress.dressDate}</td>
-		                        <td><a href="#">수정</a></td>
-		                        <td><a href="#">삭제</a></td>
+		                        <td><a href="#" class="btn-edit">수정</a></td>
+		                        <td><a href="#" class="btn-delete">삭제</a></td>
 		                    </tr>`;
 		                    console.log(dress.dressTitle);
 		                    console.log(row);
