@@ -40,7 +40,7 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("vendorInfo", vendorInfo); // 기업회원 정보로 세션 설정
                 session.setAttribute("vendorId", vendorInfo.getId());
             }
-            response.sendRedirect("LoginfuncWcl.jsp");            
+            response.sendRedirect("mainPage.jsp");            
         } else {
             // 로그인 실패 메시지 출력
             System.out.println("로그인 실패: 유효하지 않은 아이디 또는 비밀번호");

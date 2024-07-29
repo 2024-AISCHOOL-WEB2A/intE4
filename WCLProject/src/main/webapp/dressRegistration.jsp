@@ -1,7 +1,17 @@
+<%@page import="com.WCLProject.model.DTO.VendorMemberDTO"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="com.WCLProject.model.DTO.Dress"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+VendorMemberDTO vendor = (VendorMemberDTO) session.getAttribute("vendorInfo");
+String isLogin;
+if (vendor != null) {
+	isLogin = "vendor";
+} else {
+	response.sendRedirect("mainPage.jsp");
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +32,7 @@
 		<!-- 검색 및 버튼 영역 -->
 		<div class="search-container">
 			<input type="text" id="search" placeholder="상품명 검색..." />
+			 <button class="action-button" onclick="addProduct()">상품 등록</button>
 		</div>
 
 		<div class="table-container">

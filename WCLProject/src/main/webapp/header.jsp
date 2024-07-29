@@ -25,7 +25,7 @@ if (vendor != null) {
 </head>
 <body>
 	<div class="nav">
-		<p class="lisianthus">L i s i a n t h u s</p>
+		<a href="mainPage.jsp" class="lisianthus">L i s i a n t h u s</a>
 		<div class="frame-2">
 			<div class="view">
 				<div class="text-wrapper">웨딩홀</div>
@@ -39,7 +39,7 @@ if (vendor != null) {
 			<div class="frame-3">
 				<div class="text-wrapper-4">회원정보 수정</div>
 				<div class="text-wrapper-5">예약관리</div>
-				<div class="text-wrapper-5">상품관리</div>
+				<a href="dressRegistration.jsp" class="text-wrapper-5">상품관리</a>
 				<div class="text-wrapper-5">로그아웃</div>
 			</div>
 			<%
@@ -54,8 +54,8 @@ if (vendor != null) {
 			} else {
 			%>
 			<div class="frame-3">
-				<a href="LoginWcl.jsp" class="text-wrapper-4">로그인</a>
-				<a href="signupMemberSelect.jsp" class="text-wrapper-5">회원가입</a>
+				<a href="LoginWcl.jsp" class="text-wrapper-4">로그인</a> <a
+					href="signupMemberSelect.jsp" class="text-wrapper-5">회원가입</a>
 			</div>
 			<%
 			}
