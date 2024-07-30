@@ -148,4 +148,33 @@ public class WeddingHallDAO {
         }
         return weddingHalls;
     }
+    
+    // 웨딩홀 상품 ID 생성
+	public String generateWeddingHallId() {
+		String id = null;
+		
+		String sql = "SELECT 'WEDDING_HALL' || LPAD(wedding_hall_seq.NEXTVAL, 5, '0') AS new_wedding_hall_id FROM dual";
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+
+			if (rs.next()) {
+	            id = rs.getString("new_wedding_hall_id");
+	            System.out.println("Generated ID: " + id);
+	        } else {
+	            System.out.println("No ID returned from query.");
+	        }
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Class Not Found Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return id;
+	}
 }
