@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -145,6 +146,7 @@ public class StudioDAO {
         return studios;
     }
 
+    // 스튜디오 상품 조회
 	public ArrayList<Studio> getProductStudio(String id) {
 		ArrayList<Studio> studios = new ArrayList<Studio>();
 		
@@ -182,13 +184,61 @@ public class StudioDAO {
 		return studios;
 	}
 
+	// 스튜디오 상품 ID 생성
 	public String generateStudioId() {
-		// TODO Auto-generated method stub
-		return null;
+		String id = null;
+		String sql = "SELECT COALESCE('STUDIO' || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(STUDIO_ID, 6))) + 1, 1), 5, '0'), 'STUDIO00001') AS STUDIO_ID FROM STUDIO WHERE REGEXP_LIKE(SUBSTR(STUDIO_ID, 6), '^[0-9]+$')";
+
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+
+			if (rs.next()) {
+				id = rs.getString("STUDIO_ID");
+				System.out.println("Generated ID: " + id);
+			} else {
+				System.out.println("No data returned from query.");
+			}
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Class Not Found Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return id;
 	}
 
+	// 스튜디오 상품 등록
 	public int addStudio(Studio studio) {
-		// TODO Auto-generated method stub
-		return 0;
+		int cnt = 0;
+		String sql = "INSERT INTO STUDIO(STUDIO_ID, STUDIO_CONCEPT, STUDIO_PRICE, STUDIO_CONTENT, STUDIO_DATE, VENDOR_ID, PHOTO_PATH, STUDIO_BRAND, STUDIO_TITLE) VALUES(?,?,?,?,?,?,?,?,?)"; 
+			
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, studio.getStudioId());
+			pst.setString(2, studio.getStudioConcept());
+			pst.setInt(3, studio.getStudioPrice());
+			pst.setString(4, studio.getStudioContent());
+			pst.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+			pst.setString(6, studio.getVendorId());
+			pst.setString(7, studio.getPhotoPath());
+			pst.setString(8, studio.getStudioBrand());
+			pst.setString(9, studio.getStudioTitle());
+
+			cnt = pst.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return cnt;
 	}
 }

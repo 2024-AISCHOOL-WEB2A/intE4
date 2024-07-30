@@ -25,7 +25,19 @@ public class Studio {
 		this.studioId = studioId;
     }
 
-    // Getters and setters
+    public Studio(String id, String concept, int price, String title, String content, String photoPath,
+			String vendorId, String brand) {
+		this.studioId = id;
+		this.studioConcept = concept;
+		this.studioPrice = price;
+		this.studioTitle = title;
+		this.studioContent = content;
+		this.photoPath = photoPath;
+		this.vendorId = vendorId;
+		this.studioBrand = brand;
+	}
+
+	// Getters and setters
     public String getStudioId() {
         return studioId;
     }
