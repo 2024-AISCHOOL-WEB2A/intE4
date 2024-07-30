@@ -43,7 +43,7 @@ public class WeddingHallDAO {
                 weddingHall.setWeddingHallMealCost(rs.getInt("WEDDING_HALL_MEAL_COST"));
                 weddingHall.setWeddingHallAssurance(rs.getString("WEDDING_HALL_ASSURANCE"));
                 weddingHall.setWeddingHallType(rs.getString("WEDDING_HALL_TYPE"));
-                weddingHall.setWeddingHallPrice(rs.getString("WEDDING_HALL_PRICE"));
+                weddingHall.setWeddingHallPrice(rs.getInt("WEDDING_HALL_PRICE"));
                 weddingHall.setWeddingHallContent(rs.getString("WEDDING_HALL_CONTENT"));
                 weddingHall.setWeddingHallDate(rs.getTimestamp("WEDDING_HALL_DATE"));
                 weddingHall.setVendorId(rs.getString("VENDOR_ID"));
@@ -107,7 +107,7 @@ public class WeddingHallDAO {
                     weddingHall.setWeddingHallMealCost(rs.getInt("WEDDING_HALL_MEAL_COST"));
                     weddingHall.setWeddingHallAssurance(rs.getString("WEDDING_HALL_ASSURANCE"));
                     weddingHall.setWeddingHallType(rs.getString("WEDDING_HALL_TYPE"));
-                    weddingHall.setWeddingHallPrice(rs.getString("WEDDING_HALL_PRICE"));
+                    weddingHall.setWeddingHallPrice(rs.getInt("WEDDING_HALL_PRICE"));
                     weddingHall.setWeddingHallContent(rs.getString("WEDDING_HALL_CONTENT"));
                     weddingHall.setWeddingHallDate(rs.getTimestamp("WEDDING_HALL_DATE"));
                     weddingHall.setVendorId(rs.getString("VENDOR_ID"));
@@ -176,5 +176,43 @@ public class WeddingHallDAO {
 		}
 
 		return id;
+	}
+
+	// 웨딩홀 상품 조회
+	public ArrayList<WeddingHall> getProductWeddingHall(String id) {
+		ArrayList<WeddingHall> weddingHalls = new ArrayList<WeddingHall>();
+		
+		String sql = "";
+		
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				WeddingHall weddingHall = new WeddingHall();
+				weddingHall.setPhotoPath(rs.getString("PHOTO_PATH"));
+				weddingHall.setWeddingHallBrand(rs.getString("WEDDING_HALL_BRAND"));
+				weddingHall.setWeddingHallType(rs.getString("WEDDING_HALL_TYPE"));
+				weddingHall.setWeddingHallPrice(rs.getInt("WEDDING_HALL_PRICE"));
+				weddingHall.setWeddingHallMealCost(rs.getInt("WEDDING_HALL_MEAL_COST"));
+				weddingHall.setWeddingHallAssurance(rs.getString("WEDDING_HALL_ASSURANCE"));
+				weddingHall.setWeddingHallContent(rs.getString("WEDDING_HALL_CONTENT"));
+				weddingHall.setWeddingHallDate(rs.getTimestamp("WEDDING_HALL_DATE"));
+				weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
+				weddingHalls.add(weddingHall);
+			}
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Class Not Found Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return weddingHalls;
 	}
 }

@@ -8,7 +8,7 @@ public class WeddingHall {
     private int weddingHallMealCost;
     private String weddingHallAssurance;
     private String weddingHallType;
-    private String weddingHallPrice;
+    private int weddingHallPrice;
     private String weddingHallContent;
     private Timestamp weddingHallDate;
     private String vendorId;
@@ -45,10 +45,10 @@ public class WeddingHall {
 	public void setWeddingHallType(String weddingHallType) {
 		this.weddingHallType = weddingHallType;
 	}
-	public String getWeddingHallPrice() {
+	public int getWeddingHallPrice() {
 		return weddingHallPrice;
 	}
-	public void setWeddingHallPrice(String weddingHallPrice) {
+	public void setWeddingHallPrice(int weddingHallPrice) {
 		this.weddingHallPrice = weddingHallPrice;
 	}
 	public String getWeddingHallContent() {
