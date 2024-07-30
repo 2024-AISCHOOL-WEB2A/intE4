@@ -14,6 +14,7 @@
 </style>
 </head>
 <body>
+
     <header>
         <jsp:include page="header2.jsp" />
     </header>
