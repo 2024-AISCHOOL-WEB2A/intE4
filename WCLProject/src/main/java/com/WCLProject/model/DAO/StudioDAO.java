@@ -148,7 +148,7 @@ public class StudioDAO {
 	public ArrayList<Studio> getProductStudio(String id) {
 		ArrayList<Studio> studios = new ArrayList<Studio>();
 		
-		String sql ="SELECT PHOTO_PATH, STUDIO_CONCEPT, STUDIO_PRICE, STUDIO_TITLE, STUDIO_CONTENT, STUDIO_DATE, STUDIO_ID FROM STUDIO WHERE STUDIO_ID = ?";
+		String sql ="SELECT PHOTO_PATH, STUDIO_CONCEPT, STUDIO_PRICE, STUDIO_TITLE, STUDIO_CONTENT, STUDIO_DATE, STUDIO_ID FROM STUDIO WHERE VENDOR_ID = ?";
 		
 		try {
 			conn = DBUtil.getConnection();

@@ -123,9 +123,10 @@ if (vendor != null) {
 		                    const row = `<tr>
 		                        <td>\${index + 1}</td>
 		                        <td><img src="\${photoPath}" alt="\${title}" width="100"></td>
-		                        <td>\${title}</td>
+		                        <td>\${concept}</td>
 		                        <td>\${price}</td>
-		                        <td>\${description}</td>
+		                        <td>\${title}</td>
+		                        <td>\${content}</td>
 		                        <td>\${date}</td>
 		                        <td><a href="#" class="btn-edit" onclick="editProduct('\${product.id}')">수정</a></td>
 		                        <td><a href="#" class="btn-delete" onclick="deleteProduct('\${product.id}')">삭제</a></td>
