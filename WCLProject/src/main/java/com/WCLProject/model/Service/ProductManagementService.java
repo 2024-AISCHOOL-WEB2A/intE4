@@ -11,10 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.WCLProject.model.DAO.DressDAO;
 import com.WCLProject.model.DAO.MakeupDAO;
 import com.WCLProject.model.DAO.StudioDAO;
-import com.WCLProject.model.DTO.Dress;
 import com.WCLProject.model.DTO.Makeup;
 import com.WCLProject.model.DTO.Studio;
 import com.google.gson.Gson;

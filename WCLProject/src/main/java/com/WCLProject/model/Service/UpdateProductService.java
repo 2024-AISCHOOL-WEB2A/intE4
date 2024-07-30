@@ -42,10 +42,9 @@ public class UpdateProductService extends HttpServlet {
         String content = request.getParameter("content");
         int price = 0;
         price = Integer.parseInt(strPrice);
-        
+        System.out.println(price);
 		if (photoPath == null)
 			photoPath = "not photo";	
-        // Dress dress = new Dress(dressId, brand, fabric, line, style, price, content, vendorId, photoPath, title);
         
         int cnt = 0;
         
@@ -62,7 +61,6 @@ public class UpdateProductService extends HttpServlet {
         	return;
         }
 
-        
 		if (cnt > 0) {
 			System.out.println("상품 수정 성공");
 			response.sendRedirect("productManagement.jsp");

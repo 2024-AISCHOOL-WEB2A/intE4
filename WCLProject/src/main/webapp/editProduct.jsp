@@ -55,27 +55,27 @@
             if (id != null) {
             %>
 				<!-- 상품 ID (숨겨진 필드) -->
-				<input type="hidden" id="dress_id" name="dress_id"
+				<input type="hidden" id="id" name="id"
 					value="<%=id%>" />
 
 				<div class="form-group">
-					<label for="dress_title">상품 컨셉</label> <input type="text"
-						id="dress_title" name="dress_title"
+					<label for="concept">상품 컨셉</label> <input type="text"
+						id="concept" name="concept"
 						value="<%=concept%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_brand">가격</label> <input type="text"
-						id="dress_brand" name="dress_brand"
+					<label for="price">가격</label> <input type="text"
+						id="price" name="price"
 						value="<%=price%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_fabric">상품 한줄소개</label> <input type="text"
-						id="dress_fabric" name="dress_fabric"
+					<label for="title">상품 한줄소개</label> <input type="text"
+						id="title" name="title"
 						value="<%=title%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_line">상품 상세설명</label> <input type="text"
-						id="dress_line" name="dress_line"
+					<label for="content">상품 상세설명</label> <input type="text"
+						id="content" name="content"
 						value="<%=content%>" required />
 				</div>
 				<button type="submit" class="action-button">수정</button>
@@ -85,8 +85,8 @@
 			<form id="imageUploadForm" action="UploadProductImageService"
 				method="post" enctype="multipart/form-data">
 				<div class="image-upload">
-					<label for="dress_photoPath">이미지 업로드</label> <input type="file"
-						id="dress_photoPath" name="dress_photoPath" accept="image/*" /> <img
+					<label for="photoPath">이미지 업로드</label> <input type="file"
+						id="photoPath" name="photoPath" accept="image/*" /> <img
 						src="<%=photoPath%>" alt="상품 이미지" width="100" />
 				</div>
 			</form>
