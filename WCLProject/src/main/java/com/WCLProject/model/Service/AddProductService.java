@@ -28,22 +28,22 @@ public class AddProductService extends HttpServlet {
 		VendorMemberDTO vendorInfo = (VendorMemberDTO) session.getAttribute("vendorInfo");
 		String vendorId = null;
 		String category = null;
+		String brand = null;
 		if (vendorInfo != null) {
 			vendorId = vendorInfo.getId();
 			category = vendorInfo.getCategory();
+			brand = vendorInfo.getName();
 		} else {
 			response.sendRedirect("LoginWcl.jsp");
 			return;
 		}
 
-		String brand = request.getParameter("dress_brand");
-		String fabric = request.getParameter("dress_fabric");
-		String line = request.getParameter("dress_line");
-		String style = request.getParameter("dress_style");
-		String priceStr = request.getParameter("dress_price");
-		String content = request.getParameter("dress_content");
-		String photoPath = request.getParameter("dress_photoPath");
-		String title = request.getParameter("dress_title");
+		String concept = request.getParameter("product_concept");
+		String priceStr = request.getParameter("product_price");
+		String title = request.getParameter("product_title");
+		String content = request.getParameter("product_content");
+		String photoPath = request.getParameter("product_photoPath");
+
         int price = 0; // 초기값 설정
         price = Integer.parseInt(priceStr);
 
@@ -55,12 +55,12 @@ public class AddProductService extends HttpServlet {
 		if (category.equals("스튜디오")) {
 			StudioDAO dao = new StudioDAO();
 			String id = dao.generateStudioId();
-			Studio studio = new Studio();
+			Studio studio = new Studio(id, concept, price, title, content, photoPath, vendorId, brand);
 			cnt = dao.addStudio(studio);
 		} else if (category.equals("메이크업")) {
 			MakeupDAO dao = new MakeupDAO();
 			String id = dao.generateMakeupId();
-			Makeup makeup = new Makeup();
+			Makeup makeup = new Makeup(id, concept, price, title, content, photoPath, vendorId, brand);
 			cnt = dao.addMakeup(makeup);
 		} else {
 			System.out.println("업종을 확인해 주세요.");

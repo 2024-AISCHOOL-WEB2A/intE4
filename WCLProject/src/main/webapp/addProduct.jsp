@@ -1,58 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 등록</title>
 <link rel="stylesheet" href="./css/addProductDress.css" />
 </head>
 <body>
 	<header>
 		<jsp:include page="header.jsp" />
 	</header>
-<div class="container">
-    <!-- 상품 등록 폼 -->
-    <div class="form-container">
-        <h2>상품 등록</h2>
-        <form id="productForm" action="AddProductService" method="post">
-            <div class="form-group">
-                <label for="dress_title">상품명</label>
-                <input type="text" id="dress_title" name="dress_title" required />
-            </div>
-            <div class="form-group">
-                <label for="dress_brand">브랜드</label>
-                <input type="text" id="dress_brand" name="dress_brand" required />
-            </div>
-            <div class="form-group">
-                <label for="dress_fabric">원단</label>
-                <input type="text" id="dress_fabric" name="dress_fabric" required />
-            </div>
-            <div class="form-group">
-                <label for="dress_line">라인</label>
-                <input type="text" id="dress_line" name="dress_line" required />
-            </div>
-            <div class="form-group">
-                <label for="dress_style">스타일</label>
-                <input type="text" id="dress_style" name="dress_style" required />
-            </div>
-            <div class="form-group">
-                <label for="price">가격</label>
-                <input type="number" id="dress_price" name="dress_price" required />
-            </div>
-            <div class="form-group">
-                <label for="dress_content">내용</label>
-                <textarea id="dress_content" name="dress_content" rows="4" required></textarea>
-            </div>
-            <!-- 이미지 업로드 섹션 -->
-            <div class="image-upload">
-                <label for="dress_photoPath">이미지 업로드</label>
-                <input type="file" id="dress_photoPath" name="dress_photoPath" accept="image/*" />
-            </div>
-            <button type="submit" class="action-button">등록</button>
-        </form>
-    </div>
-</div>
+	<div class="container">
+		<!-- 상품 등록 폼 -->
+		<div class="form-container">
+			<h2>상품 등록</h2>
+			<form id="productForm" action="AddProductService" method="post">
+				<%-- 				<input type="hidden" id="dress_id" name="dress_id" value="<%=//id%>" /> --%>
+
+				<div class="form-group">
+					<label for="product_concept">상품 컨셉</label> <input type="text"
+						id="product_concept" name="product_concept" required />
+				</div>
+				<div class="form-group">
+					<label for="product_price">가격</label> <input type="number"
+						id="product_price" name="product_price" required />
+				</div>
+				<div class="form-group">
+					<label for="product_title">상품 한줄소개</label> <input type="text"
+						id="product_title" name="product_title" required />
+				</div>
+				<div class="form-group">
+					<label for="product_content">상품 상세설명</label> <input type="text"
+						id="product_content" name="product_content" required />
+				</div>
+				<button type="submit" class="action-button">등록</button>
+			</form>
+		</div>
+
+		<!-- 이미지 업로드 폼 -->
+		<div class="form-container">
+			<h2>이미지 업로드</h2>
+			<form id="imageUploadForm" action="UploadImageService" method="post"
+				enctype="multipart/form-data">
+				<div class="image-upload">
+					<label for="product_photoPath">이미지 업로드</label> <input type="file"
+						id="product_photoPath" name="product_photoPath" accept="image/*" />
+				</div>
+				<button type="submit" class="action-button">이미지 등록</button>
+			</form>
+		</div>
+	</div>
 	<footer>
 		<jsp:include page="footer.jsp" />
 	</footer>

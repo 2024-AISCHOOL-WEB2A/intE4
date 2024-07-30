@@ -70,7 +70,7 @@ if (vendor != null) {
 		var vendorCategory = "<%=vendorCategory%>";
 		
 		function addProduct() {
-			 window.location.href = 'addProductDress.jsp';
+			 window.location.href = 'addProduct.jsp';
 		}
 		
 		function fetchProduct() {
