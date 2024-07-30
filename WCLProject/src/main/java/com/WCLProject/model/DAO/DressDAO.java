@@ -338,19 +338,18 @@ public class DressDAO {
 	// 드레스 상품 ID 생성
 	public String generateDressId() {
 		String id = null;
-		String sql = "SELECT COALESCE('DRESS' || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(DRESS_ID, 6))) + 1, 1), 5, '0'), 'DRESS00001') AS DRESS_ID FROM DRESS WHERE REGEXP_LIKE(SUBSTR(DRESS_ID, 6), '^[0-9]+$')";
-
+		String sql = "SELECT 'DRESS' || LPAD(dress_seq.NEXTVAL, 5, '0') AS new_dress_id FROM dual";
 		try {
 			conn = DBUtil.getConnection();
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
 
 			if (rs.next()) {
-				id = rs.getString("DRESS_ID");
-				System.out.println("Generated ID: " + id);
-			} else {
-				System.out.println("No data returned from query.");
-			}
+	            id = rs.getString("new_dress_id");
+	            System.out.println("Generated ID: " + id);
+	        } else {
+	            System.out.println("No ID returned from query.");
+	        }
 		} catch (SQLException e) {
 			System.err.println("SQL Error: " + e.getMessage());
 			e.printStackTrace();
