@@ -187,8 +187,27 @@ public class StudioDAO {
 	// 스튜디오 상품 ID 생성
 	public String generateStudioId() {
 		String id = null;
-		String sql = "SELECT COALESCE('STUDIO' || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(STUDIO_ID, 6))) + 1, 1), 5, '0'), 'STUDIO00001') AS STUDIO_ID FROM STUDIO WHERE REGEXP_LIKE(SUBSTR(STUDIO_ID, 6), '^[0-9]+$')";
-
+		/*
+		 * String sql =
+		 * "SELECT COALESCE('STUDIO' || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(STUDIO_ID, 6))) + 1, 1), 5, '0'), 'STUDIO00001') AS STUDIO_ID FROM STUDIO WHERE REGEXP_LIKE(SUBSTR(STUDIO_ID, 6), '^[0-9]+$')"
+		 * ;
+		 */
+		
+		String sql = "WITH max_id AS (" +
+                "    SELECT MAX(TO_NUMBER(SUBSTR(STUDIO_ID, 6))) AS max_number" +
+                "    FROM STUDIO" +
+                "    WHERE REGEXP_LIKE(SUBSTR(STUDIO_ID, 6), '^[0-9]+$')" +
+                "), new_id AS (" +
+                "    SELECT COALESCE('STUDIO' || LPAD(NVL(max_id.max_number, 0) + 1, 5, '0'), 'STUDIO00001') AS new_studio_id" +
+                "    FROM max_id" +
+                ") " +
+                "SELECT new_studio_id " +
+                "FROM new_id " +
+                "WHERE NOT EXISTS (" +
+                "    SELECT 1 " +
+                "    FROM STUDIO " +
+                "    WHERE STUDIO_ID = new_id.new_studio_id" +
+                ")";
 		try {
 			conn = DBUtil.getConnection();
 			pst = conn.prepareStatement(sql);
