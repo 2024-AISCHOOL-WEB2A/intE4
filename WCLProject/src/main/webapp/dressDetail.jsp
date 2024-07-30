@@ -4,6 +4,8 @@
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <link rel="stylesheet" href="./css/dressDetail.css">
+<link rel="stylesheet" href="./css/mainPage_globals.css">
+<link rel="stylesheet" href="./css/mainPage_styleguide.css">
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -33,11 +35,9 @@
                 </div>
                 <div class="dress-info">
                     <h2><%= dress.getDressBrand() %></h2>
-                    <p><strong>Fabric : </strong> <%= dress.getDressFabric() %></p>
-                    <p><strong>Line : </strong> <%= dress.getDressLine() %></p>
-                    <p>#<%= dress.getDressStyle() %></p>
-                    <p><strong>￦ </strong> <%= dress.getDressPrice() %></p>
-                    <p><strong></strong> <%= dress.getDressContent() %></p>
+                    <h3># <%= dress.getDressFabric() %>&nbsp;&nbsp;&nbsp;# <%= dress.getDressLine() %>&nbsp;&nbsp;&nbsp;# <%= dress.getDressStyle() %></h3>
+                    <p class="line-break"><%= dress.getDressContent() %></p>
+                    <p class="dress-price"><%= dress.getDressPrice() %>원</p>
                     <!-- 문의하기 버튼 -->
                     <button class="inquiry-button" onclick="location.href='inquiry.jsp?dressId=<%= dress.getId() %>'">문의하기</button>
                 </div>
@@ -67,30 +67,9 @@
     </div>
     <!-- 예약하기, 결제하기 버튼 -->
     <div class="button-section">
-    	<form action="reservation.jsp" method="get">
-    					<input type="hidden" name="item_brand" value="<%= dress.getDressBrand() %>">
-                        <input type="hidden" name="fabric" value="<%= dress.getDressFabric() %>">
-                        <input type="hidden" name="line" value="<%= dress.getDressLine() %>">
-                        <input type="hidden" name="style" value="<%= dress.getDressStyle() %>">
-                        <input type="hidden" name="item_price" value="<%= dress.getDressPrice() %>">
-                        <input type="hidden" name="item_content" value="<%= dress.getDressContent() %>">
-                        <input type="hidden" name="photo_path" value="<%= dress.getPhotoPath() %>">
-                        <input type="hidden" name="category" value="Dress">
-                        <button type="submit">예약하기</button>
-    	<form action="order.jsp" method="get">
-    					<input type="hidden" name="item_brand" value="<%= dress.getDressBrand() %>">
-                        <input type="hidden" name="fabric" value="<%= dress.getDressFabric() %>">
-                        <input type="hidden" name="line" value="<%= dress.getDressLine() %>">
-                        <input type="hidden" name="style" value="<%= dress.getDressStyle() %>">
-                        <input type="hidden" name="item_price" value="<%= dress.getDressPrice() %>">
-                        <input type="hidden" name="item_content" value="<%= dress.getDressContent() %>">
-                        <input type="hidden" name="photo_path" value="<%= dress.getPhotoPath() %>">
-                        <input type="hidden" name="category" value="Dress">
-                        <button type="submit">결제하기</button>
-        <%-- <button onclick="location.href='reservation.jsp?dressId=<%= dress.getId() %>'">예약하기</button>
-        <button onclick="location.href='payment.jsp?dressId=<%= dress.getId() %>'">결제하기</button> --%>
+        <button onclick="location.href='reservation.jsp?dressId=<%= dress.getId() %>'">예약하기</button>
+        <button onclick="location.href='payment.jsp?dressId=<%= dress.getId() %>'">결제하기</button>
     </div>
-   
     <footer>
         <jsp:include page="footer.jsp" />
     </footer>
@@ -98,6 +77,19 @@
         function toggleLike(element) {
             element.classList.toggle('liked');
         }
+        
+        // 페이지 로드 시 스크롤 위치 복원
+        window.onload = function() {
+            const scrollPosition = localStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition, 10));
+            }
+        };
+
+        // 페이지 언로드 시 스크롤 위치 저장
+        window.onbeforeunload = function() {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        };
     </script>
 </body>
 </html>

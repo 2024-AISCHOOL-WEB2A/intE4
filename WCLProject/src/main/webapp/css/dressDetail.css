@@ -1,5 +1,5 @@
 body {
-            font-family: Arial, sans-serif;
+            font-family: "Inter", Helvetica;
             margin: 0;
             padding: 0;
         }
@@ -28,10 +28,10 @@ body {
             height: auto;
         }
         .dress-info {
-            width: 45%; /* 드레스 정보 너비를 45%로 조정 */
+            width: 43%; /* 드레스 정보 너비를 45%로 조정 */
+            margin-right: -10px;
         }
         .inquiry-button {
-            background-color: #ffdddd;
             color: black;
             padding: 10px 20px;
             border: none;
@@ -40,6 +40,11 @@ body {
             border-radius: 5px;
             margin-top: 20px;
             font-weight: 550;
+            background-color: #ffebeb;
+            font-family: "Inter", Helvetica !important;
+            letter-spacing: 1px; /* 글자 간격 설정 */
+  			position: absolute; /* 부모 요소를 기준으로 고정 위치 */
+    		bottom: 220px; /* 부모 요소의 하단에서 20px 위로 */
         }
         .more-dresses {
             margin-top: 20px;
@@ -50,11 +55,11 @@ body {
             gap: 10px;
         }
         .thumbnail-images img {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             cursor: pointer;
-            margin-top: -15px;
+            margin-top: 2px;
         }
         .brand-section {
             margin-top: 100px;
@@ -64,11 +69,13 @@ body {
             font-size: 16px;
             font-weight: bold;
             margin: 0;
+            font-family: "Inter", Helvetica !important;
         }
         .brand-section h2 {
             margin: 10px 0;
             font-size: 20px;
             font-weight: normal;
+            font-family: "Inter", Helvetica !important;
         }
         .brand-main-image {
             margin-top: 20px;
@@ -82,15 +89,17 @@ body {
             margin: 120px 0; /* 버튼을 더 아래로 내리기 위해 margin을 크게 설정 */
         }
         .button-section button {
-            background-color: #ffdddd;
             color: black;
             padding: 10px 20px;
-            margin: 0 10px;
+            margin: 0 20px;
             border: none;
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
             font-weight: 550;
+            background-color: #ffebeb;
+            font-family: "Inter", Helvetica !important;
+            letter-spacing: 1px; /* 글자 간격 설정 */
         }
         .heart-icon {
             position: absolute;
@@ -102,4 +111,36 @@ body {
         }
         .heart-icon.liked {
             color: red;
+        }
+        .more-dresses h3 {
+        	font-family: "Radley", Helvetica !important;
+        	color: black;
+        	font-size: 18px;
+        	margin-top: -5px;
+        }
+       	.dress-info h2 {
+       		font-family: "Inter", Helvetica !important;
+       		font-size: 25px;
+       		font-weight: 550;
+       		margin-top: 25px;
+       		margin-bottom: 25px;
+       	}
+       	.dress-info h3{
+			font-family: "Inter", Helvetica !important;
+			color: #8A2BE2;
+			font-weight: 550;
+			margin-bottom: 30px;
+			margin-left: 10px;
+			font-size: 17px;
+       	}
+       	.line-break {
+            white-space: pre-line; /* 줄바꿈을 해석하여 표시 */
+            line-height: 1.6; /* 줄 간 간격을 1.6배로 설정 */
+            margin-bottom: 25px;
+            font-family: "Inter", Helvetica !important;
+        }
+        .dress-price {
+            font-size: 20px; /* 원하는 폰트 크기로 설정 */
+            font-weight: 550; /* 필요에 따라 폰트 두께를 설정 */
+
         }

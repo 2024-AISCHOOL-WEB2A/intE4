@@ -5,6 +5,8 @@
 <%@ page import="com.WCLProject.model.DTO.Dress" %>
 <!DOCTYPE html>
 <link rel="stylesheet" href="./css/dresses.css">
+<link rel="stylesheet" href="./css/mainPage_globals.css">
+<link rel="stylesheet" href="./css/mainPage_styleguide.css">
 <html>
 <head>
 <meta charset="UTF-8">
@@ -14,12 +16,12 @@
 </head>
 <body>
     <header>
-        <jsp:include page="header3.jsp" />
+        <jsp:include page="header2.jsp" />
     </header>
-    <h1>드레스 라인</h1>
     <!-- 필터링 지역, 소재, 금액대, 라인, 분위기 순 -->
     <div class="filter-container">
-        <span class="filter-title">지역:</span>
+    <h1>드레스 라인</h1>
+        <span class="filter-title">지역 </span>
         <form action="" method="get" style="display:inline-block;">
             <select class="region-select" name="region" onchange="this.form.submit()">
                 <option value="">전체</option>
@@ -176,6 +178,20 @@
             }
         %>
     </div>
+    <script>
+        // 페이지 로드 시 스크롤 위치 복원
+        window.onload = function() {
+            const scrollPosition = localStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition, 10));
+            }
+        };
+
+        // 페이지 언로드 시 스크롤 위치 저장
+        window.onbeforeunload = function() {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        };
+    </script>
     <footer>
         <jsp:include page="footer.jsp" />
     </footer>
