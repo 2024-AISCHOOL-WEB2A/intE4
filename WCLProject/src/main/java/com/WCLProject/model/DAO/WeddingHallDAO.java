@@ -182,7 +182,7 @@ public class WeddingHallDAO {
 	public ArrayList<WeddingHall> getProductWeddingHall(String id) {
 		ArrayList<WeddingHall> weddingHalls = new ArrayList<WeddingHall>();
 		
-		String sql = "";
+		String sql = "SELECT * FROM WEDDING_HALL WHERE VENDOR_ID = ?";
 		
 		try {
 			conn = DBUtil.getConnection();
