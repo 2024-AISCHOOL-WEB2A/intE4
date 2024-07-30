@@ -64,7 +64,7 @@
 		    height: 300px; /* 고정 높이 */
 		    object-fit: cover; /* 이미지를 요소 크기에 맞게 조정하면서 비율 유지, 넘치는 부분은 자름 */
 		    object-position: center; /* 이미지를 가운데에 위치시킴 */
-		    border-radius: 1px;
+		    border-radius: 2px;
         }
         .pagination {
             text-align: center;

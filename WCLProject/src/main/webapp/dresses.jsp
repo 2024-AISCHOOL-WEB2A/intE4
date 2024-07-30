@@ -150,43 +150,43 @@
     </div>
 
     <!-- 페이징 -->
-<div class="pagination">
-    <%
-        String baseQueryString = request.getQueryString() != null ? request.getQueryString().replaceAll("page=[^&]*&?", "") : "";
-        int pageLimit = 5; // 최대 표시할 페이지 번호 수
-        int startPage = Math.max(1, currentPage - pageLimit / 2); // 현재 페이지를 중심으로 앞뒤로 표시할 페이지 범위
-        int endPage = Math.min(totalPages, startPage + pageLimit - 1);
-
-        // 시작 페이지 번호가 1보다 큰 경우 페이지 번호를 조정
-        if (endPage - startPage + 1 < pageLimit) {
-            startPage = Math.max(1, endPage - pageLimit + 1);
-        }
-
-        if (currentPage > 1) {
-    %>
-            <a href="?page=<%= (currentPage - 1) %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>">&laquo; 이전</a>
-    <%
-        }
-
-        for (int i = startPage; i <= endPage; i++) {
-            if (i == currentPage) {
-    %>
-                <strong><%= i %></strong> 
-    <%
-            } else {
-    %>
-                <a href="?page=<%= i %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>"><%= i %></a>
-    <%
-            }
-        }
-
-        if (currentPage < totalPages) {
-    %>
-            <a href="?page=<%= (currentPage + 1) %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>">다음 &raquo;</a>
-    <%
-        }
-    %>
-</div>
+	<div class="pagination">
+	    <%
+	        String baseQueryString = request.getQueryString() != null ? request.getQueryString().replaceAll("page=[^&]*&?", "") : "";
+	        int pageLimit = 5; // 최대 표시할 페이지 번호 수
+	        int startPage = Math.max(1, currentPage - pageLimit / 2); // 현재 페이지를 중심으로 앞뒤로 표시할 페이지 범위
+	        int endPage = Math.min(totalPages, startPage + pageLimit - 1);
+	
+	        // 시작 페이지 번호가 1보다 큰 경우 페이지 번호를 조정
+	        if (endPage - startPage + 1 < pageLimit) {
+	            startPage = Math.max(1, endPage - pageLimit + 1);
+	        }
+	
+	        if (currentPage > 1) {
+	    %>
+	            <a href="?page=<%= (currentPage - 1) %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>">&laquo; 이전</a>
+	    <%
+	        }
+	
+	        for (int i = startPage; i <= endPage; i++) {
+	            if (i == currentPage) {
+	    %>
+	                <strong><%= i %></strong> 
+	    <%
+	            } else {
+	    %>
+	                <a href="?page=<%= i %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>"><%= i %></a>
+	    <%
+	            }
+	        }
+	
+	        if (currentPage < totalPages) {
+	    %>
+	            <a href="?page=<%= (currentPage + 1) %><%= baseQueryString.length() > 0 ? "&" + baseQueryString : "" %>">다음 &raquo;</a>
+	    <%
+	        }
+	    %>
+	</div>
     <script>
         // 페이지 로드 시 스크롤 위치 복원
         window.onload = function() {
