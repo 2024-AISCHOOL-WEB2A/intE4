@@ -1,16 +1,28 @@
+<%@page import="com.WCLProject.model.DTO.VendorMemberDTO"%>
+<%@page import="com.WCLProject.model.DTO.UserMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.WCLProject.model.DAO.DressDAO" %>
 <%@ page import="com.WCLProject.model.DTO.Dress" %>
 <%@ page import="java.util.List" %>
+<% 
+UserMemberDTO user = (UserMemberDTO) session.getAttribute("userInfo");
+VendorMemberDTO vendor = (VendorMemberDTO) session.getAttribute("vendorInfo");
+Boolean isLogin = (vendor != null || user != null);
+
+if (!isLogin) {		
+    response.sendRedirect("mainPage.jsp");
+    return;
+}
+%>
 <!DOCTYPE html>
-<link rel="stylesheet" href="./css/dressDetail.css">
-<link rel="stylesheet" href="./css/mainPage_globals.css">
-<link rel="stylesheet" href="./css/mainPage_styleguide.css">
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>Wedding Dress Detail</title>
 <style>
+<link rel="stylesheet" href="./css/dressDetail.css">
+<link rel="stylesheet" href="./css/mainPage_globals.css">
+<link rel="stylesheet" href="./css/mainPage_styleguide.css">
 </style>
 </head>
 <body>
