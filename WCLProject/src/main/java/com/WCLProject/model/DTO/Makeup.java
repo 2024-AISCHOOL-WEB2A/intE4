@@ -13,7 +13,21 @@ public class Makeup {
     private String photoPath;
     private String makeupTitle;
 
-    // Getters and setters
+    public Makeup() {}
+    
+    public Makeup(String id, String concept, int price, String title, String content, String photoPath,
+			String vendorId, String brand) {
+		this.makeupId = id;
+		this.makeupConcept = concept;
+		this.makeupPrice = price;
+		this.makeupTitle = title;
+		this.makeupContent = content;
+		this.photoPath = photoPath;
+		this.vendorId = vendorId;
+		this.makeupBrand = brand;
+	}
+
+	// Getters and setters
     public String getMakeupId() {
         return makeupId;
     }
