@@ -39,20 +39,20 @@
 						src="${pageContext.request.contextPath}/page_img/mainPage_img/icon.svg" />
 					<div class="frame-5">
 						<div class="frame-6">
-							<div class="image-background"></div>
-							<div class="text-wrapper-5">스튜디오</div>
+							<a href="#" class="image-background" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background.svg');"></a>
+							<div class="text-wrapper-99">스튜디오</div>
 						</div>
 						<div class="frame-6">
-							<div class="image-background-2"></div>
-							<div class="text-wrapper-5">드레스</div>
+	         				<a href="#" class="image-background-2" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-1.svg');"></a>
+							<div class="text-wrapper-99">드레스</div>
 						</div>
 						<div class="frame-6">
-							<div class="image-background-3"></div>
-							<div class="text-wrapper-5">웨딩홀</div>
+	         				<a href="#" class="image-background-3" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-2.svg');"></a>
+							<div class="text-wrapper-99">웨딩홀</div>
 						</div>
 						<div class="frame-6">
-							<div class="image-background-4"></div>
-							<div class="text-wrapper-5">메이크업</div>
+	         				<a href="#" class="image-background-4" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-3.svg');"></a>
+							<div class="text-wrapper-99">메이크업</div>
 						</div>
 					</div>
 					<img class="img"
@@ -70,32 +70,32 @@
 										<img class="rectangle-2"
 											src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19.png" />
 										<p class="p">
-											<span class="span">미유&amp;섬 스튜디오<br />
-											<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+											<span class="span">플로렌스웨딩<br />
+											<br /></span> <span class="text-wrapper-7">깨끗하고 포인트 있는 드레스</span>
 										</p>
 									</div>
 									<div class="group-2">
 										<img class="rectangle-2"
 											src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20.png" />
 										<p class="div-2">
-											<span class="span">미유&amp;섬 스튜디오<br />
-											<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+											<span class="span">제시카로렌<br />
+											<br /></span> <span class="text-wrapper-7">단아하고 클래식한 무드</span>
 										</p>
 									</div>
 									<div class="group-3">
 										<img class="rectangle-2"
 											src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21.png" />
 										<p class="div-3">
-											<span class="span">미유&amp;섬 스튜디오<br />
-											<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+											<span class="span">모네뜨아르<br />
+											<br /></span> <span class="text-wrapper-7">수입, 자체제작 드레스</span>
 										</p>
 									</div>
 									<div class="group-4">
 										<img class="rectangle-2"
 											src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22.png" />
 										<p class="div-3">
-											<span class="span">미유&amp;섬 스튜디오<br />
-											<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+											<span class="span">클라라웨딩<br />
+											<br /></span> <span class="text-wrapper-7">소녀스럽고 러블리한 이미지</span>
 										</p>
 									</div>
 								</div>
@@ -112,8 +112,8 @@
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19-1.png" />
 									<p class="div-4">
-										<span class="span">미유&amp;섬 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">헤리티지포토그라피<br />
+										<br /></span> <span class="text-wrapper-7">한 편의 영화 주인공</span>
 									</p>
 								</div>
 								<div class="group-5">
@@ -121,23 +121,23 @@
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20-1.png" />
 									<p class="div-4">
 										<span class="span">가을 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<br /></span> <span class="text-wrapper-7">인물중심의 자연스러움</span>
 									</p>
 								</div>
 								<div class="group-5">
 									<img class="rectangle-4"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21-1.png" />
 									<p class="div-4">
-										<span class="span">S스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">이포토에세이<br />
+										<br /></span> <span class="text-wrapper-7">심플하고 고급스러운 사진</span>
 									</p>
 								</div>
 								<div class="group-6">
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22-1.png" />
 									<p class="div-4">
-										<span class="span">I DO 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">세미앙<br />
+										<br /></span> <span class="text-wrapper-7">야외, 인물사진 등 다양한 컨셉</span>
 									</p>
 								</div>
 							</div>
@@ -153,32 +153,32 @@
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19-2.png" />
 									<p class="div-4">
-										<span class="span">미유&amp;섬 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">제니하우스<br />
+										<br /></span> <span class="text-wrapper-7">개성, 고급스러움, 색조</span>
 									</p>
 								</div>
 								<div class="group-5">
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20-2.png" />
 									<p class="div-4">
-										<span class="span">가을 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">비올<br />
+										<br /></span> <span class="text-wrapper-7">깔끔하고 고급스러운 느낌</span>
 									</p>
 								</div>
 								<div class="group-5">
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21-2.png" />
 									<p class="div-4">
-										<span class="span">S스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">꾸띠원<br />
+										<br /></span> <span class="text-wrapper-7">청순, 트렌디, 깨끗</span>
 									</p>
 								</div>
 								<div class="group-6">
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22-2.png" />
 									<p class="div-4">
-										<span class="span">I DO 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">김청경헤어페이스<br />
+										<br /></span> <span class="text-wrapper-7">자연스러운 음영메이크업</span>
 									</p>
 								</div>
 							</div>
@@ -194,7 +194,7 @@
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-19-3.png" />
 									<p class="div-4">
-										<span class="span">미유&amp;섬 스튜디오<br />
+										<span class="span">더파티움<br />
 										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
 									</p>
 								</div>
@@ -202,15 +202,15 @@
 									<img class="rectangle-4"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-20-3.png" />
 									<p class="div-4">
-										<span class="span">가을 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">토브헤세드<br />
+										<br /></span> <span class="text-wrapper-7">나만의 프라이빗한 맞춤웨딩</span>
 									</p>
 								</div>
 								<div class="group-5">
 									<img class="rectangle-4"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-21-3.png" />
 									<p class="div-4">
-										<span class="span">S스튜디오<br />
+										<span class="span">더채플앳<br />
 										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
 									</p>
 								</div>
@@ -218,8 +218,8 @@
 									<img class="rectangle-3"
 										src="${pageContext.request.contextPath}/page_img/mainPage_img/rectangle-22-3.png" />
 									<p class="div-4">
-										<span class="span">I DO 스튜디오<br />
-										<br /></span> <span class="text-wrapper-7">교회 분위기의 넓은 공간</span>
+										<span class="span">포레스트한울<br />
+										<br /></span> <span class="text-wrapper-7">영원히 기억될 유일한 순간</span>
 									</p>
 								</div>
 							</div>
