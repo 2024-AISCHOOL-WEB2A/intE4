@@ -31,6 +31,18 @@ public class WeddingHall {
 		this.weddingHallMealCost = mealCost;
 	}
 
+	public WeddingHall(String weddingHallId, String type, int price, int mealCost, String assurance, String title,
+			String content, String photoPath) {
+		this.weddingHallId = weddingHallId;
+		this.weddingHallType = type;
+		this.weddingHallPrice = price;
+		this.weddingHallMealCost = mealCost;
+		this.weddingHallAssurance = assurance;
+		this.weddingHallTitle = title;
+		this.weddingHallContent = content;
+		this.photoPath = photoPath;
+	}
+
 	public String getWeddingHallId() {
 		return weddingHallId;
 	}

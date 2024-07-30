@@ -57,7 +57,7 @@ if (vendor != null) {
 				</thead>
 				<tbody id="weddingHall-table-body">
 					<tr>
-						<td colspan="11">상품 조회를 눌러주세요.</td>
+						<td colspan="12">상품 조회를 눌러주세요.</td>
 					</tr>
 				</tbody>
 			</table>
@@ -87,7 +87,7 @@ if (vendor != null) {
 		            if (weddingHallList.length === 0) {
 		                // 상품이 없을 때
 		                const row = `<tr>
-		                    <td colspan="11">등록한 상품이 없습니다.</td>
+		                    <td colspan="12">등록한 상품이 없습니다.</td>
 		                </tr>`;
 		                tbody.insertAdjacentHTML('beforeend', row);
 		            } else {
@@ -113,7 +113,7 @@ if (vendor != null) {
 		            const tbody = document.getElementById('weddingHall-table-body');
 		            tbody.innerHTML = ''; // 기존 내용을 지움
 		            const row = `<tr>
-		                <td colspan="11">등록한 상품이 없습니다.</td>
+		                <td colspan="12">등록한 상품이 없습니다.</td>
 		            </tr>`;
 		            tbody.insertAdjacentHTML('beforeend', row);
 		        }

@@ -30,7 +30,7 @@
 						id="weddingHall_mealCost" name="weddingHall_mealCost" required />
 				</div>
 				<div class="form-group">
-					<label for="weddingHall_assurance">보증인원</label> <input type="text"
+					<label for="weddingHall_assurance">보증인원</label> <input type="number"
 						id="weddingHall_assurance" name="weddingHall_assurance" required />
 				</div>
 				<div class="form-group">

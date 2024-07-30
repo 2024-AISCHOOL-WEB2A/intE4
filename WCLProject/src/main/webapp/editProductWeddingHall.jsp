@@ -1,3 +1,4 @@
+<%@page import="com.WCLProject.model.DTO.WeddingHall"%>
 <%@page import="com.WCLProject.model.DTO.Dress"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -17,50 +18,46 @@
 		<!-- 상품 수정 폼 -->
 		<div class="form-container">
 			<h2>상품 수정</h2>
-			<form id="productForm" action="UpdateProductDressService"
+			<form id="productForm" action="UpdateProductWeddingHallService"
 				method="post">
 				<%
-				Dress dress = (Dress) request.getAttribute("dress");
-				if (dress != null) {
+				WeddingHall weddinghall = (WeddingHall) request.getAttribute("weddinghall");
+				if (weddinghall != null) {
 				%>
 
 				<!-- 상품 ID (숨겨진 필드) -->
-				<input type="hidden" id="dress_id" name="dress_id"
-					value="<%=dress.getId()%>" />
+				<input type="hidden" id="weddingHall_id" name="weddingHall_id"
+					value="<%=weddinghall.getWeddingHallId()%>" />
 
 				<div class="form-group">
-					<label for="dress_title">상품명</label> <input type="text"
-						id="dress_title" name="dress_title"
-						value="<%=dress.getDressTitle()%>" required />
+					<label for="weddingHall_type">웨딩홀 타입</label> <input type="text"
+						id="weddingHall_type" name="weddingHall_type"
+						value="<%=weddinghall.getWeddingHallType()%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_brand">브랜드</label> <input type="text"
-						id="dress_brand" name="dress_brand"
-						value="<%=dress.getDressBrand()%>" required />
+					<label for="weddingHall_price">웨딩홀 가격</label> <input type="number"
+						id="weddingHall_price" name="weddingHall_price"
+						value="<%=weddinghall.getWeddingHallPrice()%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_fabric">원단</label> <input type="text"
-						id="dress_fabric" name="dress_fabric"
-						value="<%=dress.getDressFabric()%>" required />
+					<label for="weddingHall_mealCost">식대</label> <input type="number"
+						id="weddingHall_mealCost" name="weddingHall_mealCost"
+						value="<%=weddinghall.getWeddingHallMealCost()%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_line">라인</label> <input type="text"
-						id="dress_line" name="dress_line"
-						value="<%=dress.getDressLine()%>" required />
+					<label for="weddingHall_assurance">보증인원</label> <input type="number"
+						id="weddingHall_assurance" name="weddingHall_assurance"
+						value="<%=weddinghall.getWeddingHallAssurance()%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_style">스타일</label> <input type="text"
-						id="dress_style" name="dress_style"
-						value="<%=dress.getDressStyle()%>" required />
+					<label for="weddingHall_title">웨딩홀 한줄소개</label> <input type="text"
+						id="weddingHall_title" name="weddingHall_title"
+						value="<%=weddinghall.getWeddingHallTitle()%>" required />
 				</div>
 				<div class="form-group">
-					<label for="dress_price">가격</label> <input type="number"
-						id="dress_price" name="dress_price"
-						value="<%=dress.getDressPrice()%>" required />
-				</div>
-				<div class="form-group">
-					<label for="dress_content">내용</label>
-					<textarea id="dress_content" name="dress_content" rows="4" required><%=dress.getDressContent()%></textarea>
+					<label for="weddingHall_content">웨딩홀 상세 설명</label> <input type="text"
+						id="weddingHall_content" name="weddingHall_content"
+						value="<%=weddinghall.getWeddingHallContent()%>" required />
 				</div>
 				<button type="submit" class="action-button">수정</button>
 			</form>
@@ -69,9 +66,9 @@
 			<form id="imageUploadForm" action="UploadProductImageService"
 				method="post" enctype="multipart/form-data">
 				<div class="image-upload">
-					<label for="dress_photoPath">이미지 업로드</label> <input type="file"
-						id="dress_photoPath" name="dress_photoPath" accept="image/*" /> <img
-						src="<%=dress.getPhotoPath()%>" alt="상품 이미지" width="100" />
+					<label for="weddingHall_photoPath">웨딩홀 이미지</label> <input type="file"
+						id="weddingHall_photoPath" name="weddingHall_photoPath" accept="image/*" /> <img
+						src="<%=weddinghall.getPhotoPath()%>" alt="상품 이미지" width="100" />
 				</div>
 			</form>
 			<%

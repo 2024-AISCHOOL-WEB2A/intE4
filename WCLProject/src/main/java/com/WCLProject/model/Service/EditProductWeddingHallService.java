@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.WCLProject.model.DAO.DressDAO;
+import com.WCLProject.model.DAO.WeddingHallDAO;
 import com.WCLProject.model.DTO.Dress;
+import com.WCLProject.model.DTO.WeddingHall;
 
 @WebServlet("/EditProductWeddingHallService")
 public class EditProductWeddingHallService extends HttpServlet {
@@ -19,22 +21,22 @@ public class EditProductWeddingHallService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String productId = request.getParameter("productId");
-        
+        System.out.println(productId);
         if (productId == null || productId.isEmpty()) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "상품 ID가 누락되었습니다.");
             return;
         }
 
-        DressDAO dao = new DressDAO();
-        Dress dress = dao.getDressById(productId); // 상품 정보 조회
+        WeddingHallDAO dao = new WeddingHallDAO();
+        WeddingHall weddinghall = dao.getWeddingHallById(productId);
         
-        if (dress == null) {
+        if (weddinghall == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "상품을 찾을 수 없습니다.");
             return;
         }
 
-        request.setAttribute("dress", dress);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("editProductDress.jsp");
+        request.setAttribute("weddinghall", weddinghall);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("editProductWeddingHall.jsp");
         dispatcher.forward(request, response);
 	}
 

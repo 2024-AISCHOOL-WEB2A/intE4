@@ -249,4 +249,34 @@ public class WeddingHallDAO {
 
 		return cnt;
 	}
+
+	// 웨딩홀 상품 수정
+	public int editWeddingHall(WeddingHall weddingHall) {
+		int cnt = 0;
+		String sql = "UPDATE WEDDING_HALL SET WEDDING_HALL_TYPE = ?, WEDDING_HALL_PRICE = ?, WEDDING_HALL_MEAL_COST = ?, WEDDING_HALL_ASSURANCE = ?, WEDDING_HALL_TITLE = ?, WEDDING_HALL_CONTENT = ?, WEDDING_HALL_DATE = ?, PHOTO_PATH = ? WHERE WEDDING_HALL_ID = ?";
+		String content = weddingHall.getWeddingHallContent();
+		System.out.println(content);
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, weddingHall.getWeddingHallType());
+			pst.setInt(2, weddingHall.getWeddingHallPrice());
+			pst.setInt(3, weddingHall.getWeddingHallMealCost());
+			pst.setString(4, weddingHall.getWeddingHallAssurance());
+			pst.setString(5, weddingHall.getWeddingHallTitle());
+			pst.setString(6, weddingHall.getWeddingHallContent());
+			pst.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
+			pst.setString(8, weddingHall.getPhotoPath());
+			pst.setString(9, weddingHall.getWeddingHallId());
+
+			cnt = pst.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return cnt;
+	}
 }
