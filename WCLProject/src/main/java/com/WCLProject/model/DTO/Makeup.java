@@ -15,6 +15,16 @@ public class Makeup {
 
     public Makeup() {}
     
+    public Makeup(String photoPath, String makeupConcept, int makeupPrice, String makeupTitle, String makeupContent, Timestamp makeupDate, String makeupId) {
+		this.photoPath = photoPath;
+		this.makeupConcept = makeupConcept;
+		this.makeupPrice = makeupPrice;
+		this.makeupTitle = makeupTitle;
+		this.makeupContent = makeupContent;
+		this.makeupDate = makeupDate;
+		this.makeupId = makeupId;
+    }
+    
     public Makeup(String id, String concept, int price, String title, String content, String photoPath,
 			String vendorId, String brand) {
 		this.makeupId = id;
