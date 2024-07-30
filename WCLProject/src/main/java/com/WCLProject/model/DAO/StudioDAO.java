@@ -181,4 +181,14 @@ public class StudioDAO {
 		
 		return studios;
 	}
+
+	public String generateStudioId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int addStudio(Studio studio) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

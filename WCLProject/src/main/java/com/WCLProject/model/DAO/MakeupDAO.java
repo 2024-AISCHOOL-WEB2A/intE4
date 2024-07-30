@@ -150,4 +150,14 @@ public class MakeupDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public String generateMakeupId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int addMakeup(Makeup makeup) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
