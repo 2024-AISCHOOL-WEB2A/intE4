@@ -19,11 +19,9 @@ if (!isLogin) {
 <head>
 <meta charset="UTF-8">
 <title>Wedding Dress Detail</title>
-<style>
 <link rel="stylesheet" href="./css/dressDetail.css">
 <link rel="stylesheet" href="./css/mainPage_globals.css">
 <link rel="stylesheet" href="./css/mainPage_styleguide.css">
-</style>
 </head>
 <body>
 
