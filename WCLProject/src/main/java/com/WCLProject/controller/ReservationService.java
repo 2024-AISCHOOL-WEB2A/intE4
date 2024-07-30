@@ -35,11 +35,11 @@ public class ReservationService extends HttpServlet {
         String userId = request.getParameter("user_id");
         String itemId = request.getParameter("item_id");
         String vendorCategory = request.getParameter("vendor_category");
-        String reservationDate = request.getParameter("reservation_date") + " "
-                + request.getParameter("reservation_time");
+        String reservationDate = request.getParameter("reservation_date") + " " + request.getParameter("reservation_time");
         String reservationState = request.getParameter("reservation_state");
         double itemPrice = Double.parseDouble(request.getParameter("item_price"));
         String reservationId = java.util.UUID.randomUUID().toString();
+        String photoPath = request.getParameter("photo_path");
 
         // vendorCategory가 null인지 확인
         if (vendorCategory == null) {
@@ -47,7 +47,7 @@ public class ReservationService extends HttpServlet {
             return;
         }
 
-        // 영어로 입력된 vendor_category를 한국어로 변환
+        // 영어로 입력된 vendor_category를 한국어로 변환 -> 이 부분 체크해보기
         switch (vendorCategory) {
             case "Dress":
                 vendorCategory = "드레스";
@@ -72,29 +72,7 @@ public class ReservationService extends HttpServlet {
         reservation.setReservationDate(reservationDate);
         reservation.setReservationState(reservationState);
         reservation.setItemPrice(itemPrice);
-
-        // 추가: 각 카테고리 객체를 설정
-        if (vendorCategory.equals("스튜디오")) {
-            Studio studio = new Studio();
-            studio.setStudioId(itemId);  // 예를 들어, itemId를 Studio의 ID로 사용
-            // studio의 나머지 필드 설정...
-            reservation.setStudio(studio);
-        } else if (vendorCategory.equals("드레스")) {
-            Dress dress = new Dress();
-            dress.setId(itemId);  // 예를 들어, itemId를 Dress의 ID로 사용
-            // dress의 나머지 필드 설정...
-            reservation.setDress(dress);
-        } else if (vendorCategory.equals("메이크업")) {
-            Makeup makeup = new Makeup();
-            makeup.setMakeupId(itemId);  // 예를 들어, itemId를 Makeup의 ID로 사용
-            // makeup의 나머지 필드 설정...
-            reservation.setMakeup(makeup);
-        } else if (vendorCategory.equals("웨딩홀")) {
-            WeddingHall weddingHall = new WeddingHall();
-            weddingHall.setWeddingHallId(itemId);  // 예를 들어, itemId를 WeddingHall의 ID로 사용
-            // weddingHall의 나머지 필드 설정...
-            reservation.setWeddingHall(weddingHall);
-        }
+        reservation.setPhotoPath(photoPath);
 
         // 예약 목록에 추가
         reservations.add(reservation);

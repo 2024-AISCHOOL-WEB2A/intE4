@@ -1,122 +1,151 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.WCLProject.model.DAO.ReservationDAO" %>
+<%@ page import="com.WCLProject.model.DTO.ReservationDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>주문서</title>
+    <title>Order Summary</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 20px;
         }
-        .order-summary {
+        .container {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
             margin-bottom: 20px;
         }
-        .order-summary h2 {
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .category h3 {
             margin-bottom: 20px;
         }
-        .order-detail {
+        .item {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
         }
-        .order-detail label {
-            display: block;
-            font-weight: bold;
+        .item img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-details p {
+            margin: 0;
             margin-bottom: 5px;
         }
-        .order-detail span {
-            display: block;
-            margin-bottom: 10px;
+        .item-price {
+            font-weight: bold;
+        }
+        .total-price {
+            text-align: right;
+            font-size: 1.5em;
+            font-weight: bold;
         }
         .button-group {
-            display: flex;
-            justify-content: space-between;
+            text-align: center;
+            margin-top: 20px;
         }
         .button-group button {
             padding: 10px 20px;
+            margin: 0 10px;
             background-color: #5cb85c;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        .button-group button:hover {
-            background-color: #4cae4c;
+        .button-group button.cancel {
+            background-color: #d9534f;
         }
     </style>
 </head>
 <body>
-    <div class="order-summary">
-        <h2>주문서</h2>
+    <div class="container">
+        <h2>Order Summary</h2>
         <%
-            // 세션에서 예약 정보를 가져오기
+            HttpSession userSession = request.getSession();
             String userId = (String) session.getAttribute("userId");
-            String itemId = request.getParameter("item_id");
-            String itemBrand = request.getParameter("item_brand");
-            String fabric = request.getParameter("fabric");
-            String line = request.getParameter("line");
-            String style = request.getParameter("style");
-            String itemPrice = request.getParameter("item_price");
-            String reservationDate = request.getParameter("reservation_date");
-            String reservationTime = request.getParameter("reservation_time");
-            String reservationState = "예약대기중";
+            if (userId == null) {
+                response.sendRedirect("login.jsp");
+                return;
+            }
+
+            ReservationDAO reservationDAO = new ReservationDAO();
+            List<ReservationDTO> reservations = reservationDAO.getReservationsByUserId(userId);
+
+            Map<String, List<ReservationDTO>> categorizedReservations = new HashMap<>();
+            for (ReservationDTO reservation : reservations) {
+                String category = reservation.getVendorCategory();
+                if (!categorizedReservations.containsKey(category)) {
+                    categorizedReservations.put(category, new ArrayList<ReservationDTO>());
+                }
+                categorizedReservations.get(category).add(reservation);
+            }
+
+            double totalPrice = 0;
+            for (Map.Entry<String, List<ReservationDTO>> entry : categorizedReservations.entrySet()) {
+                String category = entry.getKey();
+                List<ReservationDTO> categoryItems = entry.getValue();
         %>
-        <div class="order-detail">
-            <label>회원 ID:</label>
-            <span><%= userId %></span>
+        <div class="category">
+            <h3><%= category %></h3>
+            <%
+                for (ReservationDTO item : categoryItems) {
+                    totalPrice += item.getItemPrice();
+            %>
+            <div class="item">
+                <img src="<%= request.getContextPath() %>/upload/dress/<%= item.getPhotoPath() %>" alt="<%= item.getItemId() %>">
+                <div class="item-details">
+                    <p><strong>Item ID:</strong> <%= item.getItemId() %></p>
+                    <p><strong>Reservation Date:</strong> <%= item.getReservationDate() %></p>
+                    <p><strong>Price:</strong> <span class="item-price"><%= item.getItemPrice() %>원</span></p>
+                </div>
+            </div>
+            <%
+                }
+            %>
         </div>
-        <div class="order-detail">
-            <label>아이템 ID:</label>
-            <span><%= itemId %></span>
-        </div>
-        <div class="order-detail">
-            <label>카테고리:</label>
-            <span><%= request.getParameter("category") %></span>
-        </div>
-        <div class="order-detail">
-            <label>브랜드:</label>
-            <span><%= itemBrand %></span>
-        </div>
-        <div class="order-detail">
-            <label>Fabric:</label>
-            <span><%= fabric %></span>
-        </div>
-        <div class="order-detail">
-            <label>Line:</label>
-            <span><%= line %></span>
-        </div>
-        <div class="order-detail">
-            <label>Style:</label>
-            <span><%= style %></span>
-        </div>
-        <div class="order-detail">
-            <label>가격:</label>
-            <span><%= itemPrice %></span>
-        </div>
-        <div class="order-detail">
-            <label>예약 날짜:</label>
-            <span><%= reservationDate %></span>
-        </div>
-        <div class="order-detail">
-            <label>예약 시간:</label>
-            <span><%= reservationTime %></span>
-        </div>
-        <div class="order-detail">
-            <label>예약 상태:</label>
-            <span><%= reservationState %></span>
+        <%
+            }
+        %>
+        <div class="total-price">
+            총 가격: <%= totalPrice %>원
         </div>
         <div class="button-group">
-            <button onclick="window.history.back();">수정하기</button>
-            <button onclick="window.location.href='confirmOrder.jsp';">확인하기</button>
+            <button type="button" onclick="placeOrder()">주문</button>
+            <button type="button" class="cancel" onclick="cancelOrder()">취소</button>
         </div>
     </div>
+
+    <script>
+        function placeOrder() {
+            alert("Order placed successfully!");
+            // 실제 주문 처리를 구현합니다.
+        }
+
+        function cancelOrder() {
+            alert("Order canceled.");
+            // 실제 주문 취소 처리를 구현합니다.
+        }
+    </script>
 </body>
 </html>

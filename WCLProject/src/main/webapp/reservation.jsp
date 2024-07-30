@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.WCLProject.model.DAO.DressDAO" %>
-<%@ page import="com.WCLProject.model.DTO.Dress" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,10 +65,6 @@
             margin-bottom: 20px;
         }
     </style>
-    <!-- Bootstrap CSS and JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -80,10 +74,10 @@
                 // 세션에서 회원 ID 가져오기
                 HttpSession userSession = request.getSession();
                 String userId = (String) userSession.getAttribute("userId");
-
+                
                 // 전달된 파라미터 값 가져오기
                 String itemId = request.getParameter("item_id");
-                String itemBrand = request.getParameter("item_brand");
+                String itemBrand = request.getParameter("item_brand");                      
                 String fabric = request.getParameter("fabric");
                 String line = request.getParameter("line");
                 String style = request.getParameter("style");
@@ -94,7 +88,7 @@
             %>
             <img src="<%= request.getContextPath() %>/upload/dress/<%= photoPath %>" alt="Item Image" class="item-image"/>
             <!-- 예약 폼 시작 -->
-            <form id="reservationForm" method="get">
+            <form id="reservationForm" method="get" action="ReservationService">
                 <!-- 회원 ID 입력 필드 -->
                 <div class="form-group">
                     <label for="user_id">회원 ID:</label>
@@ -153,96 +147,15 @@
                 <!-- 버튼 그룹 -->
                 <div class="button-group">
                     <button type="button" class="cancel" onclick="cancelReservation()">예약 취소</button>
-                    <button type="button" onclick="showConfirmModal()">예약 확인</button>
+                    <button type="submit">예약 확인</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- 커스텀 알림창 -->
-    <div id="confirmModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">예약 확인</h4>
-                </div>
-                <div class="modal-body">
-                    <p>예약을 확정하시겠습니까?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="confirmReservation()">확인</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 알림 Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">WCL</h4>
-                </div>
-                <div class="modal-body">
-                    <p>예약 날짜와 시간을 선택해주세요.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        //취소버튼 누르면 이전페이지로 이동
         function cancelReservation() {
             window.history.back();
-        }
-
-        function showConfirmModal() {
-            const reservationDate = document.getElementById('reservation_date').value;
-            const reservationTime = document.getElementById('reservation_time').value;
-
-            if (!reservationDate || !reservationTime) {
-                $("#myModal").modal();
-                return;
-            }
-
-            $("#confirmModal").modal();
-        }
-
-        function closeConfirmModal() {
-            $("#confirmModal").modal('hide');
-        }
-
-        function confirmReservation() {
-            closeConfirmModal();
-            const userId = document.getElementById('user_id').value;
-            const itemId = document.getElementById('item_id').value;
-            const category = document.getElementById('vendor_category').value;
-            const itemBrand = document.getElementById('item_brand').value;
-            const fabric = document.getElementById('fabric').value;
-            const line = document.getElementById('line').value;
-            const style = document.getElementById('style').value;
-            const itemPrice = document.getElementById('item_price').value;
-            const reservationDate = document.getElementById('reservation_date').value;
-            const reservationTime = document.getElementById('reservation_time').value;
-
-            const orderUrl = `orderSummary.jsp?user_id=${userId}&item_id=${itemId}&vendor_category=${category}&item_brand=${itemBrand}&fabric=${fabric}&line=${line}&style=${style}&item_price=${itemPrice}&reservation_date=${reservationDate}&reservation_time=${reservationTime}`;
-            
-            window.location.href = orderUrl;
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('confirmModal');
-            if (event.target == modal) {
-                closeConfirmModal();
-            }
         }
     </script>
 </body>

@@ -1,19 +1,16 @@
 package com.WCLProject.model.DTO;
 
 public class ReservationDTO {
-    private String reservationId; // 예약 ID
-    private String userId; // 회원 ID
-    private String itemId; // 아이템 ID
-    private String vendorCategory; // 기업 카테고리 (드레스, 메이크업, 스튜디오, 웨딩홀)
-    private String reservationDate; // 예약 날짜
-    private String reservationState; // 예약 상태
-    private double itemPrice; // 아이템 가격
-    private Dress dress; // 드레스 정보
-    private Makeup makeup; // 메이크업 정보
-    private Studio studio; // 스튜디오 정보
-    private WeddingHall weddingHall; // 웨딩홀 정보
+    private String reservationId;
+    private String userId;
+    private String itemId;
+    private String vendorCategory;
+    private String reservationDate;
+    private String reservationState;
+    private int itemPrice;
+    private String photoPath;
 
-    // Getters and setters
+    // Getters and Setters
     public String getReservationId() {
         return reservationId;
     }
@@ -62,43 +59,19 @@ public class ReservationDTO {
         this.reservationState = reservationState;
     }
 
-    public double getItemPrice() {
+    public int getItemPrice() {
         return itemPrice;
     }
 
-    public void setItemPrice(double itemPrice) {
+    public void setItemPrice(int itemPrice) {
         this.itemPrice = itemPrice;
     }
 
-    public Dress getDress() {
-        return dress;
+    public String getPhotoPath() {
+        return photoPath;
     }
 
-    public void setDress(Dress dress) {
-        this.dress = dress;
-    }
-
-    public Makeup getMakeup() {
-        return makeup;
-    }
-
-    public void setMakeup(Makeup makeup) {
-        this.makeup = makeup;
-    }
-
-    public Studio getStudio() {
-        return studio;
-    }
-
-    public void setStudio(Studio studio) {
-        this.studio = studio;
-    }
-
-    public WeddingHall getWeddingHall() {
-        return weddingHall;
-    }
-
-    public void setWeddingHall(WeddingHall weddingHall) {
-        this.weddingHall = weddingHall;
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 }
