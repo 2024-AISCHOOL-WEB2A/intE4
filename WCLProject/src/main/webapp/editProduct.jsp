@@ -23,6 +23,7 @@
 				method="post">
             <%
             String category = (String) request.getAttribute("category"); // 카테고리 값
+            System.out.println(category);
             String id = null;
             String photoPath = null;
             String concept = null;

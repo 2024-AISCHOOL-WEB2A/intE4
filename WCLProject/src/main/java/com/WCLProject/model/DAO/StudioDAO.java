@@ -187,38 +187,19 @@ public class StudioDAO {
 	// 스튜디오 상품 ID 생성
 	public String generateStudioId() {
 		String id = null;
-		/*
-		 * String sql =
-		 * "SELECT COALESCE('STUDIO' || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(STUDIO_ID, 6))) + 1, 1), 5, '0'), 'STUDIO00001') AS STUDIO_ID FROM STUDIO WHERE REGEXP_LIKE(SUBSTR(STUDIO_ID, 6), '^[0-9]+$')"
-		 * ;
-		 */
-		
-		String sql = "WITH max_id AS (" +
-                "    SELECT MAX(TO_NUMBER(SUBSTR(STUDIO_ID, 6))) AS max_number" +
-                "    FROM STUDIO" +
-                "    WHERE REGEXP_LIKE(SUBSTR(STUDIO_ID, 6), '^[0-9]+$')" +
-                "), new_id AS (" +
-                "    SELECT COALESCE('STUDIO' || LPAD(NVL(max_id.max_number, 0) + 1, 5, '0'), 'STUDIO00001') AS new_studio_id" +
-                "    FROM max_id" +
-                ") " +
-                "SELECT new_studio_id " +
-                "FROM new_id " +
-                "WHERE NOT EXISTS (" +
-                "    SELECT 1 " +
-                "    FROM STUDIO " +
-                "    WHERE STUDIO_ID = new_id.new_studio_id" +
-                ")";
+		// String sql = "SELECT COALESCE('STUDIO' || LPAD(NVL(MAX(TO_NUMBER(SUBSTR(STUDIO_ID, 6))) + 1, 1), 5, '0'), 'STUDIO00001') AS STUDIO_ID FROM STUDIO WHERE REGEXP_LIKE(SUBSTR(STUDIO_ID, 6), '^[0-9]+$')";
+		String sql = "SELECT 'STUDIO' || LPAD(studio_seq.NEXTVAL, 5, '0') AS new_studio_id FROM dual";
 		try {
 			conn = DBUtil.getConnection();
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
 
 			if (rs.next()) {
-				id = rs.getString("STUDIO_ID");
-				System.out.println("Generated ID: " + id);
-			} else {
-				System.out.println("No data returned from query.");
-			}
+	            id = rs.getString("new_studio_id");
+	            System.out.println("Generated ID: " + id);
+	        } else {
+	            System.out.println("No ID returned from query.");
+	        }
 		} catch (SQLException e) {
 			System.err.println("SQL Error: " + e.getMessage());
 			e.printStackTrace();

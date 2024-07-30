@@ -44,6 +44,7 @@ public class EditProductService extends HttpServlet {
             return;
         }
         
+        request.setAttribute("category", category);
         RequestDispatcher dispatcher = request.getRequestDispatcher("editProduct.jsp");
         dispatcher.forward(request, response);
         
