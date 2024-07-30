@@ -34,8 +34,8 @@ if (vendor != null) {
 		<!-- 검색 및 버튼 영역 -->
 		<div class="search-container">
 			<input type="text" id="search" placeholder="상품명 검색..." />
-				<button class="action-button" onclick="addProduct()">상품 등록</button>
-				<button class="action-button" onclick="fetchProduct()">상품 조회</button>
+			<button class="action-button" onclick="addProduct()">상품 등록</button>
+			<button class="action-button" onclick="fetchProduct()">상품 조회</button>
 		</div>
 
 		<div class="table-container">
@@ -67,12 +67,13 @@ if (vendor != null) {
 	</footer>
 
 	<script>
+		var vendorCategory = "<%=vendorCategory%>";
+		
 		function addProduct() {
 			 window.location.href = 'addProductDress.jsp';
 		}
 		
 		function fetchProduct() {
-			var vendorCategory = "<%= vendorCategory %>";
 		    let url;
 		    if (vendorCategory == "스튜디오") {
 		        url = 'ProductManagementService?category=스튜디오';
@@ -100,7 +101,7 @@ if (vendor != null) {
 		                tbody.insertAdjacentHTML('beforeend', row);
 		            } else {
 		                products.forEach((product, index) => {
-		                    let title, price, description, date, photoPath;
+		                    let photoPath, concept, price, title, content, date, id;
 
 		                    if (vendorCategory === "스튜디오") {
 		                        photoPath = product.studioPhotoPath;
@@ -128,8 +129,8 @@ if (vendor != null) {
 		                        <td>\${title}</td>
 		                        <td>\${content}</td>
 		                        <td>\${date}</td>
-		                        <td><a href="#" class="btn-edit" onclick="editProduct('\${product.id}')">수정</a></td>
-		                        <td><a href="#" class="btn-delete" onclick="deleteProduct('\${product.id}')">삭제</a></td>
+		                        <td><a href="#" class="btn-edit" onclick="editProduct('\${id}')">수정</a></td>
+		                        <td><a href="#" class="btn-delete" onclick="deleteProduct('\${id}')">삭제</a></td>
 		                    </tr>`;
 		                    tbody.insertAdjacentHTML('beforeend', row);
 		                });
@@ -166,7 +167,8 @@ if (vendor != null) {
 	    }
 
 	    function editProduct(productId) {
-	    	window.location.href = 'EditProductDressService?productId=' + encodeURIComponent(productId);
+	    	window.location.href = 'EditProductService?productId=' + encodeURIComponent(productId) +
+            '&vendorCategory=' + encodeURIComponent(vendorCategory);
 	    }
 
 	</script>
