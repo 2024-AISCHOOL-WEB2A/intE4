@@ -84,7 +84,7 @@
                 String itemPrice = request.getParameter("item_price");
                 String itemContent = request.getParameter("item_content");
                 String photoPath = request.getParameter("photo_path");
-                String category = request.getParameter("category");
+                String category = request.getParameter("category");2
             %>
             <img src="<%= request.getContextPath() %>/upload/dress/<%= photoPath %>" alt="Item Image" class="item-image"/>
             <!-- 예약 폼 시작 -->

@@ -10,7 +10,15 @@ public class ReservationDTO {
     private int itemPrice;
     private String photoPath;
 
-    // Getters and Setters
+    public ReservationDTO() {}
+    
+    public ReservationDTO(String userId, String itemId, String vendorCategory, String reservationDate,
+			String reservationState, int itemPrice, String reservationId, String photoPath) {
+    	this.userId = userId;
+    	
+	}
+
+	// Getters and Setters
     public String getReservationId() {
         return reservationId;
     }
