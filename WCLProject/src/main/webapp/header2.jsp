@@ -24,7 +24,6 @@ if (vendor != null) {
 <link rel="stylesheet" href="./css/header2.css">
 <link rel="stylesheet" href="./css/mainPage_globals.css">
 <link rel="stylesheet" href="./css/mainPage_styleguide.css" />
-
 </head>
 <body>
 	<div class="nav">
