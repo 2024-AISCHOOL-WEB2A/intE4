@@ -62,6 +62,7 @@ public class UpdateProductService extends HttpServlet {
         	return;
         }
 
+        
 		if (cnt > 0) {
 			System.out.println("상품 수정 성공");
 			response.sendRedirect("productManagement.jsp");
