@@ -50,14 +50,13 @@
             color: #000;
             font-weight: bold;
         }
-        
-        h1 {
-            margin-top: 50px;
-            margin-bottom: 30px;
+        .h1 {
+            margin-top: 250px;
+            margin-bottom: 50px;
             margin-left: 125px;
             font-size: 2em;
+            font-weight: bold;
         }
-        
         .studio-item-detail {
         	margin-top: -17px;
         }
@@ -80,7 +79,7 @@
     <header>
         <jsp:include page="header2.jsp" />
     </header>
-    <h1>스튜디오 라인</h1>
+    	<div class="h1">스튜디오 라인</div>
     	<!-- 페이징 기능 -->
     	<div class="studio-container">
         <%

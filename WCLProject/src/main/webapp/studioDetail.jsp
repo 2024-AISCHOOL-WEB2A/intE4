@@ -51,6 +51,7 @@ if (!isLogin) {
         .main-image img {
             width: 100%;
             height: auto;
+            min-height: 500px; /* 최소 높이 설정 */
         }
         .studio-info {
             width: 43%; /* 드레스 정보 너비를 45%로 조정 */
