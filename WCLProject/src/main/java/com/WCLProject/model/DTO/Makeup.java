@@ -37,6 +37,15 @@ public class Makeup {
 		this.makeupBrand = brand;
 	}
 
+	public Makeup(String id, String photoPath, String concept, int price, String title, String content) {
+		this.makeupId = id;
+		this.photoPath = photoPath;
+		this.makeupConcept = concept;
+		this.makeupPrice = price;
+		this.makeupTitle = title;
+		this.makeupContent = content;
+	}
+
 	// Getters and setters
     public String getMakeupId() {
         return makeupId;

@@ -241,4 +241,31 @@ public class StudioDAO {
 
 		return cnt;
 	}
+
+	// 스튜디오 상품 수정
+	public int editStudio(Studio studio) {
+		int cnt = 0;
+		String sql = "UPDATE STUDIO SET PHOTO_PATH = ?, STUDIO_CONCEPT = ?, STUDIO_PRICE = ?, STUDIO_TITLE = ?, STUDIO_CONTENT = ?, STUDIO_DATE = ? WHERE STUDIO_ID = ?" ;
+
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, studio.getPhotoPath());
+			pst.setString(2, studio.getStudioConcept());
+			pst.setInt(3, studio.getStudioPrice());
+			pst.setString(4, studio.getStudioTitle());
+			pst.setString(5, studio.getStudioContent());
+			pst.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
+			pst.setString(7, studio.getStudioId());
+
+			cnt = pst.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return cnt;
+	}
 }

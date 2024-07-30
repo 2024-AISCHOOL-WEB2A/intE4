@@ -37,6 +37,15 @@ public class Studio {
 		this.studioBrand = brand;
 	}
 
+	public Studio(String id, String photoPath, String concept, int price, String title, String content) {
+		this.studioId = id;
+		this.photoPath = photoPath;
+		this.studioConcept = concept;
+		this.studioPrice = price;
+		this.studioTitle = title;
+		this.studioContent = content;
+	}
+
 	// Getters and setters
     public String getStudioId() {
         return studioId;

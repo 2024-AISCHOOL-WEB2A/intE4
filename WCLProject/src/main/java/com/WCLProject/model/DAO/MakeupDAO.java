@@ -238,4 +238,31 @@ public class MakeupDAO {
 
 		return cnt;
 	}
+
+	// 메이크업 상품 수정
+	public int editMakeup(Makeup makeup) {
+		int cnt = 0;
+		String sql = "UPDATE MAKEUP SET PHOTO_PATH = ?, MAKEUP_CONCEPT = ?, MAKEUP_PRICE = ?, MAKEUP_TITLE = ?, MAKEUP_CONTENT = ?, MAKEUP_DATE = ? WHERE MAKEUP_ID = ?" ;
+
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, makeup.getPhotoPath());
+			pst.setString(2, makeup.getMakeupConcept());
+			pst.setInt(3, makeup.getMakeupPrice());
+			pst.setString(4, makeup.getMakeupTitle());
+			pst.setString(5, makeup.getMakeupContent());
+			pst.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
+			pst.setString(7, makeup.getMakeupId());
+
+			cnt = pst.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return cnt;
+	}
 }

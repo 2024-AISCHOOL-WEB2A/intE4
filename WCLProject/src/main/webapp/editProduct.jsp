@@ -19,7 +19,7 @@
 		<!-- 상품 수정 폼 -->
 		<div class="form-container">
 			<h2>상품 수정</h2>
-			<form id="productForm" action="UpdateProductDressService"
+			<form id="productForm" action="UpdateProductService"
 				method="post">
             <%
             String category = (String) request.getAttribute("category"); // 카테고리 값
