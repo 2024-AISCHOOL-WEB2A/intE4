@@ -48,13 +48,14 @@ if (vendor != null) {
 						<th>웨딩홀 가격</th>
 						<th>식대</th>
 						<th>보증인원</th>
+						<th>웨딩홀 한줄설명</th>
 						<th>웨딩홀 상세설명</th>
 						<th>등록일</th>
 						<th>수정</th>
 						<th>삭제</th>
 					</tr>
 				</thead>
-				<tbody id="dress-table-body">
+				<tbody id="weddingHall-table-body">
 					<tr>
 						<td colspan="11">상품 조회를 눌러주세요.</td>
 					</tr>
@@ -79,39 +80,40 @@ if (vendor != null) {
 		    xhr.onload = function () {
 		        if (xhr.status === 200) {
 		            // 응답받은 JSON 데이터를 파싱하여 테이블에 표시
-		            const dresses = JSON.parse(xhr.responseText);
-		            const tbody = document.getElementById('dress-table-body');
+		            const weddingHallList = JSON.parse(xhr.responseText);
+		            const tbody = document.getElementById('weddingHall-table-body');
 		            tbody.innerHTML = ''; // 기존 내용을 지움
 	                let index = 1;
-		            if (dresses.length === 0) {
+		            if (weddingHallList.length === 0) {
 		                // 상품이 없을 때
 		                const row = `<tr>
 		                    <td colspan="11">등록한 상품이 없습니다.</td>
 		                </tr>`;
 		                tbody.insertAdjacentHTML('beforeend', row);
 		            } else {
-		                dresses.forEach((dress, index) => {
+		            	weddingHallList.forEach((weddingHallList, index) => {
 		                    const row = `<tr>
 		                        <td>\${index + 1}</td>
-		                        <td><img src="\${wedding_hall.photoPath}" alt="\${wedding_hall.weddingHallTitle}" width="100"></td>
-		                        <td>\${wedding_hall.weddingHallBrand}</td>
-		                        <td>\${wedding_hall.weddingHallType}</td>
-		                        <td>\${wedding_hall.weddingHallPrice}</td>
-		                        <td>\${wedding_hall.weddingHallMealCost}</td>
-		                        <td>\${wedding_hall.weddingHallAssurance}</td>
-		                        <td>\${wedding_hall.weddingHallContent}</td>
-		                        <td>\${wedding_hall.weddingHallDate}</td>
-		                        <td><a href="#" class="btn-edit" onclick="editProduct('\${wedding_hall.weddingHallId}')">수정</a></td>
-		                        <td><a href="#" class="btn-delete" onclick="deleteProduct('\${wedding_hall.weddingHallId}')">삭제</a></td>
+		                        <td><img src="\${weddingHallList.photoPath}" alt="\${weddingHallList.weddingHallTitle}" width="100"></td>
+		                        <td>\${weddingHallList.weddingHallBrand}</td>
+		                        <td>\${weddingHallList.weddingHallType}</td>
+		                        <td>\${weddingHallList.weddingHallPrice}</td>
+		                        <td>\${weddingHallList.weddingHallMealCost}</td>
+		                        <td>\${weddingHallList.weddingHallAssurance}</td>
+		                        <td>\${weddingHallList.weddingHallTitle}</td>
+		                        <td>\${weddingHallList.weddingHallContent}</td>
+		                        <td>\${weddingHallList.weddingHallDate}</td>
+		                        <td><a href="#" class="btn-edit" onclick="editProduct('\${weddingHallList.weddingHallId}')">수정</a></td>
+		                        <td><a href="#" class="btn-delete" onclick="deleteProduct('\${weddingHallList.weddingHallId}')">삭제</a></td>
 		                    </tr>`;
 		                    tbody.insertAdjacentHTML('beforeend', row);
 		                });
 		            }
 		        } else {
-		            const tbody = document.getElementById('dress-table-body');
+		            const tbody = document.getElementById('weddingHall-table-body');
 		            tbody.innerHTML = ''; // 기존 내용을 지움
 		            const row = `<tr>
-		                <td colspan="10">등록한 상품이 없습니다.</td>
+		                <td colspan="11">등록한 상품이 없습니다.</td>
 		            </tr>`;
 		            tbody.insertAdjacentHTML('beforeend', row);
 		        }

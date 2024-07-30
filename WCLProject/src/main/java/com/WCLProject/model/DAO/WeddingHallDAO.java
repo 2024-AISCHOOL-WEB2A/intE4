@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -198,6 +199,7 @@ public class WeddingHallDAO {
 				weddingHall.setWeddingHallPrice(rs.getInt("WEDDING_HALL_PRICE"));
 				weddingHall.setWeddingHallMealCost(rs.getInt("WEDDING_HALL_MEAL_COST"));
 				weddingHall.setWeddingHallAssurance(rs.getString("WEDDING_HALL_ASSURANCE"));
+				weddingHall.setWeddingHallTitle(rs.getString("WEDDING_HALL_TITLE"));
 				weddingHall.setWeddingHallContent(rs.getString("WEDDING_HALL_CONTENT"));
 				weddingHall.setWeddingHallDate(rs.getTimestamp("WEDDING_HALL_DATE"));
 				weddingHall.setWeddingHallId(rs.getString("WEDDING_HALL_ID"));
@@ -214,5 +216,37 @@ public class WeddingHallDAO {
 		}
 
 		return weddingHalls;
+	}
+
+	// 웨딩홀 상품 등록
+	public int addWeddingHall(WeddingHall weddingHall) {
+		int cnt = 0;
+		String sql = "INSERT INTO WEDDING_HALL(WEDDING_HALL_ID, WEDDING_HALL_ASSURANCE, WEDDING_HALL_TYPE, WEDDING_HALL_PRICE, WEDDING_HALL_CONTENT, WEDDING_HALL_DATE, VENDOR_ID, PHOTO_PATH, WEDDING_HALL_BRAND, WEDDING_HALL_TITLE, WEDDING_HALL_MEAL_COST) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+				
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+				
+			pst.setString(1, weddingHall.getWeddingHallId());
+			pst.setString(2, weddingHall.getWeddingHallAssurance());
+			pst.setString(3, weddingHall.getWeddingHallType());
+			pst.setInt(4, weddingHall.getWeddingHallPrice());
+			pst.setString(5, weddingHall.getWeddingHallContent());
+			pst.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
+			pst.setString(7, weddingHall.getVendorId());
+			pst.setString(8, weddingHall.getPhotoPath());
+			pst.setString(9, weddingHall.getWeddingHallBrand());
+			pst.setString(10, weddingHall.getWeddingHallTitle());
+			pst.setInt(11, weddingHall.getWeddingHallMealCost());
+
+			cnt = pst.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+
+		return cnt;
 	}
 }

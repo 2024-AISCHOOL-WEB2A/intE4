@@ -15,6 +15,22 @@ public class WeddingHall {
     private String photoPath;
     private String weddingHallTitle;
     
+    public WeddingHall() {}
+    
+	public WeddingHall(String id, String assurance, String type, int price, String content, String vendorId,
+			String photoPath, String brand, String title, int mealCost) {
+		this.weddingHallId = id;
+		this.weddingHallAssurance = assurance;
+		this.weddingHallType = type;
+		this.weddingHallPrice = price;
+		this.weddingHallContent = content;
+		this.vendorId = vendorId;
+		this.photoPath = photoPath;
+		this.weddingHallBrand = brand;
+		this.weddingHallTitle = title;
+		this.weddingHallMealCost = mealCost;
+	}
+
 	public String getWeddingHallId() {
 		return weddingHallId;
 	}
