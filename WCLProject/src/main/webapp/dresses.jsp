@@ -132,7 +132,7 @@
             for (Dress dress : dresses) {
         %>
                 <div class="dress-item">
-                    <a href="<%= request.getContextPath() %>/dressDetail.jsp?id=<%= dress.getId() %>">
+                    <a href="<%= request.getContextPath() %>/dressDetailLike.jsp?id=<%= dress.getId() %>">
                         <img src="<%= request.getContextPath() %>/upload/dress/<%= dress.getPhotoPath() %>" alt="<%= dress.getDressTitle() %>">
                     </a> 
 	                <div class="dress-item-detail">
