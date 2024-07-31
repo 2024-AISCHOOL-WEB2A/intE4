@@ -8,9 +8,13 @@
 UserMemberDTO user = (UserMemberDTO) session.getAttribute("userInfo");
 VendorMemberDTO vendor = (VendorMemberDTO) session.getAttribute("vendorInfo");
 Boolean isLogin = (vendor != null || user != null);
-
-if (!isLogin) {		
-    response.sendRedirect("mainPage.jsp");
+%>
+<% if (!isLogin) { %>
+    <script type="text/javascript">
+        alert("로그인이 필요합니다.");
+        window.location.href = "mainPage.jsp";
+    </script>
+<%
     return;
 }
 %>
