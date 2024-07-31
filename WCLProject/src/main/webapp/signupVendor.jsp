@@ -502,11 +502,7 @@
         console.error('Error:', error);
     });
 });
-		
-		
-		
-		
-		
+
 		// 도로명주소찾기 스크립트
 		function vendor_execDaumPostcode() {
 			new daum.Postcode(
@@ -562,7 +558,5 @@
 					}).open();
 		}
 	</script>
-
-
 </body>
 </html>
