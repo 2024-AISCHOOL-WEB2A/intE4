@@ -9,7 +9,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/loginPage_styleguide.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/loginPage_style.css" />	
+	href="${pageContext.request.contextPath}/css/loginPage_style.css" />
 </head>
 <body>
 	<div class="login">
@@ -23,18 +23,16 @@
 						<p class="div-3"></p>
 						<div class="text-wrapper-22">웨딩초이스 로그인</div>
 					</div>
-					<div class="fieldset">
+					<form class="fieldset" action="Login" method="post">
 						<div class="container-5">
 							<div class="background-border">
 								<div class="input">
-									<div class="div-wrapper">
-										<div class="text-wrapper-23">아이디</div>
-									</div>
+									<input type="text" class="input-field" id="id" name="id"
+									placeholder="아이디" style= "width:220px; height: 50px;">
 								</div>
 								<div class="input">
-									<div class="div-wrapper">
-										<div class="text-wrapper-23">비밀번호</div>
-									</div>
+									<input type="password" class="input-field" id="pw" name="pw"
+									placeholder="비밀번호" style= "width:220px; height: 50px;">
 								</div>
 							</div>
 							<button class="button">
@@ -45,7 +43,7 @@
 							<div class="border"></div>
 							<div class="text-wrapper-25">로그인 유지</div>
 						</div>
-					</div>
+					</form>
 					<div class="list-wrapper">
 						<div class="list-2">
 							<div class="item-link">
