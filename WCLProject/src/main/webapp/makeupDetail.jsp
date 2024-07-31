@@ -58,23 +58,24 @@ Boolean isLogin = (vendor != null || user != null);
             min-width: 450px; /* 최소 넓이 설정 */
         }
         .makeup-info {
-            width: 45%; /* 드레스 정보 너비를 45%로 조정 */
+            width: 43%; /* 드레스 정보 너비를 45%로 조정 */
             margin-right: -10px;
+            position: relative;
         }
         .inquiry-button {
-            color: black;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: 550;
-            background-color: #ffebeb;
-            font-family: "Inter", Helvetica !important;
-            letter-spacing: 1px; /* 글자 간격 설정 */
-  			position: absolute; /* 부모 요소를 기준으로 고정 위치 */
-    		bottom: 200px; /* 부모 요소의 하단에서 20px 위로 */
+		    color: black;
+		    padding: 10px 20px;
+		    border: none;
+		    cursor: pointer;
+		    font-size: 16px;
+		    border-radius: 5px;
+		    margin-top: 20px;
+		    font-weight: 550;
+		    background-color: #ffebeb;
+		    font-family: "Inter", Helvetica !important;
+		    letter-spacing: 1px; /* 글자 간격 설정 */
+		    position: relative; /* 부모 요소를 기준으로 위치를 설정 */
+		    bottom: 0; /* 기본값으로 하단에 위치시킴 */
         }
         .more-makeups {
             margin-top: 20px;
@@ -209,7 +210,7 @@ Boolean isLogin = (vendor != null || user != null);
 	                <h3># <%= makeup.getMakeupConcept() %></h3>
 	                <h4># <%= makeup.getMakeupTitle() %></h4>
 	                <p class="line-break"><%= makeup.getMakeupContent() %></p>
-	                <p class="makeup-price"> <%= makeup.getMakeupPrice() %></p>
+	                <p class="makeup-price"> <%= makeup.getMakeupPrice() %>원</p>
 	                <!-- 문의하기 버튼 -->
                     <button class="inquiry-button" onclick="location.href='inquiry.jsp?dressId=<%= makeup.getMakeupId() %>'">문의하기</button>
             	</div>

@@ -53,28 +53,28 @@ Boolean isLogin = (vendor != null || user != null);
         }
         .main-image img {
             width: 100%;
-            height: auto;
-            min-height: 500px; /* 최소 높이 설정 */
-            min-width: 500px; /* 최소 넓이 설정 */
+            height: 100%;
+            min-width: 550px;
         }
         .wedding-hall-info {
-            width: 45%; /* 드레스 정보 너비를 45%로 조정 */
+            width: 43%; /* 드레스 정보 너비를 45%로 조정 */
             margin-right: -10px;
+            position: relative;
         }
         .inquiry-button {
-            color: black;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: 550;
-            background-color: #ffebeb;
-            font-family: "Inter", Helvetica !important;
-            letter-spacing: 1px; /* 글자 간격 설정 */
-  			position: absolute; /* 부모 요소를 기준으로 고정 위치 */
-    		bottom: 200px; /* 부모 요소의 하단에서 20px 위로 */
+		    color: black;
+		    padding: 10px 20px;
+		    border: none;
+		    cursor: pointer;
+		    font-size: 16px;
+		    border-radius: 5px;
+		    margin-top: 20px;
+		    font-weight: 550;
+		    background-color: #ffebeb;
+		    font-family: "Inter", Helvetica !important;
+		    letter-spacing: 1px; /* 글자 간격 설정 */
+		    position: relative; /* 부모 요소를 기준으로 위치를 설정 */
+		    bottom: 0; /* 기본값으로 하단에 위치시킴 */
         }
         .more-weddinghalls {
             margin-top: 20px;
@@ -171,8 +171,7 @@ Boolean isLogin = (vendor != null || user != null);
         }
         .weddinghall-price {
             font-size: 20px; /* 원하는 폰트 크기로 설정 */
-            font-weight: 550; /* 필요에 따라 폰트 두께를 설정 */
-
+            font-weight: 550;
         }
         .wedding-hall-info h4{
 			font-family: "Inter", Helvetica !important;
@@ -184,6 +183,7 @@ Boolean isLogin = (vendor != null || user != null);
 		}
 		.small-br {
 	        line-height: 2.0; /* 원하는 줄 간격 설정 */
+	        margin-bottom: 10px;
 	    }
     </style>
 </head>
