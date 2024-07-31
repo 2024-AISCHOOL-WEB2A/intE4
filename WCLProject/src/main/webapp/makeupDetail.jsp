@@ -1,15 +1,33 @@
+<%@page import="com.WCLProject.model.DTO.VendorMemberDTO"%>
+<%@page import="com.WCLProject.model.DTO.UserMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.WCLProject.model.DAO.MakeupDAO" %>
 <%@ page import="com.WCLProject.model.DTO.Makeup" %>
 <%@ page import="java.util.List" %>
+<% 
+UserMemberDTO user = (UserMemberDTO) session.getAttribute("userInfo");
+VendorMemberDTO vendor = (VendorMemberDTO) session.getAttribute("vendorInfo");
+Boolean isLogin = (vendor != null || user != null);
+%>
+<% if (!isLogin) { %>
+    <script type="text/javascript">
+        alert("로그인이 필요합니다.");
+        window.location.href = "mainPage.jsp";
+    </script>
+<%
+    return;
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Makeup Detail</title>
+	<link rel="stylesheet" href="./css/mainPage_globals.css">
+	<link rel="stylesheet" href="./css/mainPage_styleguide.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Inter", Helvetica;
             margin: 0;
             padding: 0;
         }
@@ -36,12 +54,14 @@
         .main-image img {
             width: 100%;
             height: auto;
+            min-height: 500px; /* 최소 높이 설정 */
+            min-width: 450px; /* 최소 넓이 설정 */
         }
         .makeup-info {
             width: 45%; /* 드레스 정보 너비를 45%로 조정 */
+            margin-right: -10px;
         }
         .inquiry-button {
-            background-color: #ffdddd;
             color: black;
             padding: 10px 20px;
             border: none;
@@ -50,6 +70,11 @@
             border-radius: 5px;
             margin-top: 20px;
             font-weight: 550;
+            background-color: #ffebeb;
+            font-family: "Inter", Helvetica !important;
+            letter-spacing: 1px; /* 글자 간격 설정 */
+  			position: absolute; /* 부모 요소를 기준으로 고정 위치 */
+    		bottom: 200px; /* 부모 요소의 하단에서 20px 위로 */
         }
         .more-makeups {
             margin-top: 20px;
@@ -60,11 +85,11 @@
             gap: 10px;
         }
         .thumbnail-images img {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             cursor: pointer;
-            margin-top: -15px;
+            margin-top: 2px;
         }
         .brand-section {
             margin-top: 100px;
@@ -74,11 +99,13 @@
             font-size: 16px;
             font-weight: bold;
             margin: 0;
+            font-family: "Inter", Helvetica !important;
         }
         .brand-section h2 {
             margin: 10px 0;
             font-size: 20px;
             font-weight: normal;
+            font-family: "Inter", Helvetica !important;
         }
         .brand-main-image {
             margin-top: 20px;
@@ -92,15 +119,17 @@
             margin: 120px 0; /* 버튼을 더 아래로 내리기 위해 margin을 크게 설정 */
         }
         .button-section button {
-            background-color: #ffdddd;
             color: black;
             padding: 10px 20px;
-            margin: 0 10px;
+            margin: 0 20px;
             border: none;
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
             font-weight: 550;
+            background-color: #ffebeb;
+            font-family: "Inter", Helvetica !important;
+            letter-spacing: 1px; /* 글자 간격 설정 */
         }
         .heart-icon {
             position: absolute;
@@ -113,6 +142,46 @@
         .heart-icon.liked {
             color: red;
         }
+        .more-makeups h3 {
+        	font-family: "Radley", Helvetica !important;
+        	color: black;
+        	font-size: 15px;
+        	margin-top: -5px;
+        }
+       	.makeup-info h2 {
+       		font-family: "Inter", Helvetica !important;
+       		font-size: 25px;
+       		font-weight: 550;
+       		margin-top: 20px;
+       		margin-bottom: 40px;
+       	}
+       	.makeup-info h3{
+			font-family: "Inter", Helvetica !important;
+			color: #8A2BE2;
+			font-weight: 550;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			font-size: 17px;
+       	}
+       	.line-break {
+            white-space: pre-line; /* 줄바꿈을 해석하여 표시 */
+            line-height: 1.6; /* 줄 간 간격을 1.6배로 설정 */
+            margin-bottom: 25px;
+            font-family: "Inter", Helvetica !important;
+        }
+        .makeup-price {
+            font-size: 20px; /* 원하는 폰트 크기로 설정 */
+            font-weight: 550; /* 필요에 따라 폰트 두께를 설정 */
+
+        }
+        .makeup-info h4{
+			font-family: "Inter", Helvetica !important;
+			color: #8A2BE2;
+			font-weight: 550;
+			margin-bottom: 30px;
+			margin-left: 10px;
+			font-size: 17px;
+		}
     </style>
 </head>
 <body>
@@ -137,9 +206,10 @@
             	</div>
             	<div class="makeup-info">
 	                <h2><%= makeup.getMakeupBrand() %></h2>
-	                <p><strong>Concept : </strong> <%= makeup.getMakeupConcept() %></p>
-	                <p><strong>￦</strong> <%= makeup.getMakeupPrice() %></p>
-	                <p><strong></strong> <%= makeup.getMakeupContent() %></p>
+	                <h3># <%= makeup.getMakeupConcept() %></h3>
+	                <h4># <%= makeup.getMakeupTitle() %></h4>
+	                <p class="line-break"><%= makeup.getMakeupContent() %></p>
+	                <p class="makeup-price"> <%= makeup.getMakeupPrice() %></p>
 	                <!-- 문의하기 버튼 -->
                     <button class="inquiry-button" onclick="location.href='inquiry.jsp?dressId=<%= makeup.getMakeupId() %>'">문의하기</button>
             	</div>
@@ -179,6 +249,19 @@
         function toggleLike(element) {
             element.classList.toggle('liked');
         }
+        
+        // 페이지 로드 시 스크롤 위치 복원
+        window.onload = function() {
+            const scrollPosition = localStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition, 10));
+            }
+        };
+
+        // 페이지 언로드 시 스크롤 위치 저장
+        window.onbeforeunload = function() {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        };
     </script>	
 </body>
 </html>

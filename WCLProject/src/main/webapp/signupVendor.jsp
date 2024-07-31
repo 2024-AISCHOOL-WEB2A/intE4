@@ -12,364 +12,290 @@
 	href="${pageContext.request.contextPath}/css/signupVendor_style.css" />
 </head>
 <body>
+	<header>
+		<jsp:include page="header2.jsp" />
+	</header>
 	<div class="business-membership">
-		<div class="div">
-			<div class="frame">
-				<div class="nav">
-					<p class="lisianthus">L i s i a n t h u s</p>
-					<div class="frame-2">
-						<div class="view">
-							<div class="text-wrapper">웨딩홀</div>
-							<div class="text-wrapper">드레스</div>
-							<div class="text-wrapper-2">스튜디오</div>
-							<div class="text-wrapper-3">메이크업</div>
-						</div>
-						<div class="frame-3">
-							<div class="text-wrapper-4">로그인</div>
-							<div class="text-wrapper-4">회원가입</div>
-						</div>
-					</div>
-				</div>
-				<header class="header">
-					<div class="container">
-						<div class="link">
-							<div class="w-e-d-d-i-n-g-c-h-o-wrapper">
-								<p class="w-e-d-d-i-n-g-c-h-o">W e d d i n
-									g&nbsp;&nbsp;&nbsp;&nbsp;C h o i c e</p>
+		<div class="form-wrapper">
+			<div class="form">
+				<div class="fieldset">
+					<div class="container-6">
+					<br><br>
+						<form id="signup_vendor" action="JoinService_Vendor" method="post"
+							onsubmit="return validateForm()">
+							<div class="view-3">
+								<div class="label-margin">
+									<div class="label">
+										<div class="text-wrapper-25">기업명</div>
+									</div>
+								</div>
+								<div class="container-wrapper">
+									<div class="container-7">
+										<div class="input">
+											<input type="text" id="vendor_name" name="vendor_name"
+												style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+												required>
+										</div>
+										<div class="label-wrapper">
+											<div class="label-2">
+												<div class="container-8"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container-9"></div>
 							</div>
-						</div>
-					</div>
-				</header>
-			</div>
-			<footer class="footer">
-				<div class="overlap-group">
-					<div class="container-2">
-						<div class="text-wrapper-6">Lisianthus</div>
-						<div class="text-wrapper-7">(주)인트이사</div>
-						<div class="text-wrapper-8">대표이사 김현수</div>
-						<p class="p">COPYRIGHT ©2024 SINBUYA ALL RIGHTS RESERVED.</p>
-					</div>
-					<p class="w-e-d-d-i-n-g-c-h-o-2">W e d d i n g&nbsp;&nbsp;C h o
-						i c e</p>
-				</div>
-				<div class="container-3">
-					<div class="text-wrapper-9">Information</div>
-					<div class="text-wrapper-10">사업자등록번호 777 88 00999</div>
-					<div class="text-wrapper-11">통신판매업신고 제2024-광주북구-00001호</div>
-					<p class="div-2">
-						<span class="span">개인정보관리책임자 </span> <span class="text-wrapper-12">정수형</span>
-					</p>
-				</div>
-				<div class="container-4">
-					<div class="list">
-						<div class="text-wrapper-13">이용약관</div>
-						<div class="text-wrapper-14">개인정보처리방침</div>
-						<div class="text-wrapper-15">회사소개</div>
-						<div class="text-wrapper-16">오시는 길</div>
-					</div>
-					<div class="text-wrapper-17">Contact Us</div>
-					<div class="element">오전 9:00 -&nbsp;&nbsp;18:00 (월요일-금요일)</div>
-					<p class="t-f">
-						<span class="text-wrapper-18">T</span> <span
-							class="text-wrapper-19"> 062-123-4567   |   </span> <span
-							class="text-wrapper-18">F</span> <span class="text-wrapper-19">
-							062-123-4568</span>
-					</p>
-					<p class="text-wrapper-20">광주광역시 동구 동천동 인공지능사관학교 2층</p>
-				</div>
-			</footer>
-			<div class="view-2">
-				<div class="background">
-					<div class="container-5">
-						<div class="heading">
-							<div class="text-wrapper-21">기업회원 가입</div>
-						</div>
-						<div class="div-3">
-							<p class="text-wrapper-22">웨딩 초이스의 회원이 되시면 국내 최대의 리뷰와 웨딩 컬렉션
-								할인정보, 웨딩홀 이벤트 등 다양한 판매 서비스를 확인하실 수 있습니다.</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-wrapper">
-					<div class="form">
-						<div class="fieldset">
-							<div class="container-6">
-								<form id="signup_vendor" action="JoinService_Vendor"
-									method="post" onsubmit="return validateForm()">
-									<div class="view-3">
-										<div class="label-margin">
-											<div class="label">
-												<div class="text-wrapper-25">기업명</div>
-											</div>
-										</div>
-										<div class="container-wrapper">
-											<div class="container-7">
-												<div class="input">
-													<input type="text" id="vendor_name" name="vendor_name"
-														style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-														required>
-												</div>
-												<div class="label-wrapper">
-													<div class="label-2">
-														<div class="container-8"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="container-9"></div>
+							<br>
+							<div class="view-4">
+								<div class="label-margin">
+									<div class="label">
+										<div class="text-wrapper-25">기업 주소</div>
 									</div>
-									<br>
-									<div class="view-4">
-										<div class="label-margin">
-											<div class="label">
-												<div class="text-wrapper-25">기업 주소</div>
-											</div>
-										</div>
-										<div class="input-wrapper">
-											<div class="input-2">
-												<input type="text" id="vendor_postcode"
-													name="vendor_postcode"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													placeholder="우편번호">
-												<!-- 주쇼 API -->
-												<input type="button" onclick="vendor_execDaumPostcode()"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													value="우편번호 찾기"><br>
-												<!-- 주쇼 API -->
-												<input type="text" id="vendor_address" name="vendor_address"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													placeholder="주소"><br>
-												<!-- 주쇼 API -->
-												<input type="text" id="vendor_detailAddress"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													name="vendor_detailAddress" placeholder="상세주소">
-												<!-- 주쇼 API -->
-												<input type="text" id="vendor_extraAddress"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													name="vendor_extraAddress" placeholder="참고항목">
-												<!-- 주쇼 API -->
-											</div>
-										</div>
+								</div>
+								<div class="input-wrapper">
+									<div class="input-2">
+										<input type="text" id="vendor_postcode" name="vendor_postcode"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											placeholder="우편번호">
+										<!-- 주쇼 API -->
+										<input type="button" onclick="vendor_execDaumPostcode()"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											value="우편번호 찾기"><br>
+										<!-- 주쇼 API -->
+										<input type="text" id="vendor_address" name="vendor_address"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											placeholder="주소"><br>
+										<!-- 주쇼 API -->
+										<input type="text" id="vendor_detailAddress"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											name="vendor_detailAddress" placeholder="상세주소">
+										<!-- 주쇼 API -->
+										<input type="text" id="vendor_extraAddress"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											name="vendor_extraAddress" placeholder="참고항목">
+										<!-- 주쇼 API -->
 									</div>
-									<br> <br> <br> <br> <br> <br> <br>
-									<br> <br> <br> <br>
-									<div class="view-5">
-										<div class="label-margin-2">
-											<div class="label-3">
-												<div class="text-wrapper-25">아아디</div>
-											</div>
-										</div>
-										<div class="input-3">
-											<input type="text" id="vendor_id" name="vendor_id"
-												style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-												required>
-											<div id="vendor_id_result"></div>
-										</div>
-										<br>
-										<div class="vertical-border">
-											<button class="button" onclick="checkVendorId()">
-												<div class="text-wrapper-26">중복확인</div>
-											</button>
-										</div>
-										<div class="container-10">
-											<div class="container-11">
-												<p class="text-wrapper-27">※ 아이디는 4~12자 사이로 입력해주세요.</p>
-											</div>
-										</div>
+								</div>
+							</div>
+							<br> <br> <br> <br> <br> <br> <br>
+							<br> <br> <br> <br>
+							<div class="view-5">
+								<div class="label-margin-2">
+									<div class="label-3">
+										<div class="text-wrapper-25">아아디</div>
 									</div>
-									<br>
-									<div class="view-5">
-										<div class="label-margin-2">
-											<div class="label-3">
-												<div class="text-wrapper-25">비밀번호</div>
-											</div>
-										</div>
-										<div class="input-3">
-											<input type="password" id="vendor_pw" name="vendor_pw"
-												style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-												required>
-										</div>
-										<div class="container-10">
-											<div class="container-11">
-												<p class="text-wrapper-27">※ 비밀번호는 8~12자 사이로 입력해주세요.</p>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="view-5">
-										<div class="label-margin-2">
-											<div class="label-3">
-												<div class="text-wrapper-25">비밀번호 확인</div>
-											</div>
-										</div>
-										<div class="input-3">
-											<input type="password" id="vendor_pw_check"
-												name="vendor_pw_check"
-												style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-												required>
-											<div id="vendor_pw_result"></div>
-										</div>
-										<div class="vertical-border">
-											<button class="button" onclick="checkVendorPw()">
-												<div class="text-wrapper-26">중복확인</div>
-											</button>
-										</div>
-									</div>
-									<br>
-									<div class="view-5">
-										<div class="label-margin-2">
-											<div class="label-3">
-												<div class="text-wrapper-25">사업자 번호</div>
-											</div>
-										</div>
-										<div class="input-3">
-											<input type="text" id="vendor_license" name="vendor_license"
-												style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-												required>
-											<div id="vendor_license_result"></div>
-										</div>
-										<div class="vertical-border">
-											<button class="button" onclick="checkLicense()">
-												<div class="text-wrapper-26">중복확인</div>
-											</button>
-										</div>
-									</div>
-									<br>
-									<div class="view-5">
-										<div class="label-margin-2">
-											<div class="label-3">
-												<div class="text-wrapper-25">이메일 주소</div>
-											</div>
-										</div>
-										<div class="input-3">
-											<input type="email" id="vendor_email" name="vendor_email"
-												style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-												required>
-										</div>
-									</div>
-									<br>
-									<div class="view-6">
-										<div class="label-margin-3">
-											<div class="label">
-												<div class="text-wrapper-25">연락처</div>
-											</div>
-										</div>
-										<div class="container-12">
-											<div class="input-4">
-												<input type="tel" id="vendor_tel" name="vendor_tel"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													required>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="view-6">
-										<div class="label-margin">
-											<div class="label">
-												<div class="text-wrapper-25">업종</div>
-											</div>
-										</div>
-										<div class="container-wrapper">
-											<div class="options-wrapper">
-												<select id="vendor_category" name="vendor_category"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													required>
-													<option value="웨딩홀">웨딩홀</option>
-													<option value="스튜디오">스튜디오</option>
-													<option value="드레스">드레스</option>
-													<option value="메이크업">메이크업</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="view-4">
-										<div class="label-margin">
-											<div class="label">
-												<div class="text-wrapper-25">기업 홈페이지 주소</div>
-											</div>
-										</div>
-										<div class="input-wrapper">
-											<div class="input-5">
-												<input type="text" id="vendor_site_url"
-													name="vendor_site_url"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													required>
-											</div>
-										</div>
-									</div>
-
-									<br>
-
-									<div class="view-7">
-										<div class="label-margin">
-											<div class="label">
-												<div class="text-wrapper-25">기업 소개</div>
-											</div>
-										</div>
-										<div class="input-wrapper">
-											<div class="input-2">
-												<input type="text" id="vendor_intro" name="vendor_intro"
-													style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
-													required>
-											</div>
-										</div>
-										<div class="container-14">
-											<div class="container-11">
-												<div class="text-wrapper-27">※ 4,000자 이내로 작성해주세요.</div>
-											</div>
-										</div>
-									</div>
-									 <div style="text-align: center; margin-top: 200px; height: 500px;">
-										<button type="submit"
-											style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">
-											가입신청</button>
-									</div>
-								</form>
-								<form id="upload_files_form" action="FileUploadService"
-									method="post" enctype="multipart/form-data" style="margin-top: -680px">
-									<div class="view-5">
-										<div class="label-margin-2">
-											<div class="label-3">
-												<div class="text-wrapper-25">사업자등록증 첨부</div>
-											</div>
-										</div>
-										<input type="file" id="vendor_license_image_file"
-											name="vendor_license_image_file"> <input
-											type="hidden" id="vendor_license_image"
-											name="vendor_license_image">
-										<div class="container-10">
-											<div class="container-11">
-												<div class="text-wrapper-27">※ 해당 업체만 등록해주세요.</div>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="view-5">
-										<div class="label-margin-2">
-											<div class="label-3">
-												<div class="text-wrapper-25">기업 로고 첨부</div>
-											</div>
-										</div>
-										<input type="file" id="vendor_logo_image_file"
-											name="vendor_logo_image_file"> <input type="hidden"
-											id="vendor_logo_image" name="vendor_logo_image"> <br>
-										<div class="container-10">
-											<div class="container-11">
-												<p class="text-wrapper-27">※ 원본 스캔 후 첨부해주세요.</p>
-											</div>
-										</div>
-									</div>
-								</form>
+								</div>
+								<div class="input-3">
+									<input type="text" id="vendor_id" name="vendor_id"
+										style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+										required>
+									<div id="vendor_id_result"></div>
+								</div>
 								<br>
+								<div class="vertical-border">
+									<button class="button" onclick="checkVendorId()">
+										<div class="text-wrapper-26">중복확인</div>
+									</button>
+								</div>
+								<div class="container-10">
+									<div class="container-11">
+										<p class="text-wrapper-27">※ 아이디는 4~12자 사이로 입력해주세요.</p>
+									</div>
+								</div>
 							</div>
-						</div>
+							<br>
+							<div class="view-5">
+								<div class="label-margin-2">
+									<div class="label-3">
+										<div class="text-wrapper-25">비밀번호</div>
+									</div>
+								</div>
+								<div class="input-3">
+									<input type="password" id="vendor_pw" name="vendor_pw"
+										style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+										required>
+								</div>
+								<div class="container-10">
+									<div class="container-11">
+										<p class="text-wrapper-27">※ 비밀번호는 8~12자 사이로 입력해주세요.</p>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="view-5">
+								<div class="label-margin-2">
+									<div class="label-3">
+										<div class="text-wrapper-25">비밀번호 확인</div>
+									</div>
+								</div>
+								<div class="input-3">
+									<input type="password" id="vendor_pw_check"
+										name="vendor_pw_check"
+										style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+										required>
+									<div id="vendor_pw_result"></div>
+								</div>
+								<div class="vertical-border">
+									<button class="button" onclick="checkVendorPw()">
+										<div class="text-wrapper-26">중복확인</div>
+									</button>
+								</div>
+							</div>
+							<br>
+							<div class="view-5">
+								<div class="label-margin-2">
+									<div class="label-3">
+										<div class="text-wrapper-25">사업자 번호</div>
+									</div>
+								</div>
+								<div class="input-3">
+									<input type="text" id="vendor_license" name="vendor_license"
+										style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+										required>
+									<div id="vendor_license_result"></div>
+								</div>
+								<div class="vertical-border">
+									<button class="button" onclick="checkLicense()">
+										<div class="text-wrapper-26">중복확인</div>
+									</button>
+								</div>
+							</div>
+							<br>
+							<div class="view-5">
+								<div class="label-margin-2">
+									<div class="label-3">
+										<div class="text-wrapper-25">이메일 주소</div>
+									</div>
+								</div>
+								<div class="input-3">
+									<input type="email" id="vendor_email" name="vendor_email"
+										style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+										required>
+								</div>
+							</div>
+							<br>
+							<div class="view-6">
+								<div class="label-margin-3">
+									<div class="label">
+										<div class="text-wrapper-25">연락처</div>
+									</div>
+								</div>
+								<div class="container-12">
+									<div class="input-4">
+										<input type="tel" id="vendor_tel" name="vendor_tel"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											required>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="view-6">
+								<div class="label-margin">
+									<div class="label">
+										<div class="text-wrapper-25">업종</div>
+									</div>
+								</div>
+								<div class="container-wrapper">
+									<div class="options-wrapper">
+										<select id="vendor_category" name="vendor_category"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											required>
+											<option value="웨딩홀">웨딩홀</option>
+											<option value="스튜디오">스튜디오</option>
+											<option value="드레스">드레스</option>
+											<option value="메이크업">메이크업</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="view-4">
+								<div class="label-margin">
+									<div class="label">
+										<div class="text-wrapper-25">기업 홈페이지 주소</div>
+									</div>
+								</div>
+								<div class="input-wrapper">
+									<div class="input-5">
+										<input type="text" id="vendor_site_url" name="vendor_site_url"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											required>
+									</div>
+								</div>
+							</div>
+
+							<br>
+
+							<div class="view-7">
+								<div class="label-margin">
+									<div class="label">
+										<div class="text-wrapper-25">기업 소개</div>
+									</div>
+								</div>
+								<div class="input-wrapper">
+									<div class="input-2">
+										<input type="text" id="vendor_intro" name="vendor_intro"
+											style="width: 380px; height: 40px; padding: 10px; border: 1px solid #ccc; box-sizing: border-box;"
+											required>
+									</div>
+								</div>
+								<div class="container-14">
+									<div class="container-11">
+										<div class="text-wrapper-27">※ 4,000자 이내로 작성해주세요.</div>
+									</div>
+								</div>
+							</div>
+							<div
+								style="text-align: center; margin-top: 200px; height: 500px;">
+								<button type="submit"
+									style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">
+									가입신청</button>
+							</div>
+						</form>
+						<form id="upload_files_form" action="FileUploadService"
+							method="post" enctype="multipart/form-data"
+							style="margin-top: -680px">
+							<div class="view-5">
+								<div class="label-margin-2">
+									<div class="label-3">
+										<div class="text-wrapper-25">사업자등록증 첨부</div>
+									</div>
+								</div>
+								<input type="file" id="vendor_license_image_file"
+									name="vendor_license_image_file"> <input type="hidden"
+									id="vendor_license_image" name="vendor_license_image">
+								<div class="container-10">
+									<div class="container-11">
+										<div class="text-wrapper-27">※ 원본 스캔 후 첨부해주세요.</div>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="view-5">
+								<div class="label-margin-2">
+									<div class="label-3">
+										<div class="text-wrapper-25">기업 로고 첨부</div>
+									</div>
+								</div>
+								<input type="file" id="vendor_logo_image_file"
+									name="vendor_logo_image_file"> <input type="hidden"
+									id="vendor_logo_image" name="vendor_logo_image"> <br>
+								<div class="container-10">
+									<div class="container-11">
+										<p class="text-wrapper-27">※ 해당 업체만 등록해주세요.</p>
+									</div>
+								</div>
+							</div>
+						</form>
+						<br>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<footer>
+		<jsp:include page="footer.jsp" />
+	</footer>
 
 	<!-- 주소 API -->
 	<script
@@ -576,11 +502,7 @@
         console.error('Error:', error);
     });
 });
-		
-		
-		
-		
-		
+
 		// 도로명주소찾기 스크립트
 		function vendor_execDaumPostcode() {
 			new daum.Postcode(
@@ -636,7 +558,5 @@
 					}).open();
 		}
 	</script>
-
-
 </body>
 </html>

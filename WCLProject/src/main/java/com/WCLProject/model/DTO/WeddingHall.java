@@ -8,13 +8,41 @@ public class WeddingHall {
     private int weddingHallMealCost;
     private String weddingHallAssurance;
     private String weddingHallType;
-    private String weddingHallPrice;
+    private int weddingHallPrice;
     private String weddingHallContent;
     private Timestamp weddingHallDate;
     private String vendorId;
     private String photoPath;
     private String weddingHallTitle;
     
+    public WeddingHall() {}
+    
+	public WeddingHall(String id, String assurance, String type, int price, String content, String vendorId,
+			String photoPath, String brand, String title, int mealCost) {
+		this.weddingHallId = id;
+		this.weddingHallAssurance = assurance;
+		this.weddingHallType = type;
+		this.weddingHallPrice = price;
+		this.weddingHallContent = content;
+		this.vendorId = vendorId;
+		this.photoPath = photoPath;
+		this.weddingHallBrand = brand;
+		this.weddingHallTitle = title;
+		this.weddingHallMealCost = mealCost;
+	}
+
+	public WeddingHall(String weddingHallId, String type, int price, int mealCost, String assurance, String title,
+			String content, String photoPath) {
+		this.weddingHallId = weddingHallId;
+		this.weddingHallType = type;
+		this.weddingHallPrice = price;
+		this.weddingHallMealCost = mealCost;
+		this.weddingHallAssurance = assurance;
+		this.weddingHallTitle = title;
+		this.weddingHallContent = content;
+		this.photoPath = photoPath;
+	}
+
 	public String getWeddingHallId() {
 		return weddingHallId;
 	}
@@ -45,10 +73,10 @@ public class WeddingHall {
 	public void setWeddingHallType(String weddingHallType) {
 		this.weddingHallType = weddingHallType;
 	}
-	public String getWeddingHallPrice() {
+	public int getWeddingHallPrice() {
 		return weddingHallPrice;
 	}
-	public void setWeddingHallPrice(String weddingHallPrice) {
+	public void setWeddingHallPrice(int weddingHallPrice) {
 		this.weddingHallPrice = weddingHallPrice;
 	}
 	public String getWeddingHallContent() {

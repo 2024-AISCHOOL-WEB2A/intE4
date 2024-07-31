@@ -250,4 +250,27 @@ public class MemberDAO {
 		return cnt;
 	}
 
+	public int updateUserProfile(UserMemberDTO user) {
+		int cnt = 0;
+		connect();
+		
+		String sql = "UPDATE USERS SET USER_ADDRESS = ?, USER_EMAIL = ?, USER_TEL = ?, USER_NICK = ?, USER_PW = ? WHERE USER_ID = ?";
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user.getAddress());
+			pst.setString(2, user.getEmail());
+			pst.setString(3, user.getTel());
+			pst.setString(4, user.getNick());
+			pst.setString(5, user.getPw());
+			pst.setString(6, user.getId());
+			
+			cnt = pst.executeUpdate();
+		} catch (SQLException  e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	
 }

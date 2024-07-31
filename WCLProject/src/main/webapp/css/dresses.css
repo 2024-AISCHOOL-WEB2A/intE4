@@ -18,9 +18,9 @@
             background-color: transparent;
             border: none;
             text-decoration: none;
-            color: #a2a2a2;
             font-weight: bold;
             transition: color 0.3s ease;
+            color: #8e8e8e;
         }
         .filter-button:hover {
             font-weight: bold;
@@ -64,7 +64,7 @@
 		    height: 300px; /* 고정 높이 */
 		    object-fit: cover; /* 이미지를 요소 크기에 맞게 조정하면서 비율 유지, 넘치는 부분은 자름 */
 		    object-position: center; /* 이미지를 가운데에 위치시킴 */
-		    border-radius: 1px;
+		    border-radius: 2px;
         }
         .pagination {
             text-align: center;
@@ -111,8 +111,8 @@
 		.dress-item-detail p {
 		    margin-top: 0; /* p 요소의 위쪽 마진을 없앱니다 */
 		    font-family: "Inter", Helvetica;
-		    font-weight: 500;
-		    color: #8e8e8e;
+		    font-weight: 550;
+		    color: #a0a0a0;
 		}
 		.filter-container h1 { 
 			font-family: "Inter", Helvetica !important;

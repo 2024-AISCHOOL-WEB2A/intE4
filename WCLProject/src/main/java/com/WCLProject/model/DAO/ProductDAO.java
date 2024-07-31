@@ -20,7 +20,7 @@ public class ProductDAO {
 			sql = "DELETE FROM STUDIO WHERE STUDIO_ID = ?";
 		} else if (productId.startsWith("MAKEUP")) {
 			sql = "DELETE FROM MAKEUP WHERE MAKEUP_ID = ?";
-		} else if (productId.startsWith("WEDDINGHALL")) {
+		} else if (productId.startsWith("WEDDING_HALL")) {
 			sql = "DELETE FROM WEDDING_HALL WHERE WEDDING_HALL_ID = ?";
 		} else {
 			throw new IllegalArgumentException("Unknown product type: " + productId);
