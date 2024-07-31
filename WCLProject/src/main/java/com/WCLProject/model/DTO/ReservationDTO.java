@@ -10,22 +10,23 @@ public class ReservationDTO {
     private int itemPrice;
     private String photoPath;
 
+    // 기본 생성자
     public ReservationDTO() {}
-    
-    public ReservationDTO(String userId, String itemId, String vendorCategory, String reservationDate,
-			String reservationState, int itemPrice, String reservationId, String photoPath) {
-    	this.userId = userId;
-    	this.itemId = itemId;
-    	this.vendorCategory = vendorCategory;
-    	this.reservationDate = reservationDate;
-    	this.reservationState = reservationState;
-    	this.itemPrice = itemPrice;
-    	this.reservationId = reservationId;
-    	this.photoPath = photoPath;
-    	
-	}
 
-	// Getters and Setters
+    // 모든 필드를 포함한 생성자
+    public ReservationDTO(String userId, String itemId, String vendorCategory, String reservationDate,
+                          String reservationState, int itemPrice, String reservationId, String photoPath) {
+        this.userId = userId;
+        this.itemId = itemId;
+        this.vendorCategory = vendorCategory;
+        this.reservationDate = reservationDate;
+        this.reservationState = reservationState;
+        this.itemPrice = itemPrice;
+        this.reservationId = reservationId;
+        this.photoPath = photoPath;
+    }
+
+    // Getters and Setters
     public String getReservationId() {
         return reservationId;
     }
@@ -79,6 +80,9 @@ public class ReservationDTO {
     }
 
     public void setItemPrice(int itemPrice) {
+        if (itemPrice < 0) {
+            throw new IllegalArgumentException("Item price cannot be negative");
+        }
         this.itemPrice = itemPrice;
     }
 
@@ -88,5 +92,19 @@ public class ReservationDTO {
 
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
+    }
+
+    @Override
+    public String toString() {
+        return "ReservationDTO{" +
+                "reservationId='" + reservationId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", itemId='" + itemId + '\'' +
+                ", vendorCategory='" + vendorCategory + '\'' +
+                ", reservationDate='" + reservationDate + '\'' +
+                ", reservationState='" + reservationState + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", photoPath='" + photoPath + '\'' +
+                '}';
     }
 }

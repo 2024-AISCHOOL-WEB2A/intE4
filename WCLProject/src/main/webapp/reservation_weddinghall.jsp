@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.WCLProject.model.DAO.MakeupDAO" %>
-<%@ page import="com.WCLProject.model.DTO.Makeup" %>
+<%@ page import="com.WCLProject.model.DAO.WeddingHallDAO" %>
+<%@ page import="com.WCLProject.model.DTO.WeddingHall" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="com.WCLProject.model.DTO.UserMemberDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>메이크업 예약 페이지</title>
+    <title>웨딩홀 예약 페이지</title>
     <link rel="stylesheet" href="./css/mainPage_globals.css">
     <link rel="stylesheet" href="./css/mainPage_styleguide.css">
     <style>
@@ -75,43 +75,48 @@
 <body>
     <div class="container">
         <div class="reservation-form">
-            <h2>메이크업 예약</h2>
+            <h2>웨딩홀 예약</h2>
             <%
+            // 사용자 세션에서 사용자 정보 가져오기
             HttpSession userSession = request.getSession();
             UserMemberDTO user = (UserMemberDTO) userSession.getAttribute("userInfo");
             if (user == null) {
                 response.sendRedirect("loginPage.jsp");
                 return;
             }
+
+            // 요청으로부터 카테고리와 아이템 ID 가져오기
             String category = request.getParameter("category");
             String itemId = request.getParameter("itemId");
-            
-            if (category == null || itemId == null || !"메이크업".equals(category)) {
-                out.println("<p>잘못된 요청입니다. 메이크업 정보가 누락되었거나 잘못된 카테고리입니다.</p>");
+
+            // 카테고리 또는 아이템 ID가 없는 경우 오류 메시지 표시
+            if (category == null || itemId == null || !"웨딩홀".equals(category)) {
+                out.println("<p>잘못된 요청입니다. 웨딩홀 정보가 누락되었거나 잘못된 카테고리입니다.</p>");
                 return;
             }
             
+            // 웨딩홀 정보를 데이터베이스에서 가져오기
             String photoPath = "";
             String title = "";
-            String brand = "";  // 브랜드 정보 저장 변수
+            String brand = "";  
             int price = 0;
-            String imagePath = "makeup";  // 경로 수정
+            String imagePath = "weddinghall";  // 웨딩홀 이미지 경로 설정
                      
-            MakeupDAO makeupDAO = new MakeupDAO(); //DAO 인스턴스 생성
-            Makeup makeup = makeupDAO.getMakeupById(itemId); // 인스턴스를 통해 메서드 호출
-            if (makeup == null) {
-                out.println("<p>잘못된 요청입니다. 메이크업 정보를 찾을 수 없습니다.</p>");
+            WeddingHallDAO weddingHallDAO = new WeddingHallDAO(); //DAO 인스턴스 생성
+            WeddingHall weddingHall = weddingHallDAO.getWeddingHallById(itemId); //인스턴스를 통해 메서드 호출
+            if (weddingHall == null) {
+                out.println("<p>잘못된 요청입니다. 웨딩홀 정보를 찾을 수 없습니다.</p>");
                 return;
             }
 
-            photoPath = makeup.getPhotoPath();
-            title = makeup.getMakeupTitle();
-            brand = makeup.getMakeupBrand();  // 브랜드 정보 가져오기
-            price = makeup.getMakeupPrice();
-            
+            // 웨딩홀 정보 설정
+            photoPath = weddingHall.getPhotoPath();
+            title = weddingHall.getWeddingHallTitle();
+            brand = weddingHall.getWeddingHallBrand();  // 브랜드 정보 가져오기
+            price = weddingHall.getWeddingHallPrice();
             %>
-            <img src="<%= request.getContextPath() %>/upload/<%= imagePath %>/<%= photoPath %>" alt="Makeup Image" class="item-image"/>
-            <!-- 예약 폼 시작 -->
+            <!-- 웨딩홀 이미지와 예약 폼 표시 -->
+            <img src="<%= request.getContextPath() %>/upload/<%= imagePath %>/<%= photoPath %>" alt="WeddingHall Image" class="item-image"/>
             <form id="reservationForm" method="get" action="ReservationService">
                 <div class="form-group">
                     <label for="user_id">회원 ID:</label>
@@ -126,7 +131,7 @@
                 </div>
                 <div class="form-group">
                     <label for="vendor_category">카테고리:</label>
-                    <input type="text" id="vendor_category" name="vendor_category" value="메이크업" readonly>
+                    <input type="text" id="vendor_category" name="vendor_category" value="웨딩홀" readonly>
                 </div>
                 <div class="form-group">
                     <label for="item_brand">브랜드:</label>
@@ -149,7 +154,7 @@
                     <input type="text" id="reservation_state" name="reservation_state" value="예약대기중" readonly>
                 </div>
                 <div class="button-group">
-                    <button type="button" class="cancel" onclick="cancelReservation()">예약취소</button>
+                    <button type="button" class="cancel" onclick="cancelReservation()">예약 취소</button>
                     <button type="submit">예약 확인</button>
                 </div>
             </form>
