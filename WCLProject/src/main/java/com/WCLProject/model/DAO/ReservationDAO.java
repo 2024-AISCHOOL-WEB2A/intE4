@@ -16,7 +16,7 @@ public class ReservationDAO {
 	private ResultSet rs = null;
 	
 	 // 예약 추가 메서드
-    public void addReservation(ReservationDTO reservation) throws SQLException, ClassNotFoundException {
+    public void addReservation(ReservationDTO reservation) {
         try {
             conn = DBUtil.getConnection();
             String sql = "INSERT INTO reservation (reservation_id, user_id, item_id, vendor_category, reservation_date, reservation_state, item_price, photo_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -31,7 +31,11 @@ public class ReservationDAO {
             pstmt.setString(8, reservation.getPhotoPath());
  
             pstmt.executeUpdate();
-        } finally {
+        } catch (SQLException e) {
+
+		} catch (ClassNotFoundException e) {
+			
+		} finally {
             DBUtil.closeConnection(rs, pstmt, conn);
         }
     }
@@ -67,17 +71,19 @@ public class ReservationDAO {
 		return reservations;
 	}
 	 // 특정 아이템 ID로 예약 삭제 메서드
-    public void deleteReservationByItemId(String itemId) {
-        try {
+    public int deleteReservationByItemId(String reservationId) {
+        int cnt = 0;
+    	try {
             conn = DBUtil.getConnection();
-            String sql = "DELETE FROM reservation WHERE item_id = ?";
+            String sql = "DELETE FROM reservation WHERE reservation_id = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, itemId);
-            int cnt = pstmt.executeUpdate();
+            pstmt.setString(1, reservationId);
+            cnt = pstmt.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         } finally {
             DBUtil.closeConnection(rs, pstmt, conn);
         }
+    	return cnt;
     }
 }
