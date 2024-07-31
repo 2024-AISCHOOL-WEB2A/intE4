@@ -15,6 +15,13 @@ public class ReservationDTO {
     public ReservationDTO(String userId, String itemId, String vendorCategory, String reservationDate,
 			String reservationState, int itemPrice, String reservationId, String photoPath) {
     	this.userId = userId;
+    	this.itemId = itemId;
+    	this.vendorCategory = vendorCategory;
+    	this.reservationDate = reservationDate;
+    	this.reservationState = reservationState;
+    	this.itemPrice = itemPrice;
+    	this.reservationId = reservationId;
+    	this.photoPath = photoPath;
     	
 	}
 

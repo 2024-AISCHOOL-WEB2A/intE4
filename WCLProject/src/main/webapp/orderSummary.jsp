@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Order Summary</title>
+    <title>주문</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,75 +76,144 @@
         .button-group button.cancel {
             background-color: #d9534f;
         }
+        .button-group button.delete {
+            background-color: #d9534f;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Order Summary</h2>
+        <h2>주문</h2>
         <%
             HttpSession userSession = request.getSession();
-            String userId = (String) session.getAttribute("userId");
+            String userId = (String) userSession.getAttribute("userId");
             if (userId == null) {
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("LoginWcl.jsp");
                 return;
             }
-
             ReservationDAO reservationDAO = new ReservationDAO();
             List<ReservationDTO> reservations = reservationDAO.getReservationsByUserId(userId);
 
-            Map<String, List<ReservationDTO>> categorizedReservations = new HashMap<>();
-            for (ReservationDTO reservation : reservations) {
-                String category = reservation.getVendorCategory();
-                if (!categorizedReservations.containsKey(category)) {
-                    categorizedReservations.put(category, new ArrayList<ReservationDTO>());
+            if (reservations.isEmpty()) {
+                out.println("<p>예약된 항목이 없습니다.</p>");
+            } else {
+                Map<String, List<ReservationDTO>> categorizedReservations = new HashMap<>();
+                for (ReservationDTO reservation : reservations) {
+                    String category = reservation.getVendorCategory();
+                    if (!categorizedReservations.containsKey(category)) {
+                        categorizedReservations.put(category, new ArrayList<ReservationDTO>());
+                    }
+                    categorizedReservations.get(category).add(reservation);
                 }
-                categorizedReservations.get(category).add(reservation);
-            }
-
-            double totalPrice = 0;
-            for (Map.Entry<String, List<ReservationDTO>> entry : categorizedReservations.entrySet()) {
-                String category = entry.getKey();
-                List<ReservationDTO> categoryItems = entry.getValue();
         %>
-        <div class="category">
-            <h3><%= category %></h3>
+        <form id="orderForm" method="get" action="OrderServlet" accept-charset="UTF-8">
             <%
-                for (ReservationDTO item : categoryItems) {
-                    totalPrice += item.getItemPrice();
+                for (Map.Entry<String, List<ReservationDTO>> entry : categorizedReservations.entrySet()) {
+                    String category = entry.getKey();
+                    List<ReservationDTO> categoryItems = entry.getValue();
             %>
-            <div class="item">
-                <img src="<%= request.getContextPath() %>/upload/dress/<%= item.getPhotoPath() %>" alt="<%= item.getItemId() %>">
-                <div class="item-details">
-                    <p><strong>Item ID:</strong> <%= item.getItemId() %></p>
-                    <p><strong>Reservation Date:</strong> <%= item.getReservationDate() %></p>
-                    <p><strong>Price:</strong> <span class="item-price"><%= item.getItemPrice() %>원</span></p>
+            <div class="category">
+                <h3><%= category %></h3>
+                <%
+                    for (ReservationDTO item : categoryItems) {
+                %>
+                <div class="item">
+                    <input type="checkbox" class="item-checkbox" name="itemIds" value="<%= item.getItemId() %>" data-price="<%= item.getItemPrice() %>">
+                    <img src="<%= request.getContextPath() %>/upload/dress/<%= item.getPhotoPath() %>" alt="<%= item.getItemId() %>">
+                    <div class="item-details">
+                        <p><strong>Item ID:</strong> <%= item.getItemId() %></p>
+                        <p><strong>Reservation Date:</strong> <%= item.getReservationDate() %></p>
+                        <p><strong>Price:</strong> <span class="item-price"><%= item.getItemPrice() %>원</span></p>
+                    </div>
                 </div>
+                <%
+                    }
+                %>
             </div>
             <%
                 }
             %>
-        </div>
+            <div class="total-price">
+                총 가격: <span id="totalPrice">0</span>원
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="submitOrder()">주문하기</button>
+                <button type="button" class="cancel" onclick="cancelOrder()">취소</button>
+                <button type="button" class="delete" onclick="deleteSelected()">삭제</button>
+            </div>
+        </form>
         <%
             }
         %>
-        <div class="total-price">
-            총 가격: <%= totalPrice %>원
-        </div>
-        <div class="button-group">
-            <button type="button" onclick="placeOrder()">주문</button>
-            <button type="button" class="cancel" onclick="cancelOrder()">취소</button>
-        </div>
     </div>
 
     <script>
-        function placeOrder() {
-            alert("Order placed successfully!");
-            // 실제 주문 처리를 구현합니다.
+        document.querySelectorAll('.item-checkbox').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                updateTotalPrice();
+            });
+        });
+
+        function updateTotalPrice() {
+            let totalPrice = 0;
+            document.querySelectorAll('.item-checkbox:checked').forEach(function(checkbox) {
+                totalPrice += parseFloat(checkbox.getAttribute('data-price'));
+            });
+            document.getElementById('totalPrice').textContent = totalPrice.toLocaleString();
+        }
+
+        function submitOrder() {
+            const form = document.getElementById('orderForm');
+            const formData = new FormData(form);
+            fetch('OrderServlet', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert("주문성공: " + data);
+                window.location.href = 'orderSummary.jsp';
+            })
+            .catch(error => {
+                alert("주문실패: " + error);
+            });
         }
 
         function cancelOrder() {
-            alert("Order canceled.");
+            alert("주문이 취소되었습니다.");
             // 실제 주문 취소 처리를 구현합니다.
+        }
+
+        function deleteSelected() {
+            const selectedItems = [];
+            document.querySelectorAll('.item-checkbox:checked').forEach(function(checkbox) {
+                selectedItems.push(checkbox.value);
+            });
+            if (selectedItems.length === 0) {
+                alert("삭제할 항목을 선택하세요.");
+                return;
+            }
+
+            const formData = new FormData();
+            selectedItems.forEach(item => formData.append('itemIds', item));
+
+            fetch('OrderServlet', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert("삭제성공: " + data);
+                selectedItems.forEach(itemId => {
+                    const checkbox = document.querySelector(`input[value="${itemId}"]`);
+                    const itemDiv = checkbox.closest('.item');
+                    itemDiv.remove();
+                });
+                updateTotalPrice();
+            })
+            .catch(error => {
+                alert("삭제실패: " + error);
+            });
         }
     </script>
 </body>
