@@ -41,6 +41,15 @@ public class UserMemberDTO implements MemberDTO {
 		this.join = join;
 	}
 	
+	public UserMemberDTO(String id, String fullAddress, String email, String tel, String nick, String pw) {
+		this.id = id;
+		this.address = fullAddress;
+		this.email = email;
+		this.tel = tel;
+		this.nick = nick;
+		this.pw = pw;
+	}
+
 	public String getId() {
 		return id;
 	}
