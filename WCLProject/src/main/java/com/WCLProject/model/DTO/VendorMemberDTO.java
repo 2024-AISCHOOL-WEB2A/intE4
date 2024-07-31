@@ -44,6 +44,17 @@ public class VendorMemberDTO implements MemberDTO {
 		this.site_url = site_url;
 	}
 
+	public VendorMemberDTO(String id, String fullAddress, String email, String tel, String pw, String url, String intro) {
+		this.id = id;
+		this.address = fullAddress;
+		this.email = email;
+		this.tel = tel;
+		this.pw = pw;
+		this.site_url = url;
+		this.intro = intro;
+	}
+
+	
 	public String getId() {
 		return id;
 	}

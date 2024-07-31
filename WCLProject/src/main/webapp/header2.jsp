@@ -43,7 +43,7 @@ if (vendor != null) {
 				if ("드레스".equals(vendorCategory)) {
 			%>
 			<div class="frame-3">
-				<div class="text-wrapper-4">회원정보 수정</div>
+				<a href="editVendorProfile.jsp" class="text-wrapper-4">회원정보 수정</a>
 				<div class="text-wrapper-5">예약관리</div>
 				<a href="productDressManagement.jsp" class="text-wrapper-5">상품관리</a>
 				<form id="logoutForm" action="Logout" method="post"
@@ -57,7 +57,7 @@ if (vendor != null) {
 			} else if ("웨딩홀".equals(vendorCategory)) {
 			%>
 			<div class="frame-3">
-				<div class="text-wrapper-4">회원정보 수정</div>
+				<a href="editVendorProfile.jsp" class="text-wrapper-4">회원정보 수정</a>
 				<div class="text-wrapper-5">예약관리</div>
 				<a href="productWeddingHallManagement.jsp" class="text-wrapper-5">상품
 					관리</a>
@@ -72,7 +72,7 @@ if (vendor != null) {
 			} else { // 기타 카테고리
 			%>
 			<div class="frame-3">
-				<div class="text-wrapper-4">회원정보 수정</div>
+				<a href="editVendorProfile.jsp" class="text-wrapper-4">회원정보 수정</a>
 				<div class="text-wrapper-5">예약관리</div>
 				<a href="productManagement.jsp" class="text-wrapper-5">상품 관리</a>
 				<form id="logoutForm" action="Logout" method="post"

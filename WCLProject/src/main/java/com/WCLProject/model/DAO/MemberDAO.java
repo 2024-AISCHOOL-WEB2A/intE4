@@ -272,5 +272,29 @@ public class MemberDAO {
 		
 		return cnt;
 	}
+
+	public int updateVendorProfile(VendorMemberDTO vendor) {
+		int cnt = 0;
+		connect();
+		
+		String sql = "UPDATE VENDOR SET VENDOR_ADDRESS = ?, VENDOR_EMAIL = ?, VENDOR_TEL = ?, VENDOR_PW = ?, VENDOR_SITE_URL = ?, VENDOR_INTRO = ? WHERE VENDOR_ID = ?";
+
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, vendor.getAddress());
+			pst.setString(2, vendor.getEmail());
+			pst.setString(3, vendor.getTel());
+			pst.setString(4, vendor.getPw());
+			pst.setString(5, vendor.getSite_url());
+			pst.setString(6, vendor.getIntro());
+			pst.setString(7, vendor.getId());
+			
+			cnt = pst.executeUpdate();
+		} catch (SQLException  e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
 	
 }
