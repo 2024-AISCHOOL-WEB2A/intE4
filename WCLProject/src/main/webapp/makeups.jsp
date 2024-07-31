@@ -3,6 +3,8 @@
 <%@ page import="com.WCLProject.model.DAO.MakeupDAO" %>
 <%@ page import="com.WCLProject.model.DTO.Makeup" %>
 <!DOCTYPE html>
+<link rel="stylesheet" href="./css/mainPage_globals.css">
+<link rel="stylesheet" href="./css/mainPage_styleguide.css">
 <html>
 <head>
     <meta charset="UTF-8">
@@ -25,18 +27,19 @@
             width: 22%;
             margin: 18px;
             text-align: left;
-            margin-bottom: 30px;
-            margin-top: 30px;
+            margin-bottom: 70px;
+            margin-top: 10px;
         }
         .makeup-item img {
             width: 300px; /* 고정 너비 */
 		    height: 300px; /* 고정 높이 */
 		    object-fit: cover; /* 이미지를 요소 크기에 맞게 조정하면서 비율 유지, 넘치는 부분은 자름 */
 		    object-position: top; /* 이미지를 에 위치시킴 */
+		    border-radius: 2px;
         }
         .pagination {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 0px;
             margin-bottom: 100px;
         }
         .pagination a {
@@ -47,33 +50,38 @@
         .pagination strong {
             margin: 0 5px;
             color: #000;
+            font-weight: bold;
         }
-        h1 {
-            margin-top: 50px;
-            margin-bottom: 30px;
+        .h1 {
+            margin-top: 250px;
+            margin-bottom: 50px;
             margin-left: 125px;
             font-size: 2em;
+            font-weight: bold;
         }
         .makeup-item-detail {
         	margin-top: -17px;
         }
         .makeup-item-detail h3 {
-		    margin-bottom: 5px; /* h3 요소의 아래쪽 마진을 줄입니다 */
+        	margin-top: 20px !important;
+        	font-size: 20px;
+        	font-weight: bold;
+        	margin-bottom: 3px;
 		    font-family: "Inter", Helvetica;
 		}
 		.makeup-item-detail p {
 		    margin-top: 0; /* p 요소의 위쪽 마진을 없앱니다 */
-		    color: #a2a2a2;
 		    font-family: "Inter", Helvetica;
 		    font-weight: 550;
+		    color: #a0a0a0;
 		}
     </style>
 </head>
 <body>
     <header>
-        <jsp:include page="header3.jsp" />
+        <jsp:include page="header2.jsp" />
     </header>
-    <h1>메이크업 라인</h1>
+    <div class="h1">메이크업 라인</div>
     	<!-- 페이징 기능 -->
     	<div class="makeup-container">
         <%
@@ -137,6 +145,20 @@
 	        }
 	    %>
 	</div>
+	<script>
+        // 페이지 로드 시 스크롤 위치 복원
+        window.onload = function() {
+            const scrollPosition = localStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition, 10));
+            }
+        };
+
+        // 페이지 언로드 시 스크롤 위치 저장
+        window.onbeforeunload = function() {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        };
+    </script>
 	<footer>
         <jsp:include page="footer.jsp" />
     </footer>  

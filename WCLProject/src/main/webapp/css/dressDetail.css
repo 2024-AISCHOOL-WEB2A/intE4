@@ -26,6 +26,8 @@ body {
         .main-image img {
             width: 100%;
             height: auto;
+            min-height: 500px; /* 최소 높이 설정 */
+            min-width: 450px; /* 최소 넓이 설정 */
         }
         .dress-info {
             width: 43%; /* 드레스 정보 너비를 45%로 조정 */
@@ -44,7 +46,7 @@ body {
             font-family: "Inter", Helvetica !important;
             letter-spacing: 1px; /* 글자 간격 설정 */
   			position: absolute; /* 부모 요소를 기준으로 고정 위치 */
-    		bottom: 220px; /* 부모 요소의 하단에서 20px 위로 */
+    		bottom: 200px; /* 부모 요소의 하단에서 20px 위로 */
         }
         .more-dresses {
             margin-top: 20px;
@@ -115,21 +117,21 @@ body {
         .more-dresses h3 {
         	font-family: "Radley", Helvetica !important;
         	color: black;
-        	font-size: 18px;
+        	font-size: 15px;
         	margin-top: -5px;
         }
        	.dress-info h2 {
        		font-family: "Inter", Helvetica !important;
        		font-size: 25px;
        		font-weight: 550;
-       		margin-top: 25px;
-       		margin-bottom: 25px;
+       		margin-top: 20px;
+       		margin-bottom: 40px;
        	}
        	.dress-info h3{
 			font-family: "Inter", Helvetica !important;
 			color: #8A2BE2;
 			font-weight: 550;
-			margin-bottom: 30px;
+			margin-bottom: 10px;
 			margin-left: 10px;
 			font-size: 17px;
        	}
@@ -144,3 +146,11 @@ body {
             font-weight: 550; /* 필요에 따라 폰트 두께를 설정 */
 
         }
+        .dress-info h4{
+			font-family: "Inter", Helvetica !important;
+			color: #8A2BE2;
+			font-weight: 550;
+			margin-bottom: 30px;
+			margin-left: 10px;
+			font-size: 17px;
+		}

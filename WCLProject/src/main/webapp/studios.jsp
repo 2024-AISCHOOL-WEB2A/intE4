@@ -3,6 +3,8 @@
 <%@ page import="com.WCLProject.model.DAO.StudioDAO" %>
 <%@ page import="com.WCLProject.model.DTO.Studio" %>
 <!DOCTYPE html>
+<link rel="stylesheet" href="./css/mainPage_globals.css">
+<link rel="stylesheet" href="./css/mainPage_styleguide.css">
 <html>
 <head>
     <meta charset="UTF-8">

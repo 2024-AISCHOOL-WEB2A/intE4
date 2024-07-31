@@ -47,6 +47,7 @@ if (!isLogin) {
                 <div class="dress-info">
                     <h2><%= dress.getDressBrand() %></h2>
                     <h3># <%= dress.getDressFabric() %>&nbsp;&nbsp;&nbsp;# <%= dress.getDressLine() %>&nbsp;&nbsp;&nbsp;# <%= dress.getDressStyle() %></h3>
+                    <h4># <%= dress.getDressTitle() %></h4>
                     <p class="line-break"><%= dress.getDressContent() %></p>
                     <p class="dress-price"><%= dress.getDressPrice() %>원</p>
                     <!-- 문의하기 버튼 -->

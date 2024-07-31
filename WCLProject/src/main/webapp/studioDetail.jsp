@@ -19,7 +19,6 @@ if (!isLogin) {
 <head>
     <meta charset="UTF-8">
     <title>Studio Detail</title>
-    <link rel="stylesheet" href="./css/dressDetail.css">
 	<link rel="stylesheet" href="./css/mainPage_globals.css">
 	<link rel="stylesheet" href="./css/mainPage_styleguide.css">
     <style>
@@ -52,6 +51,7 @@ if (!isLogin) {
             width: 100%;
             height: auto;
             min-height: 500px; /* 최소 높이 설정 */
+            min-width: 450px; /* 최소 넓이 설정 */
         }
         .studio-info {
             width: 43%; /* 드레스 정보 너비를 45%로 조정 */
@@ -70,7 +70,7 @@ if (!isLogin) {
             font-family: "Inter", Helvetica !important;
             letter-spacing: 1px; /* 글자 간격 설정 */
   			position: absolute; /* 부모 요소를 기준으로 고정 위치 */
-    		bottom: 220px; /* 부모 요소의 하단에서 20px 위로 */
+    		bottom: 200px; /* 부모 요소의 하단에서 20px 위로 */
         }
         .more-studios {
             margin-top: 20px;
@@ -141,21 +141,21 @@ if (!isLogin) {
         .more-studios h3 {
         	font-family: "Radley", Helvetica !important;
         	color: black;
-        	font-size: 18px;
+        	font-size: 15px;
         	margin-top: -5px;
         }
        	.studio-info h2 {
        		font-family: "Inter", Helvetica !important;
        		font-size: 25px;
        		font-weight: 550;
-       		margin-top: 25px;
-       		margin-bottom: 25px;
+       		margin-top: 20px;
+       		margin-bottom: 40px;
        	}
        	.studio-info h3{
 			font-family: "Inter", Helvetica !important;
 			color: #8A2BE2;
 			font-weight: 550;
-			margin-bottom: 30px;
+			margin-bottom: 10px;
 			margin-left: 10px;
 			font-size: 17px;
        	}
@@ -170,6 +170,13 @@ if (!isLogin) {
             font-weight: 550; /* 필요에 따라 폰트 두께를 설정 */
 
         }
+        .studio-info h4{
+			font-family: "Inter", Helvetica !important;
+			color: #8A2BE2;
+			font-weight: 550;
+			margin-bottom: 30px;
+			margin-left: 10px;
+			font-size: 17px;
     </style>
 </head>
 <body>
@@ -195,8 +202,9 @@ if (!isLogin) {
             	<div class="studio-info">
                 	<h2><%= studio.getStudioBrand() %></h2>
                 	<h3># <%= studio.getStudioConcept() %></h3>
+                	<h4># <%= studio.getStudioTitle() %></h4>
                 	<p class="line-break"><%= studio.getStudioContent() %></p>
-                	<p class="dress-price"><%= studio.getStudioPrice() %>원</p>
+                	<p class="studio-price"><%= studio.getStudioPrice() %>원</p>
                 	<!-- 문의하기 버튼 -->
                     <button class="inquiry-button" onclick="location.href='inquiry.jsp?dressId=<%= studio.getStudioId() %>'">문의하기</button>
             	</div>
