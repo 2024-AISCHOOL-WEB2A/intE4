@@ -51,7 +51,7 @@ if (!isLogin) {
             width: 100%;
             height: auto;
             min-height: 500px; /* 최소 높이 설정 */
-            min-width: 450px; /* 최소 넓이 설정 */
+            min-width: 500px; /* 최소 넓이 설정 */
         }
         .wedding-hall-info {
             width: 45%; /* 드레스 정보 너비를 45%로 조정 */
