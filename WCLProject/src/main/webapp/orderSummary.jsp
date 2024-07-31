@@ -88,7 +88,7 @@
             HttpSession userSession = request.getSession();
             String userId = (String) userSession.getAttribute("userId");
             if (userId == null) {
-                response.sendRedirect("LoginWcl.jsp");
+                response.sendRedirect("loginPage.jsp");
                 return;
             }
             ReservationDAO reservationDAO = new ReservationDAO();
@@ -118,8 +118,8 @@
                     for (ReservationDTO item : categoryItems) {
                 %>
                 <div class="item">
-                    <input type="checkbox" class="item-checkbox" name="itemIds" value="<%= item.getItemId() %>" data-price="<%= item.getItemPrice() %>">
-                    <img src="<%= request.getContextPath() %>/upload/dress/<%= item.getPhotoPath() %>" alt="<%= item.getItemId() %>">
+                    <input type="checkbox" class="item-checkbox" name="reservationId" value="<%= item.getReservationId() %>" data-price="<%= item.getItemPrice() %>">
+                    <img src="./upload/dress/<%= item.getPhotoPath() %>" alt="<%= item.getItemId() %>">
                     <div class="item-details">
                         <p><strong>Item ID:</strong> <%= item.getItemId() %></p>
                         <p><strong>Reservation Date:</strong> <%= item.getReservationDate() %></p>
@@ -154,6 +154,7 @@
             });
         });
 
+        // 가격 토탈
         function updateTotalPrice() {
             let totalPrice = 0;
             document.querySelectorAll('.item-checkbox:checked').forEach(function(checkbox) {
@@ -162,6 +163,7 @@
             document.getElementById('totalPrice').textContent = totalPrice.toLocaleString();
         }
 
+        // 주문 전송
         function submitOrder() {
             const form = document.getElementById('orderForm');
             const formData = new FormData(form);
@@ -179,11 +181,14 @@
             });
         }
 
+        // 주문 취소
         function cancelOrder() {
             alert("주문이 취소되었습니다.");
             // 실제 주문 취소 처리를 구현합니다.
         }
 
+        
+        // 선택 상품 삭제
         function deleteSelected() {
             const selectedItems = [];
             document.querySelectorAll('.item-checkbox:checked').forEach(function(checkbox) {
