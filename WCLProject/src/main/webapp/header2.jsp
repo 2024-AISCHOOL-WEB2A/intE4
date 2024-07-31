@@ -87,7 +87,7 @@ if (vendor != null) {
 			} else if ("user".equals(isLogin)) {
 			%>
 			<div class="frame-3">
-				<div class="text-wrapper-4">회원정보 수정</div>
+				<a href="EditUserProfile.jsp" class="text-wrapper-4">회원정보 수정</a>
 				<div class="text-wrapper-5">예약관리</div>
 				<form id="logoutForm" action="Logout" method="post"
 					style="display: none;">
