@@ -100,7 +100,7 @@ if (vendor != null) {
 			} else { // 로그인하지 않은 사용자
 			%>
 			<div class="frame-3">
-				<a href="loingPage.jsp" class="text-wrapper-4">로그인</a> <a
+				<a href="loginPage.jsp" class="text-wrapper-4">로그인</a> <a
 					href="signupMemberSelect.jsp" class="text-wrapper-5">회원가입</a>
 			</div>
 			<%
