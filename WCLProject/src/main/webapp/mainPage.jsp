@@ -39,19 +39,19 @@
 						src="${pageContext.request.contextPath}/page_img/mainPage_img/icon.svg" />
 					<div class="frame-5">
 						<div class="frame-6">
-							<a href="#" class="image-background" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background.svg');"></a>
+							<a href="studios.jsp" class="image-background" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background.svg');"></a>
 							<div class="text-wrapper-99">스튜디오</div>
 						</div>
 						<div class="frame-6">
-	         				<a href="#" class="image-background-2" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-1.svg');"></a>
+	         				<a href="dresses.jsp" class="image-background-2" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-1.svg');"></a>
 							<div class="text-wrapper-99">드레스</div>
 						</div>
 						<div class="frame-6">
-	         				<a href="#" class="image-background-3" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-2.svg');"></a>
+	         				<a href="weddinghalls.jsp" class="image-background-3" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-2.svg');"></a>
 							<div class="text-wrapper-99">웨딩홀</div>
 						</div>
 						<div class="frame-6">
-	         				<a href="#" class="image-background-4" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-3.svg');"></a>
+	         				<a href="makeups.jsp" class="image-background-4" style="background-image: url('<%= request.getContextPath() %>/page_img/mainPage_img/image-background-3.svg');"></a>
 							<div class="text-wrapper-99">메이크업</div>
 						</div>
 					</div>
