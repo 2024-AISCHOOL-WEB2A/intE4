@@ -87,7 +87,7 @@ Boolean isLogin = (vendor != null || user != null);
     </div>
     <!-- 예약하기, 결제하기 버튼 -->
     <div class="button-section">
-        <button onclick="location.href='reservation.jsp?dressId=<%= dress.getId() %>'">예약하기</button>
+        <button onclick="location.href='reservation_dress.jsp?category=드레스&itemId=<%= dress.getId() %>'">예약하기</button>
         <button id="check_module" type="button">결제하기</button>
     </div>
     <footer>

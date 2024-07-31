@@ -96,7 +96,7 @@
     </div>
     <!-- 예약하기, 결제하기 버튼 -->
     <div class="button-section">
-        <button onclick="location.href='reservation.jsp?dressId=<%= dress.getId() %>'">예약하기</button>
+        <button onclick="location.href='reservation_dress.jsp?dressId=<%= dress.getId() %>'">예약하기</button>
         <button onclick="location.href='payment.jsp?dressId=<%= dress.getId() %>'">결제하기</button>
     </div>
     

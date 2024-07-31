@@ -3,14 +3,13 @@
 <%@ page import="com.WCLProject.model.DTO.Dress" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%@ page import="com.WCLProject.model.DTO.UserMemberDTO"%>
-<%@ page import="com.WCLProject.model.DTO.VendorMemberDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>예약 페이지</title>
+    <title>드레스 예약 페이지</title>
     <link rel="stylesheet" href="./css/mainPage_globals.css">
-   <link rel="stylesheet" href="./css/mainPage_styleguide.css">
+    <link rel="stylesheet" href="./css/mainPage_styleguide.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,7 +75,7 @@
 <body>
     <div class="container">
         <div class="reservation-form">
-            <h2>예약</h2>
+            <h2>드레스 예약</h2>
             <%
             HttpSession userSession = request.getSession();
             UserMemberDTO user = (UserMemberDTO) userSession.getAttribute("userInfo");
@@ -94,6 +93,7 @@
             }
             %>
             <img src="<%= request.getContextPath() %>/upload/dress/<%= dress.getPhotoPath() %>" alt="Dress Image" class="item-image"/>
+            <!-- 예약 폼 시작 -->
             <form id="reservationForm" method="get" action="ReservationService">
                 <div class="form-group">
                     <label for="user_id">회원 ID:</label>
@@ -102,6 +102,9 @@
                 <div class="form-group">
                     <label for="item_id">아이템 ID:</label>
                     <input type="text" id="item_id" name="item_id" value="<%=dressId%>" readonly>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" id="photo_path" name="photo_path" value="<%= dress.getPhotoPath() %>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="vendor_category">카테고리:</label>
@@ -141,7 +144,7 @@
                 </div>
                 <div class="button-group">
                     <button type="button" class="cancel" onclick="cancelReservation()">예약취소</button>
-                    <button type="submit" onclick="location.href='orderSummary.jsp'">예약 확인</button>                   
+                    <button type="submit">예약 확인</button>
                 </div>
             </form>
         </div>
