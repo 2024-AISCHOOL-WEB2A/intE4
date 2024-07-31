@@ -94,11 +94,72 @@
         .checkbox {
             margin-right: 10px;
         }
+
+        .total-price {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .select-all {
+            margin-bottom: 15px;
+            text-align: right;
+        }
     </style>
+    <script>
+        // 선택된 항목들의 가격을 합산하여 표시하는 함수
+        function calculateTotalPrice() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"].reservation-checkbox:checked');
+            var totalPrice = 0;
+
+            checkboxes.forEach(function(checkbox) {
+                var priceElement = checkbox.closest('.reservation-item').querySelector('.item-price');
+                var price = parseInt(priceElement.textContent.replace('원', '').replace(',', ''));
+                totalPrice += price;
+            });
+
+            document.getElementById('totalPrice').textContent = totalPrice.toLocaleString() + '원';
+        }
+
+        // 전체 선택 및 해제 기능
+        function toggleSelectAll(source) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"].reservation-checkbox');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = source.checked;
+            });
+            calculateTotalPrice(); // 전체 선택 시 총합을 다시 계산
+        }
+
+        // 체크박스 클릭 시 총합을 다시 계산
+        document.addEventListener('DOMContentLoaded', function() {
+            var selectAllCheckbox = document.getElementById('selectAll');
+            var checkboxes = document.querySelectorAll('input[type="checkbox"].reservation-checkbox');
+
+            // 전체 선택 체크박스 이벤트 핸들러
+            selectAllCheckbox.addEventListener('change', function() {
+                toggleSelectAll(this);
+            });
+
+            // 개별 체크박스 이벤트 핸들러
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', calculateTotalPrice);
+            });
+
+            // 페이지 로드 시 초기 총합 계산
+            calculateTotalPrice();
+        });
+    </script>
 </head>
 <body>
     <div class="container">
         <h2>주문</h2>
+        <!-- 전체 선택 체크박스 -->
+        <div class="select-all">
+            <label>
+                <input type="checkbox" id="selectAll"> 전체 선택/ 전체 선택해제
+            </label>
+        </div>
         <!-- 예약 항목과 삭제 요청을 처리하는 폼 -->
         <form id="orderForm" method="get" action="OrderRemove">
             <%
@@ -150,7 +211,7 @@
             %>
             <div class="reservation-item">
                 <!-- 예약 ID를 값으로 가지는 체크박스를 표시하여 삭제할 예약 선택 -->
-                <input type="checkbox" class="checkbox" name="reservationIds" value="<%=reservation.getReservationId()%>"> 
+                <input type="checkbox" class="checkbox reservation-checkbox" name="reservationIds" value="<%=reservation.getReservationId()%>"> 
                 <img src="<%=request.getContextPath()%>/upload/<%=imagePath%>/<%=photoPath%>" alt="Item Image">
                 <div class="item-details">
                     <p><strong>아이템 ID:</strong> <%=reservation.getItemId()%></p>
@@ -164,9 +225,13 @@
             }
             }
             %>
+            <!-- 총합을 표시하는 부분 -->
+            <div class="total-price">
+                총 합계: <span id="totalPrice">0원</span>
+            </div>
             <!-- 버튼 그룹: 삭제 및 결제 -->
             <div class="button-group">
-                <button type="submit" class="cancel">선택 삭제</button>
+                <button type="submit" class="cancel">예약 삭제</button>
                 <button type="button" onclick="window.location.href='payment.jsp'">결제하기</button>
             </div>
         </form>
