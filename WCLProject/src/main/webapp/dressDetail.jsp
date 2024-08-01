@@ -121,13 +121,12 @@ Boolean isLogin = (vendor != null || user != null);
         $("#check_module").click(function() {
 			var IMP = window.IMP; // 생략가능        
 			IMP.init('imp05218310');
-            var dressName = '<%= dressName != null ? dressName : "Default Brand" %>';
             var dressPrice = <%= dressPrice != 0 ? dressPrice : 0 %>;
 			IMP.request_pay({
 				pg : 'html5_inicis',
 				pay_method : 'card',
 				merchant_uid : 'merchant_' + new Date().getTime(),
-				name : dressName,
+				name : 'WeddingChoice',
 				amount : dressPrice,
 				buyer_email : 'iamport@siot.do',
 				buyer_name : '구매자이름',

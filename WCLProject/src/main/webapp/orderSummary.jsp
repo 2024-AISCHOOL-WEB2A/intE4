@@ -131,6 +131,12 @@
             font-size: 1.5em;
         }
     </style>
+    	<script
+		src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
     <script>
         // 선택된 항목들의 가격을 합산하여 표시하는 함수
         function calculateTotalPrice() {
@@ -237,6 +243,42 @@
             calculateTotalPrice();
             showPriceComparison();
         });
+        
+        $(document).ready(function() {
+            $("#check_module").click(function() {
+                var IMP = window.IMP; // 생략가능
+                IMP.init('imp05218310');
+                var totalPrice = parseInt(document.getElementById('totalPrice').textContent.replace(/[^0-9]/g, ''));
+                IMP.request_pay({
+                    pg : 'html5_inicis',
+                    pay_method : 'card',
+                    merchant_uid : 'merchant_' + new Date().getTime(),
+                    name : 'WeddingChoice',
+                    amount : totalPrice,
+                    buyer_email : 'iamport@siot.do',
+                    buyer_name : '구매자이름',
+                    buyer_tel : '010-1234-5678',
+                    buyer_addr : '서울특별시 강남구 삼성동',
+                    buyer_postcode : '123-456',
+                    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+                }, function(rsp) {
+                    console.log(rsp);
+                    if (rsp.success) {
+                        var msg = '결제가 완료되었습니다.';
+                        /* msg += '고유ID : ' + rsp.imp_uid; */
+                        /* msg += '상점 거래ID : ' + rsp.merchant_uid; */
+                        msg += '결제 금액 : ' + rsp.paid_amount;
+                        /* msg += '카드 승인번호 : ' + rsp.apply_num; */
+                        window.location.href = '<%=request.getContextPath()%>/paymentSuccess.jsp';
+                    } else {
+                        var msg = '결제에 실패하였습니다.';
+                        msg += '에러내용 : ' + rsp.error_msg;
+                    }
+                    alert(msg);
+                });
+            });
+        });
+        
     </script>
 </head>
 <body>
@@ -338,7 +380,7 @@
             <!-- 버튼 그룹: 삭제 및 결제 -->
             <div class="button-group">
                 <button type="submit" class="cancel">예약 삭제</button>
-                <button type="button" onclick="window.location.href='payment.jsp'">결제하기</button>
+                <button id="check_module" type="button">결제하기</button>
             </div>
         </form>
     </div>
