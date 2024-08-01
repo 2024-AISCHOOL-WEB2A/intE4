@@ -118,29 +118,18 @@
             color: #333;
         }
 
-        .select-all {
-            margin-bottom: 20px;
-            text-align: right;
-            font-size: 1.1em;
+        .price-comparison {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
             color: #555;
         }
 
-        .select-all input[type="checkbox"] {
-            margin-right: 10px;
-            transform: scale(1.5); /* 전체 선택 체크박스 크기 조정 */
+        .highlight {
+            color: #8A2BE2; /* 보라색 */
+            font-weight: bold;
+            font-size: 1.5em;
         }
-
-        /* 체크박스 크기 조정 */
-        input[type="checkbox"].category-checkbox {
-            transform: scale(1.5); /* 크기 조정 */
-            margin-right: 10px; /* 오른쪽 여백 추가 */
-        }
-
-        /* 카테고리 섹션 간격 조정 */
-        .category-section {
-            margin-bottom: 100px; /* 섹션 사이의 간격을 늘리기 위해 여백 추가 */
-        }
-
     </style>
     <script>
         // 선택된 항목들의 가격을 합산하여 표시하는 함수
@@ -164,6 +153,7 @@
                 checkbox.checked = source.checked;
             });
             calculateTotalPrice(); // 전체 선택 시 총합을 다시 계산
+            showPriceComparison(); // 가격 비교도 업데이트
         }
 
         // 카테고리별로 전체 선택/해제 기능
@@ -173,9 +163,59 @@
                 checkbox.checked = source.checked;
             });
             calculateTotalPrice(); // 카테고리 선택 시 총합을 다시 계산
+            showPriceComparison(); // 가격 비교도 업데이트
         }
 
-        // 체크박스 클릭 시 총합을 다시 계산
+        // 가격 비교 기능
+        function showPriceComparison() {
+            var categories = {};
+
+            // 선택된 체크박스를 모두 가져옴
+            var checkboxes = document.querySelectorAll('input[type="checkbox"].reservation-checkbox:checked');
+
+            checkboxes.forEach(function(checkbox) {
+                // 체크박스의 카테고리 가져오기
+                var category = checkbox.getAttribute('data-category');
+                // 해당 체크박스가 속한 아이템의 가격 가져오기
+                var priceElement = checkbox.closest('.reservation-item').querySelector('.item-price');
+                var price = parseInt(priceElement.textContent.replace('원', '').replace(',', ''));
+                var itemId = checkbox.closest('.reservation-item').querySelector('.item-details p').textContent.split(': ')[1];
+
+                // 카테고리별로 가격을 배열로 저장
+                if (!categories[category]) {
+                    categories[category] = [];
+                }
+
+                categories[category].push({ itemId: itemId, price: price });
+            });
+
+            // 각 카테고리별로 가격 차이를 계산하고 출력
+            for (var category in categories) {
+                if (categories[category].length > 1) {
+                    var prices = categories[category].map(item => item.price);
+                    var minPrice = Math.min.apply(null, prices);
+                    var maxPrice = Math.max.apply(null, prices);
+                    var difference = maxPrice - minPrice;
+
+                    var minItem = categories[category].find(item => item.price === minPrice);
+                    var maxItem = categories[category].find(item => item.price === maxPrice);
+
+                    // 가격 비교 결과를 해당 카테고리 섹션 끝에 추가
+                    var comparisonOutput = document.createElement('div');
+                    comparisonOutput.className = 'price-comparison';
+                    comparisonOutput.innerHTML = maxItem.itemId + ' 상품이 ' + minItem.itemId + ' 상품보다 <span class="highlight">' + difference.toLocaleString() + '원</span> 더 저렴합니다.';
+
+                    // 현재 카테고리 섹션을 찾고, 그 안에 comparisonOutput을 추가
+                    var categorySection = document.getElementById('priceComparison-' + category);
+                    if (categorySection) {
+                        categorySection.innerHTML = '';
+                        categorySection.appendChild(comparisonOutput);
+                    }
+                }
+            }
+        }
+
+        // 체크박스 클릭 시 총합 및 가격 비교 결과를 다시 계산
         document.addEventListener('DOMContentLoaded', function() {
             var selectAllCheckbox = document.getElementById('selectAll');
             var checkboxes = document.querySelectorAll('input[type="checkbox"].reservation-checkbox');
@@ -187,11 +227,15 @@
 
             // 개별 체크박스 이벤트 핸들러
             checkboxes.forEach(function(checkbox) {
-                checkbox.addEventListener('change', calculateTotalPrice);
+                checkbox.addEventListener('change', function() {
+                    calculateTotalPrice();
+                    showPriceComparison();
+                });
             });
 
-            // 페이지 로드 시 초기 총합 계산
+            // 페이지 로드 시 초기 총합 및 가격 비교 계산
             calculateTotalPrice();
+            showPriceComparison();
         });
     </script>
 </head>
@@ -279,11 +323,14 @@
                 <%
                 }
                 %>
+                <!-- 가격 비교 결과를 표시할 요소 -->
+                <div id="priceComparison-<%=category%>" class="price-comparison"></div>
             </div>
             <%
             }
             }
             %>
+            
             <!-- 총합을 표시하는 부분 -->
             <div class="total-price">
                 총 합계: <span id="totalPrice">0원</span>
