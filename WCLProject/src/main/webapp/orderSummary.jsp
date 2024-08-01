@@ -203,7 +203,7 @@
                     // 가격 비교 결과를 해당 카테고리 섹션 끝에 추가
                     var comparisonOutput = document.createElement('div');
                     comparisonOutput.className = 'price-comparison';
-                    comparisonOutput.innerHTML = maxItem.itemId + ' 상품이 ' + minItem.itemId + ' 상품보다 <span class="highlight">' + difference.toLocaleString() + '원</span> 더 저렴합니다.';
+                    comparisonOutput.innerHTML = minItem.itemId + ' 상품이 ' + maxItem.itemId + ' 상품보다 <span class="highlight">' + difference.toLocaleString() + '원</span> 더 저렴합니다.';
 
                     // 현재 카테고리 섹션을 찾고, 그 안에 comparisonOutput을 추가
                     var categorySection = document.getElementById('priceComparison-' + category);
@@ -347,3 +347,4 @@
     <jsp:include page="footer.jsp" />
 </body>
 </html>
+
