@@ -40,7 +40,7 @@
 
         /* 드레스 이미지의 스타일 설정 */
         .reservation-form img {
-            max-width: 60%;
+            max-width: 45%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 30px;

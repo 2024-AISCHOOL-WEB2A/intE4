@@ -34,12 +34,12 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             margin-top: 40px;
-            margin-bottom: 60px;
+            
         }
 
         /* 웨딩홀 이미지의 스타일 설정 */
         .reservation-form img {
-            max-width: 60%;
+            max-width: 45%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 30px;
