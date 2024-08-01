@@ -43,7 +43,7 @@ if (vendor != null) {
 			%>
 			<div class="frame-3">
 				<a href="editVendorProfile.jsp" class="text-wrapper-4">회원정보 수정</a>
-				<div class="text-wrapper-5">예약관리</div>
+				<a href="orderSummary.jsp" class="text-wrapper-5">예약관리</a>
 				<a href="productDressManagement.jsp" class="text-wrapper-5">상품관리</a>
 				<form id="logoutForm" action="Logout" method="post"
 					style="display: none;">
@@ -87,7 +87,7 @@ if (vendor != null) {
 			%>
 			<div class="frame-3">
 				<a href="editUserProfile.jsp" class="text-wrapper-4">회원정보 수정</a>
-				<div class="text-wrapper-5">예약관리</div>
+				<a href="orderSummary.jsp" class="text-wrapper-5">예약관리</a>
 				<form id="logoutForm" action="Logout" method="post"
 					style="display: none;">
 					<input type="hidden" name="_method" value="POST">
