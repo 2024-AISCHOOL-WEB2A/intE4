@@ -458,5 +458,41 @@ public class DressDAO {
 
 		return cnt;
 	}
+
+	public ArrayList<Dress> recommendDress(Dress dress) {
+		ArrayList<Dress> recommendDressList = new ArrayList<Dress>();
+		
+		String sql = "SELECT * FROM DRESS WHERE DRESS_LINE LIKE ? AND DRESS_BRAND <> ?";
+		
+		try {
+			conn = DBUtil.getConnection();
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, "%" + dress.getDressLine() + "%");
+			pst.setString(2, dress.getDressBrand());
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				Dress recommendDress = new Dress();
+				recommendDress.setPhotoPath(rs.getString("PHOTO_PATH"));
+				recommendDress.setDressBrand(rs.getString("DRESS_BRAND"));
+				recommendDress.setDressPrice(rs.getInt("DRESS_PRICE"));
+				recommendDress.setDressFabric(rs.getString("DRESS_FABRIC"));
+				recommendDress.setDressLine(rs.getString("DRESS_LINE"));
+				recommendDress.setDressStyle(rs.getString("DRESS_STYLE"));
+				recommendDress.setId(rs.getString("DRESS_ID"));
+				recommendDressList.add(recommendDress);
+			}
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Class Not Found Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(rs, pst, conn);
+		}
+		
+		return recommendDressList;
+	}
 	
 }

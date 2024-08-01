@@ -60,6 +60,21 @@ public class Dress extends ProductDTO {
 		this.setId(id);
 	}
 	
+	public Dress(String photoPath, String dressBrand, int dressPrice, String dressFabric, String dressLine, String dressStyle, String id) {
+		this.photoPath = photoPath;
+		this.dressBrand = dressBrand;
+		this.dressPrice = dressPrice;
+		this.dressFabric = dressFabric;
+		this.dressLine = dressLine;
+		this.dressStyle = dressStyle;
+		this.setId(id);
+	}
+	
+	public Dress(String brand, String result) {
+		this.dressBrand = brand;
+		this.dressLine = result;
+	}
+	
 	// Getters and setters
 	@Override
 	public String getId() {
