@@ -33,17 +33,10 @@ public class ReservationService extends HttpServlet {
         int itemPrice = Integer.parseInt(request.getParameter("item_price"));
         String reservationId = java.util.UUID.randomUUID().toString();
         String photoPath = request.getParameter("photo_path");
-
-		/*
-		 * // 영어로 입력된 vendor_category를 한국어로 변환 switch (vendorCategory) { case "Dress":
-		 * vendorCategory = "드레스"; break; case "Makeup": vendorCategory = "메이크업"; break;
-		 * case "Studio": vendorCategory = "스튜디오"; break; case "WeddingHall":
-		 * vendorCategory = "웨딩홀"; break; default: // 예기치 않은 값이 들어온다면 기본값을 설정
-		 * vendorCategory = "기타"; break; }
-		 */
+        String itemBrand = request.getParameter("item_brand"); 
 
         // 예약 객체 생성 및 설정
-        ReservationDTO reservation = new ReservationDTO(userId, itemId, vendorCategory, reservationDate, reservationState, itemPrice, reservationId, photoPath);
+        ReservationDTO reservation = new ReservationDTO(userId, itemId, vendorCategory, reservationDate, reservationState, itemPrice, reservationId, photoPath, itemBrand);
 
         try {
             // 데이터베이스에 저장

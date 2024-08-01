@@ -9,13 +9,14 @@ public class ReservationDTO {
     private String reservationState;
     private int itemPrice;
     private String photoPath;
+    private String itemBrand;  // 새로운 필드 추가
 
     // 기본 생성자
     public ReservationDTO() {}
 
     // 모든 필드를 포함한 생성자
     public ReservationDTO(String userId, String itemId, String vendorCategory, String reservationDate,
-                          String reservationState, int itemPrice, String reservationId, String photoPath) {
+                          String reservationState, int itemPrice, String reservationId, String photoPath, String itemBrand) {
         this.userId = userId;
         this.itemId = itemId;
         this.vendorCategory = vendorCategory;
@@ -24,6 +25,7 @@ public class ReservationDTO {
         this.itemPrice = itemPrice;
         this.reservationId = reservationId;
         this.photoPath = photoPath;
+        this.itemBrand = itemBrand;  // 필드 초기화
     }
 
     // Getters and Setters
@@ -94,6 +96,14 @@ public class ReservationDTO {
         this.photoPath = photoPath;
     }
 
+    public String getItemBrand() {
+        return itemBrand;
+    }
+
+    public void setItemBrand(String itemBrand) {
+        this.itemBrand = itemBrand;
+    }
+
     @Override
     public String toString() {
         return "ReservationDTO{" +
@@ -105,6 +115,8 @@ public class ReservationDTO {
                 ", reservationState='" + reservationState + '\'' +
                 ", itemPrice=" + itemPrice +
                 ", photoPath='" + photoPath + '\'' +
+                ", itemBrand='" + itemBrand + '\'' +  // 새로운 필드 추가
                 '}';
     }
 }
+

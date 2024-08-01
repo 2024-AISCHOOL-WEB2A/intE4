@@ -131,12 +131,10 @@
             font-size: 1.5em;
         }
     </style>
-    	<script
-		src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
     <script>
         // 선택된 항목들의 가격을 합산하여 표시하는 함수
         function calculateTotalPrice() {
@@ -172,7 +170,6 @@
             showPriceComparison(); // 가격 비교도 업데이트
         }
 
-        // 가격 비교 기능
         function showPriceComparison() {
             var categories = {};
 
@@ -185,14 +182,15 @@
                 // 해당 체크박스가 속한 아이템의 가격 가져오기
                 var priceElement = checkbox.closest('.reservation-item').querySelector('.item-price');
                 var price = parseInt(priceElement.textContent.replace('원', '').replace(',', ''));
-                var itemId = checkbox.closest('.reservation-item').querySelector('.item-details p').textContent.split(': ')[1];
+                var itemId = checkbox.closest('.reservation-item').querySelector('.item-details p:nth-child(2)').textContent.split(': ')[1];
+                var itemBrand = checkbox.closest('.reservation-item').querySelector('.item-details p:nth-child(1)').textContent.split(': ')[1];
 
                 // 카테고리별로 가격을 배열로 저장
                 if (!categories[category]) {
                     categories[category] = [];
                 }
 
-                categories[category].push({ itemId: itemId, price: price });
+                categories[category].push({ itemId: itemId, price: price, itemBrand: itemBrand });
             });
 
             // 각 카테고리별로 가격 차이를 계산하고 출력
@@ -209,7 +207,10 @@
                     // 가격 비교 결과를 해당 카테고리 섹션 끝에 추가
                     var comparisonOutput = document.createElement('div');
                     comparisonOutput.className = 'price-comparison';
-                    comparisonOutput.innerHTML = minItem.itemId + ' 상품이 ' + maxItem.itemId + ' 상품보다 <span class="highlight">' + difference.toLocaleString() + '원</span> 더 저렴합니다.';
+                    comparisonOutput.innerHTML = 
+                        '<strong>' + minItem.itemId + ' (' + minItem.itemBrand + ')</strong>이 ' +
+                        '<strong>' + maxItem.itemId + ' (' + maxItem.itemBrand + ')</strong>보다 ' +
+                        '<span class="highlight">' + difference.toLocaleString() + '원</span> 더 저렴합니다.';
 
                     // 현재 카테고리 섹션을 찾고, 그 안에 comparisonOutput을 추가
                     var categorySection = document.getElementById('priceComparison-' + category);
@@ -220,6 +221,11 @@
                 }
             }
         }
+
+
+
+
+        
 
         // 체크박스 클릭 시 총합 및 가격 비교 결과를 다시 계산
         document.addEventListener('DOMContentLoaded', function() {
@@ -243,24 +249,24 @@
             calculateTotalPrice();
             showPriceComparison();
         });
-        
+
         $(document).ready(function() {
             $("#check_module").click(function() {
                 var IMP = window.IMP; // 생략가능
-                IMP.init('imp05218310');
+                IMP.init('imp05218310'); // IAMP 인증키 설정
                 var totalPrice = parseInt(document.getElementById('totalPrice').textContent.replace(/[^0-9]/g, ''));
                 IMP.request_pay({
-                    pg : 'html5_inicis',
-                    pay_method : 'card',
-                    merchant_uid : 'merchant_' + new Date().getTime(),
-                    name : 'WeddingChoice',
-                    amount : totalPrice,
-                    buyer_email : 'iamport@siot.do',
-                    buyer_name : '구매자이름',
-                    buyer_tel : '010-1234-5678',
-                    buyer_addr : '서울특별시 강남구 삼성동',
-                    buyer_postcode : '123-456',
-                    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+                    pg: 'html5_inicis',
+                    pay_method: 'card',
+                    merchant_uid: 'merchant_' + new Date().getTime(),
+                    name: 'WeddingChoice',
+                    amount: totalPrice,
+                    buyer_email: 'iamport@siot.do',
+                    buyer_name: '구매자이름',
+                    buyer_tel: '010-1234-5678',
+                    buyer_addr: '서울특별시 강남구 삼성동',
+                    buyer_postcode: '123-456',
+                    m_redirect_url: 'https://www.yourdomain.com/payments/complete'
                 }, function(rsp) {
                     console.log(rsp);
                     if (rsp.success) {
@@ -273,12 +279,11 @@
                     } else {
                         var msg = '결제에 실패하였습니다.';
                         msg += '에러내용 : ' + rsp.error_msg;
+                        alert(msg);
                     }
-                    alert(msg);
                 });
             });
         });
-        
     </script>
 </head>
 <body>
@@ -356,6 +361,7 @@
                     <input type="checkbox" class="checkbox reservation-checkbox" name="reservationIds" value="<%=reservation.getReservationId()%>" data-category="<%=category%>"> 
                     <img src="<%=request.getContextPath()%>/upload/<%=imagePath%>/<%=photoPath%>" alt="Item Image">
                     <div class="item-details">
+                       <p><strong>브랜드:</strong> <%=reservation.getItemBrand()%></p>
                         <p><strong>아이템 ID:</strong> <%=reservation.getItemId()%></p>
                         <p><strong>카테고리:</strong> <%=reservation.getVendorCategory()%></p>
                         <p><strong>예약 날짜:</strong> <%=reservationDate%></p> <!-- 분까지만 표시 -->
@@ -389,4 +395,3 @@
     <jsp:include page="footer.jsp" />
 </body>
 </html>
-
