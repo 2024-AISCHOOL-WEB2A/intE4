@@ -46,7 +46,7 @@ public class LoginController extends HttpServlet {
             System.out.println("로그인 실패: 유효하지 않은 아이디 또는 비밀번호");
             
             // 로그인 실패 후 리다이렉트
-            response.sendRedirect("Loginfail.jsp");
+            response.sendRedirect("loginPage.jsp");
         }
 	}
 }

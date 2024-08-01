@@ -14,7 +14,7 @@
 <body>
 	<header>
 		<jsp:include page="header.jsp" />
-	</header>r
+	</header>
 	<div class="main">
 		<div class="div">
 			<div class="frame">
