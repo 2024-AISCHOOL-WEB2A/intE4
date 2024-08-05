@@ -253,7 +253,7 @@
         $(document).ready(function() {
             $("#check_module").click(function() {
                 var IMP = window.IMP; // 생략가능
-                IMP.init('imp05218310'); // IAMP 인증키 설정
+                IMP.init('#'); // IAMP 인증키 설정
                 var totalPrice = parseInt(document.getElementById('totalPrice').textContent.replace(/[^0-9]/g, ''));
                 IMP.request_pay({
                     pg: 'html5_inicis',

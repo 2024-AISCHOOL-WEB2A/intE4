@@ -142,35 +142,6 @@ Boolean isLogin = (vendor != null || user != null);
         <jsp:include page="footer.jsp" />
     </footer>
 
-
-<%-- 	<div id="image-container">
-		<%
-		ArrayList<Dress> recommendDressList = (ArrayList<Dress>) request.getAttribute("recommendDressList");
-		if (recommendDressList != null && !recommendDressList.isEmpty()) {
-			for (Dress likedDress : recommendDressList) {
-		%>
-		<div class="choice">
-			<img
-				src="<%=request.getContextPath()%>/upload/dress/<%=likedDress.getPhotoPath()%>"
-				alt="<%=likedDress.getDressBrand()%>"
-				onclick="location.href='<%=request.getContextPath()%>/dressDetailLike.jsp?id=<%=likedDress.getId()%>'">
-			<div class="description"><%=likedDress.getDressBrand()%>
-				(<%=likedDress.getDressPrice()%>원)
-			</div>
-			<div class="description2">
-				#<%=likedDress.getDressFabric()%>&nbsp;&nbsp;&nbsp;#<%=likedDress.getDressLine()%>&nbsp;&nbsp;&nbsp;#<%=likedDress.getDressStyle()%>
-			</div>
-		</div>
-		<%
-		}
-		} else {
-		%>
-		<p>No recommendations available.</p>
-		<%
-		}
-		%>
-	</div>
- --%>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 	<script
@@ -336,34 +307,6 @@ window.onload = async function() {
 	        handleLikeClick(this);
 	    });
 		
-		
-/* 
-		// 하트를 클릭할 때 로컬 저장소에 상태 저장
-		function toggleLike(element) {
-			element.classList.toggle('active');
-			var isLiked = element.classList.contains('active');
-			localStorage.setItem('isLiked', isLiked);
-
-			var imageContainer = document.getElementById('image-container');
-			if (isLiked) {
-				imageContainer.style.display = 'block';
-			} else {
-				imageContainer.style.display = 'none';
-			}
-		} */
-
-		/* 페이지 이동하면 하트 꺼지는 현상
-		// 좋아요 누르면 색 바뀌고 추천 창 뜸
-		   function toggleLike(element) {
-		    element.classList.toggle('active');
-		    var imageContainer = document.getElementById('image-container');
-		    
-		    if (element.classList.contains('active')) {
-		        imageContainer.style.display = 'block';
-		    } else {
-		        imageContainer.style.display = 'none';
-		    }
-		} */
 	</script>
 </body>
 </html>

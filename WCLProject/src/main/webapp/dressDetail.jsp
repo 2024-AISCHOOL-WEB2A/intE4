@@ -120,7 +120,7 @@ Boolean isLogin = (vendor != null || user != null);
         // 결제API 연동
         $("#check_module").click(function() {
 			var IMP = window.IMP; // 생략가능        
-			IMP.init('imp05218310');
+			IMP.init('#');
             var dressPrice = <%= dressPrice != 0 ? dressPrice : 0 %>;
 			IMP.request_pay({
 				pg : 'html5_inicis',
